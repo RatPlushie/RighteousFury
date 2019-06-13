@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Righteous Fury</string>
+    <string name="tab_text_1">Character</string>
+    <string name="tab_text_2">Inventory</string>
+    <string name="tab_text_3">Attack</string>
+
+    <string name="stat_ws">Weapon Skill</string>
+    <string name="stat_bs">Ballistic Skill</string>
+    <string name="stat_str">Strength</string>
+    <string name="stat_t">Toughness</string>
+    <string name="stat_ag">Agility</string>
+    <string name="stat_int">Intelligence</string>
+    <string name="stat_per">Perception</string>
+    <string name="stat_wp">Willpower</string>
+    <string name="stat_fel">Fellowship</string>
+
+</resources>
