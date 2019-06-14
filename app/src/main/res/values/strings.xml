@@ -14,4 +14,10 @@
     <string name="stat_wp">Willpower</string>
     <string name="stat_fel">Fellowship</string>
 
+    <string name="heal">Heal</string>
+    <string name="damage">Damage</string>
+
+    <string name="hp">Health</string>
+    <string name="fp">Fate Points</string>
+    <string name="modifier">Modifier</string>
 </resources>
