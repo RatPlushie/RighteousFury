@@ -11,7 +11,7 @@ import androidx.fragment.app.FragmentPagerAdapter;
 import com.studios.noodle.righteousfury.R;
 import com.studios.noodle.righteousfury.Tab1_Character;
 import com.studios.noodle.righteousfury.Tab2_Inventory;
-import com.studios.noodle.righteousfury.Tab3_Attack;
+import com.studios.noodle.righteousfury.Tab3_SkillsAndTraits;
 
 /**
  * A [FragmentPagerAdapter] that returns a fragment corresponding to
@@ -38,8 +38,8 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
                 Tab2_Inventory tab2_inventory = new Tab2_Inventory();
                 return tab2_inventory;
             case 2:
-                Tab3_Attack tab3_attack = new Tab3_Attack();
-                return tab3_attack;
+                Tab3_SkillsAndTraits tab3_skillsAndTraits = new Tab3_SkillsAndTraits();
+                return tab3_skillsAndTraits;
         }
         return null;
     }

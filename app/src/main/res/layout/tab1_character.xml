@@ -1,3 +1,639 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent"/>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/MasterScrollView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fragmentBackground"
+    android:orientation="vertical"
+    android:padding="10dp"
+    android:paddingStart="10dp"
+    android:paddingEnd="10dp"
+    android:paddingBottom="10dp">
+
+    <LinearLayout
+        android:id="@+id/MasterLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/HPFPCardLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/HPCard"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginEnd="5dp"
+                android:layout_weight="1">
+
+                <LinearLayout
+                    android:id="@+id/HPCardLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/HPStatName"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="@string/hp"
+                        app:autoSizeTextType="none" />
+
+                    <LinearLayout
+                        android:id="@+id/HPValLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/HPFractionTop"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:gravity="bottom|center"
+                            android:text='HP' />
+
+                        <TextView
+                            android:id="@+id/HPFractionMidLine"
+                            android:layout_width="match_parent"
+                            android:layout_height="20dp"
+                            android:gravity="center"
+                            android:text="---------" />
+
+                        <EditText
+                            android:id="@+id/HPFractionMax"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:ems="10"
+                            android:focusable="false"
+                            android:gravity="center|top"
+                            android:inputType="number"
+                            android:textSize="14sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/HPButtLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <ImageButton
+                            android:id="@+id/HPHealButton"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:background="@android:color/transparent"
+                            android:contentDescription="@string/heal_desc"
+                            android:tint="#000000"
+                            app:srcCompat="@android:drawable/arrow_up_float" />
+
+                        <ImageButton
+                            android:id="@+id/HPDamageButton"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:background="@android:color/transparent"
+                            android:contentDescription="@string/damage_desc"
+                            android:tint="#000000"
+                            app:srcCompat="@android:drawable/arrow_down_float" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/FPCard"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginStart="5dp"
+                android:layout_weight="1">
+
+                <LinearLayout
+                    android:id="@+id/FPCardLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/FPStatName"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="@string/fp" />
+
+                    <LinearLayout
+                        android:id="@+id/FPValLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/FPFractionTop"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:gravity="bottom|center"
+                            android:text="FP" />
+
+                        <TextView
+                            android:id="@+id/FPFractionMidLine"
+                            android:layout_width="match_parent"
+                            android:layout_height="20dp"
+                            android:gravity="center"
+                            android:text="---------" />
+
+                        <EditText
+                            android:id="@+id/FPFractionMax"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:ems="10"
+                            android:focusable="false"
+                            android:gravity="center|top"
+                            android:inputType="number"
+                            android:textSize="14sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/FPButtLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <ImageButton
+                            android:id="@+id/FPPlusButton"
+                            android:layout_width="match_parent"
+                            android:layout_height="33.33dp"
+                            android:background="@android:color/transparent"
+                            android:contentDescription="@string/fp_up_desc"
+                            android:tint="#000000"
+                            app:srcCompat="@android:drawable/arrow_up_float" />
+
+                        <ImageButton
+                            android:id="@+id/FPMinusButton"
+                            android:layout_width="match_parent"
+                            android:layout_height="33.33dp"
+                            android:background="@android:color/transparent"
+                            android:contentDescription="@string/fp_down_desc"
+                            android:tint="#000000"
+                            app:srcCompat="@android:drawable/arrow_down_float" />
+
+                        <ImageButton
+                            android:id="@+id/FPRefreshButton"
+                            android:layout_width="match_parent"
+                            android:layout_height="33.33dp"
+                            android:background="@android:color/transparent"
+                            android:contentDescription="@string/fp_restore_desc"
+                            android:tint="#000000"
+                            app:srcCompat="@android:drawable/ic_menu_rotate" />
+                    </LinearLayout>
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/WSCardLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/WSCard"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginEnd="5dp"
+                android:layout_weight="0.25">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/WSStatTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:gravity="center|start"
+                        android:text="@string/stat_ws" />
+
+                    <EditText
+                        android:id="@+id/WSStatValue"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:ems="10"
+                        android:focusable="false"
+                        android:gravity="center|start"
+                        android:inputType="number" />
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <ImageButton
+                android:id="@+id/WSRollButton"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:contentDescription="@string/roll_button_desc"
+                android:tint="#000000"
+                app:srcCompat="@android:drawable/ic_menu_set_as" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/BSCardLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/BSCard"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginEnd="5dp"
+                android:layout_weight="0.25">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/BSStatTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:gravity="center|start"
+                        android:text="@string/stat_bs" />
+
+                    <EditText
+                        android:id="@+id/BSStatValue"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:ems="10"
+                        android:focusable="false"
+                        android:gravity="center|start"
+                        android:inputType="number" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <ImageButton
+                android:id="@+id/BSRollButton"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:contentDescription="@string/roll_button_desc"
+                android:tint="#000000"
+                app:srcCompat="@android:drawable/ic_menu_set_as" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/StrengthCardLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/STRCard"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginEnd="5dp"
+                android:layout_weight="0.25">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/STRStatTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:gravity="center|start"
+                        android:text="@string/stat_str" />
+
+                    <EditText
+                        android:id="@+id/STRStatValue"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:ems="10"
+                        android:focusable="false"
+                        android:gravity="center|start"
+                        android:inputType="number" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <ImageButton
+                android:id="@+id/STRRollButton"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:contentDescription="@string/roll_button_desc"
+                android:tint="#000000"
+                app:srcCompat="@android:drawable/ic_menu_set_as" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/TougnessCardLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/TCard"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginEnd="5dp"
+                android:layout_weight="0.25">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/TStatTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:gravity="center|start"
+                        android:text="@string/stat_t" />
+
+                    <EditText
+                        android:id="@+id/TStatValue"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:ems="10"
+                        android:focusable="false"
+                        android:gravity="center|start"
+                        android:inputType="number" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <ImageButton
+                android:id="@+id/TRollButton"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:contentDescription="@string/roll_button_desc"
+                android:tint="#000000"
+                app:srcCompat="@android:drawable/ic_menu_set_as" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/AgilityCardLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/AgilityCard"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginEnd="5dp"
+                android:layout_weight="0.25">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/AGStatTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:gravity="center|start"
+                        android:text="@string/stat_ag" />
+
+                    <EditText
+                        android:id="@+id/AGStatValue"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:ems="10"
+                        android:focusable="false"
+                        android:gravity="center|start"
+                        android:inputType="number" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <ImageButton
+                android:id="@+id/AgRollButton"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:contentDescription="@string/roll_button_desc"
+                android:tint="#000000"
+                app:srcCompat="@android:drawable/ic_menu_set_as" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/IntelligenceCardLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/IntelligenceCard"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginEnd="5dp"
+                android:layout_weight="0.25">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/INTStatTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:gravity="center|start"
+                        android:text="@string/stat_int" />
+
+                    <EditText
+                        android:id="@+id/INTStatValue"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:ems="10"
+                        android:focusable="false"
+                        android:gravity="center|start"
+                        android:inputType="number" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <ImageButton
+                android:id="@+id/INTRollButton"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:contentDescription="@string/roll_button_desc"
+                android:tint="#000000"
+                app:srcCompat="@android:drawable/ic_menu_set_as" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/PerceptionCardLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/PerceptionCard"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginEnd="5dp"
+                android:layout_weight="0.25">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/PERStatTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:gravity="center|start"
+                        android:text="@string/stat_per" />
+
+                    <EditText
+                        android:id="@+id/PERStatValue"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:ems="10"
+                        android:focusable="false"
+                        android:gravity="center|start"
+                        android:inputType="number" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <ImageButton
+                android:id="@+id/PERRollButton"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:contentDescription="@string/roll_button_desc"
+                android:tint="#000000"
+                app:srcCompat="@android:drawable/ic_menu_set_as" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/WillpowerCardLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/WillpowerCard"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginEnd="5dp"
+                android:layout_weight="0.25">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/WPStatTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:gravity="center|start"
+                        android:text="@string/stat_wp" />
+
+                    <EditText
+                        android:id="@+id/WPStatValue"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:ems="10"
+                        android:focusable="false"
+                        android:inputType="number" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <ImageButton
+                android:id="@+id/WPRollButton"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:contentDescription="@string/roll_button_desc"
+                android:tint="#000000"
+                app:srcCompat="@android:drawable/ic_menu_set_as" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/FellowshipCardLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/FellowshipCard"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginEnd="5dp"
+                android:layout_weight="0.25">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/FELStatTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:gravity="center|start"
+                        android:text="@string/stat_fel" />
+
+                    <EditText
+                        android:id="@+id/FELStatValue"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:ems="10"
+                        android:focusable="false"
+                        android:gravity="center|start"
+                        android:inputType="number" />
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <ImageButton
+                android:id="@+id/FELRollButton"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:contentDescription="@string/roll_button_desc"
+                android:tint="#000000"
+                app:srcCompat="@android:drawable/ic_menu_set_as" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

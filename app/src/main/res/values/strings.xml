@@ -2,7 +2,7 @@
     <string name="app_name">Righteous Fury</string>
     <string name="tab_text_1">Character</string>
     <string name="tab_text_2">Inventory</string>
-    <string name="tab_text_3">Attack</string>
+    <string name="tab_text_3">Skills &amp; Traits</string>
 
     <string name="stat_ws">Weapon Skill</string>
     <string name="stat_bs">Ballistic Skill</string>
@@ -14,4 +14,21 @@
     <string name="stat_wp">Willpower</string>
     <string name="stat_fel">Fellowship</string>
 
+    <string name="hp">Health</string>
+    <string name="heal">Heal</string>
+    <string name="heal_desc">When pressed, it will heal the character by 1 point</string>
+
+    <string name="damage">Damage</string>
+    <string name="damage_desc">Pressing this will damage the character by 1 point</string>
+
+    <string name="fp">Fate Points</string>
+    <string name="fp_up_desc">Pressing this will increase the amount of FP by 1</string>
+    <string name="fp_down_desc">Pressing this will decrease the amount of FP by 1</string>
+    <string name="fp_restore_desc">Pressing this will restore the player to full FP</string>
+
+    <string name="modifier">Modifier</string>
+
+    <string name="roll_button_desc">Pressing this will launch the dice rolling page</string>
+
+    <string name="save_char">Pressing this will save the current character</string>
 </resources>
