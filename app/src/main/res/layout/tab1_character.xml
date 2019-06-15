@@ -56,24 +56,26 @@
                         <TextView
                             android:id="@+id/HPFractionTop"
                             android:layout_width="match_parent"
-                            android:layout_height="33.33dp"
+                            android:layout_height="40dp"
                             android:gravity="bottom|center"
                             android:text='HP' />
 
                         <TextView
                             android:id="@+id/HPFractionMidLine"
                             android:layout_width="match_parent"
-                            android:layout_height="33.33dp"
+                            android:layout_height="20dp"
                             android:gravity="center"
                             android:text="---------" />
 
                         <EditText
                             android:id="@+id/HPFractionMax"
                             android:layout_width="match_parent"
-                            android:layout_height="33.33dp"
+                            android:layout_height="40dp"
                             android:ems="10"
+                            android:focusable="false"
                             android:gravity="center|top"
-                            android:inputType="number" />
+                            android:inputType="number"
+                            android:textSize="14sp" />
 
                     </LinearLayout>
 
@@ -138,23 +140,26 @@
                         <TextView
                             android:id="@+id/FPFractionTop"
                             android:layout_width="match_parent"
-                            android:layout_height="33.33dp"
+                            android:layout_height="40dp"
                             android:gravity="bottom|center"
                             android:text="FP" />
 
                         <TextView
                             android:id="@+id/FPFractionMidLine"
                             android:layout_width="match_parent"
-                            android:layout_height="33.33dp"
+                            android:layout_height="20dp"
                             android:gravity="center"
                             android:text="---------" />
 
                         <EditText
-                            android:id="@+id/FPFractionBottom"
+                            android:id="@+id/FPFractionMax"
                             android:layout_width="match_parent"
-                            android:layout_height="33.33dp"
+                            android:layout_height="40dp"
                             android:ems="10"
-                            android:inputType="number" />
+                            android:focusable="false"
+                            android:gravity="center|top"
+                            android:inputType="number"
+                            android:textSize="14sp" />
 
                     </LinearLayout>
 
@@ -225,9 +230,10 @@
 
                     <EditText
                         android:id="@+id/WSStatValue"
-                        android:layout_width="match_parent"
+                        android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:ems="10"
+                        android:focusable="false"
                         android:gravity="center|start"
                         android:inputType="number" />
 
@@ -273,9 +279,10 @@
 
                     <EditText
                         android:id="@+id/BSStatValue"
-                        android:layout_width="match_parent"
+                        android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:ems="10"
+                        android:focusable="false"
                         android:gravity="center|start"
                         android:inputType="number" />
                 </LinearLayout>
@@ -320,9 +327,10 @@
 
                     <EditText
                         android:id="@+id/STRStatValue"
-                        android:layout_width="match_parent"
+                        android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:ems="10"
+                        android:focusable="false"
                         android:gravity="center|start"
                         android:inputType="number" />
                 </LinearLayout>
@@ -367,9 +375,10 @@
 
                     <EditText
                         android:id="@+id/TStatValue"
-                        android:layout_width="match_parent"
+                        android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:ems="10"
+                        android:focusable="false"
                         android:gravity="center|start"
                         android:inputType="number" />
                 </LinearLayout>
@@ -414,9 +423,10 @@
 
                     <EditText
                         android:id="@+id/AGStatValue"
-                        android:layout_width="match_parent"
+                        android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:ems="10"
+                        android:focusable="false"
                         android:gravity="center|start"
                         android:inputType="number" />
                 </LinearLayout>
@@ -461,9 +471,10 @@
 
                     <EditText
                         android:id="@+id/INTStatValue"
-                        android:layout_width="match_parent"
+                        android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:ems="10"
+                        android:focusable="false"
                         android:gravity="center|start"
                         android:inputType="number" />
                 </LinearLayout>
@@ -508,9 +519,10 @@
 
                     <EditText
                         android:id="@+id/PERStatValue"
-                        android:layout_width="match_parent"
+                        android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:ems="10"
+                        android:focusable="false"
                         android:gravity="center|start"
                         android:inputType="number" />
                 </LinearLayout>
@@ -555,9 +567,10 @@
 
                     <EditText
                         android:id="@+id/WPStatValue"
-                        android:layout_width="match_parent"
+                        android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:ems="10"
+                        android:focusable="false"
                         android:inputType="number" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -601,9 +614,10 @@
 
                     <EditText
                         android:id="@+id/FELStatValue"
-                        android:layout_width="match_parent"
+                        android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:ems="10"
+                        android:focusable="false"
                         android:gravity="center|start"
                         android:inputType="number" />
 

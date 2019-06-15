@@ -29,4 +29,6 @@
     <string name="modifier">Modifier</string>
 
     <string name="roll_button_desc">Pressing this will launch the dice rolling page</string>
+
+    <string name="save_char">Pressing this will save the current character</string>
 </resources>
