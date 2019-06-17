@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/MasterScrollView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -18,6 +19,44 @@
         android:focusableInTouchMode="true"
         android:orientation="vertical">
 
+        <androidx.cardview.widget.CardView
+            android:id="@+id/CharacterNameCard"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/NameTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:text="@string/character_Name"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/CharacterNameTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginBottom="1dp"
+                    android:gravity="center|start"
+                    android:textAlignment="textStart"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/NameTextView"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
         <LinearLayout
             android:id="@+id/HPFPCardLayout"
             android:layout_width="match_parent"
@@ -28,175 +67,191 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/HPCard"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="80dp"
                 android:layout_marginEnd="5dp"
                 android:layout_weight="1">
 
-                <LinearLayout
-                    android:id="@+id/HPCardLayout"
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal">
+                    android:layout_height="match_parent">
 
                     <TextView
                         android:id="@+id/HPStatName"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="8dp"
                         android:text="@string/hp"
-                        app:autoSizeTextType="none" />
+                        android:textStyle="bold"
+                        app:autoSizeTextType="none"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
-                    <LinearLayout
-                        android:id="@+id/HPValLayout"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/HPFractionTop"
+                        android:layout_width="40dp"
+                        android:layout_height="0dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="1dp"
+                        android:gravity="center"
+                        android:textAlignment="center"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toTopOf="@+id/HPFractionDivider"
+                        app:layout_constraintStart_toEndOf="@+id/HPStatName"
+                        app:layout_constraintTop_toTopOf="parent" />
 
-                        <TextView
-                            android:id="@+id/HPFractionTop"
-                            android:layout_width="match_parent"
-                            android:layout_height="40dp"
-                            android:gravity="bottom|center" />
+                    <View
+                        android:id="@+id/HPFractionDivider"
+                        android:layout_width="40dp"
+                        android:layout_height="1dp"
+                        android:layout_marginStart="20dp"
+                        android:background="#000000"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/HPStatName"
+                        app:layout_constraintTop_toTopOf="parent" />
 
-                        <TextView
-                            android:id="@+id/HPFractionMidLine"
-                            android:layout_width="match_parent"
-                            android:layout_height="20dp"
-                            android:gravity="center"
-                            android:text="---------" />
+                    <EditText
+                        android:id="@+id/HPFractionMax"
+                        android:layout_width="40dp"
+                        android:layout_height="0dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginBottom="1dp"
+                        android:ems="10"
+                        android:inputType="number"
+                        android:textAlignment="center"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/HPStatName"
+                        app:layout_constraintTop_toBottomOf="@+id/HPFractionDivider" />
 
-                        <EditText
-                            android:id="@+id/HPFractionMax"
-                            android:layout_width="match_parent"
-                            android:layout_height="40dp"
-                            android:ems="10"
-                            android:gravity="center|top"
-                            android:inputType="number"
-                            android:textSize="14sp" />
+                    <ImageButton
+                        android:id="@+id/HPDamageButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_marginEnd="8dp"
+                        android:background="@android:color/transparent"
+                        android:contentDescription="@string/damage_desc"
+                        android:tint="#000000"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/HPHealButton"
+                        app:srcCompat="@android:drawable/arrow_down_float" />
 
-                    </LinearLayout>
+                    <ImageButton
+                        android:id="@+id/HPHealButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_marginEnd="8dp"
+                        android:background="@android:color/transparent"
+                        android:contentDescription="@string/heal_desc"
+                        android:tint="#000000"
+                        app:layout_constraintBottom_toTopOf="@+id/HPDamageButton"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@android:drawable/arrow_up_float" />
 
-                    <LinearLayout
-                        android:id="@+id/HPButtLayout"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <ImageButton
-                            android:id="@+id/HPHealButton"
-                            android:layout_width="match_parent"
-                            android:layout_height="50dp"
-                            android:background="@android:color/transparent"
-                            android:contentDescription="@string/heal_desc"
-                            android:tint="#000000"
-                            app:srcCompat="@android:drawable/arrow_up_float" />
-
-                        <ImageButton
-                            android:id="@+id/HPDamageButton"
-                            android:layout_width="match_parent"
-                            android:layout_height="50dp"
-                            android:background="@android:color/transparent"
-                            android:contentDescription="@string/damage_desc"
-                            android:tint="#000000"
-                            app:srcCompat="@android:drawable/arrow_down_float" />
-                    </LinearLayout>
-
-                </LinearLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/FPCard"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:layout_marginStart="5dp"
+                android:layout_height="80dp"
+                android:layout_marginEnd="5dp"
                 android:layout_weight="1">
 
-                <LinearLayout
-                    android:id="@+id/FPCardLayout"
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal">
+                    android:layout_height="match_parent">
 
                     <TextView
                         android:id="@+id/FPStatName"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
+                        android:layout_width="45dp"
+                        android:layout_height="34dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:maxLines="2"
+                        android:minLines="2"
+                        android:text="@string/fp"
+                        android:textStyle="bold"
+                        app:autoSizeTextType="none"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/FPFractionTop"
+                        android:layout_width="40dp"
+                        android:layout_height="0dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="1dp"
                         android:gravity="center"
-                        android:text="@string/fp" />
+                        android:textAlignment="center"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toTopOf="@+id/FPFractionDivider"
+                        app:layout_constraintStart_toEndOf="@+id/FPStatName"
+                        app:layout_constraintTop_toTopOf="parent" />
 
-                    <LinearLayout
-                        android:id="@+id/FPValLayout"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
+                    <View
+                        android:id="@+id/FPFractionDivider"
+                        android:layout_width="40dp"
+                        android:layout_height="1dp"
+                        android:layout_marginStart="20dp"
+                        android:background="#000000"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/FPStatName"
+                        app:layout_constraintTop_toTopOf="parent" />
 
-                        <TextView
-                            android:id="@+id/FPFractionTop"
-                            android:layout_width="match_parent"
-                            android:layout_height="40dp"
-                            android:gravity="bottom|center" />
+                    <EditText
+                        android:id="@+id/FPFractionMax"
+                        android:layout_width="40dp"
+                        android:layout_height="0dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginBottom="1dp"
+                        android:ems="10"
+                        android:inputType="number"
+                        android:textAlignment="center"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/FPStatName"
+                        app:layout_constraintTop_toBottomOf="@+id/FPFractionDivider" />
 
-                        <TextView
-                            android:id="@+id/FPFractionMidLine"
-                            android:layout_width="match_parent"
-                            android:layout_height="20dp"
-                            android:gravity="center"
-                            android:text="---------" />
+                    <ImageButton
+                        android:id="@+id/FPDownButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_marginEnd="8dp"
+                        android:background="@android:color/transparent"
+                        android:contentDescription="@string/fp_down_desc"
+                        android:tint="#000000"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/FPUpButton"
+                        app:srcCompat="@android:drawable/arrow_down_float" />
 
-                        <EditText
-                            android:id="@+id/FPFractionMax"
-                            android:layout_width="match_parent"
-                            android:layout_height="40dp"
-                            android:ems="10"
-                            android:gravity="center|top"
-                            android:inputType="number"
-                            android:textSize="14sp" />
+                    <ImageButton
+                        android:id="@+id/FPUpButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_marginEnd="8dp"
+                        android:background="@android:color/transparent"
+                        android:contentDescription="@string/fp_up_desc"
+                        android:tint="#000000"
+                        app:layout_constraintBottom_toTopOf="@+id/FPDownButton"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@android:drawable/arrow_up_float" />
 
-                    </LinearLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
-                    <LinearLayout
-                        android:id="@+id/FPButtLayout"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <ImageButton
-                            android:id="@+id/FPPlusButton"
-                            android:layout_width="match_parent"
-                            android:layout_height="33.33dp"
-                            android:background="@android:color/transparent"
-                            android:contentDescription="@string/fp_up_desc"
-                            android:tint="#000000"
-                            app:srcCompat="@android:drawable/arrow_up_float" />
-
-                        <ImageButton
-                            android:id="@+id/FPMinusButton"
-                            android:layout_width="match_parent"
-                            android:layout_height="33.33dp"
-                            android:background="@android:color/transparent"
-                            android:contentDescription="@string/fp_down_desc"
-                            android:tint="#000000"
-                            app:srcCompat="@android:drawable/arrow_down_float" />
-
-                        <ImageButton
-                            android:id="@+id/FPRefreshButton"
-                            android:layout_width="match_parent"
-                            android:layout_height="33.33dp"
-                            android:background="@android:color/transparent"
-                            android:contentDescription="@string/fp_restore_desc"
-                            android:tint="#000000"
-                            app:srcCompat="@android:drawable/ic_menu_rotate" />
-                    </LinearLayout>
-
-                </LinearLayout>
             </androidx.cardview.widget.CardView>
+
         </LinearLayout>
 
         <LinearLayout
@@ -209,31 +264,57 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/WSCard"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="50dp"
                 android:layout_marginEnd="5dp"
                 android:layout_weight="0.25">
 
-                <LinearLayout
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/WSStatTextView"
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:gravity="center|start"
-                        android:text="@string/stat_ws" />
+                    android:layout_height="match_parent">
 
                     <EditText
                         android:id="@+id/WSStatValue"
-                        android:layout_width="50dp"
+                        android:layout_width="40dp"
                         android:layout_height="50dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="4dp"
+                        android:layout_marginBottom="8dp"
                         android:ems="10"
                         android:gravity="center|start"
-                        android:inputType="number" />
+                        android:inputType="number"
+                        android:textAlignment="center"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
-                </LinearLayout>
+                    <TextView
+                        android:id="@+id/WSStatTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:gravity="center|start"
+                        android:text="@string/stat_ws"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/WSImageView"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:id="@+id/WSImageView"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_marginStart="4dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="8dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@mipmap/ic_launcher_round" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
             </androidx.cardview.widget.CardView>
 
             <ImageButton
@@ -257,30 +338,57 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/BSCard"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="50dp"
                 android:layout_marginEnd="5dp"
                 android:layout_weight="0.25">
 
-                <LinearLayout
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/BSStatTextView"
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:gravity="center|start"
-                        android:text="@string/stat_bs" />
+                    android:layout_height="match_parent">
 
                     <EditText
                         android:id="@+id/BSStatValue"
-                        android:layout_width="50dp"
+                        android:layout_width="40dp"
                         android:layout_height="50dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="4dp"
+                        android:layout_marginBottom="8dp"
                         android:ems="10"
                         android:gravity="center|start"
-                        android:inputType="number" />
-                </LinearLayout>
+                        android:inputType="number"
+                        android:textAlignment="center"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/BSStatTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:gravity="center|start"
+                        android:text="@string/stat_bs"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/BSImageView"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:id="@+id/BSImageView"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_marginStart="4dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="8dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@mipmap/ic_launcher_round" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
             </androidx.cardview.widget.CardView>
 
             <ImageButton
@@ -304,30 +412,58 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/STRCard"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="50dp"
                 android:layout_marginEnd="5dp"
                 android:layout_weight="0.25">
 
-                <LinearLayout
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="vertical">
+                    android:layout_weight="0.25">
 
-                    <TextView
-                        android:id="@+id/STRStatTextView"
-                        android:layout_width="match_parent"
+                    <ImageView
+                        android:id="@+id/STRImageView"
+                        android:layout_width="50dp"
                         android:layout_height="50dp"
-                        android:gravity="center|start"
-                        android:text="@string/stat_str" />
+                        android:layout_marginStart="4dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="8dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@mipmap/ic_launcher_round" />
 
                     <EditText
                         android:id="@+id/STRStatValue"
-                        android:layout_width="50dp"
+                        android:layout_width="40dp"
                         android:layout_height="50dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="4dp"
+                        android:layout_marginBottom="8dp"
                         android:ems="10"
                         android:gravity="center|start"
-                        android:inputType="number" />
-                </LinearLayout>
+                        android:inputType="number"
+                        android:textAlignment="center"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/STRStatTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:gravity="center|start"
+                        android:text="@string/stat_str"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/STRImageView"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
             </androidx.cardview.widget.CardView>
 
             <ImageButton
@@ -351,30 +487,57 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/TCard"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="50dp"
                 android:layout_marginEnd="5dp"
                 android:layout_weight="0.25">
 
-                <LinearLayout
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
+                    android:layout_height="match_parent">
 
-                    <TextView
-                        android:id="@+id/TStatTextView"
-                        android:layout_width="match_parent"
+                    <ImageView
+                        android:id="@+id/TImageView"
+                        android:layout_width="50dp"
                         android:layout_height="50dp"
-                        android:gravity="center|start"
-                        android:text="@string/stat_t" />
+                        android:layout_marginStart="4dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="8dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@mipmap/ic_launcher_round" />
 
                     <EditText
                         android:id="@+id/TStatValue"
-                        android:layout_width="50dp"
+                        android:layout_width="40dp"
                         android:layout_height="50dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="4dp"
+                        android:layout_marginBottom="8dp"
                         android:ems="10"
                         android:gravity="center|start"
-                        android:inputType="number" />
-                </LinearLayout>
+                        android:inputType="number"
+                        android:textAlignment="center"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/TStatTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:gravity="center|start"
+                        android:text="@string/stat_t"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/TImageView"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
             </androidx.cardview.widget.CardView>
 
             <ImageButton
@@ -398,30 +561,57 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/AgilityCard"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="50dp"
                 android:layout_marginEnd="5dp"
                 android:layout_weight="0.25">
 
-                <LinearLayout
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
+                    android:layout_height="match_parent">
 
-                    <TextView
-                        android:id="@+id/AGStatTextView"
-                        android:layout_width="match_parent"
+                    <ImageView
+                        android:id="@+id/AGImageView"
+                        android:layout_width="50dp"
                         android:layout_height="50dp"
-                        android:gravity="center|start"
-                        android:text="@string/stat_ag" />
+                        android:layout_marginStart="4dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="8dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@mipmap/ic_launcher_round" />
 
                     <EditText
                         android:id="@+id/AGStatValue"
-                        android:layout_width="50dp"
+                        android:layout_width="40dp"
                         android:layout_height="50dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="4dp"
+                        android:layout_marginBottom="8dp"
                         android:ems="10"
                         android:gravity="center|start"
-                        android:inputType="number" />
-                </LinearLayout>
+                        android:inputType="number"
+                        android:textAlignment="center"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/AGStatTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:gravity="center|start"
+                        android:text="@string/stat_ag"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/AGImageView"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
             </androidx.cardview.widget.CardView>
 
             <ImageButton
@@ -445,30 +635,57 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/IntelligenceCard"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="50dp"
                 android:layout_marginEnd="5dp"
                 android:layout_weight="0.25">
 
-                <LinearLayout
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
+                    android:layout_height="match_parent">
 
-                    <TextView
-                        android:id="@+id/INTStatTextView"
-                        android:layout_width="match_parent"
+                    <ImageView
+                        android:id="@+id/INTImageView"
+                        android:layout_width="50dp"
                         android:layout_height="50dp"
-                        android:gravity="center|start"
-                        android:text="@string/stat_int" />
+                        android:layout_marginStart="4dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="8dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@mipmap/ic_launcher_round" />
 
                     <EditText
                         android:id="@+id/INTStatValue"
-                        android:layout_width="50dp"
+                        android:layout_width="40dp"
                         android:layout_height="50dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="4dp"
+                        android:layout_marginBottom="8dp"
                         android:ems="10"
                         android:gravity="center|start"
-                        android:inputType="number" />
-                </LinearLayout>
+                        android:inputType="number"
+                        android:textAlignment="center"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/INTStatTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:gravity="center|start"
+                        android:text="@string/stat_int"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/INTImageView"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
             </androidx.cardview.widget.CardView>
 
             <ImageButton
@@ -492,30 +709,57 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/PerceptionCard"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="50dp"
                 android:layout_marginEnd="5dp"
                 android:layout_weight="0.25">
 
-                <LinearLayout
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
+                    android:layout_height="match_parent">
 
-                    <TextView
-                        android:id="@+id/PERStatTextView"
-                        android:layout_width="match_parent"
+                    <ImageView
+                        android:id="@+id/PERImageView"
+                        android:layout_width="50dp"
                         android:layout_height="50dp"
-                        android:gravity="center|start"
-                        android:text="@string/stat_per" />
+                        android:layout_marginStart="4dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="8dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@mipmap/ic_launcher_round" />
 
                     <EditText
                         android:id="@+id/PERStatValue"
-                        android:layout_width="50dp"
+                        android:layout_width="40dp"
                         android:layout_height="50dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="4dp"
+                        android:layout_marginBottom="8dp"
                         android:ems="10"
                         android:gravity="center|start"
-                        android:inputType="number" />
-                </LinearLayout>
+                        android:inputType="number"
+                        android:textAlignment="center"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/PERStatTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:gravity="center|start"
+                        android:text="@string/stat_per"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/PERImageView"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
             </androidx.cardview.widget.CardView>
 
             <ImageButton
@@ -539,29 +783,56 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/WillpowerCard"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="50dp"
                 android:layout_marginEnd="5dp"
                 android:layout_weight="0.25">
 
-                <LinearLayout
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
+                    android:layout_height="match_parent">
 
-                    <TextView
-                        android:id="@+id/WPStatTextView"
-                        android:layout_width="match_parent"
+                    <ImageView
+                        android:id="@+id/WPImageView"
+                        android:layout_width="50dp"
                         android:layout_height="50dp"
-                        android:gravity="center|start"
-                        android:text="@string/stat_wp" />
+                        android:layout_marginStart="4dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="8dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@mipmap/ic_launcher_round" />
 
                     <EditText
                         android:id="@+id/WPStatValue"
-                        android:layout_width="50dp"
+                        android:layout_width="40dp"
                         android:layout_height="50dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="4dp"
+                        android:layout_marginBottom="8dp"
                         android:ems="10"
-                        android:inputType="number" />
-                </LinearLayout>
+                        android:inputType="number"
+                        android:textAlignment="center"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/WPStatTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:gravity="center|start"
+                        android:text="@string/stat_wp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/WPImageView"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
             </androidx.cardview.widget.CardView>
 
             <ImageButton
@@ -585,31 +856,57 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/FellowshipCard"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="50dp"
                 android:layout_marginEnd="5dp"
                 android:layout_weight="0.25">
 
-                <LinearLayout
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
+                    android:layout_height="match_parent">
 
-                    <TextView
-                        android:id="@+id/FELStatTextView"
-                        android:layout_width="match_parent"
+                    <ImageView
+                        android:id="@+id/FELImageView"
+                        android:layout_width="50dp"
                         android:layout_height="50dp"
-                        android:gravity="center|start"
-                        android:text="@string/stat_fel" />
+                        android:layout_marginStart="4dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="8dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@mipmap/ic_launcher_round" />
 
                     <EditText
                         android:id="@+id/FELStatValue"
-                        android:layout_width="50dp"
+                        android:layout_width="40dp"
                         android:layout_height="50dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="4dp"
+                        android:layout_marginBottom="8dp"
                         android:ems="10"
                         android:gravity="center|start"
-                        android:inputType="number" />
+                        android:inputType="number"
+                        android:textAlignment="center"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
-                </LinearLayout>
+                    <TextView
+                        android:id="@+id/FELStatTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:gravity="center|start"
+                        android:text="@string/stat_fel"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/FELImageView"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
             </androidx.cardview.widget.CardView>
 
             <ImageButton

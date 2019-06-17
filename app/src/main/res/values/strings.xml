@@ -4,6 +4,7 @@
     <string name="tab_text_2">Inventory</string>
     <string name="tab_text_3">Skills &amp; Traits</string>
 
+    <string name="character_Name">Name</string>
     <string name="stat_ws">Weapon Skill</string>
     <string name="stat_bs">Ballistic Skill</string>
     <string name="stat_str">Strength</string>
@@ -24,7 +25,6 @@
     <string name="fp">Fate Points</string>
     <string name="fp_up_desc">Pressing this will increase the amount of FP by 1</string>
     <string name="fp_down_desc">Pressing this will decrease the amount of FP by 1</string>
-    <string name="fp_restore_desc">Pressing this will restore the player to full FP</string>
 
     <string name="modifier">Modifier</string>
 

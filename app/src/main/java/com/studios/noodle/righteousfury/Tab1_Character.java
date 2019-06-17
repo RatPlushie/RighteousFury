@@ -14,6 +14,7 @@ import androidx.fragment.app.Fragment;
 public class Tab1_Character extends Fragment {
 
     // #### Temporary stats for a "saved" character ######
+    String tempName     = "Testy mcTestFace";
     int tempHP          = 13;
     int tempCurrentHP   = 10;
     int tempFP          = 4;
@@ -41,9 +42,8 @@ public class Tab1_Character extends Fragment {
         // Initialisation of each tab1 buttons
         ImageButton healButton      = view.findViewById(R.id.HPHealButton);
         ImageButton damageButton    = view.findViewById(R.id.HPDamageButton);
-        ImageButton fpUpButton      = view.findViewById(R.id.FPPlusButton);
-        ImageButton fpDownButton    = view.findViewById(R.id.FPMinusButton);
-        ImageButton fpRestoreButton = view.findViewById(R.id.FPRefreshButton);
+        ImageButton fpUpButton      = view.findViewById(R.id.FPUpButton);
+        ImageButton fpDownButton    = view.findViewById(R.id.FPDownButton);
         ImageButton wsButton        = view.findViewById(R.id.WSRollButton);
         ImageButton bsButton        = view.findViewById(R.id.BSRollButton);
         ImageButton strButton       = view.findViewById(R.id.STRRollButton);
@@ -56,6 +56,7 @@ public class Tab1_Character extends Fragment {
 
 
         // Initialisation of each tab1 input textView
+        TextView charName           = view.findViewById(R.id.CharacterNameTextView);
         TextView maxHPValue         = view.findViewById(R.id.HPFractionMax);
         TextView currentHPValue     = view.findViewById(R.id.HPFractionTop);
         TextView maxFPValue         = view.findViewById(R.id.FPFractionMax);
@@ -99,14 +100,6 @@ public class Tab1_Character extends Fragment {
 
         // FP Down Button
         fpDownButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
-
-        // FP Restore to full Button
-        fpRestoreButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -187,6 +180,9 @@ public class Tab1_Character extends Fragment {
 
 
         // Loading of stored character
+
+        // Display Character's Name
+        charName.setText(tempName);
 
         // Display Max. HP
         maxHPValue.setText(Integer.toString(tempHP));
