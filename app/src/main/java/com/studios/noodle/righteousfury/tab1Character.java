@@ -43,45 +43,52 @@ public class tab1Character extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
+        // Stops the keyboard coming up at onCreate
+        //getActivity().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+
+
+
+
         // Outputs the inflater to the return statement
         View view = inflater.inflate(R.layout.fragment_tab1character, container, false);
 
 
         // Initialisation of each tab1 buttons
-        ImageButton healButton      = view.findViewById(R.id.HPHealButton);
-        ImageButton damageButton    = view.findViewById(R.id.HPDamageButton);
-        ImageButton fpUpButton      = view.findViewById(R.id.FPUpButton);
-        ImageButton fpDownButton    = view.findViewById(R.id.FPDownButton);
-        ImageButton wsButton        = view.findViewById(R.id.WSRollButton);
-        ImageButton bsButton        = view.findViewById(R.id.BSRollButton);
-        ImageButton strButton       = view.findViewById(R.id.STRRollButton);
-        ImageButton tButton         = view.findViewById(R.id.TRollButton);
-        ImageButton agButton        = view.findViewById(R.id.AgRollButton);
-        ImageButton intButton       = view.findViewById(R.id.INTRollButton);
-        ImageButton perButton       = view.findViewById(R.id.PERRollButton);
-        ImageButton wpButton        = view.findViewById(R.id.WPRollButton);
-        ImageButton felButton       = view.findViewById(R.id.FELRollButton);
+        ImageButton healButton              = view.findViewById(R.id.HPHealButton);
+        ImageButton damageButton            = view.findViewById(R.id.HPDamageButton);
+        ImageButton fpUpButton              = view.findViewById(R.id.FPUpButton);
+        ImageButton fpDownButton            = view.findViewById(R.id.FPDownButton);
+        ImageButton wsButton                = view.findViewById(R.id.WSRollButton);
+        ImageButton bsButton                = view.findViewById(R.id.BSRollButton);
+        ImageButton strButton               = view.findViewById(R.id.STRRollButton);
+        ImageButton tButton                 = view.findViewById(R.id.TRollButton);
+        ImageButton agButton                = view.findViewById(R.id.AgRollButton);
+        ImageButton intButton               = view.findViewById(R.id.INTRollButton);
+        ImageButton perButton               = view.findViewById(R.id.PERRollButton);
+        ImageButton wpButton                = view.findViewById(R.id.WPRollButton);
+        ImageButton felButton               = view.findViewById(R.id.FELRollButton);
 
 
         // Initialisation of each tab1 input textView
-        TextView charName           = view.findViewById(R.id.CharacterNameTextView);
-        final TextView maxHPValue         = view.findViewById(R.id.HPFractionMax);
-        final TextView currentHPValue     = view.findViewById(R.id.HPFractionTop);
-        final TextView maxFPValue         = view.findViewById(R.id.FPFractionMax);
-        final TextView currentFPValue     = view.findViewById(R.id.FPFractionTop);
-        TextView wsValue            = view.findViewById(R.id.WSStatValue);
-        TextView bsValue            = view.findViewById(R.id.BSStatValue);
-        TextView strValue           = view.findViewById(R.id.STRStatValue);
-        TextView tValue             = view.findViewById(R.id.TStatValue);
-        TextView agValue            = view.findViewById(R.id.AGStatValue);
-        TextView intValue           = view.findViewById(R.id.INTStatValue);
-        TextView perValue           = view.findViewById(R.id.PERStatValue);
-        TextView wpValue            = view.findViewById(R.id.WPStatValue);
-        TextView felValue           = view.findViewById(R.id.FELStatValue);
+        TextView charName                   = view.findViewById(R.id.CharacterNameEditText);
+        final TextView maxHPValue           = view.findViewById(R.id.HPFractionMax);
+        final TextView currentHPValue       = view.findViewById(R.id.HPFractionTop);
+        final TextView maxFPValue           = view.findViewById(R.id.FPFractionMax);
+        final TextView currentFPValue       = view.findViewById(R.id.FPFractionTop);
+        TextView wsValue                    = view.findViewById(R.id.WSStatValue);
+        TextView bsValue                    = view.findViewById(R.id.BSStatValue);
+        TextView strValue                   = view.findViewById(R.id.STRStatValue);
+        TextView tValue                     = view.findViewById(R.id.TStatValue);
+        TextView agValue                    = view.findViewById(R.id.AGStatValue);
+        TextView intValue                   = view.findViewById(R.id.INTStatValue);
+        TextView perValue                   = view.findViewById(R.id.PERStatValue);
+        TextView wpValue                    = view.findViewById(R.id.WPStatValue);
+        TextView felValue                   = view.findViewById(R.id.FELStatValue);
+
+
 
 
         // Button actions:
-
         // Heal HP Button
         healButton.setOnClickListener(new View.OnClickListener() {
             @Override
