@@ -19,25 +19,29 @@
             app:popupTheme="@style/AppTheme.PopupOverlay" />
 
         <com.google.android.material.tabs.TabLayout
-            app:tabMode="scrollable"
             android:id="@+id/tabs"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            app:tabMode="scrollable">
 
             <com.google.android.material.tabs.TabItem
+                android:id="@+id/characterTab"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Monday" />
+                android:text="@string/tab_text_1" />
 
             <com.google.android.material.tabs.TabItem
+                android:id="@+id/inventoryTab"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Tuesday" />
+                android:text="@string/tab_text_2" />
 
             <com.google.android.material.tabs.TabItem
+                android:id="@+id/skillsAndTraitsTab"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Wednesday" />
+                android:text="@string/tab_text_3" />
         </com.google.android.material.tabs.TabLayout>
 
     </com.google.android.material.appbar.AppBarLayout>

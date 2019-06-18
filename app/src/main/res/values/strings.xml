@@ -1,4 +1,6 @@
 <resources>
+
+    <!-- Navigation Drawer Strings-->
     <string name="app_name">Righteous Fury</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -6,7 +8,6 @@
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
-
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
@@ -14,6 +15,43 @@
     <string name="menu_share">Share</string>
     <string name="menu_send">Send</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!-- Tab Names -->
+    <string name="tab_text_1">Character</string>
+    <string name="tab_text_2">Inventory</string>
+    <string name="tab_text_3">Skills &amp; Traits</string>
+
+    <!-- Attribute Names -->
+    <string name="character_Name">Name</string>
+    <string name="stat_ws">Weapon Skill</string>
+    <string name="stat_bs">Ballistic Skill</string>
+    <string name="stat_str">Strength</string>
+    <string name="stat_t">Toughness</string>
+    <string name="stat_ag">Agility</string>
+    <string name="stat_int">Intelligence</string>
+    <string name="stat_per">Perception</string>
+    <string name="stat_wp">Willpower</string>
+    <string name="stat_fel">Fellowship</string>
+
+    <!-- HP Strings -->
+    <string name="hp">Health</string>
+    <string name="heal">Heal</string>
+    <string name="heal_desc">When pressed, it will heal the character by 1 point</string>
+
+    <!-- Damage Strings -->
+    <string name="damage">Damage</string>
+    <string name="damage_desc">Pressing this will damage the character by 1 point</string>
+
+    <!-- Fate Point Strings -->
+    <string name="fp">Fate Points</string>
+    <string name="fp_up_desc">Pressing this will increase the amount of FP by 1</string>
+    <string name="fp_down_desc">Pressing this will decrease the amount of FP by 1</string>
+
+    <!-- Modifier Strings -->
+    <string name="modifier">Modifier</string>
+
+    <!-- Rolling Strings -->
+    <string name="roll_button_desc">Pressing this will launch the dice rolling page</string>
+
+    <!-- Save Strings -->
+    <string name="save_character">Pressing this will save the current character</string>
 </resources>

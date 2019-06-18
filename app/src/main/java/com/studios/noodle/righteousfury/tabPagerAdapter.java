@@ -4,12 +4,13 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 
-public class tabpagerAdapter extends FragmentStatePagerAdapter {
-
-    String[] tabarray = new String[]{"One", "Two", "Three"};
+public class tabPagerAdapter extends FragmentStatePagerAdapter {
 
 
-    public tabpagerAdapter(FragmentManager fm) {
+
+    String[] tabarray = new String[]{"Character", "Inventory", "Skills & Talents"};
+
+    public tabPagerAdapter(FragmentManager fm) {
         super(fm);
     }
 
@@ -24,17 +25,16 @@ public class tabpagerAdapter extends FragmentStatePagerAdapter {
 
         switch (position){
             case 0:
-                tab1 Tab1 = new tab1();
-                return Tab1;
+                tab1Character tab1 = new tab1Character();
+                return tab1;
             case 1:
-                tab2 Tab2 = new tab2();
-                return Tab2;
+                tab2Inventory tab2 = new tab2Inventory();
+                return tab2;
             case 2:
-                tab3 Tab3 = new tab3();
-                return Tab3;
+                tab3SkillsandTraits tab3 = new tab3SkillsandTraits();
+                return tab3;
 
         }
-
         return null;
     }
 

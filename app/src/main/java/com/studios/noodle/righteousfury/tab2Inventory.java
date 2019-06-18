@@ -12,10 +12,10 @@ import androidx.fragment.app.Fragment;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class tab3 extends Fragment {
+public class tab2Inventory extends Fragment {
 
 
-    public tab3() {
+    public tab2Inventory() {
         // Required empty public constructor
     }
 
@@ -24,7 +24,7 @@ public class tab3 extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_tab3, container, false);
+        return inflater.inflate(R.layout.fragment_tab2inventory, container, false);
     }
 
 }

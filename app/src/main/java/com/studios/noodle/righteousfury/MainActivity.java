@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity
         TabLayout tabLayout = findViewById(R.id.tabs);
         ViewPager Pager = findViewById(R.id.viewpager);
 
-        tabpagerAdapter Tabpageradapter = new tabpagerAdapter((getSupportFragmentManager()));
+        tabPagerAdapter Tabpageradapter = new tabPagerAdapter((getSupportFragmentManager()));
         Pager.setAdapter(Tabpageradapter);
         tabLayout.setupWithViewPager(Pager);
 
