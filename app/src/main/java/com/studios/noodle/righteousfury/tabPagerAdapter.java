@@ -6,18 +6,15 @@ import androidx.fragment.app.FragmentStatePagerAdapter;
 
 public class tabPagerAdapter extends FragmentStatePagerAdapter {
 
-
-
-    String[] tabarray = new String[]{"Character", "Inventory", "Skills & Talents"};
+    String[] tabArray = new String[]{"Character", "Inventory", "Skills & Traits"};
 
     public tabPagerAdapter(FragmentManager fm) {
         super(fm);
     }
 
-
     @Override
     public CharSequence getPageTitle(int position) {
-        return tabarray[position];
+        return tabArray[position];
     }
 
     @Override
@@ -33,7 +30,6 @@ public class tabPagerAdapter extends FragmentStatePagerAdapter {
             case 2:
                 tab3SkillsandTraits tab3 = new tab3SkillsandTraits();
                 return tab3;
-
         }
         return null;
     }

@@ -65,10 +65,10 @@ public class tab1Character extends Fragment {
 
         // Initialisation of each tab1 input textView
         TextView charName           = view.findViewById(R.id.CharacterNameTextView);
-        TextView maxHPValue         = view.findViewById(R.id.HPFractionMax);
-        TextView currentHPValue     = view.findViewById(R.id.HPFractionTop);
-        TextView maxFPValue         = view.findViewById(R.id.FPFractionMax);
-        TextView currentFPValue     = view.findViewById(R.id.FPFractionTop);
+        final TextView maxHPValue         = view.findViewById(R.id.HPFractionMax);
+        final TextView currentHPValue     = view.findViewById(R.id.HPFractionTop);
+        final TextView maxFPValue         = view.findViewById(R.id.FPFractionMax);
+        final TextView currentFPValue     = view.findViewById(R.id.FPFractionTop);
         TextView wsValue            = view.findViewById(R.id.WSStatValue);
         TextView bsValue            = view.findViewById(R.id.BSStatValue);
         TextView strValue           = view.findViewById(R.id.STRStatValue);
@@ -86,7 +86,18 @@ public class tab1Character extends Fragment {
         healButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                // Parses the textview into a string, then into an integer
+                String string_currentHPValue = currentHPValue.getText().toString();
+                int HP = Integer.parseInt(string_currentHPValue);
 
+                String string_maxHPValue = maxHPValue.getText().toString();
+                int maxHP = Integer.parseInt(string_maxHPValue);
+
+                // if hp is less than max, heal 1 HP. if not, ignore
+                if (HP + 1 <= maxHP){
+                    HP++;
+                    currentHPValue.setText(Integer.toString(HP));
+                }
             }
         });
 
@@ -94,6 +105,15 @@ public class tab1Character extends Fragment {
         damageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                // Parses the textview into a string, then into an integer
+                String string_currentHPValue = currentHPValue.getText().toString();
+                int HP = Integer.parseInt(string_currentHPValue);
+
+                // if hp is not 0, damage by 1HP. if >0 - ignore
+                if (HP - 1 >= 0){
+                    HP--;
+                    currentHPValue.setText(Integer.toString(HP));
+                }
 
             }
         });
@@ -102,7 +122,17 @@ public class tab1Character extends Fragment {
         fpUpButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                // Parses the textview into a string, then into an integer
+                String string_currentFPValue = currentFPValue.getText().toString();
+                int FP = Integer.parseInt(string_currentFPValue);
 
+                String string_maxFPValue = maxFPValue.getText().toString();
+                int maxFP = Integer.parseInt(string_maxFPValue);
+
+                if (FP + 1 <= maxFP){
+                    FP++;
+                    currentFPValue.setText(Integer.toString(FP));
+                }
             }
         });
 
@@ -110,7 +140,14 @@ public class tab1Character extends Fragment {
         fpDownButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                // Parses the textview into a string, then into an integer
+                String string_currentFPValue = currentFPValue.getText().toString();
+                int FP = Integer.parseInt(string_currentFPValue);
 
+                if (FP -1 >= 0){
+                    FP--;
+                    currentFPValue.setText(Integer.toString(FP));
+                }
             }
         });
 
