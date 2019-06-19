@@ -41,6 +41,7 @@
     <string name="hp">Health</string>
     <string name="heal">Heal</string>
     <string name="heal_desc">When pressed, it will heal the character by 1 point</string>
+    <string name="maxhp_hint">Max. HP</string>
 
     <!-- Damage Strings -->
     <string name="damage">Damage</string>
@@ -59,4 +60,13 @@
 
     <!-- Save Strings -->
     <string name="save_character">Pressing this will save the current character</string>
+
+    <!-- Melee weapons -->
+    <string name="melee_weapon_titlecard">Melee Weapon</string>
+    <string name="melee_weapon_name">Name</string>
+    <string name="melee_weapon_class">Class</string>
+    <string name="melee_weapon_damage">Damage</string>
+    <string name="melee_weapon_type">Type</string>
+    <string name="melee_weapon_penetration">Penetration</string>
+    <string name="melee_weapon_special_rules">Special Rules</string>
 </resources>

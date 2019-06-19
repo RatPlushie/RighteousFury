@@ -10,28 +10,41 @@ import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
-
 /**
  * A simple {@link Fragment} subclass.
  */
+
 public class tab1Character extends Fragment {
 
-    // #### Temporary stats for a "saved" character ######
-    String tempName     = "Testy mcTestFace";
-    int tempHP          = 13;
-    int tempCurrentHP   = 10;
-    int tempFP          = 4;
-    int tempCurrentFP   = 3;
-    int tempWS          = 31;
-    int tempBS          = 40;
-    int tempSTR         = 31;
-    int tempT           = 38;
-    int tempAG          = 33;
-    int tempINT         = 41;
-    int tempPER         = 33;
-    int tempWP          = 41;
-    int tempFEL         = 26;
-    // ###################################################
+    // Scope-wide Variables
+    private ImageButton healButton;
+    private ImageButton damageButton;
+    private ImageButton fpUpButton;
+    private ImageButton fpDownButton;
+    private ImageButton wsButton;
+    private ImageButton bsButton;
+    private ImageButton strButton;
+    private ImageButton tButton;
+    private ImageButton agButton;
+    private ImageButton intButton;
+    private ImageButton perButton;
+    private ImageButton wpButton;
+    private ImageButton felButton;
+
+    private TextView charName;
+    private TextView maxHPValue;
+    private TextView currentHPValue;
+    private TextView maxFPValue;
+    private TextView currentFPValue;
+    private TextView wsValue;
+    private TextView bsValue;
+    private TextView strValue;
+    private TextView tValue;
+    private TextView agValue;
+    private TextView intValue;
+    private TextView perValue;
+    private TextView wpValue;
+    private TextView felValue;
 
 
     public tab1Character() {
@@ -43,49 +56,41 @@ public class tab1Character extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        // Stops the keyboard coming up at onCreate
-        //getActivity().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
-
-
-
-
         // Outputs the inflater to the return statement
         View view = inflater.inflate(R.layout.fragment_tab1character, container, false);
 
 
         // Initialisation of each tab1 buttons
-        ImageButton healButton              = view.findViewById(R.id.HPHealButton);
-        ImageButton damageButton            = view.findViewById(R.id.HPDamageButton);
-        ImageButton fpUpButton              = view.findViewById(R.id.FPUpButton);
-        ImageButton fpDownButton            = view.findViewById(R.id.FPDownButton);
-        ImageButton wsButton                = view.findViewById(R.id.WSRollButton);
-        ImageButton bsButton                = view.findViewById(R.id.BSRollButton);
-        ImageButton strButton               = view.findViewById(R.id.STRRollButton);
-        ImageButton tButton                 = view.findViewById(R.id.TRollButton);
-        ImageButton agButton                = view.findViewById(R.id.AgRollButton);
-        ImageButton intButton               = view.findViewById(R.id.INTRollButton);
-        ImageButton perButton               = view.findViewById(R.id.PERRollButton);
-        ImageButton wpButton                = view.findViewById(R.id.WPRollButton);
-        ImageButton felButton               = view.findViewById(R.id.FELRollButton);
+        healButton        = view.findViewById(R.id.HPHealButton);
+        damageButton      = view.findViewById(R.id.HPDamageButton);
+        fpUpButton        = view.findViewById(R.id.FPUpButton);
+        fpDownButton      = view.findViewById(R.id.FPDownButton);
+        wsButton          = view.findViewById(R.id.WSRollButton);
+        bsButton          = view.findViewById(R.id.BSRollButton);
+        strButton         = view.findViewById(R.id.STRRollButton);
+        tButton           = view.findViewById(R.id.TRollButton);
+        agButton          = view.findViewById(R.id.AgRollButton);
+        intButton         = view.findViewById(R.id.INTRollButton);
+        perButton         = view.findViewById(R.id.PERRollButton);
+        wpButton          = view.findViewById(R.id.WPRollButton);
+        felButton         = view.findViewById(R.id.FELRollButton);
 
 
         // Initialisation of each tab1 input textView
-        TextView charName                   = view.findViewById(R.id.CharacterNameEditText);
-        final TextView maxHPValue           = view.findViewById(R.id.HPFractionMax);
-        final TextView currentHPValue       = view.findViewById(R.id.HPFractionTop);
-        final TextView maxFPValue           = view.findViewById(R.id.FPFractionMax);
-        final TextView currentFPValue       = view.findViewById(R.id.FPFractionTop);
-        TextView wsValue                    = view.findViewById(R.id.WSStatValue);
-        TextView bsValue                    = view.findViewById(R.id.BSStatValue);
-        TextView strValue                   = view.findViewById(R.id.STRStatValue);
-        TextView tValue                     = view.findViewById(R.id.TStatValue);
-        TextView agValue                    = view.findViewById(R.id.AGStatValue);
-        TextView intValue                   = view.findViewById(R.id.INTStatValue);
-        TextView perValue                   = view.findViewById(R.id.PERStatValue);
-        TextView wpValue                    = view.findViewById(R.id.WPStatValue);
-        TextView felValue                   = view.findViewById(R.id.FELStatValue);
-
-
+        charName          = view.findViewById(R.id.CharacterNameEditText);
+        maxHPValue        = view.findViewById(R.id.HPFractionMax);
+        currentHPValue    = view.findViewById(R.id.HPFractionTop);
+        maxFPValue        = view.findViewById(R.id.FPFractionMax);
+        currentFPValue    = view.findViewById(R.id.FPFractionTop);
+        wsValue           = view.findViewById(R.id.WSStatValue);
+        bsValue           = view.findViewById(R.id.BSStatValue);
+        strValue          = view.findViewById(R.id.STRStatValue);
+        tValue            = view.findViewById(R.id.TStatValue);
+        agValue           = view.findViewById(R.id.AGStatValue);
+        intValue          = view.findViewById(R.id.INTStatValue);
+        perValue          = view.findViewById(R.id.PERStatValue);
+        wpValue           = view.findViewById(R.id.WPStatValue);
+        felValue          = view.findViewById(R.id.FELStatValue);
 
 
         // Button actions:
@@ -230,63 +235,56 @@ public class tab1Character extends Fragment {
             }
         });
 
-
-        // Loading of stored character
-
-        // Display Character's Name
-        charName.setText(tempName);
-
-        // Display Max. HP
-        maxHPValue.setText(Integer.toString(tempHP));
-
-        // Display Current HP
-        currentHPValue.setText(Integer.toString(tempCurrentHP));
-
-        // Display Max. FP
-        maxFPValue.setText(Integer.toString(tempFP));
-
-        // Display Current FP
-        currentFPValue.setText(Integer.toString(tempCurrentFP));
-
-        // Display Weapon Skill Value
-        wsValue.setText(Integer.toString(tempWS));
-
-        // Display Ballistic Skill Value
-        bsValue.setText(Integer.toString(tempBS));
-
-        // Display Strength Value
-        strValue.setText(Integer.toString(tempSTR));
-
-        // Display Toughness Value
-        tValue.setText(Integer.toString(tempT));
-
-        // Display Agility Value
-        agValue.setText(Integer.toString(tempAG));
-
-        // Display Intelligence Value
-        intValue.setText(Integer.toString(tempINT));
-
-        // Display Perception Value
-        perValue.setText(Integer.toString(tempPER));
-
-        // Display Willpower Value
-        wpValue.setText(Integer.toString(tempWP));
-
-        // Display Fellowship Value
-        felValue.setText(Integer.toString(tempFEL));
-
-
+        // Returns the view inflater
         return view;
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
 
+        // Loading of stored character - using string placeholders at the moment
+        // Display Character's Name
+        charName.setText("Testy mcTestFace");
 
+        // Display Max. HP
+        maxHPValue.setText("13");
 
+        // Display Current HP
+        currentHPValue.setText("10");
 
+        // Display Max. FP
+        maxFPValue.setText("4");
 
+        // Display Current FP
+        currentFPValue.setText("3");
 
+        // Display Weapon Skill Value
+        wsValue.setText("31");
 
+        // Display Ballistic Skill Value
+        bsValue.setText("40");
 
+        // Display Strength Value
+        strValue.setText("31");
 
+        // Display Toughness Value
+        tValue.setText("38");
 
+        // Display Agility Value
+        agValue.setText("33");
+
+        // Display Intelligence Value
+        intValue.setText("41");
+
+        // Display Perception Value
+        perValue.setText("33");
+
+        // Display Willpower Value
+        wpValue.setText("41");
+
+        // Display Fellowship Value
+        felValue.setText("26");
+
+    }
 }
