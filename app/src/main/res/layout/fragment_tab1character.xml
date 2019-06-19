@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/MasterScrollView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/fragmentBackground"
+    android:background="@color/colorPrimary"
     android:orientation="vertical"
     android:padding="10dp"
     android:paddingStart="10dp"
@@ -16,14 +15,14 @@
         android:id="@+id/MasterLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:focusableInTouchMode="true"
         android:orientation="vertical">
 
         <androidx.cardview.widget.CardView
             android:id="@+id/CharacterNameCard"
             android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:layout_marginTop="10dp">
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="4dp">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -42,15 +41,19 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <TextView
-                    android:id="@+id/CharacterNameTextView"
-                    android:layout_width="wrap_content"
+                <EditText
+                    android:id="@+id/CharacterNameEditText"
+                    android:layout_width="0dp"
                     android:layout_height="0dp"
-                    android:layout_marginStart="20dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
                     android:layout_marginBottom="1dp"
                     android:gravity="center|start"
+                    android:inputType="text"
                     android:textAlignment="textStart"
+                    android:textSize="14sp"
                     app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/NameTextView"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -131,27 +134,25 @@
                         android:id="@+id/HPDamageButton"
                         android:layout_width="wrap_content"
                         android:layout_height="0dp"
-                        android:layout_marginEnd="8dp"
+                        android:layout_marginEnd="2dp"
                         android:background="@android:color/transparent"
                         android:contentDescription="@string/damage_desc"
-                        android:tint="#000000"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/HPHealButton"
-                        app:srcCompat="@android:drawable/arrow_down_float" />
+                        app:srcCompat="@drawable/ic_down_arrow" />
 
                     <ImageButton
                         android:id="@+id/HPHealButton"
                         android:layout_width="wrap_content"
                         android:layout_height="0dp"
-                        android:layout_marginEnd="8dp"
+                        android:layout_marginEnd="2dp"
                         android:background="@android:color/transparent"
                         android:contentDescription="@string/heal_desc"
-                        android:tint="#000000"
                         app:layout_constraintBottom_toTopOf="@+id/HPDamageButton"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:srcCompat="@android:drawable/arrow_up_float" />
+                        app:srcCompat="@drawable/ic_up_arrow" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -226,27 +227,25 @@
                         android:id="@+id/FPDownButton"
                         android:layout_width="wrap_content"
                         android:layout_height="0dp"
-                        android:layout_marginEnd="8dp"
+                        android:layout_marginEnd="2dp"
                         android:background="@android:color/transparent"
                         android:contentDescription="@string/fp_down_desc"
-                        android:tint="#000000"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/FPUpButton"
-                        app:srcCompat="@android:drawable/arrow_down_float" />
+                        app:srcCompat="@drawable/ic_down_arrow" />
 
                     <ImageButton
                         android:id="@+id/FPUpButton"
                         android:layout_width="wrap_content"
                         android:layout_height="0dp"
-                        android:layout_marginEnd="8dp"
+                        android:layout_marginEnd="2dp"
                         android:background="@android:color/transparent"
                         android:contentDescription="@string/fp_up_desc"
-                        android:tint="#000000"
                         app:layout_constraintBottom_toTopOf="@+id/FPDownButton"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:srcCompat="@android:drawable/arrow_up_float" />
+                        app:srcCompat="@drawable/ic_up_arrow" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -323,8 +322,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:contentDescription="@string/roll_button_desc"
-                android:tint="#000000"
-                app:srcCompat="@android:drawable/ic_menu_set_as" />
+                app:srcCompat="@drawable/ic_dice" />
 
         </LinearLayout>
 
@@ -397,8 +395,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:contentDescription="@string/roll_button_desc"
-                android:tint="#000000"
-                app:srcCompat="@android:drawable/ic_menu_set_as" />
+                app:srcCompat="@drawable/ic_dice" />
 
         </LinearLayout>
 
@@ -472,8 +469,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:contentDescription="@string/roll_button_desc"
-                android:tint="#000000"
-                app:srcCompat="@android:drawable/ic_menu_set_as" />
+                app:srcCompat="@drawable/ic_dice" />
 
         </LinearLayout>
 
@@ -546,8 +542,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:contentDescription="@string/roll_button_desc"
-                android:tint="#000000"
-                app:srcCompat="@android:drawable/ic_menu_set_as" />
+                app:srcCompat="@drawable/ic_dice" />
 
         </LinearLayout>
 
@@ -620,8 +615,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:contentDescription="@string/roll_button_desc"
-                android:tint="#000000"
-                app:srcCompat="@android:drawable/ic_menu_set_as" />
+                app:srcCompat="@drawable/ic_dice" />
 
         </LinearLayout>
 
@@ -694,8 +688,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:contentDescription="@string/roll_button_desc"
-                android:tint="#000000"
-                app:srcCompat="@android:drawable/ic_menu_set_as" />
+                app:srcCompat="@drawable/ic_dice" />
 
         </LinearLayout>
 
@@ -768,8 +761,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:contentDescription="@string/roll_button_desc"
-                android:tint="#000000"
-                app:srcCompat="@android:drawable/ic_menu_set_as" />
+                app:srcCompat="@drawable/ic_dice" />
 
         </LinearLayout>
 
@@ -841,8 +833,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:contentDescription="@string/roll_button_desc"
-                android:tint="#000000"
-                app:srcCompat="@android:drawable/ic_menu_set_as" />
+                app:srcCompat="@drawable/ic_dice" />
 
         </LinearLayout>
 
@@ -915,8 +906,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:contentDescription="@string/roll_button_desc"
-                android:tint="#000000"
-                app:srcCompat="@android:drawable/ic_menu_set_as" />
+                app:srcCompat="@drawable/ic_dice" />
 
         </LinearLayout>
 

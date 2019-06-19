@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_addplayer"
+            android:icon="@drawable/placeholder_ic_add_player"
+            android:title="@string/menu_add_player" />
+        <item
+            android:id="@+id/nav_char1"
+            android:icon="@drawable/placeholder_ic_character"
+            android:title="@string/menu_char1" />
+        <item
+            android:id="@+id/nav_char2"
+            android:icon="@drawable/placeholder_ic_character"
+            android:title="@string/menu_char2" />
+        <item
+            android:id="@+id/nav_char3"
+            android:icon="@drawable/placeholder_ic_character"
+            android:title="@string/menu_char3" />
+    </group>
+
+    <item android:title="@string/share_title">
+        <menu>
+            <item
+                android:id="@+id/nav_import"
+                android:icon="@drawable/placeholder_ic_import"
+                android:title="@string/menu_import" />
+            <item
+                android:id="@+id/nav_export"
+                android:icon="@drawable/placeholder_ic_export"
+                android:title="@string/menu_export" />
+        </menu>
+    </item>
+
+</menu>

@@ -1,9 +1,31 @@
 <resources>
+
+
     <string name="app_name">Righteous Fury</string>
+
+    <!-- Navigation Drawer Strings-->
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Noodle Studios</string>
+    <string name="nav_header_subtitle">noodle.studios@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+
+    <string name="menu_add_player">Add Player</string>
+    <string name="menu_char1">Character 1</string>
+    <string name="menu_char2">Character 2</string>
+    <string name="menu_char3">Character 3</string>
+
+    <!-- import Export Strings -->
+    <string name="share_title">Share</string>
+    <string name="menu_import">Import</string>
+    <string name="menu_export">Export</string>
+
+    <!-- Tab Strings -->
     <string name="tab_text_1">Character</string>
     <string name="tab_text_2">Inventory</string>
     <string name="tab_text_3">Skills &amp; Traits</string>
 
+    <!-- Attribute Strings -->
     <string name="character_Name">Name</string>
     <string name="stat_ws">Weapon Skill</string>
     <string name="stat_bs">Ballistic Skill</string>
@@ -15,20 +37,36 @@
     <string name="stat_wp">Willpower</string>
     <string name="stat_fel">Fellowship</string>
 
+    <!-- HP Strings -->
     <string name="hp">Health</string>
     <string name="heal">Heal</string>
     <string name="heal_desc">When pressed, it will heal the character by 1 point</string>
+    <string name="maxhp_hint">Max. HP</string>
 
+    <!-- Damage Strings -->
     <string name="damage">Damage</string>
     <string name="damage_desc">Pressing this will damage the character by 1 point</string>
 
+    <!-- Fate Point Strings -->
     <string name="fp">Fate Points</string>
     <string name="fp_up_desc">Pressing this will increase the amount of FP by 1</string>
     <string name="fp_down_desc">Pressing this will decrease the amount of FP by 1</string>
 
+    <!-- Modifier Strings -->
     <string name="modifier">Modifier</string>
 
+    <!-- Rolling Strings -->
     <string name="roll_button_desc">Pressing this will launch the dice rolling page</string>
 
-    <string name="save_char">Pressing this will save the current character</string>
+    <!-- Save Strings -->
+    <string name="save_character">Pressing this will save the current character</string>
+
+    <!-- Melee weapons -->
+    <string name="melee_weapon_titlecard">Melee Weapon</string>
+    <string name="melee_weapon_name">Name</string>
+    <string name="melee_weapon_class">Class</string>
+    <string name="melee_weapon_damage">Damage</string>
+    <string name="melee_weapon_type">Type</string>
+    <string name="melee_weapon_penetration">Penetration</string>
+    <string name="melee_weapon_special_rules">Special Rules</string>
 </resources>
