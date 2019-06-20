@@ -10,6 +10,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="tab3test" />
+        android:text="tab3test"
+        android:textColor="#ffffff"/>
 
 </FrameLayout>

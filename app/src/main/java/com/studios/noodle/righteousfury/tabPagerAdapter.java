@@ -6,8 +6,6 @@ import androidx.fragment.app.FragmentStatePagerAdapter;
 
 public class tabPagerAdapter extends FragmentStatePagerAdapter {
 
-
-
     String[] tabArray = new String[]{"Character", "Inventory", "Skills & Traits"};
 
 
