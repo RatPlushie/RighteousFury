@@ -1,6 +1,8 @@
 package com.studios.noodle.righteousfury;
 
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -45,6 +47,9 @@ public class tab1Character extends Fragment {
     private TextView perValue;
     private TextView wpValue;
     private TextView felValue;
+
+    // Variables for the shared preferences
+    public static final String SHARED_PREFS = "sharedPrefs";
 
 
     public tab1Character() {
@@ -239,52 +244,100 @@ public class tab1Character extends Fragment {
         return view;
     }
 
+
     @Override
     public void onResume() {
         super.onResume();
 
+        // Initialisation of the shared preference object to load character data onResume
+        SharedPreferences sharedPreferences = getContext().getSharedPreferences(SHARED_PREFS, Context.MODE_PRIVATE);
+
         // Loading of stored character - using string placeholders at the moment
         // Display Character's Name
-        charName.setText("Testy mcTestFace");
+        charName.setText(sharedPreferences.getString("character_name", ""));
 
         // Display Max. HP
-        maxHPValue.setText("13");
+        maxHPValue.setText(sharedPreferences.getString("character_max_hp", ""));
 
         // Display Current HP
-        currentHPValue.setText("10");
+        // If the currentHPValue text view has no value saved in shared preferences - output "0"
+        if (sharedPreferences.getString("character_current_hp", "").equals("")){
+            currentHPValue.setText("0");
+        } else {
+            currentHPValue.setText(sharedPreferences.getString("character_current_hp", ""));
+        }
 
         // Display Max. FP
-        maxFPValue.setText("4");
+        maxFPValue.setText(sharedPreferences.getString("character_max_fp", ""));
 
         // Display Current FP
-        currentFPValue.setText("3");
+        // if the currentFPValue text view has no value saved in shared preferences - output "0"
+        if (sharedPreferences.getString("character_current_fp", "").equals("")){
+            currentFPValue.setText("0");
+        } else {
+            currentFPValue.setText(sharedPreferences.getString("character_current_fp", ""));
+        }
 
         // Display Weapon Skill Value
-        wsValue.setText("31");
+        wsValue.setText(sharedPreferences.getString("character_ws", ""));
 
         // Display Ballistic Skill Value
-        bsValue.setText("40");
+        bsValue.setText(sharedPreferences.getString("character_bs", ""));
 
         // Display Strength Value
-        strValue.setText("31");
+        strValue.setText(sharedPreferences.getString("character_str", ""));
 
         // Display Toughness Value
-        tValue.setText("38");
+        tValue.setText(sharedPreferences.getString("character_t", ""));
 
         // Display Agility Value
-        agValue.setText("33");
+        agValue.setText(sharedPreferences.getString("character_ag",""));
 
         // Display Intelligence Value
-        intValue.setText("41");
+        intValue.setText(sharedPreferences.getString("character_int", ""));
 
         // Display Perception Value
-        perValue.setText("33");
+        perValue.setText(sharedPreferences.getString("character_per", ""));
 
         // Display Willpower Value
-        wpValue.setText("41");
+        wpValue.setText(sharedPreferences.getString("character_wp", ""));
 
         // Display Fellowship Value
-        felValue.setText("26");
+        felValue.setText(sharedPreferences.getString("character_fel", ""));
 
     }
+
+
+    @Override
+    public void onPause() {
+        super.onPause();
+
+        // Initialisation of the shared preferences object
+        SharedPreferences sharedPreferences = getContext().getSharedPreferences(SHARED_PREFS, Context.MODE_PRIVATE);
+
+        // Initialisation of the shared preferences editor
+        SharedPreferences.Editor edit = sharedPreferences.edit();
+
+        // Updated the shared preferences with all the character data
+        edit.putString("character_name", charName.getText().toString().trim());
+        edit.putString("character_max_hp", maxHPValue.getText().toString().trim());
+        edit.putString("character_current_hp", currentHPValue.getText().toString().trim());
+        edit.putString("character_max_fp", maxFPValue.getText().toString().trim());
+        edit.putString("character_current_fp", currentFPValue.getText().toString().trim());
+        edit.putString("character_ws", wsValue.getText().toString().trim());
+        edit.putString("character_bs", bsValue.getText().toString().trim());
+        edit.putString("character_str", strValue.getText().toString().trim());
+        edit.putString("character_t", tValue.getText().toString().trim());
+        edit.putString("character_ag", agValue.getText().toString().trim());
+        edit.putString("character_int", intValue.getText().toString().trim());
+        edit.putString("character_per", perValue.getText().toString().trim());
+        edit.putString("character_wp", wpValue.getText().toString().trim());
+        edit.putString("character_fel", felValue.getText().toString().trim());
+
+        // Applies the changes to the shared preferences file
+        edit.apply();
+
+    }
+
+
 }
