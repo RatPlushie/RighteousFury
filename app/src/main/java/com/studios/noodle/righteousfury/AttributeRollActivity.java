@@ -93,10 +93,10 @@ public class AttributeRollActivity extends AppCompatActivity {
             public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
 
                 // sets the Modifier value text view above the seekbar
-                modifierValue.setText(Integer.toString(i - 100));
+                modifierValue.setText(Integer.toString(i - 60));
 
                 // Sets the roll threshold text view
-                rollRequiredVal.setText(Integer.toString(attributeVal + (i - 100)));
+                rollRequiredVal.setText(Integer.toString(attributeVal + (i - 60)));
             }
 
             @Override
