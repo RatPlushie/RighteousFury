@@ -4,32 +4,271 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimaryDark"
+    android:background="@color/colorPrimary"
     tools:context=".AttributeRollActivity">
 
-    <TextView
-        android:id="@+id/AttributeTitleTextView"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/titleCardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/attributeImageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@mipmap/ic_launcher_round" />
+
+            <TextView
+                android:id="@+id/AttributeTitleTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:gravity="center|start"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@+id/attributeImageView"
+                app:layout_constraintStart_toEndOf="@+id/attributeImageView"
+                app:layout_constraintTop_toTopOf="@+id/attributeImageView" />
+
+            <TextView
+                android:id="@+id/AttributeValTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:gravity="center|start"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@+id/AttributeTitleTextView"
+                app:layout_constraintStart_toEndOf="@+id/AttributeTitleTextView"
+                app:layout_constraintTop_toTopOf="@+id/AttributeTitleTextView" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/modifierCardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleCardView">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/ModifierValTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/ModifierTitleTextVIew"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/modifier"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <SeekBar
+                android:id="@+id/rollModifierSeekBar"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:max="200"
+                android:progress="100"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ModifierValTextView" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <Button
+        android:id="@+id/rollButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Roll Page Test"
-        android:textColor="#ffffff"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/AttributeValTextView"
+        android:layout_marginBottom="8dp"
+        android:text="@string/roll_button"
+        app:layout_constraintBottom_toTopOf="@+id/reRollButton"
+        app:layout_constraintEnd_toEndOf="@+id/reRollButton"
+        app:layout_constraintStart_toStartOf="@+id/reRollButton" />
+
+    <Button
+        android:id="@+id/reRollButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/reroll_button"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/RollThresholdCardView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/modifierCardView" />
+
+    <Button
+        android:id="@+id/fatepointRollButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/fatepoint_button"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="@+id/reRollButton"
+        app:layout_constraintStart_toStartOf="@+id/reRollButton"
+        app:layout_constraintTop_toBottomOf="@+id/reRollButton" />
 
     <TextView
-        android:id="@+id/AttributeValTextView"
+        android:id="@+id/currentFatePointTotalTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Attribute Value"
+        android:layout_marginStart="4dp"
         android:textColor="#ffffff"
-        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/fatepointRollButton"
+        app:layout_constraintStart_toEndOf="@+id/fatepointRollButton"
+        app:layout_constraintTop_toTopOf="@+id/fatepointRollButton" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/RollThresholdCardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/RollOutcomeCardView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/rollThresholdTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="15dp"
+                android:text="@string/roll_threshold"
+                android:textColor="#000000"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/rollThresholdValTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:textColor="#000000"
+                app:layout_constraintBottom_toBottomOf="@+id/rollThresholdTextView"
+                app:layout_constraintStart_toEndOf="@+id/rollThresholdTextView"
+                app:layout_constraintTop_toTopOf="@+id/rollThresholdTextView" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/RollOutcomeCardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/OutcomeCardView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/rollOutcomeTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="16dp"
+                android:text="@string/roll_outcome"
+                android:textColor="#000000"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/rollOutcomeValTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:textColor="#000000"
+                app:layout_constraintBottom_toBottomOf="@+id/rollOutcomeTextView"
+                app:layout_constraintStart_toEndOf="@+id/rollOutcomeTextView"
+                app:layout_constraintTop_toTopOf="@+id/rollOutcomeTextView" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/OutcomeCardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="18dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/AttributeTitleTextView"
-        app:layout_constraintVertical_bias="0.103" />
+        app:layout_constraintStart_toStartOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/degreeOutcomeTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="14dp"
+                android:layout_marginBottom="17dp"
+                android:text="@string/roll_degree_of_success"
+                android:textColor="#000000"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/degreeOutcomeVal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:textColor="#000000"
+                app:layout_constraintBottom_toBottomOf="@+id/degreeOutcomeTextView"
+                app:layout_constraintStart_toEndOf="@+id/degreeOutcomeTextView"
+                app:layout_constraintTop_toTopOf="@+id/degreeOutcomeTextView" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -37,6 +37,17 @@
     <string name="stat_wp">Willpower</string>
     <string name="stat_fel">Fellowship</string>
 
+    <!-- Attribute Hints -->
+    <string name="ws_hint">WS</string>
+    <string name="bs_hint">BS</string>
+    <string name="str_hint">Str</string>
+    <string name="t_hint">T</string>
+    <string name="ag_hint">Ag</string>
+    <string name="int_hint">Int</string>
+    <string name="per_hint">Per</string>
+    <string name="wp_hint">Wp</string>
+    <string name="fel_hint">Fel</string>
+
     <!-- HP Strings -->
     <string name="hp">Health</string>
     <string name="heal">Heal</string>
@@ -58,6 +69,14 @@
 
     <!-- Rolling Strings -->
     <string name="roll_button_desc">Pressing this will launch the dice rolling page</string>
+    <string name="roll_threshold">Roll Threshold: </string>
+    <string name="roll_outcome">Roll Outcome: </string>
+    <string name="roll_degree_of_success">Degree: </string>
+
+    <!-- Roll Buttons -->
+    <string name="roll_button">Roll</string>
+    <string name="reroll_button">Re-Roll</string>
+    <string name="fatepoint_button">Fate Point</string>
 
     <!-- Save Strings -->
     <string name="save_character">Pressing this will save the current character</string>
@@ -83,4 +102,6 @@
     <string name="missile_weapon_clip">Clip</string>
     <string name="missile_weapon_rld">Reload</string>
     <string name="missile_weapon_special_rules">Special Rules</string>
+
+
 </resources>
