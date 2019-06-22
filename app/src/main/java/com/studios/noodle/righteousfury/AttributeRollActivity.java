@@ -81,6 +81,8 @@ public class AttributeRollActivity extends AppCompatActivity {
         // Setting the value of the attribute visually
         activityAttributeVal.setText(Integer.toString(attributeVal));
 
+        // Setting the default value of the modifier roll
+        modifierValue.setText(Integer.toString(0));
 
         // Initially setting the roll threshold to the base stat - will be modified on seekbar change afterwards
         rollRequiredVal.setText(bundle.getString("attributeValue"));
