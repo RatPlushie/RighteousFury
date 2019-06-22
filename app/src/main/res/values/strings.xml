@@ -72,6 +72,12 @@
     <string name="roll_threshold">Roll Threshold: </string>
     <string name="roll_outcome">Roll Outcome: </string>
     <string name="roll_degree_of_success">Degree: </string>
+    <string name="zero_degrees_of_success">success</string>
+    <string name="one_degree_of_success">1 degree of success</string>
+    <string name="many_degrees_of_success"> degrees of success</string>
+    <string name="zero_degrees_of_failure">failure</string>
+    <string name="one_degree_of_failure">1 degree of failure</string>
+    <string name="many_degrees_of_failure"> degrees of failure</string>
 
     <!-- Roll Buttons -->
     <string name="roll_button">Roll</string>
@@ -102,6 +108,7 @@
     <string name="missile_weapon_clip">Clip</string>
     <string name="missile_weapon_rld">Reload</string>
     <string name="missile_weapon_special_rules">Special Rules</string>
+
 
 
 </resources>
