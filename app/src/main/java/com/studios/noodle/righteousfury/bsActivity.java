@@ -10,11 +10,22 @@ import androidx.appcompat.app.AppCompatActivity;
 public class bsActivity extends AppCompatActivity {
 
     //bsActivity's variables
+    private TextView bsTitleVal;
+    private TextView ammoVal;
 
-    TextView bsTitleVal;
+    private int maxFP;
+    private int currentFP;
 
-    int maxFP;
-    int currentFP;
+    private String weapon_name;
+    private String weapon_class;
+    private String weapon_damage;
+    private String weapon_type;
+    private String weapon_pen;
+    private String weapon_range;
+    private String weapon_rof;
+    private String weapon_clip;
+    private String weapon_reload;
+    private String weapon_special_rules;
 
     // Variables for the shared preferences
     public static final String SHARED_PREFS = "sharedPrefs";
@@ -24,19 +35,33 @@ public class bsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bs);
 
-        // Initialisation of objects
-        bsTitleVal = findViewById(R.id.bsValTextView);
-
         // Initialisation of the shared preference object to load character data onResume
         SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, Context.MODE_PRIVATE);
 
-        // Loading of stored character
+        // Initialisation of objects
+        bsTitleVal              = findViewById(R.id.bsValTextView);
+        ammoVal                 = findViewById(R.id.ammoQuantityTextView);
+
+        // Retrieving weapon info
+        weapon_name             = sharedPreferences.getString("missile_weapon_name", "");
+        weapon_class            = sharedPreferences.getString("missile_weapon_class", "");
+        weapon_damage           = sharedPreferences.getString("missile_weapon_damage", "");
+        weapon_type             = sharedPreferences.getString("missile_weapon_type", "");
+        weapon_pen              = sharedPreferences.getString("missile_weapon_penetration", "");
+        weapon_range            = sharedPreferences.getString("missile_weapon_range", "");
+        weapon_rof              = sharedPreferences.getString("missile_weapon_rof", "");
+        weapon_clip             = sharedPreferences.getString("missile_weapon_clip", "");
+        weapon_reload           = sharedPreferences.getString("missile_weapon_rld", "");
+        weapon_special_rules    = sharedPreferences.getString("missile_weapon_special_rules", "");
+
         // Display Character's Name
         bsTitleVal.setText(sharedPreferences.getString("character_bs", ""));
+        ammoVal.setText(sharedPreferences.getString("ammo_val", ""));
 
         // Converting the max and current FP values to integers
-        maxFP       = Integer.parseInt(sharedPreferences.getString("character_max_fp", ""));
-        currentFP   = Integer.parseInt(sharedPreferences.getString("character_current_fp", ""));
+        maxFP                   = Integer.parseInt(sharedPreferences.getString("character_max_fp", ""));
+        currentFP               = Integer.parseInt(sharedPreferences.getString("character_current_fp", ""));
+
     }
 
     @Override

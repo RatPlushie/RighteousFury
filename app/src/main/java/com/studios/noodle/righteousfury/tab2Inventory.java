@@ -36,6 +36,9 @@ public class tab2Inventory extends Fragment {
     private TextView missile_RLD;
     private TextView missile_special_rules;
 
+    private TextView ammoName;
+    private TextView ammoVal;
+
     // Variables for the shared preferences
     public static final String SHARED_PREFS = "sharedPrefs";
 
@@ -73,6 +76,10 @@ public class tab2Inventory extends Fragment {
         missile_RLD             = view.findViewById(R.id.missileRLDEditText);
         missile_special_rules   = view.findViewById(R.id.missileSpecialRulesEditText);
 
+        // Ammo Tracking
+        ammoName                = view.findViewById(R.id.AmmoNameEditText);
+        ammoVal                 = view.findViewById(R.id.AmmoValEditText);
+
         //Returns the view inflater
         return view;
     }
@@ -104,6 +111,10 @@ public class tab2Inventory extends Fragment {
         missile_clipVal.setText(sharedPreferences.getString("missile_weapon_clip", ""));
         missile_RLD.setText(sharedPreferences.getString("missile_weapon_rld", ""));
         missile_special_rules.setText(sharedPreferences.getString("missile_weapon_special_rules", ""));
+
+        // Loads the ammo slot #1 with its stats
+        ammoName.setText(sharedPreferences.getString("ammo_name", ""));
+        ammoVal.setText(sharedPreferences.getString("ammo_val", ""));
 
     }
 
@@ -138,6 +149,10 @@ public class tab2Inventory extends Fragment {
         edit.putString("missile_weapon_clip", missile_clipVal.getText().toString().trim());
         edit.putString("missile_weapon_rld", missile_RLD.getText().toString().trim());
         edit.putString("missile_weapon_special_rules", missile_special_rules.getText().toString().trim());
+
+        // Ammo
+        edit.putString("ammo_name", ammoName.getText().toString().trim());
+        edit.putString("ammo_val", ammoVal.getText().toString().trim());
 
         // Applies the changes to the shared preferences file
         edit.apply();

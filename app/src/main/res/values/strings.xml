@@ -111,5 +111,11 @@
     <string name="missile_weapon_rld">Reload</string>
     <string name="missile_weapon_special_rules">Special Rules</string>
 
+    <!-- Ammo Strings -->
+    <string name="ammo_title">Ammo</string>
+    <string name="ammo_val_hint">No. </string>
+    <string name="ammo_name_hint">Ammo Name</string>
+    <string name="ammo_list">Ammo:</string>
+
 
 </resources>

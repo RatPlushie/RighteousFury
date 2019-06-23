@@ -10,10 +10,10 @@ import androidx.appcompat.app.AppCompatActivity;
 public class wsActivity extends AppCompatActivity {
 
     // wsActivity's variables
-    TextView wsTitleVal;
+    private TextView wsTitleVal;
 
-    int maxFP;
-    int currentFP;
+    private int maxFP;
+    private int currentFP;
 
     // Variables for the shared preferences
     public static final String SHARED_PREFS = "sharedPrefs";
