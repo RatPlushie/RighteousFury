@@ -63,6 +63,7 @@
     <string name="fp_up_desc">Pressing this will increase the amount of FP by 1</string>
     <string name="fp_down_desc">Pressing this will decrease the amount of FP by 1</string>
     <string name="maxfp_hint">Max</string>
+    <string name="fp_remaining">Fate Points: </string>
 
     <!-- Modifier Strings -->
     <string name="modifier">Modifier</string>
@@ -83,6 +84,7 @@
     <string name="roll_button">Roll</string>
     <string name="reroll_button">Re-Roll</string>
     <string name="fatepoint_button">Fate Point</string>
+    <string name="burn_fp_button">BURN</string>
 
     <!-- Save Strings -->
     <string name="save_character">Pressing this will save the current character</string>

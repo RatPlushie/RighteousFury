@@ -29,6 +29,7 @@ public class AttributeRollActivity extends AppCompatActivity {
     private Button rollButton;
     private Button reRollButton;
     private Button fatepointRollButton;
+    private Button burnButton;
 
     private SeekBar modifierSeekBar;
 
@@ -38,14 +39,72 @@ public class AttributeRollActivity extends AppCompatActivity {
     private int diceRoll;
     private int threshold;
     private int degreeResult;
+    private int maxFP;
 
-    private String combinedString;
+    private String degreeString;
+    private String fatePointTotalString;
 
 
     // Random Method
     private static final Random random = new Random();
     public static int random(int min, int max){
         return random.nextInt(max) + min;
+    }
+    
+    public String getDegreeRoll(int diceRoll, int threshold){
+        if (diceRoll == threshold){
+            // Regular rolled success
+
+            // if true - 0 degrees of success
+            degreeString = getString(R.string.zero_degrees_of_success);
+
+        } else if ( diceRoll > threshold){
+            // Roll failure
+
+            // Equation to find the amount of degrees of failure, printing an int
+            degreeResult = ((diceRoll - threshold) / 10);
+
+            if (degreeResult == 0){
+
+                // prints out a regular report of zero degrees of failure
+                degreeString = getString(R.string.zero_degrees_of_failure);
+
+            } else if (degreeResult == 1){
+
+                // prints out a report of one degree of failure
+                degreeString = getString(R.string.one_degree_of_failure);
+
+            } else if (degreeResult > 1){
+
+                // Creates a string to be used in the setText return
+                degreeString = (degreeResult + " " + getString(R.string.many_degrees_of_failure));
+                
+            }
+
+        } else if ( diceRoll < threshold) {
+            // Roll success
+
+            // Equation to find the amount of degrees of success, printing an int
+            degreeResult = ((threshold - diceRoll) / 10);
+
+            if (degreeResult == 0){
+
+                // Prints out a regular report of zero degrees of success
+                degreeString = getString(R.string.zero_degrees_of_success);
+
+            } else if (degreeResult == 1){
+
+                // prints out a report of one degree of success
+                degreeString = getString(R.string.one_degree_of_success);
+
+            } else if (degreeResult > 1){
+
+                // Creates a string to be used in the setText method since setText doesn't like it
+                degreeString = (degreeResult + " " + getString(R.string.many_degrees_of_success));
+                
+            }
+        }
+        return degreeString; 
     }
 
 
@@ -65,6 +124,7 @@ public class AttributeRollActivity extends AppCompatActivity {
         rollButton                  = findViewById(R.id.rollButton);
         reRollButton                = findViewById(R.id.reRollButton);
         fatepointRollButton         = findViewById(R.id.fatepointRollButton);
+        burnButton                  = findViewById(R.id.burnFPButton);
         modifierSeekBar             = findViewById(R.id.rollModifierSeekBar);
         attributeImageView          = findViewById(R.id.attributeImageView);
 
@@ -78,12 +138,25 @@ public class AttributeRollActivity extends AppCompatActivity {
         // Retrieving the amount of fate points the user has and parsing it into an integer
         currentFP = Integer.parseInt(sharedPreferences.getString("character_current_fp", ""));
 
+        // Retrieving the maximum amount of fate points the user has and parsing it into an integer
+        maxFP = Integer.parseInt(sharedPreferences.getString("character_max_fp", ""));
+
         // Setting the starting amount of fatepoints the user has
         if (currentFP == 0){
             fatepointRollButton.setEnabled(false);
+            fatePointTotalString = currentFP + " / " + maxFP;
+            currentFatePointValue.setText(fatePointTotalString);
         } else {
-            currentFatePointValue.setText(Integer.toString(currentFP));
+            fatePointTotalString = currentFP + " / " + maxFP;
+            currentFatePointValue.setText(fatePointTotalString);
         }
+
+        // Setting if the burn button is enabled
+        if (maxFP == 0){
+            burnButton.setEnabled(false);
+        }
+
+        // Setting
 
         // Retrieve the bundle
         Bundle bundle = getIntent().getExtras();
@@ -154,62 +227,10 @@ public class AttributeRollActivity extends AppCompatActivity {
                 // Disables the button being pressed any more
                 rollButton.setEnabled(false);
 
-                if (diceRoll == threshold){
-                    // Regular rolled success
+                // Set text to the degrees of the outcome
+                degreeOfOutcome.setText(getDegreeRoll(diceRoll, threshold));
 
-                    // if true - 0 degrees of success
-                    degreeOfOutcome.setText(getString(R.string.zero_degrees_of_success));
 
-                } else if ( diceRoll > threshold){
-                    // Roll failure
-
-                    // Equation to find the amount of degrees of failure, printing an int
-                    degreeResult = ((diceRoll - threshold) / 10);
-
-                    if (degreeResult == 0){
-
-                        // prints out a regular report of zero degrees of failure
-                        degreeOfOutcome.setText(getString(R.string.zero_degrees_of_failure));
-
-                    } else if (degreeResult == 1){
-
-                        // prints out a report of one degree of failure
-                        degreeOfOutcome.setText(getString(R.string.one_degree_of_failure));
-
-                    } else if (degreeResult > 1){
-
-                        // Creates a string to be used in the setText method since setText doesn't like it
-                        combinedString = (degreeResult + " " + getString(R.string.many_degrees_of_failure));
-
-                        // prints out a report of multiple degrees of failure
-                        degreeOfOutcome.setText(combinedString);
-                    }
-
-                } else if ( diceRoll < threshold) {
-                    // Roll success
-
-                    // Equation to find the amount of degrees of success, printin an int
-                    degreeResult = ((threshold - diceRoll) / 10);
-
-                    if (degreeResult == 0){
-
-                        // Prints out a regular report of zero degrees of success
-                        degreeOfOutcome.setText(getString(R.string.zero_degrees_of_success));
-
-                    } else if (degreeResult == 1){
-
-                        // prints out a report of one degree of success
-                        degreeOfOutcome.setText(getString(R.string.one_degree_of_success));
-
-                    } else if (degreeResult > 1){
-
-                        // Creates a string to be used in the setText method since setText doesn't like it
-                        combinedString = (degreeResult + " " + getString(R.string.many_degrees_of_success));
-
-                        // prints out a report of multiple degrees of success
-                        degreeOfOutcome.setText(combinedString);
-                    }
-                }
             }
         });
 
@@ -224,67 +245,14 @@ public class AttributeRollActivity extends AppCompatActivity {
                 // Sets the text in the Roll outcome card view
                 rollOutcome.setText(Integer.toString(diceRoll));
 
-                if (diceRoll == threshold){
-                    // Regular rolled success
-
-                    // if true - 0 degrees of success
-                    degreeOfOutcome.setText(getString(R.string.zero_degrees_of_success));
-
-                } else if ( diceRoll > threshold){
-                    // Roll failure
-
-                    // Equation to find the amount of degrees of failure, printing an int
-                    degreeResult = ((diceRoll - threshold) / 10);
-
-                    if (degreeResult == 0){
-
-                        // prints out a regular report of zero degrees of failure
-                        degreeOfOutcome.setText(getString(R.string.zero_degrees_of_failure));
-
-                    } else if (degreeResult == 1){
-
-                        // prints out a report of one degree of failure
-                        degreeOfOutcome.setText(getString(R.string.one_degree_of_failure));
-
-                    } else if (degreeResult > 1){
-
-                        // Creates a string to be used in the setText method since setText doesn't like it
-                        combinedString = (degreeResult + " " + getString(R.string.many_degrees_of_failure));
-
-                        // prints out a report of multiple degrees of failure
-                        degreeOfOutcome.setText(combinedString);
-                    }
-
-                } else if ( diceRoll < threshold) {
-                    // Roll success
-
-                    // Equation to find the amount of degrees of success, printin an int
-                    degreeResult = ((threshold - diceRoll) / 10);
-
-                    if (degreeResult == 0){
-
-                        // Prints out a regular report of zero degrees of success
-                        degreeOfOutcome.setText(getString(R.string.zero_degrees_of_success));
-
-                    } else if (degreeResult == 1){
-
-                        // prints out a report of one degree of success
-                        degreeOfOutcome.setText(getString(R.string.one_degree_of_success));
-
-                    } else if (degreeResult > 1){
-
-                        // Creates a string to be used in the setText method since setText doesn't like it
-                        combinedString = (degreeResult + " " + getString(R.string.many_degrees_of_success));
-
-                        // prints out a report of multiple degrees of success
-                        degreeOfOutcome.setText(combinedString);
-                    }
-                }
+                // Sets text to the degrees of the outcome
+                degreeOfOutcome.setText(getDegreeRoll(diceRoll, threshold));
 
                 // Counts and reacts to how many re-rolls the player has
             }
         });
 
+        // Call for the fate point spending button
         fatepointRollButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -299,7 +267,8 @@ public class AttributeRollActivity extends AppCompatActivity {
                 currentFP--;
 
                 // Display the remaining amount of fate points
-                currentFatePointValue.setText(Integer.toString(currentFP));
+                fatePointTotalString = currentFP + " / " + maxFP;
+                currentFatePointValue.setText(fatePointTotalString);
 
                 // Checks if the new value of current fp is now 0
                 if (currentFP == 0){
@@ -308,62 +277,36 @@ public class AttributeRollActivity extends AppCompatActivity {
 
                 }
 
-                if (diceRoll == threshold){
-                    // Regular rolled success
+                // Sets text to the degrees of the outcome
+                degreeOfOutcome.setText(getDegreeRoll(diceRoll, threshold));
+            }
+        });
 
-                    // if true - 0 degrees of success
-                    degreeOfOutcome.setText(getString(R.string.zero_degrees_of_success));
+        // Call for the fate point burning button
+        burnButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
-                } else if ( diceRoll > threshold){
-                    // Roll failure
+                // After use the burn button will be disabled
+                burnButton.setEnabled(false);
 
-                    // Equation to find the amount of degrees of failure, printing an int
-                    degreeResult = ((diceRoll - threshold) / 10);
-
-                    if (degreeResult == 0){
-
-                        // prints out a regular report of zero degrees of failure
-                        degreeOfOutcome.setText(getString(R.string.zero_degrees_of_failure));
-
-                    } else if (degreeResult == 1){
-
-                        // prints out a report of one degree of failure
-                        degreeOfOutcome.setText(getString(R.string.one_degree_of_failure));
-
-                    } else if (degreeResult > 1){
-
-                        // Creates a string to be used in the setText method since setText doesn't like it
-                        combinedString = (degreeResult + " " + getString(R.string.many_degrees_of_failure));
-
-                        // prints out a report of multiple degrees of failure
-                        degreeOfOutcome.setText(combinedString);
-                    }
-
-                } else if ( diceRoll < threshold) {
-                    // Roll success
-
-                    // Equation to find the amount of degrees of success, printin an int
-                    degreeResult = ((threshold - diceRoll) / 10);
-
-                    if (degreeResult == 0){
-
-                        // Prints out a regular report of zero degrees of success
-                        degreeOfOutcome.setText(getString(R.string.zero_degrees_of_success));
-
-                    } else if (degreeResult == 1){
-
-                        // prints out a report of one degree of success
-                        degreeOfOutcome.setText(getString(R.string.one_degree_of_success));
-
-                    } else if (degreeResult > 1){
-
-                        // Creates a string to be used in the setText method since setText doesn't like it
-                        combinedString = (degreeResult + " " + getString(R.string.many_degrees_of_success));
-
-                        // prints out a report of multiple degrees of success
-                        degreeOfOutcome.setText(combinedString);
-                    }
+                // Checks to see how to remove a fate point
+                if (currentFP == maxFP){
+                    currentFP--;
+                    maxFP--;
+                } else if (currentFP < maxFP){
+                    maxFP--;
                 }
+
+                // Burning a fate point immediately calls for a winning state, so dice rolls are irrelevant
+                rollRequiredVal.setText("-");
+                rollOutcome.setText("-");
+                degreeOfOutcome.setText(getString(R.string.zero_degrees_of_success));
+
+                // Updating the value of the current and maxFP counter
+                fatePointTotalString = currentFP + " / " + maxFP;
+                currentFatePointValue.setText(fatePointTotalString);
+
             }
         });
     }
@@ -380,6 +323,9 @@ public class AttributeRollActivity extends AppCompatActivity {
 
         // Updates the amount of FP points the character currently has to the shared preferences
         edit.putString("character_current_fp", Integer.toString(currentFP));
+
+        // Update the maximum amount of FP points the character currently has to the shared preferences
+        edit.putString("character_max_fp", Integer.toString(maxFP));
 
         // Applies the changes to the shared preferences file
         edit.apply();
