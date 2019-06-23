@@ -37,6 +37,17 @@
     <string name="stat_wp">Willpower</string>
     <string name="stat_fel">Fellowship</string>
 
+    <!-- Attribute Hints -->
+    <string name="ws_hint">WS</string>
+    <string name="bs_hint">BS</string>
+    <string name="str_hint">Str</string>
+    <string name="t_hint">T</string>
+    <string name="ag_hint">Ag</string>
+    <string name="int_hint">Int</string>
+    <string name="per_hint">Per</string>
+    <string name="wp_hint">Wp</string>
+    <string name="fel_hint">Fel</string>
+
     <!-- HP Strings -->
     <string name="hp">Health</string>
     <string name="heal">Heal</string>
@@ -52,12 +63,28 @@
     <string name="fp_up_desc">Pressing this will increase the amount of FP by 1</string>
     <string name="fp_down_desc">Pressing this will decrease the amount of FP by 1</string>
     <string name="maxfp_hint">Max</string>
+    <string name="fp_remaining">Fate Points: </string>
 
     <!-- Modifier Strings -->
     <string name="modifier">Modifier</string>
 
     <!-- Rolling Strings -->
     <string name="roll_button_desc">Pressing this will launch the dice rolling page</string>
+    <string name="roll_threshold">Roll Threshold: </string>
+    <string name="roll_outcome">Roll Outcome: </string>
+    <string name="roll_degree_of_success">Degree: </string>
+    <string name="zero_degrees_of_success">success</string>
+    <string name="one_degree_of_success">1 degree of success</string>
+    <string name="many_degrees_of_success"> degrees of success</string>
+    <string name="zero_degrees_of_failure">failure</string>
+    <string name="one_degree_of_failure">1 degree of failure</string>
+    <string name="many_degrees_of_failure"> degrees of failure</string>
+
+    <!-- Roll Buttons -->
+    <string name="roll_button">Roll</string>
+    <string name="reroll_button">Re-Roll</string>
+    <string name="fatepoint_button">Fate Point</string>
+    <string name="burn_fp_button">BURN</string>
 
     <!-- Save Strings -->
     <string name="save_character">Pressing this will save the current character</string>
@@ -83,4 +110,7 @@
     <string name="missile_weapon_clip">Clip</string>
     <string name="missile_weapon_rld">Reload</string>
     <string name="missile_weapon_special_rules">Special Rules</string>
+
+
+
 </resources>

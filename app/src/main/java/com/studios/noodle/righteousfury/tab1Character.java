@@ -2,6 +2,7 @@ package com.studios.noodle.righteousfury;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -189,6 +190,28 @@ public class tab1Character extends Fragment {
             @Override
             public void onClick(View view) {
 
+                // Initialise Intent - Move from this tab1Character fragment to AttributeRollActivity
+                Intent intent = new Intent(getActivity(), AttributeRollActivity.class);
+
+                // Initialise a new bundle
+                Bundle bundle = new Bundle();
+
+                // Putting stuff in the bundle
+                // Putting the attribute's name into the bundle
+                bundle.putString("attributeName", getResources().getString(R.string.stat_str));
+
+                // Putting the attribute's value into the bundle
+                bundle.putString("attributeValue", strValue.getText().toString().trim());
+
+                // Put that bundle to the intent
+                intent.putExtras(bundle);
+
+                // Starting the activity's intent
+                startActivity(intent);
+
+                // Overrides the default animation to slide in on right
+                getActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+
             }
         });
 
@@ -196,6 +219,28 @@ public class tab1Character extends Fragment {
         tButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                // Initialise Intent - Move from this tab1Character fragment to AttributeRollActivity
+                Intent intent = new Intent(getActivity(), AttributeRollActivity.class);
+
+                // Initialise a new bundle
+                Bundle bundle = new Bundle();
+
+                // Putting stuff in the bundle
+                // Putting the attribute's name into the bundle
+                bundle.putString("attributeName", getResources().getString(R.string.stat_t));
+
+                // Putting the attribute's value into the bundle
+                bundle.putString("attributeValue", tValue.getText().toString().trim());
+
+                // Put that bundle to the intent
+                intent.putExtras(bundle);
+
+                // Starting the activity's intent
+                startActivity(intent);
+
+                // Overrides the default animation to slide in on right
+                getActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
 
             }
         });
@@ -205,6 +250,28 @@ public class tab1Character extends Fragment {
             @Override
             public void onClick(View view) {
 
+                // Initialise Intent - Move from this tab1Character fragment to AttributeRollActivity
+                Intent intent = new Intent(getActivity(), AttributeRollActivity.class);
+
+                // Initialise a new bundle
+                Bundle bundle = new Bundle();
+
+                // Putting stuff in the bundle
+                // Putting the attribute's name into the bundle
+                bundle.putString("attributeName", getResources().getString(R.string.stat_ag));
+
+                // Putting the attribute's value into the bundle
+                bundle.putString("attributeValue", agValue.getText().toString().trim());
+
+                // Put that bundle to the intent
+                intent.putExtras(bundle);
+
+                // Starting the activity's intent
+                startActivity(intent);
+
+                // Overrides the default animation to slide in on right
+                getActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+
             }
         });
 
@@ -212,6 +279,28 @@ public class tab1Character extends Fragment {
         intButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                // Initialise Intent - Move from this tab1Character fragment to AttributeRollActivity
+                Intent intent = new Intent(getActivity(), AttributeRollActivity.class);
+
+                // Initialise a new bundle
+                Bundle bundle = new Bundle();
+
+                // Putting stuff in the bundle
+                // Putting the attribute's name into the bundle
+                bundle.putString("attributeName", getResources().getString(R.string.stat_int));
+
+                // Putting the attribute's value into the bundle
+                bundle.putString("attributeValue", intValue.getText().toString().trim());
+
+                // Put that bundle to the intent
+                intent.putExtras(bundle);
+
+                // Starting the activity's intent
+                startActivity(intent);
+
+                // Overrides the default animation to slide in on right
+                getActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
 
             }
         });
@@ -221,6 +310,28 @@ public class tab1Character extends Fragment {
             @Override
             public void onClick(View view) {
 
+                // Initialise Intent - Move from this tab1Character fragment to AttributeRollActivity
+                Intent intent = new Intent(getActivity(), AttributeRollActivity.class);
+
+                // Initialise a new bundle
+                Bundle bundle = new Bundle();
+
+                // Putting stuff in the bundle
+                // Putting the attribute's name into the bundle
+                bundle.putString("attributeName", getResources().getString(R.string.stat_per));
+
+                // Putting the attribute's value into the bundle
+                bundle.putString("attributeValue", perValue.getText().toString().trim());
+
+                // Put that bundle to the intent
+                intent.putExtras(bundle);
+
+                // Starting the activity's intent
+                startActivity(intent);
+
+                // Overrides the default animation to slide in on right
+                getActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+
             }
         });
 
@@ -229,6 +340,28 @@ public class tab1Character extends Fragment {
             @Override
             public void onClick(View view) {
 
+                // Initialise Intent - Move from this tab1Character fragment to AttributeRollActivity
+                Intent intent = new Intent(getActivity(), AttributeRollActivity.class);
+
+                // Initialise a new bundle
+                Bundle bundle = new Bundle();
+
+                // Putting stuff in the bundle
+                // Putting the attribute's name into the bundle
+                bundle.putString("attributeName", getResources().getString(R.string.stat_wp));
+
+                // Putting the attribute's value into the bundle
+                bundle.putString("attributeValue", wpValue.getText().toString().trim());
+
+                // Put that bundle to the intent
+                intent.putExtras(bundle);
+
+                // Starting the activity's intent
+                startActivity(intent);
+
+                // Overrides the default animation to slide in on right
+                getActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+
             }
         });
 
@@ -236,6 +369,28 @@ public class tab1Character extends Fragment {
         felButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                // Initialise Intent - Move from this tab1Character fragment to AttributeRollActivity
+                Intent intent = new Intent(getActivity(), AttributeRollActivity.class);
+
+                // Initialise a new bundle
+                Bundle bundle = new Bundle();
+
+                // Putting stuff in the bundle
+                // Putting the attribute's name into the bundle
+                bundle.putString("attributeName", getResources().getString(R.string.stat_fel));
+
+                // Putting the attribute's value into the bundle
+                bundle.putString("attributeValue", felValue.getText().toString().trim());
+
+                // Put that bundle to the intent
+                intent.putExtras(bundle);
+
+                // Starting the activity's intent
+                startActivity(intent);
+
+                // Overrides the default animation to slide in on right
+                getActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
 
             }
         });
