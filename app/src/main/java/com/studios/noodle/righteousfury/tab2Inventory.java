@@ -119,6 +119,22 @@ public class tab2Inventory extends Fragment {
                     meleeCard1.setVisibility(View.GONE);
                 } else {
                     meleeCard1.setVisibility(View.VISIBLE);
+
+                    // Ensures that after parent has been closed, the children default to closed
+                    melWep1_NameTextView.setVisibility(View.GONE);
+                    melWep1_NameEditText.setVisibility(View.GONE);
+                    melWep1_Divider1.setVisibility(View.GONE);
+                    melWep1_ClassTextView.setVisibility(View.GONE);
+                    melWep1_ClassEditText.setVisibility(View.GONE);
+                    melWep1_DamageTextView.setVisibility(View.GONE);
+                    melWep1_DamageEditText.setVisibility(View.GONE);
+                    melWep1_TypeTextView.setVisibility(View.GONE);
+                    melWep1_TypeEditText.setVisibility(View.GONE);
+                    melWep1_PenetrationTextView.setVisibility(View.GONE);
+                    melWep1_PenetrationEditText.setVisibility(View.GONE);
+                    melWep1_Divider2.setVisibility(View.GONE);
+                    melWep1_SpecialRulesTextView.setVisibility(View.GONE);
+                    melWep1_SpecialRulesEditText.setVisibility(View.GONE);
                 }
             }
         });
