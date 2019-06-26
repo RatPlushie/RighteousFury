@@ -16,627 +16,253 @@
         android:layout_marginEnd="8dp"
         android:orientation="vertical">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/MeleeTitleConstraintLayout"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginBottom="8dp">
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/MeleeWeaponTitleCardView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <TextView
-                    android:id="@+id/MeleeWeaponTitleTextView"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginEnd="8dp"
-                    android:gravity="center|start"
-                    android:text="@string/melee_weapon_titlecard"
-                    android:textAlignment="textStart"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
-
-            </androidx.cardview.widget.CardView>
-
-            <ImageButton
-                android:id="@+id/addMeleeWeaponImageButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:background="@android:color/transparent"
-                app:layout_constraintBottom_toBottomOf="@+id/MeleeWeaponTitleCardView"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/MeleeWeaponTitleCardView"
-                app:srcCompat="@drawable/ic_add_circle" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <LinearLayout
-            android:id="@+id/meleeCardLinearLayout"
+        <androidx.cardview.widget.CardView
+            android:id="@+id/MeleeParent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_marginTop="18dp">
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/MeleeWeapon1"
+            <LinearLayout
+                android:id="@+id/MeleeParentCardMasterLayout"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp">
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/MeleeParentLayout"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
                     <TextView
-                        android:id="@+id/meleeNameTextView"
-                        android:layout_width="0dp"
+                        android:id="@+id/MeleeTitle"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginEnd="8dp"
-                        android:text="@string/melee_weapon_name"
+                        android:padding="8dp"
+                        android:text="@string/melee_weapon_titlecard"
                         android:textAlignment="textStart"
+                        android:textSize="18sp"
                         android:textStyle="bold"
-                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
-                    <EditText
-                        android:id="@+id/meleeNameEditText"
-                        android:layout_width="0dp"
+                    <ImageButton
+                        android:id="@+id/MeleeParentExpandImageButton"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="4dp"
-                        android:layout_marginEnd="8dp"
-                        android:ems="10"
-                        android:inputType="textPersonName"
-                        android:textAlignment="textStart"
-                        android:textSize="14sp"
+                        android:background="@android:color/transparent"
+                        android:padding="8dp"
+                        app:layout_constraintBottom_toBottomOf="@+id/MeleeTitle"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/meleeNameTextView" />
+                        app:layout_constraintTop_toTopOf="@+id/MeleeTitle"
+                        app:srcCompat="@drawable/ic_arrow_down" />
 
-                    <View
-                        android:id="@+id/meleeDivider1"
-                        android:layout_width="0dp"
-                        android:layout_height="1dp"
-                        android:background="#000000"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/meleeNameEditText" />
-
-                    <TextView
-                        android:id="@+id/meleeClassTextView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="18dp"
-                        android:layout_marginStart="8dp"
-                        android:text="@string/melee_weapon_class"
-                        android:textAlignment="textStart"
-                        android:textStyle="bold"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/meleeDivider1" />
-
-                    <EditText
-                        android:id="@+id/meleeClassEditText"
-                        android:layout_width="40dp"
-                        android:layout_height="wrap_content"
-                        android:inputType="textPersonName"
-                        android:textAlignment="center"
-                        android:textSize="14sp"
-                        app:layout_constraintStart_toStartOf="@+id/meleeClassTextView"
-                        app:layout_constraintTop_toBottomOf="@+id/meleeClassTextView" />
-
-                    <TextView
-                        android:id="@+id/meleeDamageTextView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:text="@string/melee_weapon_damage"
-                        android:textAlignment="textStart"
-                        android:textStyle="bold"
-                        app:layout_constraintStart_toEndOf="@+id/meleeClassTextView"
-                        app:layout_constraintTop_toBottomOf="@+id/meleeDivider1" />
-
-                    <EditText
-                        android:id="@+id/meleeDamageEditText"
-                        android:layout_width="80dp"
-                        android:layout_height="wrap_content"
-                        android:inputType="textPersonName"
-                        android:textAlignment="textStart"
-                        android:textSize="14sp"
-                        app:layout_constraintStart_toStartOf="@+id/meleeDamageTextView"
-                        app:layout_constraintTop_toBottomOf="@+id/meleeDamageTextView" />
-
-                    <TextView
-                        android:id="@+id/meleeTypeTextView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="36dp"
-                        android:text="@string/melee_weapon_type"
-                        android:textAlignment="textStart"
-                        android:textStyle="bold"
-                        app:layout_constraintStart_toEndOf="@+id/meleeDamageTextView"
-                        app:layout_constraintTop_toBottomOf="@+id/meleeDivider1" />
-
-                    <EditText
-                        android:id="@+id/meleeTypeEditText"
-                        android:layout_width="90dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="80dp"
-                        android:inputType="textPersonName"
-                        android:textAlignment="textStart"
-                        android:textSize="14sp"
-                        app:layout_constraintEnd_toStartOf="@+id/meleePenetrationEditText"
-                        app:layout_constraintHorizontal_bias="0.0"
-                        app:layout_constraintStart_toStartOf="@+id/meleeTypeTextView"
-                        app:layout_constraintTop_toBottomOf="@+id/meleeTypeTextView" />
-
-                    <TextView
-                        android:id="@+id/meleePenetration"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="64dp"
-                        android:text="@string/melee_weapon_penetration"
-                        android:textAlignment="textStart"
-                        android:textStyle="bold"
-                        app:layout_constraintStart_toEndOf="@+id/meleeTypeTextView"
-                        app:layout_constraintTop_toBottomOf="@+id/meleeDivider1" />
-
-                    <EditText
-                        android:id="@+id/meleePenetrationEditText"
-                        android:layout_width="40dp"
-                        android:layout_height="wrap_content"
-                        android:inputType="textPersonName"
-                        android:textAlignment="center"
-                        android:textSize="14sp"
-                        app:layout_constraintEnd_toEndOf="@+id/meleePenetration"
-                        app:layout_constraintStart_toStartOf="@+id/meleePenetration"
-                        app:layout_constraintTop_toBottomOf="@+id/meleePenetration" />
-
-                    <View
-                        android:id="@+id/meleeDivider2"
-                        android:layout_width="0dp"
-                        android:layout_height="1dp"
-                        android:background="#000000"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/meleeTypeEditText" />
-
-                    <TextView
-                        android:id="@+id/meleeSpecialRuleTextView"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginEnd="8dp"
-                        android:text="@string/melee_weapon_special_rules"
-                        android:textAlignment="textStart"
-                        android:textStyle="bold"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/meleeDivider2" />
-
-                    <EditText
-                        android:id="@+id/meleeSpecialRulesEditText"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="4dp"
-                        android:layout_marginEnd="8dp"
-                        android:ems="10"
-                        android:inputType="textPersonName"
-                        android:textAlignment="textStart"
-                        android:textSize="14sp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/meleeSpecialRuleTextView" />
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-            </androidx.cardview.widget.CardView>
-        </LinearLayout>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/MissileTitleConstraintLayout"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginBottom="8dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/MissileWeaponTitleCardView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <TextView
-                    android:id="@+id/MissileWeaponTitleTextView"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginEnd="8dp"
-                    android:text="@string/missile_weapon_titlecard"
-                    android:textAlignment="textStart"
-                    android:textStyle="bold" />
-
-            </androidx.cardview.widget.CardView>
-
-            <ImageButton
-                android:id="@+id/addMissleWeaponImageButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:background="@android:color/transparent"
-                app:layout_constraintBottom_toBottomOf="@+id/MissileWeaponTitleCardView"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/MissileWeaponTitleCardView"
-                app:srcCompat="@drawable/ic_add_circle" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <LinearLayout
-            android:id="@+id/missileCardLinearLayout"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/MissileWeapon1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp">
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <TextView
-                        android:id="@+id/missileNameTextView"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginEnd="8dp"
-                        android:text="@string/missile_weapon_name"
-                        android:textAlignment="textStart"
-                        android:textStyle="bold"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <EditText
-                        android:id="@+id/missileNameEditText"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="4dp"
-                        android:layout_marginEnd="8dp"
-                        android:ems="10"
-                        android:inputType="textPersonName"
-                        android:textAlignment="textStart"
-                        android:textSize="14sp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/missileNameTextView" />
-
-                    <View
-                        android:id="@+id/missileDivider1"
-                        android:layout_width="0dp"
-                        android:layout_height="1dp"
-                        android:background="#000000"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/missileNameEditText" />
-
-                    <TextView
-                        android:id="@+id/missileClassTextView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="18dp"
-                        android:layout_marginStart="8dp"
-                        android:text="@string/missile_weapon_class"
-                        android:textAlignment="textStart"
-                        android:textStyle="bold"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/missileDivider1" />
-
-                    <EditText
-                        android:id="@+id/missileClassEditText"
-                        android:layout_width="40dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
-                        android:inputType="textPersonName"
-                        android:textAlignment="center"
-                        android:textSize="14sp"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/missileClassTextView" />
-
-                    <TextView
-                        android:id="@+id/missileDamageTextView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:text="@string/missile_weapon_damage"
-                        android:textAlignment="textStart"
-                        android:textStyle="bold"
-                        app:layout_constraintStart_toEndOf="@+id/missileClassTextView"
-                        app:layout_constraintTop_toBottomOf="@+id/missileDivider1" />
-
-                    <EditText
-                        android:id="@+id/missileDamageEditText"
-                        android:layout_width="80dp"
-                        android:layout_height="wrap_content"
-                        android:inputType="textPersonName"
-                        android:textAlignment="textStart"
-                        android:textSize="14sp"
-                        app:layout_constraintStart_toStartOf="@+id/missileDamageTextView"
-                        app:layout_constraintTop_toBottomOf="@+id/missileDamageTextView" />
-
-                    <TextView
-                        android:id="@+id/missileTypeTextView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="36dp"
-                        android:text="@string/missile_weapon_type"
-                        android:textAlignment="textStart"
-                        android:textStyle="bold"
-                        app:layout_constraintStart_toEndOf="@+id/missileDamageTextView"
-                        app:layout_constraintTop_toBottomOf="@+id/missileDivider1" />
-
-                    <EditText
-                        android:id="@+id/missileTypeEditText"
-                        android:layout_width="90dp"
-                        android:layout_height="wrap_content"
-                        android:inputType="textPersonName"
-                        android:textAlignment="textStart"
-                        android:textSize="14sp"
-                        app:layout_constraintStart_toStartOf="@+id/missileTypeTextView"
-                        app:layout_constraintTop_toBottomOf="@+id/missileTypeTextView" />
-
-                    <TextView
-                        android:id="@+id/missilePenetration"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="64dp"
-                        android:text="@string/missile_weapon_penetration"
-                        android:textAlignment="textStart"
-                        android:textStyle="bold"
-                        app:layout_constraintStart_toEndOf="@+id/missileTypeTextView"
-                        app:layout_constraintTop_toBottomOf="@+id/missileDivider1" />
-
-                    <EditText
-                        android:id="@+id/missilePenetrationEditText"
-                        android:layout_width="40dp"
-                        android:layout_height="wrap_content"
-                        android:inputType="textPersonName"
-                        android:textAlignment="center"
-                        android:textSize="14sp"
-                        app:layout_constraintEnd_toEndOf="@+id/missilePenetration"
-                        app:layout_constraintStart_toStartOf="@+id/missilePenetration"
-                        app:layout_constraintTop_toBottomOf="@+id/missilePenetration" />
-
-                    <View
-                        android:id="@+id/missileDivider2"
-                        android:layout_width="0dp"
-                        android:layout_height="1dp"
-                        android:background="#000000"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/missileTypeEditText" />
-
-                    <TextView
-                        android:id="@+id/missileRangeTextView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
-                        android:text="@string/missile_weapon_Range"
-                        android:textAlignment="textStart"
-                        android:textStyle="bold"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/missileDivider2" />
-
-                    <EditText
-                        android:id="@+id/missileRangeEditText"
-                        android:layout_width="40dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
-                        android:inputType="textPersonName"
-                        android:textAlignment="center"
-                        android:textSize="14sp"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/missileRangeTextView" />
-
-                    <TextView
-                        android:id="@+id/missileROFTextView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="36dp"
-                        android:text="@string/missile_weapon_rof"
-                        android:textAlignment="textStart"
-                        android:textStyle="bold"
-                        app:layout_constraintStart_toEndOf="@+id/missileRangeTextView"
-                        app:layout_constraintTop_toBottomOf="@+id/missileDivider2" />
-
-                    <EditText
-                        android:id="@+id/missileROFEditText"
-                        android:layout_width="70dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="20dp"
-                        android:inputType="textPersonName"
-                        android:textAlignment="center"
-                        android:textSize="14sp"
-                        app:layout_constraintStart_toEndOf="@+id/missileRangeEditText"
-                        app:layout_constraintTop_toBottomOf="@+id/missileROFTextView" />
-
-                    <TextView
-                        android:id="@+id/missileClipTextView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="44dp"
-                        android:text="@string/missile_weapon_clip"
-                        android:textAlignment="textStart"
-                        android:textStyle="bold"
-                        app:layout_constraintStart_toEndOf="@+id/missileROFTextView"
-                        app:layout_constraintTop_toBottomOf="@+id/missileDivider2" />
-
-                    <EditText
-                        android:id="@+id/missileClipEditText"
-                        android:layout_width="40dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="12dp"
-                        android:inputType="textPersonName"
-                        android:textAlignment="center"
-                        android:textSize="14sp"
-                        app:layout_constraintStart_toEndOf="@+id/missileROFEditText"
-                        app:layout_constraintTop_toBottomOf="@+id/missileClipTextView" />
-
-                    <TextView
-                        android:id="@+id/missileRLDTextView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="28dp"
-                        android:text="@string/missile_weapon_rld"
-                        android:textAlignment="textStart"
-                        android:textStyle="bold"
-                        app:layout_constraintStart_toEndOf="@+id/missileClipTextView"
-                        app:layout_constraintTop_toBottomOf="@+id/missileDivider2" />
-
-                    <EditText
-                        android:id="@+id/missileRLDEditText"
-                        android:layout_width="70dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="12dp"
-                        android:inputType="textPersonName"
-                        android:textAlignment="textStart"
-                        android:textSize="14sp"
-                        app:layout_constraintStart_toEndOf="@+id/missileClipEditText"
-                        app:layout_constraintTop_toBottomOf="@+id/missileRLDTextView" />
-
-                    <View
-                        android:id="@+id/divider3"
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/Melee1Card"
                         android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="#000000"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/missileRLDEditText" />
-
-                    <TextView
-                        android:id="@+id/missileSpecialRuleTextView"
-                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginEnd="8dp"
-                        android:text="@string/missile_weapon_special_rules"
-                        android:textAlignment="textStart"
-                        android:textStyle="bold"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/divider3" />
-
-                    <EditText
-                        android:id="@+id/missileSpecialRulesEditText"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="4dp"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginEnd="8dp"
-                        android:ems="10"
-                        android:inputType="textPersonName"
-                        android:textAlignment="textStart"
-                        android:textSize="14sp"
+                        android:layout_margin="8dp"
+                        app:cardBackgroundColor="#B6B6B6"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/missileSpecialRuleTextView" />
+                        app:layout_constraintTop_toBottomOf="@+id/MeleeTitle">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:id="@+id/Melee1Title"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+
+                                <TextView
+                                    android:id="@+id/Melee1TitleTextView"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:padding="8dp"
+                                    android:text="@string/melee_weapon_one"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <ImageButton
+                                    android:id="@+id/meWep1_ExpandImageButton"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:background="@android:color/transparent"
+                                    android:padding="8dp"
+                                    app:layout_constraintBottom_toBottomOf="@+id/Melee1TitleTextView"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    app:srcCompat="@drawable/ic_arrow_down" />
+
+                                <TextView
+                                    android:id="@+id/meWep1_NameTextView"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="8dp"
+                                    android:text="@string/melee_weapon_name"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toBottomOf="@+id/Melee1TitleTextView" />
+
+                                <EditText
+                                    android:id="@+id/meWep1_NameEditText"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="8dp"
+                                    android:layout_marginEnd="8dp"
+                                    android:inputType="textPersonName"
+                                    android:textAlignment="textStart"
+                                    android:textSize="14sp"
+                                    app:layout_constraintBottom_toBottomOf="@+id/meWep1_NameTextView"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toEndOf="@+id/meWep1_NameTextView"
+                                    app:layout_constraintTop_toTopOf="@+id/meWep1_NameTextView" />
+
+                                <View
+                                    android:id="@+id/meWep1_divider1"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:layout_marginStart="8dp"
+                                    android:layout_marginEnd="8dp"
+                                    android:background="#000000"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toBottomOf="@+id/meWep1_NameEditText" />
+
+                                <TextView
+                                    android:id="@+id/meWep1_ClassTextView"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/melee_weapon_class"
+                                    app:layout_constraintBottom_toTopOf="@+id/meWep1_ClassEditText"
+                                    app:layout_constraintEnd_toEndOf="@+id/meWep1_ClassEditText"
+                                    app:layout_constraintStart_toStartOf="@+id/meWep1_ClassEditText" />
+
+                                <EditText
+                                    android:id="@+id/meWep1_ClassEditText"
+                                    android:layout_width="50dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="8dp"
+                                    android:layout_marginTop="20dp"
+                                    android:inputType="textPersonName"
+                                    android:textSize="14sp"
+                                    app:layout_constraintEnd_toStartOf="@+id/meWep1_DamageEditText"
+                                    app:layout_constraintHorizontal_bias="0.5"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toBottomOf="@+id/meWep1_divider1" />
+
+                                <TextView
+                                    android:id="@+id/meWep1_DamageTextView"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/damage"
+                                    app:layout_constraintBottom_toTopOf="@+id/meWep1_DamageEditText"
+                                    app:layout_constraintEnd_toEndOf="@+id/meWep1_DamageEditText"
+                                    app:layout_constraintStart_toStartOf="@+id/meWep1_DamageEditText" />
+
+                                <EditText
+                                    android:id="@+id/meWep1_DamageEditText"
+                                    android:layout_width="50dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="8dp"
+                                    android:layout_marginTop="20dp"
+                                    android:inputType="textPersonName"
+                                    android:textSize="14sp"
+                                    app:layout_constraintEnd_toStartOf="@+id/meWep1_TypeEditText"
+                                    app:layout_constraintHorizontal_bias="0.5"
+                                    app:layout_constraintStart_toEndOf="@+id/meWep1_ClassEditText"
+                                    app:layout_constraintTop_toBottomOf="@+id/meWep1_divider1" />
+
+                                <TextView
+                                    android:id="@+id/meWep1_TypeTextView"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/melee_weapon_type"
+                                    app:layout_constraintBottom_toTopOf="@+id/meWep1_TypeEditText"
+                                    app:layout_constraintEnd_toEndOf="@+id/meWep1_TypeEditText"
+                                    app:layout_constraintStart_toStartOf="@+id/meWep1_TypeEditText" />
+
+                                <EditText
+                                    android:id="@+id/meWep1_TypeEditText"
+                                    android:layout_width="50dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="8dp"
+                                    android:layout_marginTop="20dp"
+                                    android:inputType="textPersonName"
+                                    android:textSize="14sp"
+                                    app:layout_constraintEnd_toStartOf="@+id/meWep1_PenEditText"
+                                    app:layout_constraintHorizontal_bias="0.5"
+                                    app:layout_constraintStart_toEndOf="@+id/meWep1_DamageEditText"
+                                    app:layout_constraintTop_toBottomOf="@+id/meWep1_divider1" />
+
+                                <TextView
+                                    android:id="@+id/meWep1_PenTextView"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/melee_weapon_penetration"
+                                    app:layout_constraintBottom_toTopOf="@+id/meWep1_PenEditText"
+                                    app:layout_constraintEnd_toEndOf="@+id/meWep1_PenEditText"
+                                    app:layout_constraintStart_toStartOf="@+id/meWep1_PenEditText" />
+
+                                <EditText
+                                    android:id="@+id/meWep1_PenEditText"
+                                    android:layout_width="50dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="8dp"
+                                    android:layout_marginTop="20dp"
+                                    android:layout_marginEnd="8dp"
+                                    android:inputType="textPersonName"
+                                    android:textSize="14sp"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintHorizontal_bias="0.5"
+                                    app:layout_constraintStart_toEndOf="@+id/meWep1_TypeEditText"
+                                    app:layout_constraintTop_toBottomOf="@+id/meWep1_divider1" />
+
+                                <View
+                                    android:id="@+id/meWep1_divider2"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:layout_marginStart="8dp"
+                                    android:layout_marginEnd="8dp"
+                                    android:background="#000000"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toBottomOf="@+id/meWep1_DamageEditText" />
+
+                                <TextView
+                                    android:id="@+id/meWep1_SpecicalRulesTextView"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="8dp"
+                                    android:text="@string/melee_weapon_special_rules"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toBottomOf="@+id/meWep1_divider2" />
+
+                                <EditText
+                                    android:id="@+id/meWep1_SpecialRulesEditText"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="8dp"
+                                    android:layout_marginEnd="8dp"
+                                    android:inputType="textPersonName"
+                                    android:textAlignment="textStart"
+                                    android:textSize="14sp"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toBottomOf="@+id/meWep1_SpecicalRulesTextView" />
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
-            </androidx.cardview.widget.CardView>
-        </LinearLayout>
+            </LinearLayout>
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/ammoTitleCardConstraintLayout"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginBottom="8dp">
-
-            <ImageButton
-                android:id="@+id/addAmmoCardImageButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:background="@android:color/transparent"
-                app:layout_constraintBottom_toBottomOf="@+id/AmmoTitleCardView"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/AmmoTitleCardView"
-                app:srcCompat="@drawable/ic_add_circle" />
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/AmmoTitleCardView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <TextView
-                    android:id="@+id/ammoTitleTextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginEnd="8dp"
-                    android:text="@string/ammo_title"
-                    android:textStyle="bold" />
-            </androidx.cardview.widget.CardView>
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <LinearLayout
-            android:id="@+id/ammoCardLinearLayout"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/AmmoTrackerCardView"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginBottom="8dp">
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <EditText
-                        android:id="@+id/AmmoNameEditText"
-                        android:layout_width="0dp"
-                        android:layout_height="0dp"
-                        android:layout_marginEnd="8dp"
-                        android:hint="@string/ammo_name_hint"
-                        android:inputType="textPersonName"
-                        android:textSize="14sp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toStartOf="@+id/AmmoValEditText"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <EditText
-                        android:id="@+id/AmmoValEditText"
-                        android:layout_width="40dp"
-                        android:layout_height="0dp"
-                        android:hint="@string/ammo_val_hint"
-                        android:inputType="number"
-                        android:textAlignment="center"
-                        android:textSize="14sp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-            </androidx.cardview.widget.CardView>
-        </LinearLayout>
+        </androidx.cardview.widget.CardView>
 
 
     </LinearLayout>

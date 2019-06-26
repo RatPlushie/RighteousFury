@@ -1,14 +1,15 @@
 package com.studios.noodle.righteousfury;
 
 
-import android.content.Context;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
 /**
@@ -18,26 +19,36 @@ import androidx.fragment.app.Fragment;
 public class tab2Inventory extends Fragment {
 
     // Scope-wide Variables
-    private TextView melee_weaponName;
-    private TextView melee_classType;
-    private TextView melee_damageVal;
-    private TextView melee_type;
-    private TextView melee_penVal;
-    private TextView melee_specialRules;
+    private TextView    meleeWeapon1Slot;
+    private TextView    meleeWeapon2Slot;
+    private TextView    meleeWeapon3Slot;
+    private TextView    meleeWeapon4Slot;
 
-    private TextView missile_weaponName;
-    private TextView missile_classType;
-    private TextView missile_damageVal;
-    private TextView missile_type;
-    private TextView missile_penVal;
-    private TextView missile_rangeVal;
-    private TextView missile_ROF;
-    private TextView missile_clipVal;
-    private TextView missile_RLD;
-    private TextView missile_special_rules;
+    private TextView    melWep1_NameTextView;
+    private TextView    melWep1_ClassTextView;
+    private TextView    melWep1_DamageTextView;
+    private TextView    melWep1_TypeTextView;
+    private TextView    melWep1_PenetrationTextView;
+    private TextView    melWep1_SpecialRulesTextView;
 
-    private TextView ammoName;
-    private TextView ammoVal;
+    private EditText    melWep1_NameEditText;
+    private EditText    melWep1_ClassEditText;
+    private EditText    melWep1_DamageEditText;
+    private EditText    melWep1_TypeEditText;
+    private EditText    melWep1_PenetrationEditText;
+    private EditText    melWep1_SpecialRulesEditText;
+
+    private View        melWep1_Divider1;
+    private View        melWep1_Divider2;
+
+    private ImageButton melParentButton;
+    private ImageButton melWep1ExpandButton;
+
+    private CardView    meleeCard1;
+    private CardView    meleeCard2;
+    private CardView    meleeCard3;
+    private CardView    meleeCard4;
+
 
     // Variables for the shared preferences
     public static final String SHARED_PREFS = "sharedPrefs";
@@ -55,30 +66,101 @@ public class tab2Inventory extends Fragment {
         // Inflates the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_tab2inventory, container, false);
 
-        // Creating objects for each of the Edit Texts
-        // Melee Weapon
-        melee_weaponName        = view.findViewById(R.id.meleeNameEditText);
-        melee_classType         = view.findViewById(R.id.meleeClassEditText);
-        melee_damageVal         = view.findViewById(R.id.meleeDamageEditText);
-        melee_type              = view.findViewById(R.id.meleeTypeEditText);
-        melee_penVal            = view.findViewById(R.id.meleePenetrationEditText);
-        melee_specialRules      = view.findViewById(R.id.meleeSpecialRulesEditText);
 
-        // Missile Weapon
-        missile_weaponName      = view.findViewById(R.id.missileNameEditText);
-        missile_classType       = view.findViewById(R.id.missileClassEditText);
-        missile_damageVal       = view.findViewById(R.id.missileDamageEditText);
-        missile_type            = view.findViewById(R.id.missileTypeEditText);
-        missile_penVal          = view.findViewById(R.id.missilePenetrationEditText);
-        missile_rangeVal        = view.findViewById(R.id.missileRangeEditText);
-        missile_ROF             = view.findViewById(R.id.missileROFEditText);
-        missile_clipVal         = view.findViewById(R.id.missileClipEditText);
-        missile_RLD             = view.findViewById(R.id.missileRLDEditText);
-        missile_special_rules   = view.findViewById(R.id.missileSpecialRulesEditText);
+        // Attaching variables to view
+        melParentButton                 = view.findViewById(R.id.MeleeParentExpandImageButton);
+        melWep1ExpandButton             = view.findViewById(R.id.meWep1_ExpandImageButton);
 
-        // Ammo Tracking
-        ammoName                = view.findViewById(R.id.AmmoNameEditText);
-        ammoVal                 = view.findViewById(R.id.AmmoValEditText);
+        melWep1_NameEditText            = view.findViewById(R.id.meWep1_NameEditText);
+        melWep1_ClassEditText           = view.findViewById(R.id.meWep1_ClassEditText);
+        melWep1_DamageEditText          = view.findViewById(R.id.meWep1_DamageEditText);
+        melWep1_TypeEditText            = view.findViewById(R.id.meWep1_TypeEditText);
+        melWep1_PenetrationEditText     = view.findViewById(R.id.meWep1_PenEditText);
+        melWep1_SpecialRulesEditText    = view.findViewById(R.id.meWep1_SpecialRulesEditText);
+
+        melWep1_NameTextView            = view.findViewById(R.id.meWep1_NameTextView);
+        melWep1_ClassTextView           = view.findViewById(R.id.meWep1_ClassTextView);
+        melWep1_DamageTextView          = view.findViewById(R.id.meWep1_DamageTextView);
+        melWep1_TypeTextView            = view.findViewById(R.id.meWep1_TypeTextView);
+        melWep1_PenetrationTextView     = view.findViewById(R.id.meWep1_PenTextView);
+        melWep1_SpecialRulesTextView    = view.findViewById(R.id.meWep1_SpecicalRulesTextView);
+
+        meleeCard1                      = view.findViewById(R.id.Melee1Card);
+
+        melWep1_Divider1                = view.findViewById(R.id.meWep1_divider1);
+        melWep1_Divider2                = view.findViewById(R.id.meWep1_divider2);
+
+
+        // Setting all required views to GONE at onCreate
+        meleeCard1.setVisibility(View.GONE);
+
+        melWep1_NameTextView.setVisibility(View.GONE);
+        melWep1_NameEditText.setVisibility(View.GONE);
+        melWep1_Divider1.setVisibility(View.GONE);
+        melWep1_ClassTextView.setVisibility(View.GONE);
+        melWep1_ClassEditText.setVisibility(View.GONE);
+        melWep1_DamageTextView.setVisibility(View.GONE);
+        melWep1_DamageEditText.setVisibility(View.GONE);
+        melWep1_TypeTextView.setVisibility(View.GONE);
+        melWep1_TypeEditText.setVisibility(View.GONE);
+        melWep1_PenetrationTextView.setVisibility(View.GONE);
+        melWep1_PenetrationEditText.setVisibility(View.GONE);
+        melWep1_Divider2.setVisibility(View.GONE);
+        melWep1_SpecialRulesTextView.setVisibility(View.GONE);
+        melWep1_SpecialRulesEditText.setVisibility(View.GONE);
+
+
+        // Creating onClick listener to the expand parent melee weapon expand button
+        melParentButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Checks its visibility and then reverses it VISIBLE <-> GONE
+                if (meleeCard1.getVisibility() == View.VISIBLE){
+                    meleeCard1.setVisibility(View.GONE);
+                } else {
+                    meleeCard1.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+
+
+        // Creating onClick listener to expand the melee slot #1 card
+        melWep1ExpandButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (melWep1_NameTextView.getVisibility() == View.VISIBLE ){
+                    melWep1_NameTextView.setVisibility(View.GONE);
+                    melWep1_NameEditText.setVisibility(View.GONE);
+                    melWep1_Divider1.setVisibility(View.GONE);
+                    melWep1_ClassTextView.setVisibility(View.GONE);
+                    melWep1_ClassEditText.setVisibility(View.GONE);
+                    melWep1_DamageTextView.setVisibility(View.GONE);
+                    melWep1_DamageEditText.setVisibility(View.GONE);
+                    melWep1_TypeTextView.setVisibility(View.GONE);
+                    melWep1_TypeEditText.setVisibility(View.GONE);
+                    melWep1_PenetrationTextView.setVisibility(View.GONE);
+                    melWep1_PenetrationEditText.setVisibility(View.GONE);
+                    melWep1_Divider2.setVisibility(View.GONE);
+                    melWep1_SpecialRulesTextView.setVisibility(View.GONE);
+                    melWep1_SpecialRulesEditText.setVisibility(View.GONE);
+                } else {
+                    melWep1_NameTextView.setVisibility(View.VISIBLE);
+                    melWep1_NameEditText.setVisibility(View.VISIBLE);
+                    melWep1_Divider1.setVisibility(View.VISIBLE);
+                    melWep1_ClassTextView.setVisibility(View.VISIBLE);
+                    melWep1_ClassEditText.setVisibility(View.VISIBLE);
+                    melWep1_DamageTextView.setVisibility(View.VISIBLE);
+                    melWep1_DamageEditText.setVisibility(View.VISIBLE);
+                    melWep1_TypeTextView.setVisibility(View.VISIBLE);
+                    melWep1_TypeEditText.setVisibility(View.VISIBLE);
+                    melWep1_PenetrationTextView.setVisibility(View.VISIBLE);
+                    melWep1_PenetrationEditText.setVisibility(View.VISIBLE);
+                    melWep1_Divider2.setVisibility(View.VISIBLE);
+                    melWep1_SpecialRulesTextView.setVisibility(View.VISIBLE);
+                    melWep1_SpecialRulesEditText.setVisibility(View.VISIBLE);
+                }
+            }
+        });
 
         //Returns the view inflater
         return view;
@@ -89,8 +171,15 @@ public class tab2Inventory extends Fragment {
     public void onResume() {
         super.onResume();
 
+        /* OLD CODE ###########################################################
+
         // Initialisation of the shared preference object to load character data onResume
         SharedPreferences sharedPreferences = getContext().getSharedPreferences(SHARED_PREFS, Context.MODE_PRIVATE);
+
+
+
+
+
 
         // Loads the melee weapon slot #1 with its stats
         melee_weaponName.setText(sharedPreferences.getString("melee_weapon_name", ""));
@@ -116,6 +205,10 @@ public class tab2Inventory extends Fragment {
         ammoName.setText(sharedPreferences.getString("ammo_name", ""));
         ammoVal.setText(sharedPreferences.getString("ammo_val", ""));
 
+
+
+        #################################################################### */
+
     }
 
 
@@ -123,11 +216,15 @@ public class tab2Inventory extends Fragment {
     public void onPause() {
         super.onPause();
 
+        /* OLD CODE ##################################################################
+
         // Initialisation of the shared preferences object
         SharedPreferences sharedPreferences = getContext().getSharedPreferences(SHARED_PREFS, Context.MODE_PRIVATE);
 
         // Initialisation of the shared preferences editor
         SharedPreferences.Editor edit = sharedPreferences.edit();
+
+
 
         // Updates the shared preferences with all the character date
         // Melee Weapons
@@ -156,6 +253,10 @@ public class tab2Inventory extends Fragment {
 
         // Applies the changes to the shared preferences file
         edit.apply();
+
+        ##################################################### */
     }
+
+
 
 }

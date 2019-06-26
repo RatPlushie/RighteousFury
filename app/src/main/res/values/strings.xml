@@ -97,6 +97,10 @@
     <string name="melee_weapon_type">Type</string>
     <string name="melee_weapon_penetration">Penetration</string>
     <string name="melee_weapon_special_rules">Special Rules</string>
+    <string name="melee_weapon_one">Melee Weapon 1 Slot</string>
+    <string name="melee_weapon_two">Melee Weapon 2 Slot</string>
+    <string name="melee_weapon_three">Melee Weapon 3 Slot</string>
+    <string name="melee_weapon_four">Melee Weapon 4 Slot</string>
 
     <!-- Missile Weapons -->
     <string name="missile_weapon_titlecard">Missile Weapon</string>
