@@ -194,19 +194,6 @@ public class tab2Inventory extends Fragment {
             }
     }
 
-    private void setMeleeSlotNames(){
-        // Sets the melee child title card to include the name of the weapon it is currently holding
-
-        // Creates an array for the method to run through
-        //String[] MeleeSlotNames = new String[]{};
-
-        // Itterates through each of the cards using a for statement
-
-        // checks if there is an weapon stored, if not print "Slot x". if true print "Slot <x> - <Weapon Name>"
-
-
-    }
-
 
     public tab2Inventory() {
         // Required empty public constructor
@@ -226,6 +213,11 @@ public class tab2Inventory extends Fragment {
         meleeCard2                      = view.findViewById(R.id.Melee2Card);
         meleeCard3                      = view.findViewById(R.id.Melee3Card);
         meleeCard4                      = view.findViewById(R.id.Melee4Card);
+
+        meleeWeapon1Slot                = view.findViewById(R.id.Melee1TitleTextView);
+        meleeWeapon2Slot                = view.findViewById(R.id.Melee1TitleTextView);
+        meleeWeapon3Slot                = view.findViewById(R.id.Melee1TitleTextView);
+        meleeWeapon4Slot                = view.findViewById(R.id.Melee1TitleTextView);
 
         melParentButton                 = view.findViewById(R.id.MeleeParentExpandImageButton);
         melWep1ExpandButton             = view.findViewById(R.id.meWep1_ExpandImageButton);
@@ -391,6 +383,9 @@ public class tab2Inventory extends Fragment {
                 }
             }
         });
+
+
+        // TODO - addTextChangeListener to set the names of the weapon slots to the names of the slotted weapons ie. "Slot 1: The finger blaster"
 
 
         //Returns the view inflater

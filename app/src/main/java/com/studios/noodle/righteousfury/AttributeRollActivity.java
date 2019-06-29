@@ -287,8 +287,11 @@ public class AttributeRollActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                // After use the burn button will be disabled
+                // Disabling all buttons, after a fate point is burned it is an auto win state. No further button-presses needed
                 burnButton.setEnabled(false);
+                rollButton.setEnabled(false);
+                reRollButton.setEnabled(false);
+                fatepointRollButton.setEnabled(false);
 
                 // Checks to see how to remove a fate point
                 if (currentFP == maxFP){
@@ -306,7 +309,6 @@ public class AttributeRollActivity extends AppCompatActivity {
                 // Updating the value of the current and maxFP counter
                 fatePointTotalString = currentFP + " / " + maxFP;
                 currentFatePointValue.setText(fatePointTotalString);
-
             }
         });
     }

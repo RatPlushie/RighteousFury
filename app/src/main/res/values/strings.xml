@@ -103,7 +103,7 @@
     <string name="melee_weapon_four">Slot 4</string>
 
     <!-- Missile Weapons -->
-    <string name="missile_weapon_titlecard">Missile Weapon</string>
+    <string name="missile_weapon_titlecard">Missile Weapons</string>
     <string name="missile_weapon_name">Name</string>
     <string name="missile_weapon_class">Class</string>
     <string name="missile_weapon_damage">Damage</string>

@@ -40,7 +40,7 @@
                         android:padding="8dp"
                         android:text="@string/melee_weapon_titlecard"
                         android:textAlignment="textStart"
-                        android:textSize="18sp"
+                        android:textSize="14sp"
                         android:textStyle="bold"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -148,7 +148,7 @@
 
                                     <EditText
                                         android:id="@+id/meWep1_ClassEditText"
-                                        android:layout_width="50dp"
+                                        android:layout_width="88dp"
                                         android:layout_height="wrap_content"
                                         android:layout_marginStart="8dp"
                                         android:layout_marginTop="20dp"
@@ -170,7 +170,7 @@
 
                                     <EditText
                                         android:id="@+id/meWep1_DamageEditText"
-                                        android:layout_width="50dp"
+                                        android:layout_width="89dp"
                                         android:layout_height="wrap_content"
                                         android:layout_marginStart="8dp"
                                         android:layout_marginTop="20dp"
@@ -192,7 +192,7 @@
 
                                     <EditText
                                         android:id="@+id/meWep1_TypeEditText"
-                                        android:layout_width="50dp"
+                                        android:layout_width="89dp"
                                         android:layout_height="wrap_content"
                                         android:layout_marginStart="8dp"
                                         android:layout_marginTop="20dp"
@@ -214,7 +214,7 @@
 
                                     <EditText
                                         android:id="@+id/meWep1_PenEditText"
-                                        android:layout_width="50dp"
+                                        android:layout_width="89dp"
                                         android:layout_height="wrap_content"
                                         android:layout_marginStart="8dp"
                                         android:layout_marginTop="20dp"
@@ -346,7 +346,7 @@
 
                                     <EditText
                                         android:id="@+id/meWep2_ClassEditText"
-                                        android:layout_width="50dp"
+                                        android:layout_width="88dp"
                                         android:layout_height="wrap_content"
                                         android:layout_marginStart="8dp"
                                         android:layout_marginTop="20dp"
@@ -368,7 +368,7 @@
 
                                     <EditText
                                         android:id="@+id/meWep2_DamageEditText"
-                                        android:layout_width="50dp"
+                                        android:layout_width="89dp"
                                         android:layout_height="wrap_content"
                                         android:layout_marginStart="8dp"
                                         android:layout_marginTop="20dp"
@@ -390,7 +390,7 @@
 
                                     <EditText
                                         android:id="@+id/meWep2_TypeEditText"
-                                        android:layout_width="50dp"
+                                        android:layout_width="89dp"
                                         android:layout_height="wrap_content"
                                         android:layout_marginStart="8dp"
                                         android:layout_marginTop="20dp"
@@ -412,7 +412,7 @@
 
                                     <EditText
                                         android:id="@+id/meWep2_PenEditText"
-                                        android:layout_width="50dp"
+                                        android:layout_width="89dp"
                                         android:layout_height="wrap_content"
                                         android:layout_marginStart="8dp"
                                         android:layout_marginTop="20dp"
@@ -544,7 +544,7 @@
 
                                     <EditText
                                         android:id="@+id/meWep3_ClassEditText"
-                                        android:layout_width="50dp"
+                                        android:layout_width="88dp"
                                         android:layout_height="wrap_content"
                                         android:layout_marginStart="8dp"
                                         android:layout_marginTop="20dp"
@@ -566,7 +566,7 @@
 
                                     <EditText
                                         android:id="@+id/meWep3_DamageEditText"
-                                        android:layout_width="50dp"
+                                        android:layout_width="89dp"
                                         android:layout_height="wrap_content"
                                         android:layout_marginStart="8dp"
                                         android:layout_marginTop="20dp"
@@ -588,7 +588,7 @@
 
                                     <EditText
                                         android:id="@+id/meWep3_TypeEditText"
-                                        android:layout_width="50dp"
+                                        android:layout_width="89dp"
                                         android:layout_height="wrap_content"
                                         android:layout_marginStart="8dp"
                                         android:layout_marginTop="20dp"
@@ -610,7 +610,7 @@
 
                                     <EditText
                                         android:id="@+id/meWep3_PenEditText"
-                                        android:layout_width="50dp"
+                                        android:layout_width="89dp"
                                         android:layout_height="wrap_content"
                                         android:layout_marginStart="8dp"
                                         android:layout_marginTop="20dp"
@@ -742,7 +742,7 @@
 
                                     <EditText
                                         android:id="@+id/meWep4_ClassEditText"
-                                        android:layout_width="50dp"
+                                        android:layout_width="88dp"
                                         android:layout_height="wrap_content"
                                         android:layout_marginStart="8dp"
                                         android:layout_marginTop="20dp"
@@ -764,7 +764,7 @@
 
                                     <EditText
                                         android:id="@+id/meWep4_DamageEditText"
-                                        android:layout_width="50dp"
+                                        android:layout_width="89dp"
                                         android:layout_height="wrap_content"
                                         android:layout_marginStart="8dp"
                                         android:layout_marginTop="20dp"
@@ -786,7 +786,7 @@
 
                                     <EditText
                                         android:id="@+id/meWep4_TypeEditText"
-                                        android:layout_width="50dp"
+                                        android:layout_width="89dp"
                                         android:layout_height="wrap_content"
                                         android:layout_marginStart="8dp"
                                         android:layout_marginTop="20dp"
@@ -808,7 +808,7 @@
 
                                     <EditText
                                         android:id="@+id/meWep4_PenEditText"
-                                        android:layout_width="50dp"
+                                        android:layout_width="89dp"
                                         android:layout_height="wrap_content"
                                         android:layout_marginStart="8dp"
                                         android:layout_marginTop="20dp"
