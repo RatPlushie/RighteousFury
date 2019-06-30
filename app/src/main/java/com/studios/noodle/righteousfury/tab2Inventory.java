@@ -325,6 +325,127 @@ public class tab2Inventory extends Fragment {
             }
     }
 
+    private void setMissileVisibility(int weaponSlot, int visibilityMode){
+
+        // visibilityMode = 0 -> VISIBLE
+        // visibilityMode = 4 -> INVISIBLE
+        // visibilityMode = 8 -> GONE
+
+        switch (weaponSlot){
+            case 1: // Setting missile weapon slot 1 to required visibility
+
+                misWep1_NameTextView.setVisibility(visibilityMode);
+                misWep1_NameEditText.setVisibility(visibilityMode);
+                misWep1_Divider1.setVisibility(visibilityMode);
+                misWep1_ClassTextView.setVisibility(visibilityMode);
+                misWep1_ClassEditText.setVisibility(visibilityMode);
+                misWep1_DamageTextView.setVisibility(visibilityMode);
+                misWep1_DamageEditText.setVisibility(visibilityMode);
+                misWep1_TypeTextView.setVisibility(visibilityMode);
+                misWep1_TypeEditText.setVisibility(visibilityMode);
+                misWep1_PenetrationTextView.setVisibility(visibilityMode);
+                misWep1_PenetrationEditText.setVisibility(visibilityMode);
+                misWep1_Divider2.setVisibility(visibilityMode);
+                misWep1_RangeTextView.setVisibility(visibilityMode);
+                misWep1_RangeEditText.setVisibility(visibilityMode);
+                misWep1_RoFTextView.setVisibility(visibilityMode);
+                misWep1_RoFEditText.setVisibility(visibilityMode);
+                misWep1_ClipTextView.setVisibility(visibilityMode);
+                misWep1_ClipEditText.setVisibility(visibilityMode);
+                misWep1_RLDTextView.setVisibility(visibilityMode);
+                misWep1_RLDEditText.setVisibility(visibilityMode);
+                misWep1_Divider3.setVisibility(visibilityMode);
+                misWep1_SpecialRulesTextView.setVisibility(visibilityMode);
+                misWep1_SpecialRulesEditText.setVisibility(visibilityMode);
+
+                break;
+
+            case 2:
+
+                misWep2_NameTextView.setVisibility(visibilityMode);
+                misWep2_NameEditText.setVisibility(visibilityMode);
+                misWep2_Divider1.setVisibility(visibilityMode);
+                misWep2_ClassTextView.setVisibility(visibilityMode);
+                misWep2_ClassEditText.setVisibility(visibilityMode);
+                misWep2_DamageTextView.setVisibility(visibilityMode);
+                misWep2_DamageEditText.setVisibility(visibilityMode);
+                misWep2_TypeTextView.setVisibility(visibilityMode);
+                misWep2_TypeEditText.setVisibility(visibilityMode);
+                misWep2_PenetrationTextView.setVisibility(visibilityMode);
+                misWep2_PenetrationEditText.setVisibility(visibilityMode);
+                misWep2_Divider2.setVisibility(visibilityMode);
+                misWep2_RangeTextView.setVisibility(visibilityMode);
+                misWep2_RangeEditText.setVisibility(visibilityMode);
+                misWep2_RoFTextView.setVisibility(visibilityMode);
+                misWep2_RoFEditText.setVisibility(visibilityMode);
+                misWep2_ClipTextView.setVisibility(visibilityMode);
+                misWep2_ClipEditText.setVisibility(visibilityMode);
+                misWep2_RLDTextView.setVisibility(visibilityMode);
+                misWep2_RLDEditText.setVisibility(visibilityMode);
+                misWep2_Divider3.setVisibility(visibilityMode);
+                misWep2_SpecialRulesTextView.setVisibility(visibilityMode);
+                misWep2_SpecialRulesEditText.setVisibility(visibilityMode);
+
+                break;
+
+            case 3:
+
+                misWep3_NameTextView.setVisibility(visibilityMode);
+                misWep3_NameEditText.setVisibility(visibilityMode);
+                misWep3_Divider1.setVisibility(visibilityMode);
+                misWep3_ClassTextView.setVisibility(visibilityMode);
+                misWep3_ClassEditText.setVisibility(visibilityMode);
+                misWep3_DamageTextView.setVisibility(visibilityMode);
+                misWep3_DamageEditText.setVisibility(visibilityMode);
+                misWep3_TypeTextView.setVisibility(visibilityMode);
+                misWep3_TypeEditText.setVisibility(visibilityMode);
+                misWep3_PenetrationTextView.setVisibility(visibilityMode);
+                misWep3_PenetrationEditText.setVisibility(visibilityMode);
+                misWep3_Divider2.setVisibility(visibilityMode);
+                misWep3_RangeTextView.setVisibility(visibilityMode);
+                misWep3_RangeEditText.setVisibility(visibilityMode);
+                misWep3_RoFTextView.setVisibility(visibilityMode);
+                misWep3_RoFEditText.setVisibility(visibilityMode);
+                misWep3_ClipTextView.setVisibility(visibilityMode);
+                misWep3_ClipEditText.setVisibility(visibilityMode);
+                misWep3_RLDTextView.setVisibility(visibilityMode);
+                misWep3_RLDEditText.setVisibility(visibilityMode);
+                misWep3_Divider3.setVisibility(visibilityMode);
+                misWep3_SpecialRulesTextView.setVisibility(visibilityMode);
+                misWep3_SpecialRulesEditText.setVisibility(visibilityMode);
+
+                break;
+
+            case 4:
+
+                misWep4_NameTextView.setVisibility(visibilityMode);
+                misWep4_NameEditText.setVisibility(visibilityMode);
+                misWep4_Divider1.setVisibility(visibilityMode);
+                misWep4_ClassTextView.setVisibility(visibilityMode);
+                misWep4_ClassEditText.setVisibility(visibilityMode);
+                misWep4_DamageTextView.setVisibility(visibilityMode);
+                misWep4_DamageEditText.setVisibility(visibilityMode);
+                misWep4_TypeTextView.setVisibility(visibilityMode);
+                misWep4_TypeEditText.setVisibility(visibilityMode);
+                misWep4_PenetrationTextView.setVisibility(visibilityMode);
+                misWep4_PenetrationEditText.setVisibility(visibilityMode);
+                misWep4_Divider2.setVisibility(visibilityMode);
+                misWep4_RangeTextView.setVisibility(visibilityMode);
+                misWep4_RangeEditText.setVisibility(visibilityMode);
+                misWep4_RoFTextView.setVisibility(visibilityMode);
+                misWep4_RoFEditText.setVisibility(visibilityMode);
+                misWep4_ClipTextView.setVisibility(visibilityMode);
+                misWep4_ClipEditText.setVisibility(visibilityMode);
+                misWep4_RLDTextView.setVisibility(visibilityMode);
+                misWep4_RLDEditText.setVisibility(visibilityMode);
+                misWep4_Divider3.setVisibility(visibilityMode);
+                misWep4_SpecialRulesTextView.setVisibility(visibilityMode);
+                misWep4_SpecialRulesEditText.setVisibility(visibilityMode);
+
+                break;
+        }
+    }
+
 
     public tab2Inventory() {
         // Required empty public constructor
@@ -556,22 +677,34 @@ public class tab2Inventory extends Fragment {
         misWep4_Divider2                = view.findViewById(R.id.miWep4_divider2);
         misWep4_Divider3                = view.findViewById(R.id.miWep4_divider3);
 
-        // TODO - continue on from this line down, adding the missile weapons to the logic
 
         // Setting all required views to GONE at onCreate
-        // Parent Cards
+        // Melee parent cards
         meleeCard1.setVisibility(View.GONE);
         meleeCard2.setVisibility(View.GONE);
         meleeCard3.setVisibility(View.GONE);
         meleeCard4.setVisibility(View.GONE);
+
+        // Missile parent cards
+        missileCard1.setVisibility(View.GONE);
+        missileCard2.setVisibility(View.GONE);
+        missileCard3.setVisibility(View.GONE);
+        missileCard4.setVisibility(View.GONE);
+
         // Melee Weapon slot cards
         setMeleeVisibility(1, 8);
         setMeleeVisibility(2, 8);
         setMeleeVisibility(3, 8);
         setMeleeVisibility(4, 8);
 
+        // Missile weapon slot cards
+        setMissileVisibility(1, 8);
+        setMissileVisibility(2, 8);
+        setMissileVisibility(3, 8);
+        setMissileVisibility(4, 8);
 
-        // Creating onClick listener to the expand parent melee weapon expand button
+
+        // Creating onClick listener to the expand parent melee weapon card
         melParentButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -648,6 +781,75 @@ public class tab2Inventory extends Fragment {
             }
         });
 
+        // Creating onClick listener to expand the parent missile weapon card
+        misParentButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if ( missileCard1.getVisibility() == View.VISIBLE){
+                    // Checks its visibility and then reverses it VISIBLE <-> GONE
+                    missileCard1.setVisibility(View.GONE);
+                    missileCard2.setVisibility(View.GONE);
+                    missileCard3.setVisibility(View.GONE);
+                    missileCard4.setVisibility(View.GONE);
+                } else {
+                    missileCard1.setVisibility(View.VISIBLE);
+                    missileCard2.setVisibility(View.VISIBLE);
+                    missileCard3.setVisibility(View.VISIBLE);
+                    missileCard4.setVisibility(View.VISIBLE);
+
+                    // Ensures that after the parent has been closed, the children all default to closed too
+                    setMissileVisibility(1, 8);
+                    setMissileVisibility(2, 8);
+                    setMissileVisibility(3, 8);
+                    setMissileVisibility(4, 8);
+                }
+            }
+        });
+
+        misWep1ExpandButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (misWep1_NameTextView.getVisibility() == View.VISIBLE){
+                    setMissileVisibility(1, 8);
+                } else {
+                    setMissileVisibility(1, 0);
+                }
+            }
+        });
+
+        misWep2ExpandButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (misWep2_NameTextView.getVisibility() == View.VISIBLE){
+                    setMissileVisibility(2, 8);
+                } else {
+                    setMissileVisibility(2, 0);
+                }
+            }
+        });
+
+        misWep3ExpandButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (misWep3_NameTextView.getVisibility() == View.VISIBLE){
+                    setMissileVisibility(3, 8);
+                } else {
+                    setMissileVisibility(3, 0);
+                }
+            }
+        });
+
+        misWep4ExpandButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if ( misWep4_NameTextView.getVisibility() == View.VISIBLE){
+                    setMissileVisibility(4, 8);
+                } else {
+                    setMissileVisibility(4, 0);
+                }
+            }
+        });
+
 
         // TODO - addTextChangeListener to set the names of the weapon slots to the names of the slotted weapons ie. "Slot 1: The finger blaster"
 
@@ -664,6 +866,7 @@ public class tab2Inventory extends Fragment {
         // Initialisation of the shared preference object to load character data onResume
         SharedPreferences sharedPreferences = getContext().getSharedPreferences(SHARED_PREFS, Context.MODE_PRIVATE);
 
+        // Loading melee weapon 1 slot
         melWep1_NameEditText.setText(sharedPreferences.getString("meleeWeapon1_Name", ""));
         melWep1_ClassEditText.setText(sharedPreferences.getString("meleeWeapon1_Class", ""));
         melWep1_DamageEditText.setText(sharedPreferences.getString("meleeWeapon1_Damage", ""));
@@ -671,6 +874,7 @@ public class tab2Inventory extends Fragment {
         melWep1_PenetrationEditText.setText(sharedPreferences.getString("meleeWeapon1_Penetration", ""));
         melWep1_SpecialRulesEditText.setText(sharedPreferences.getString("meleeWeapon1_SpecialRules", ""));
 
+        // Loading melee weapon 2 slot
         melWep2_NameEditText.setText(sharedPreferences.getString("meleeWeapon2_Name", ""));
         melWep2_ClassEditText.setText(sharedPreferences.getString("meleeWeapon2_Class", ""));
         melWep2_DamageEditText.setText(sharedPreferences.getString("meleeWeapon2_Damage", ""));
@@ -678,6 +882,7 @@ public class tab2Inventory extends Fragment {
         melWep2_PenetrationEditText.setText(sharedPreferences.getString("meleeWeapon2_Penetration", ""));
         melWep2_SpecialRulesEditText.setText(sharedPreferences.getString("meleeWeapon2_SpecialRules", ""));
 
+        // Loading melee weapon 3 slot
         melWep3_NameEditText.setText(sharedPreferences.getString("meleeWeapon3_Name", ""));
         melWep3_ClassEditText.setText(sharedPreferences.getString("meleeWeapon3_Class", ""));
         melWep3_DamageEditText.setText(sharedPreferences.getString("meleeWeapon3_Damage", ""));
@@ -685,12 +890,61 @@ public class tab2Inventory extends Fragment {
         melWep3_PenetrationEditText.setText(sharedPreferences.getString("meleeWeapon3_Penetration", ""));
         melWep3_SpecialRulesEditText.setText(sharedPreferences.getString("meleeWeapon3_SpecialRules", ""));
 
+        // Loading melee weapon 4 slot
         melWep4_NameEditText.setText(sharedPreferences.getString("meleeWeapon4_Name", ""));
         melWep4_ClassEditText.setText(sharedPreferences.getString("meleeWeapon4_Class", ""));
         melWep4_DamageEditText.setText(sharedPreferences.getString("meleeWeapon4_Damage", ""));
         melWep4_TypeEditText.setText(sharedPreferences.getString("meleeWeapon4_Type", ""));
         melWep4_PenetrationEditText.setText(sharedPreferences.getString("meleeWeapon4_Penetration", ""));
         melWep4_SpecialRulesEditText.setText(sharedPreferences.getString("meleeWeapon4_SpecialRules", ""));
+
+        // Loading missile weapon 1 slot
+        misWep1_NameEditText.setText(sharedPreferences.getString("missileWeapon1_Name", ""));
+        misWep1_ClassEditText.setText(sharedPreferences.getString("missileWeapon1_Class", ""));
+        misWep1_DamageEditText.setText(sharedPreferences.getString("missileWeapon1_Damage", ""));
+        misWep1_TypeEditText.setText(sharedPreferences.getString("missileWeapon1_Type", ""));
+        misWep1_PenetrationEditText.setText(sharedPreferences.getString("missileWeapon1_Penetration", ""));
+        misWep1_RangeEditText.setText(sharedPreferences.getString("missileWeapon1_Range", ""));
+        misWep1_RoFEditText.setText(sharedPreferences.getString("missileWeapon1_RoF", ""));
+        misWep1_ClipEditText.setText(sharedPreferences.getString("missileWeapon1_Clip", ""));
+        misWep1_RLDEditText.setText(sharedPreferences.getString("missileWeapon1_RLD", ""));
+        misWep1_SpecialRulesEditText.setText(sharedPreferences.getString("missileWeapon1_SpecialRules", ""));
+
+        // Loading missile weapon 2 slot
+        misWep2_NameEditText.setText(sharedPreferences.getString("missileWeapon2_Name", ""));
+        misWep2_ClassEditText.setText(sharedPreferences.getString("missileWeapon2_Class", ""));
+        misWep2_DamageEditText.setText(sharedPreferences.getString("missileWeapon2_Damage", ""));
+        misWep2_TypeEditText.setText(sharedPreferences.getString("missileWeapon2_Type", ""));
+        misWep2_PenetrationEditText.setText(sharedPreferences.getString("missileWeapon2_Penetration", ""));
+        misWep2_RangeEditText.setText(sharedPreferences.getString("missileWeapon2_Range", ""));
+        misWep2_RoFEditText.setText(sharedPreferences.getString("missileWeapon2_RoF", ""));
+        misWep2_ClipEditText.setText(sharedPreferences.getString("missileWeapon2_Clip", ""));
+        misWep2_RLDEditText.setText(sharedPreferences.getString("missileWeapon2_RLD", ""));
+        misWep2_SpecialRulesEditText.setText(sharedPreferences.getString("missileWeapon2_SpecialRules", ""));
+
+        // Loading missile weapon 3 slot
+        misWep3_NameEditText.setText(sharedPreferences.getString("missileWeapon3_Name", ""));
+        misWep3_ClassEditText.setText(sharedPreferences.getString("missileWeapon3_Class", ""));
+        misWep3_DamageEditText.setText(sharedPreferences.getString("missileWeapon3_Damage", ""));
+        misWep3_TypeEditText.setText(sharedPreferences.getString("missileWeapon3_Type", ""));
+        misWep3_PenetrationEditText.setText(sharedPreferences.getString("missileWeapon3_Penetration", ""));
+        misWep3_RangeEditText.setText(sharedPreferences.getString("missileWeapon3_Range", ""));
+        misWep3_RoFEditText.setText(sharedPreferences.getString("missileWeapon3_RoF", ""));
+        misWep3_ClipEditText.setText(sharedPreferences.getString("missileWeapon3_Clip", ""));
+        misWep3_RLDEditText.setText(sharedPreferences.getString("missileWeapon3_RLD", ""));
+        misWep3_SpecialRulesEditText.setText(sharedPreferences.getString("missileWeapon3_SpecialRules", ""));
+
+        // Loading missile weapon 4 slot
+        misWep4_NameEditText.setText(sharedPreferences.getString("missileWeapon4_Name", ""));
+        misWep4_ClassEditText.setText(sharedPreferences.getString("missileWeapon4_Class", ""));
+        misWep4_DamageEditText.setText(sharedPreferences.getString("missileWeapon4_Damage", ""));
+        misWep4_TypeEditText.setText(sharedPreferences.getString("missileWeapon4_Type", ""));
+        misWep4_PenetrationEditText.setText(sharedPreferences.getString("missileWeapon4_Penetration", ""));
+        misWep4_RangeEditText.setText(sharedPreferences.getString("missileWeapon4_Range", ""));
+        misWep4_RoFEditText.setText(sharedPreferences.getString("missileWeapon4_RoF", ""));
+        misWep4_ClipEditText.setText(sharedPreferences.getString("missileWeapon4_Clip", ""));
+        misWep4_RLDEditText.setText(sharedPreferences.getString("missileWeapon4_RLD", ""));
+        misWep4_SpecialRulesEditText.setText(sharedPreferences.getString("missileWeapon4_SpecialRules", ""));
 
     }
 
@@ -737,6 +991,54 @@ public class tab2Inventory extends Fragment {
         edit.putString("meleeWeapon4_Type", melWep4_TypeEditText.getText().toString().trim());
         edit.putString("meleeWeapon4_Penetration", melWep4_PenetrationEditText.getText().toString().trim());
         edit.putString("meleeWeapon4_SpecialRules", melWep4_SpecialRulesEditText.getText().toString().trim());
+
+        // Missile Weapon - Slot 1
+        edit.putString("missileWeapon1_Name", misWep1_NameEditText.getText().toString().trim());
+        edit.putString("missileWeapon1_Class", misWep1_ClassEditText.getText().toString().trim());
+        edit.putString("missileWeapon1_Damage", misWep1_DamageEditText.getText().toString().trim());
+        edit.putString("missileWeapon1_Type", misWep1_TypeEditText.getText().toString().trim());
+        edit.putString("missileWeapon1_Penetration", misWep1_PenetrationEditText.getText().toString().trim());
+        edit.putString("missileWeapon1_Range", misWep1_RangeEditText.getText().toString().trim());
+        edit.putString("missileWeapon1_RoF", misWep1_RoFEditText.getText().toString().trim());
+        edit.putString("missileWeapon1_Clip", misWep1_ClipEditText.getText().toString().trim());
+        edit.putString("missileWeapon1_RLD", misWep1_RLDEditText.getText().toString().trim());
+        edit.putString("missileWeapon1_SpecialRules", misWep1_SpecialRulesEditText.getText().toString().trim());
+
+        // Missile Weapon - Slot 2
+        edit.putString("missileWeapon2_Name", misWep2_NameEditText.getText().toString().trim());
+        edit.putString("missileWeapon2_Class", misWep2_ClassEditText.getText().toString().trim());
+        edit.putString("missileWeapon2_Damage", misWep2_DamageEditText.getText().toString().trim());
+        edit.putString("missileWeapon2_Type", misWep2_TypeEditText.getText().toString().trim());
+        edit.putString("missileWeapon2_Penetration", misWep2_PenetrationEditText.getText().toString().trim());
+        edit.putString("missileWeapon2_Range", misWep2_RangeEditText.getText().toString().trim());
+        edit.putString("missileWeapon2_RoF", misWep2_RoFEditText.getText().toString().trim());
+        edit.putString("missileWeapon2_Clip", misWep2_ClipEditText.getText().toString().trim());
+        edit.putString("missileWeapon2_RLD", misWep2_RLDEditText.getText().toString().trim());
+        edit.putString("missileWeapon2_SpecialRules", misWep2_SpecialRulesEditText.getText().toString().trim());
+
+        // Missile Weapon - Slot 3
+        edit.putString("missileWeapon3_Name", misWep3_NameEditText.getText().toString().trim());
+        edit.putString("missileWeapon3_Class", misWep3_ClassEditText.getText().toString().trim());
+        edit.putString("missileWeapon3_Damage", misWep3_DamageEditText.getText().toString().trim());
+        edit.putString("missileWeapon3_Type", misWep3_TypeEditText.getText().toString().trim());
+        edit.putString("missileWeapon3_Penetration", misWep3_PenetrationEditText.getText().toString().trim());
+        edit.putString("missileWeapon3_Range", misWep3_RangeEditText.getText().toString().trim());
+        edit.putString("missileWeapon3_RoF", misWep3_RoFEditText.getText().toString().trim());
+        edit.putString("missileWeapon3_Clip", misWep3_ClipEditText.getText().toString().trim());
+        edit.putString("missileWeapon3_RLD", misWep3_RLDEditText.getText().toString().trim());
+        edit.putString("missileWeapon3_SpecialRules", misWep3_SpecialRulesEditText.getText().toString().trim());
+
+        // Missile Weapon - Slot 4
+        edit.putString("missileWeapon4_Name", misWep4_NameEditText.getText().toString().trim());
+        edit.putString("missileWeapon4_Class", misWep4_ClassEditText.getText().toString().trim());
+        edit.putString("missileWeapon4_Damage", misWep4_DamageEditText.getText().toString().trim());
+        edit.putString("missileWeapon4_Type", misWep4_TypeEditText.getText().toString().trim());
+        edit.putString("missileWeapon4_Penetration", misWep4_PenetrationEditText.getText().toString().trim());
+        edit.putString("missileWeapon4_Range", misWep4_RangeEditText.getText().toString().trim());
+        edit.putString("missileWeapon4_RoF", misWep4_RoFEditText.getText().toString().trim());
+        edit.putString("missileWeapon4_Clip", misWep4_ClipEditText.getText().toString().trim());
+        edit.putString("missileWeapon4_RLD", misWep4_RLDEditText.getText().toString().trim());
+        edit.putString("missileWeapon4_SpecialRules", misWep4_SpecialRulesEditText.getText().toString().trim());
 
         // Applies the changes to the shared preferences file
         edit.apply();

@@ -40,7 +40,6 @@
                         android:layout_height="wrap_content"
                         android:padding="8dp"
                         android:text="@string/melee_weapon_titlecard"
-                        android:textAlignment="textStart"
                         android:textSize="14sp"
                         android:textStyle="bold"
                         app:layout_constraintStart_toStartOf="parent"
