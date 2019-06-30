@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_inquisitor_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AttributeRollActivity"></activity>
+        <activity android:name=".bsActivity"></activity>
+        <activity android:name=".wsActivity" />
+        <activity android:name=".AttributeRollActivity" />
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"

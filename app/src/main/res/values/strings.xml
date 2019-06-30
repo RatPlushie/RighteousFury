@@ -90,16 +90,20 @@
     <string name="save_character">Pressing this will save the current character</string>
 
     <!-- Melee Weapons -->
-    <string name="melee_weapon_titlecard">Melee Weapon</string>
+    <string name="melee_weapon_titlecard">Melee Weapons</string>
     <string name="melee_weapon_name">Name</string>
     <string name="melee_weapon_class">Class</string>
     <string name="melee_weapon_damage">Damage</string>
     <string name="melee_weapon_type">Type</string>
     <string name="melee_weapon_penetration">Penetration</string>
     <string name="melee_weapon_special_rules">Special Rules</string>
+    <string name="melee_weapon_one">Slot 1</string>
+    <string name="melee_weapon_two">Slot 2</string>
+    <string name="melee_weapon_three">Slot 3</string>
+    <string name="melee_weapon_four">Slot 4</string>
 
     <!-- Missile Weapons -->
-    <string name="missile_weapon_titlecard">Missile Weapon</string>
+    <string name="missile_weapon_titlecard">Missile Weapons</string>
     <string name="missile_weapon_name">Name</string>
     <string name="missile_weapon_class">Class</string>
     <string name="missile_weapon_damage">Damage</string>
@@ -111,6 +115,11 @@
     <string name="missile_weapon_rld">Reload</string>
     <string name="missile_weapon_special_rules">Special Rules</string>
 
+    <!-- Ammo Strings -->
+    <string name="ammo_title">Ammo</string>
+    <string name="ammo_val_hint">No. </string>
+    <string name="ammo_name_hint">Ammo Name</string>
+    <string name="ammo_list">Ammo:</string>
 
 
 </resources>

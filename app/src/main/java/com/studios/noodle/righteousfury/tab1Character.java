@@ -174,6 +174,15 @@ public class tab1Character extends Fragment {
             @Override
             public void onClick(View view) {
 
+                // Initialise Intent - Move from this tab1Character fragment to AttributeRollActivity
+                Intent intent = new Intent(getActivity(), wsActivity.class);
+
+                // Starting the activity's intent
+                startActivity(intent);
+
+                // Overrides the default animation to slide in on right
+                getActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+
             }
         });
 
@@ -181,6 +190,15 @@ public class tab1Character extends Fragment {
         bsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                // Initialise Intent - Move from this tab1Character fragment to AttributeRollActivity
+                Intent intent = new Intent(getActivity(), bsActivity.class);
+
+                // Starting the activity's intent
+                startActivity(intent);
+
+                // Overrides the default animation to slide in on right
+                getActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
 
             }
         });
@@ -407,7 +425,7 @@ public class tab1Character extends Fragment {
         // Initialisation of the shared preference object to load character data onResume
         SharedPreferences sharedPreferences = getContext().getSharedPreferences(SHARED_PREFS, Context.MODE_PRIVATE);
 
-        // Loading of stored character - using string placeholders at the moment
+        // Loading of stored character
         // Display Character's Name
         charName.setText(sharedPreferences.getString("character_name", ""));
 
