@@ -121,5 +121,8 @@
     <string name="ammo_name_hint">Ammo Name</string>
     <string name="ammo_list">Ammo:</string>
 
-
+    <!-- BS Strings -->
+    <string name="bs_weapon_selector_title">Weapon:</string>
+    <string name="bs_ammo_selector_title">Ammo:</string>
+    
 </resources>

@@ -22,7 +22,8 @@
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginTop="10dp"
-            android:layout_marginEnd="4dp">
+            android:layout_marginEnd="4dp"
+            app:cardBackgroundColor="@color/cardPrimary">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -36,6 +37,7 @@
                     android:layout_marginTop="8dp"
                     android:layout_marginBottom="8dp"
                     android:text="@string/character_Name"
+                    android:textColor="@color/textPrimary"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -51,6 +53,7 @@
                     android:gravity="center|start"
                     android:inputType="text"
                     android:textAlignment="textStart"
+                    android:textColor="@color/textPrimary"
                     android:textSize="14sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -72,7 +75,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
                 android:layout_marginEnd="5dp"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                app:cardBackgroundColor="@color/cardPrimary">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -86,6 +90,7 @@
                         android:layout_marginTop="8dp"
                         android:layout_marginBottom="8dp"
                         android:text="@string/hp"
+                        android:textColor="@color/textPrimary"
                         android:textStyle="bold"
                         app:autoSizeTextType="none"
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -100,6 +105,7 @@
                         android:layout_marginTop="1dp"
                         android:gravity="center"
                         android:textAlignment="center"
+                        android:textColor="@color/textPrimary"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toTopOf="@+id/HPFractionDivider"
                         app:layout_constraintStart_toEndOf="@+id/HPStatName"
@@ -110,7 +116,7 @@
                         android:layout_width="40dp"
                         android:layout_height="1dp"
                         android:layout_marginStart="20dp"
-                        android:background="#000000"
+                        android:background="@color/textPrimary"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/HPStatName"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -125,6 +131,7 @@
                         android:hint="@string/maxhp_hint"
                         android:inputType="number"
                         android:textAlignment="center"
+                        android:textColor="@color/textPrimary"
                         android:textSize="14sp"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -164,7 +171,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
                 android:layout_marginEnd="5dp"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                app:cardBackgroundColor="@color/cardPrimary">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -180,6 +188,7 @@
                         android:maxLines="2"
                         android:minLines="2"
                         android:text="@string/fp"
+                        android:textColor="@color/textPrimary"
                         android:textStyle="bold"
                         app:autoSizeTextType="none"
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -194,6 +203,7 @@
                         android:layout_marginTop="1dp"
                         android:gravity="center"
                         android:textAlignment="center"
+                        android:textColor="@color/textPrimary"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toTopOf="@+id/FPFractionDivider"
                         app:layout_constraintStart_toEndOf="@+id/FPStatName"
@@ -204,7 +214,7 @@
                         android:layout_width="40dp"
                         android:layout_height="1dp"
                         android:layout_marginStart="20dp"
-                        android:background="#000000"
+                        android:background="@color/textPrimary"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/FPStatName"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -219,6 +229,7 @@
                         android:hint="@string/maxfp_hint"
                         android:inputType="number"
                         android:textAlignment="center"
+                        android:textColor="@color/textPrimary"
                         android:textSize="14sp"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -267,7 +278,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginEnd="5dp"
-                android:layout_weight="0.25">
+                android:layout_weight="0.25"
+                app:cardBackgroundColor="@color/cardPrimary">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -285,6 +297,7 @@
                         android:hint="@string/ws_hint"
                         android:inputType="number"
                         android:textAlignment="center"
+                        android:textColor="@color/textPrimary"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -299,6 +312,7 @@
                         android:layout_marginBottom="8dp"
                         android:gravity="center|start"
                         android:text="@string/stat_ws"
+                        android:textColor="@color/textPrimary"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/WSImageView"
@@ -341,7 +355,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginEnd="5dp"
-                android:layout_weight="0.25">
+                android:layout_weight="0.25"
+                app:cardBackgroundColor="@color/cardPrimary">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -359,6 +374,7 @@
                         android:hint="@string/bs_hint"
                         android:inputType="number"
                         android:textAlignment="center"
+                        android:textColor="@color/textPrimary"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -373,6 +389,7 @@
                         android:layout_marginBottom="8dp"
                         android:gravity="center|start"
                         android:text="@string/stat_bs"
+                        android:textColor="@color/textPrimary"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/BSImageView"
@@ -415,7 +432,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginEnd="5dp"
-                android:layout_weight="0.25">
+                android:layout_weight="0.25"
+                app:cardBackgroundColor="@color/cardPrimary">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -446,6 +464,7 @@
                         android:hint="@string/str_hint"
                         android:inputType="number"
                         android:textAlignment="center"
+                        android:textColor="@color/textPrimary"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -460,6 +479,7 @@
                         android:layout_marginBottom="8dp"
                         android:gravity="center|start"
                         android:text="@string/stat_str"
+                        android:textColor="@color/textPrimary"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/STRImageView"
@@ -490,7 +510,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginEnd="5dp"
-                android:layout_weight="0.25">
+                android:layout_weight="0.25"
+                app:cardBackgroundColor="@color/cardPrimary">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -520,6 +541,7 @@
                         android:hint="@string/t_hint"
                         android:inputType="number"
                         android:textAlignment="center"
+                        android:textColor="@color/textPrimary"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -534,6 +556,7 @@
                         android:layout_marginBottom="8dp"
                         android:gravity="center|start"
                         android:text="@string/stat_t"
+                        android:textColor="@color/textPrimary"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/TImageView"
@@ -564,7 +587,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginEnd="5dp"
-                android:layout_weight="0.25">
+                android:layout_weight="0.25"
+                app:cardBackgroundColor="@color/cardPrimary">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -594,6 +618,7 @@
                         android:hint="@string/ag_hint"
                         android:inputType="number"
                         android:textAlignment="center"
+                        android:textColor="@color/textPrimary"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -608,6 +633,7 @@
                         android:layout_marginBottom="8dp"
                         android:gravity="center|start"
                         android:text="@string/stat_ag"
+                        android:textColor="@color/textPrimary"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/AGImageView"
@@ -638,7 +664,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginEnd="5dp"
-                android:layout_weight="0.25">
+                android:layout_weight="0.25"
+                app:cardBackgroundColor="@color/cardPrimary">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -668,6 +695,7 @@
                         android:hint="@string/int_hint"
                         android:inputType="number"
                         android:textAlignment="center"
+                        android:textColor="@color/textPrimary"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -682,6 +710,7 @@
                         android:layout_marginBottom="8dp"
                         android:gravity="center|start"
                         android:text="@string/stat_int"
+                        android:textColor="@color/textPrimary"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/INTImageView"
@@ -712,7 +741,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginEnd="5dp"
-                android:layout_weight="0.25">
+                android:layout_weight="0.25"
+                app:cardBackgroundColor="@color/cardPrimary">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -742,6 +772,7 @@
                         android:hint="@string/per_hint"
                         android:inputType="number"
                         android:textAlignment="center"
+                        android:textColor="@color/textPrimary"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -756,6 +787,7 @@
                         android:layout_marginBottom="8dp"
                         android:gravity="center|start"
                         android:text="@string/stat_per"
+                        android:textColor="@color/textPrimary"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/PERImageView"
@@ -786,7 +818,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginEnd="5dp"
-                android:layout_weight="0.25">
+                android:layout_weight="0.25"
+                app:cardBackgroundColor="@color/cardPrimary">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -815,6 +848,7 @@
                         android:hint="@string/wp_hint"
                         android:inputType="number"
                         android:textAlignment="center"
+                        android:textColor="@color/textPrimary"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -829,6 +863,7 @@
                         android:layout_marginBottom="8dp"
                         android:gravity="center|start"
                         android:text="@string/stat_wp"
+                        android:textColor="@color/textPrimary"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/WPImageView"
@@ -859,7 +894,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginEnd="5dp"
-                android:layout_weight="0.25">
+                android:layout_weight="0.25"
+                app:cardBackgroundColor="@color/cardPrimary">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -889,6 +925,7 @@
                         android:hint="@string/fel_hint"
                         android:inputType="number"
                         android:textAlignment="center"
+                        android:textColor="@color/textPrimary"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -903,6 +940,7 @@
                         android:layout_marginBottom="8dp"
                         android:gravity="center|start"
                         android:text="@string/stat_fel"
+                        android:textColor="@color/textPrimary"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/FELImageView"
