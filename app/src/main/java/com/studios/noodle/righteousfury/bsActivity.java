@@ -6,9 +6,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.SeekBar;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -23,6 +23,12 @@ public class bsActivity extends AppCompatActivity {
 
     // Text view for the ammo count display
     private TextView ammoVal;
+
+    // Text view for the currently selected weapon display
+    private TextView weaponStats;
+
+    // Strings for the modifiers
+    private TextView modifierValue;
 
     // integers for the current and max fp
     private int maxFP;
@@ -83,12 +89,97 @@ public class bsActivity extends AppCompatActivity {
     private Spinner weaponSelector;
     private Spinner ammoSelector;
 
+    // Seekbars
+    private SeekBar bsModifierSeekBar;
+
     // Arrays for the ammo and weapon selection
     private ArrayAdapter<CharSequence> adapterWeapon;
     private ArrayAdapter<CharSequence> adapterAmmo;
 
+    // Int for Weapon slot selector
+    private int weaponSlotSelected;
+    private int ammoSlotSelected;
+
     // Variables for the shared preferences
     public static final String SHARED_PREFS = "sharedPrefs";
+
+    public String getWeaponStatString(int weaponSlot){
+        // Method wide variables for writing the string
+        String weaponClass;
+        String weaponDamage;
+        String weaponType;
+        String weaponPen;
+        String weaponRange;
+        String weaponRoF;
+        String weaponClip;
+        String weaponReload;
+
+        // Switch to decide which weapon stats to write with. listIndex is the position in the spinner list
+        switch (weaponSlot){
+            case 1: // Uses the weapon #1 slot data
+                weaponClass     = weapon1_Class;
+                weaponDamage    = weapon1_Damage;
+                weaponType      = weapon1_Type;
+                weaponPen       = weapon1_Pen;
+                weaponRange     = weapon1_Range;
+                weaponRoF       = weapon1_RoF;
+                weaponClip      = weapon1_Clip;
+                weaponReload    = weapon1_Reload;
+                break;
+            case 2: // Uses the weapon #2 slot data
+                weaponClass     = weapon2_Class;
+                weaponDamage    = weapon2_Damage;
+                weaponType      = weapon2_Type;
+                weaponPen       = weapon2_Pen;
+                weaponRange     = weapon2_Range;
+                weaponRoF       = weapon2_RoF;
+                weaponClip      = weapon2_Clip;
+                weaponReload    = weapon2_Reload;
+                break;
+            case 3: // Uses the weapon #3 slot data
+                weaponClass     = weapon3_Class;
+                weaponDamage    = weapon3_Damage;
+                weaponType      = weapon3_Type;
+                weaponPen       = weapon3_Pen;
+                weaponRange     = weapon3_Range;
+                weaponRoF       = weapon3_RoF;
+                weaponClip      = weapon3_Clip;
+                weaponReload    = weapon3_Reload;
+                break;
+            case 4: // Uses the weapon #4 slot data
+                weaponClass     = weapon4_Class;
+                weaponDamage    = weapon4_Damage;
+                weaponType      = weapon4_Type;
+                weaponPen       = weapon4_Pen;
+                weaponRange     = weapon4_Range;
+                weaponRoF       = weapon4_RoF;
+                weaponClip      = weapon4_Clip;
+                weaponReload    = weapon4_Reload;
+                break;
+
+                default: // Has a default value in case the initial onCreate call comes empty
+                    weaponClass     = "-";
+                    weaponDamage    = "-";
+                    weaponType      = "-";
+                    weaponPen       = "-";
+                    weaponRange     = "-";
+                    weaponRoF       = "-";
+                    weaponClip      = "-";
+                    weaponReload    = "-";
+        }
+
+        // Creates the string for the return statement
+        String outputWeaponStatString = "Class: " + weaponClass
+                                        + ", Damage: " + weaponDamage
+                                        + ", Type: " + weaponType
+                                        + ", Penetration: " + weaponPen
+                                        + ", Range: " + weaponRange
+                                        + ", Rof: " + weaponRoF
+                                        + ", Clip: " + weaponClip
+                                        + ", Reload: " + weaponReload;
+
+        return outputWeaponStatString;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,7 +187,7 @@ public class bsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_bs);
 
         // Initialisation of the shared preference object to load character data onResume
-        SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, Context.MODE_PRIVATE);
+        final SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, Context.MODE_PRIVATE);
 
         // Retrieving weapon info
         // Slot 1 Weapon
@@ -153,9 +244,18 @@ public class bsActivity extends AppCompatActivity {
         // Ammo info display
         ammoVal                 = findViewById(R.id.ammoQuantityTextView);
 
+        // Weapon info display
+        weaponStats             = findViewById(R.id.bs_WeaponStatsTextView);
+
         // Spinners
         weaponSelector          = findViewById(R.id.WeaponSelectorSpinner);
         ammoSelector            = findViewById(R.id.AmmoSelectorSpinner);
+
+        // Seekbars
+        bsModifierSeekBar       = findViewById(R.id.bsRollModifierSeekBar);
+
+        // Textview to display the value of the modifier
+        modifierValue           = findViewById(R.id.bsRollModifierValTextView);
 
         // Converting the max and current FP values to integers
         maxFP                   = Integer.parseInt(sharedPreferences.getString("character_max_fp", ""));
@@ -210,8 +310,12 @@ public class bsActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 // override for if any of the entries in the list are selected
 
-                // Placeholder WIP - displaying a quick toast to show that the correct onItemSelected behaviour shows
-                Toast.makeText(getApplicationContext(), "Weapon selector", Toast.LENGTH_SHORT).show();
+                // Changes a global variable to be used as a slot selector later
+                weaponSlotSelected = i + 1;
+
+                // Displays the relevant weapon stats to the player on the BS roll page
+                weaponStats.setText(getWeaponStatString(weaponSlotSelected));
+
 
             }
 
@@ -240,11 +344,12 @@ public class bsActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 // override for if any of the entries in the list are selected
 
-                // Placeholder WIP - displaying a quick toast to show that the correct onItemSelected behaviour shows
-                Toast.makeText(getApplicationContext(), "Ammo selector", Toast.LENGTH_SHORT).show();
+                // Changes a global variable to be used as a slot selector later
+                ammoSlotSelected = i + 1;
 
-                // NOTE
-                // you can find what is currently selected in the spinner by: weaponSelector.getSelectedItem().toString();
+                // On selection of the ammo, this will set the ammo counter's display to the amount in inventory
+                ammoVal.setText(sharedPreferences.getString("ammo1_Val", ""));
+
             }
 
             @Override
@@ -253,12 +358,40 @@ public class bsActivity extends AppCompatActivity {
             }
         });
 
+        // Setting the initial value of the modifier bar to 0 onCreate
+        modifierValue.setText(Integer.toString(0));
 
-        // TODO - create missile weapon selector
+        // Creating the modifier seekbar
+        bsModifierSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
 
-        // TODO - create ammo selector
+                // Sets the modifier value to the text view above the seekbar
+                modifierValue.setText(Integer.toString(i - 60));
 
-        // TODO - create ammo counter/tracker
+                /* TODO - when adding the outcome bars to the bottom. Remeber you will need to add something like these to the bottom similar to AttributeRollActivity
+
+                // Updates the variable to the new roll threshold amount
+                threshold = attributeVal + (i - 60);
+
+                // Sets the roll threshold text view
+                rollRequiredVal.setText(Integer.toString(threshold));
+
+                */
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
+
+
 
         // TODO - create hit location selector (ie. head, chest, foot, ect)
 
