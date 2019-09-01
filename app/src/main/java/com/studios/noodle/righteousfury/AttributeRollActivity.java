@@ -5,6 +5,8 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -30,6 +32,11 @@ public class AttributeRollActivity extends AppCompatActivity {
     private Button reRollButton;
     private Button fatepointRollButton;
     private Button burnButton;
+
+    private ImageButton buttonModPlus;
+    private ImageButton buttonModMinus;
+
+    private CheckBox unskilledCheckBox;
 
     private SeekBar modifierSeekBar;
 
@@ -128,6 +135,11 @@ public class AttributeRollActivity extends AppCompatActivity {
         modifierSeekBar             = findViewById(R.id.rollModifierSeekBar);
         attributeImageView          = findViewById(R.id.attributeImageView);
 
+        buttonModPlus               = findViewById(R.id.attRollModPlusImageButton);
+        buttonModMinus              = findViewById(R.id.attRollModMinusImageButton);
+
+        unskilledCheckBox           = findViewById(R.id.attUnskilledCheckBox);
+
 
         // Initialisation of the shared preference object to load character data onResume
         SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, Context.MODE_PRIVATE);
@@ -156,14 +168,13 @@ public class AttributeRollActivity extends AppCompatActivity {
             burnButton.setEnabled(false);
         }
 
-        // Setting
 
         // Retrieve the bundle
         Bundle bundle = getIntent().getExtras();
 
         // Extracting the passed data
         // Extracting the Name of the attribute from the bundle
-        String attributeName = bundle.getString("attributeName");
+        final String attributeName = bundle.getString("attributeName");
 
         // Extracting the value of the attribute as an integer
         final int attributeVal = Integer.parseInt(bundle.getString("attributeValue"));
@@ -222,6 +233,57 @@ public class AttributeRollActivity extends AppCompatActivity {
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
 
+            }
+        });
+
+        // OnClick listener for when the user clicks on the roll mod "plus" button
+        buttonModPlus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Finds out what the current value of the modifier is as an integer
+                int modifierInt = Integer.parseInt(modifierValue.getText().toString().trim());
+
+                // Adds 1 to the int for the new value
+                modifierInt += 1;
+
+                // User cannot go over +60 modifier so if at 60 it will halt further use
+                if (modifierInt > 60){
+                    modifierValue.setText(Integer.toString(60));
+                } else {
+                    // Prints the new value with the additional 1 added
+                    modifierValue.setText(Integer.toString(modifierInt));
+
+                    // Updates the seekbar's position with the new modifier value
+                    if (!(modifierSeekBar.getProgress() > 120)) {
+                        modifierSeekBar.setProgress(modifierSeekBar.getProgress() + 1);
+                    }
+                }
+            }
+        });
+
+
+        // OnClick listener for when the user clicks on the roll mod "minus" button
+        buttonModMinus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Finds out what the current value of the modifier is as an integer
+                int modifierInt = Integer.parseInt(modifierValue.getText().toString().trim());
+
+                // Adds 1 to the int for the new value
+                modifierInt -= 1;
+
+                // User cannot go over +60 modifier so if at 60 it will halt further use
+                if (modifierInt < -60){
+                    modifierValue.setText(Integer.toString(-60));
+                } else {
+                    // Prints the new value with the additional 1 added
+                    modifierValue.setText(Integer.toString(modifierInt));
+
+                    // Updates the seekbar's position with the new modifier value
+                    if (!(modifierSeekBar.getProgress() > 120)) {
+                        modifierSeekBar.setProgress(modifierSeekBar.getProgress() - 1);
+                    }
+                }
             }
         });
 
@@ -325,6 +387,22 @@ public class AttributeRollActivity extends AppCompatActivity {
                 currentFatePointValue.setText(fatePointTotalString);
             }
         });
+
+
+        /* TODO - Unskilled checkbox modifier (halves natural attribute value)
+        // OnChange listener for when the user un/selects the unskilled checkbox
+        unskilledCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                // Checks to see if the check box is un/selected
+                if (unskilledCheckBox.isChecked()){
+                    attributeVal /= 2;
+
+
+                }
+            }
+        });
+        */
     }
 
     @Override

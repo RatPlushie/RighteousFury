@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.SeekBar;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -100,8 +102,25 @@ public class bsActivity extends AppCompatActivity {
     private int weaponSlotSelected;
     private int ammoSlotSelected;
 
+    private TextView rollThreshold;
+    private TextView rollOutcome;
+    private TextView rollDegree;
+    private TextView rollHitLocation;
+
+    private Button buttonRoll;
+    private Button buttonReRoll;
+    private Button buttonFP;
+    private Button buttonBurn;
+
+    private ImageButton buttonModMinus;
+    private ImageButton buttonModPlus;
+
+
     // Variables for the shared preferences
     public static final String SHARED_PREFS = "sharedPrefs";
+
+
+
 
     public String getWeaponStatString(int weaponSlot){
         // Method wide variables for writing the string
@@ -181,6 +200,8 @@ public class bsActivity extends AppCompatActivity {
         return outputWeaponStatString;
     }
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -188,6 +209,7 @@ public class bsActivity extends AppCompatActivity {
 
         // Initialisation of the shared preference object to load character data onResume
         final SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, Context.MODE_PRIVATE);
+
 
         // Retrieving weapon info
         // Slot 1 Weapon
@@ -254,8 +276,20 @@ public class bsActivity extends AppCompatActivity {
         // Seekbars
         bsModifierSeekBar       = findViewById(R.id.bsRollModifierSeekBar);
 
+        // Modifier fine tweak buttons
+        buttonModPlus           = findViewById(R.id.bsRollModifierPlusImageButton);
+        buttonModMinus          = findViewById(R.id.bsRollModifierMinusImageButton);
+
         // Textview to display the value of the modifier
         modifierValue           = findViewById(R.id.bsRollModifierValTextView);
+
+        // Roll Buttons
+        buttonRoll              = findViewById(R.id.bsRollButton);
+        buttonReRoll            = findViewById(R.id.bsReRollButton);
+        buttonFP                = findViewById(R.id.bsFatePointButton);
+        buttonBurn              = findViewById(R.id.bsBurnButton);
+
+
 
         // Converting the max and current FP values to integers
         maxFP                   = Integer.parseInt(sharedPreferences.getString("character_max_fp", ""));
@@ -391,6 +425,97 @@ public class bsActivity extends AppCompatActivity {
             }
         });
 
+        // OnClick listener for when the user clicks the Modifier "Plus" Button
+        buttonModPlus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Finds out what the current value of the modifier is as an integer
+                int modifierInt = Integer.parseInt(modifierValue.getText().toString().trim());
+
+                // Adds 1 to the int for the new value
+                modifierInt += 1;
+
+                // User cannot go over +60 modifier so if at 60 it will halt further use
+                if (modifierInt > 60){
+                    modifierValue.setText(Integer.toString(60));
+                } else {
+                    // Prints the new value with the additional 1 added
+                    modifierValue.setText(Integer.toString(modifierInt));
+
+                    // Updates the seekbar's position with the new modifier value
+                    if (!(bsModifierSeekBar.getProgress() > 120)) {
+                        bsModifierSeekBar.setProgress(bsModifierSeekBar.getProgress() + 1);
+                    }
+                }
+            }
+        });
+
+
+
+        // OnClick listener for when the user clicks the Modifier "Minus" Button
+        buttonModMinus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Finds out what the current value of the modifier is as an integer
+                int modifierInt = Integer.parseInt(modifierValue.getText().toString().trim());
+
+                // Adds 1 to the int for the new value
+                modifierInt -= 1;
+
+                // User cannot go over +60 modifier so if at 60 it will halt further use
+                if (modifierInt < -60){
+                    modifierValue.setText(Integer.toString(-60));
+                } else {
+                    // Prints the new value with the additional 1 added
+                    modifierValue.setText(Integer.toString(modifierInt));
+
+                    // Updates the seekbar's position with the new modifier value
+                    if (!(bsModifierSeekBar.getProgress() < 0)){
+                        bsModifierSeekBar.setProgress(bsModifierSeekBar.getProgress() - 1);
+                    }
+                }
+            }
+        });
+
+
+
+        // OnClick listener for when the user clicks the "roll" button
+        buttonRoll.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
+
+
+        // OnClick listener for when the user clicks the "reRoll" button
+        buttonReRoll.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
+
+
+        // OnClick listener for when the user clicks the "FatePoint" button
+        buttonFP.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
+
+
+        // OnClick listener for when the user clicks the "Burn" button
+        buttonBurn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
 
 
         // TODO - create hit location selector (ie. head, chest, foot, ect)

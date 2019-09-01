@@ -68,6 +68,9 @@
     <!-- Modifier Strings -->
     <string name="modifier">Modifier</string>
 
+    <!-- Unskilled Strings -->
+    <string name="unskilled">Unskilled</string>
+
     <!-- Rolling Strings -->
     <string name="roll_button_desc">Pressing this will launch the dice rolling page</string>
     <string name="roll_threshold">Roll Threshold: </string>
