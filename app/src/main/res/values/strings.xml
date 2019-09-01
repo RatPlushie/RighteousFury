@@ -124,5 +124,6 @@
     <!-- BS Strings -->
     <string name="bs_weapon_selector_title">Weapon:</string>
     <string name="bs_ammo_selector_title">Ammo:</string>
+    <string name="bs_hit_location">Hit Location:</string>
     
 </resources>

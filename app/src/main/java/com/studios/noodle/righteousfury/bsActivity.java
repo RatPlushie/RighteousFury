@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -14,21 +15,35 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class bsActivity extends AppCompatActivity {
 
-    // bsActivity vars
-    // Text Views for the title card
+
+    // Hit locations
+    private int head[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    private int rArm[] = {11, 12, 13, 14, 15, 16, 17 ,18, 19, 20};
+    private int lArm[] = {21, 22, 23, 24, 25, 26, 27, 28, 29, 30};
+    private int body[] = {31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70};
+    private int rLeg[] = {71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85};
+    private int lLeg[] = {86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100};
+
+
+    // Text Views
     private TextView bsTitleVal;
 
-    // Text view for the ammo count display
     private TextView ammoVal;
 
-    // Text view for the currently selected weapon display
     private TextView weaponStats;
 
-    // Strings for the modifiers
     private TextView modifierValue;
+
+    private TextView currentFPVal;
+
+    private TextView rollOutcomeVal;
+    private TextView degreeOutcomeVal;
+    private TextView hitLocationVal;
+    private TextView rollThreshold;
 
     // integers for the current and max fp
     private int maxFP;
@@ -36,6 +51,10 @@ public class bsActivity extends AppCompatActivity {
 
     // Integers for the ammo quantities
     private int ammo1_Val;
+
+    // Int for the diceroll outcome
+    private int diceRoll;
+    private int threshold;
 
     // Strings for the ballistic weapon stats
     private String weapon1_Name;
@@ -82,12 +101,17 @@ public class bsActivity extends AppCompatActivity {
     private String weapon4_Reload;
     private String weapon4_SpecialRules;
 
-    // Strings for the ammo names
     private String ammo1_Name;
 
     // Spinners for ammo and weapon selection
     private Spinner weaponSelector;
     private Spinner ammoSelector;
+
+    // Buttons
+    private Button rollButton;
+    private Button reRollButton;
+    private Button fpButton;
+    private Button burnButton;
 
     // Seekbars
     private SeekBar bsModifierSeekBar;
@@ -100,8 +124,91 @@ public class bsActivity extends AppCompatActivity {
     private int weaponSlotSelected;
     private int ammoSlotSelected;
 
+    // Strings for the degree of success/fail
+    private String degreeString;
+    private int degreeResult;
+    private String diceRollString;
+    private int attributeVal;
+
+
     // Variables for the shared preferences
     public static final String SHARED_PREFS = "sharedPrefs";
+
+
+    // Random Method
+    private static final Random random = new Random();
+    public static int random(int min, int max){
+        return random.nextInt(max) + min;
+    }
+
+
+    public String wepStringBuilder(StringBuilder mString, String fieldType, String fieldValue){
+
+        // First entry in the string needs to not have a comma at the beginning, this method writes the string correctly
+        if (mString.toString().trim().equals("")){
+            return fieldType + ": " + fieldValue;
+        } else {
+            return ", " + fieldType + ": " + fieldValue;
+        }
+    }
+
+
+    public String getDegreeRoll(int diceRoll, int threshold){
+        if (diceRoll == threshold){
+            // Regular rolled success
+
+            // if true - 0 degrees of success
+            degreeString = getString(R.string.zero_degrees_of_success);
+
+        } else if ( diceRoll > threshold){
+            // Roll failure
+
+            // Equation to find the amount of degrees of failure, printing an int
+            degreeResult = ((diceRoll - threshold) / 10);
+
+            if (degreeResult == 0){
+
+                // prints out a regular report of zero degrees of failure
+                degreeString = getString(R.string.zero_degrees_of_failure);
+
+            } else if (degreeResult == 1){
+
+                // prints out a report of one degree of failure
+                degreeString = getString(R.string.one_degree_of_failure);
+
+            } else if (degreeResult > 1){
+
+                // Creates a string to be used in the setText return
+                degreeString = (degreeResult + " " + getString(R.string.many_degrees_of_failure));
+
+            }
+
+        } else if ( diceRoll < threshold) {
+            // Roll success
+
+            // Equation to find the amount of degrees of success, printing an int
+            degreeResult = ((threshold - diceRoll) / 10);
+
+            if (degreeResult == 0){
+
+                // Prints out a regular report of zero degrees of success
+                degreeString = getString(R.string.zero_degrees_of_success);
+
+            } else if (degreeResult == 1){
+
+                // prints out a report of one degree of success
+                degreeString = getString(R.string.one_degree_of_success);
+
+            } else if (degreeResult > 1){
+
+                // Creates a string to be used in the setText method since setText doesn't like it
+                degreeString = (degreeResult + " " + getString(R.string.many_degrees_of_success));
+
+            }
+        }
+        return degreeString;
+    }
+
 
     public String getWeaponStatString(int weaponSlot){
         // Method wide variables for writing the string
@@ -157,29 +264,57 @@ public class bsActivity extends AppCompatActivity {
                 weaponReload    = weapon4_Reload;
                 break;
 
-                default: // Has a default value in case the initial onCreate call comes empty
-                    weaponClass     = "-";
-                    weaponDamage    = "-";
-                    weaponType      = "-";
-                    weaponPen       = "-";
-                    weaponRange     = "-";
-                    weaponRoF       = "-";
-                    weaponClip      = "-";
-                    weaponReload    = "-";
+            default: // Has a default value in case the initial onCreate call comes empty
+                weaponClass     = "-";
+                weaponDamage    = "-";
+                weaponType      = "-";
+                weaponPen       = "-";
+                weaponRange     = "-";
+                weaponRoF       = "-";
+                weaponClip      = "-";
+                weaponReload    = "-";
         }
 
-        // Creates the string for the return statement
-        String outputWeaponStatString = "Class: " + weaponClass
-                                        + ", Damage: " + weaponDamage
-                                        + ", Type: " + weaponType
-                                        + ", Penetration: " + weaponPen
-                                        + ", Range: " + weaponRange
-                                        + ", Rof: " + weaponRoF
-                                        + ", Clip: " + weaponClip
-                                        + ", Reload: " + weaponReload;
+        // Building the string to be outputted in the return statement
+        StringBuilder statStringBuilder = new StringBuilder();
 
-        return outputWeaponStatString;
+        // Testing to see whether to write "n/a" or the stat
+        if (!(weaponClass.equals("-") || weaponClass.equals(""))){
+            statStringBuilder.append(wepStringBuilder(statStringBuilder, getString(R.string.missile_weapon_class), weaponClass));
+        }
+
+        if (!(weaponDamage.equals("-") || weaponDamage.equals(""))){
+            statStringBuilder.append(wepStringBuilder(statStringBuilder, getString(R.string.missile_weapon_damage), weaponDamage));
+        }
+
+        if (!(weaponType.equals("-") || weaponType.equals(""))){
+            statStringBuilder.append(wepStringBuilder(statStringBuilder, getString(R.string.missile_weapon_type), weaponType));
+        }
+
+        if (!(weaponPen.equals("-") || weaponPen.equals(""))){
+            statStringBuilder.append(wepStringBuilder(statStringBuilder, getString(R.string.missile_weapon_penetration), weaponPen));
+        }
+
+        if (!(weaponRange.equals("-") || weaponRange.equals(""))){
+            statStringBuilder.append(wepStringBuilder(statStringBuilder, getString(R.string.missile_weapon_Range), weaponRange));
+        }
+
+        if (!(weaponRoF.equals("-") || weaponRoF.equals(""))){
+            statStringBuilder.append(wepStringBuilder(statStringBuilder, getString(R.string.missile_weapon_rof), weaponRoF));
+        }
+
+        if (!(weaponClip.equals("-") || weaponClip.equals(""))){
+            statStringBuilder.append(wepStringBuilder(statStringBuilder, getString(R.string.missile_weapon_clip), weaponClip));
+        }
+
+        if (!(weaponReload.equals("-") || weaponReload.equals(""))){
+            statStringBuilder.append(wepStringBuilder(statStringBuilder, getString(R.string.missile_weapon_rld), weaponReload));
+        }
+
+        // Returns the built string
+        return statStringBuilder.toString();
     }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -257,12 +392,37 @@ public class bsActivity extends AppCompatActivity {
         // Textview to display the value of the modifier
         modifierValue           = findViewById(R.id.bsRollModifierValTextView);
 
+        // Textview to display number of FP
+        currentFPVal            = findViewById(R.id.bsFPTrackerValTextView);
+
+        // Outcome display textviews
+        rollThreshold           = findViewById(R.id.bsRollThresholdValTextView);
+        rollOutcomeVal          = findViewById(R.id.bsRollOutcomeValTextView);
+        degreeOutcomeVal        = findViewById(R.id.bsDegreeValTextView);
+        hitLocationVal          = findViewById(R.id.bsHitLocationValTextView);
+
         // Converting the max and current FP values to integers
         maxFP                   = Integer.parseInt(sharedPreferences.getString("character_max_fp", ""));
         currentFP               = Integer.parseInt(sharedPreferences.getString("character_current_fp", ""));
 
+        // Setting the display of the current amount of FP the user has
+        currentFPVal.setText(sharedPreferences.getString("character_current_fp", ""));
+
         // Setting the display of the character bs stat
         bsTitleVal.setText(sharedPreferences.getString("character_bs", ""));
+
+        // Setting the threshold value at the beginning of onCreate
+        threshold = Integer.parseInt(sharedPreferences.getString("character_bs", ""));
+
+        // Testing to see if the threshold is outside the possible range of  0 > x >= 100
+        if (threshold < 1){
+            threshold = 1;
+        } else if (threshold > 100) {
+            threshold = 100;
+        }
+
+        // Displaying the default, unmodified threshold that the user must roll under
+        rollThreshold.setText(Integer.toString(threshold));
 
         // Ammo Slots - Currently only using 1 slot as a placeholder
         ammo1_Name              = sharedPreferences.getString("ammo1_Name", "");
@@ -315,8 +475,6 @@ public class bsActivity extends AppCompatActivity {
 
                 // Displays the relevant weapon stats to the player on the BS roll page
                 weaponStats.setText(getWeaponStatString(weaponSlotSelected));
-
-
             }
 
             @Override
@@ -369,15 +527,20 @@ public class bsActivity extends AppCompatActivity {
                 // Sets the modifier value to the text view above the seekbar
                 modifierValue.setText(Integer.toString(i - 60));
 
-                /* TODO - when adding the outcome bars to the bottom. Remeber you will need to add something like these to the bottom similar to AttributeRollActivity
-
                 // Updates the variable to the new roll threshold amount
                 threshold = attributeVal + (i - 60);
 
-                // Sets the roll threshold text view
-                rollRequiredVal.setText(Integer.toString(threshold));
+                // Testing to see if the threshold is outside the possible range of  0 > x >= 100
+                if (threshold < 1){
+                    threshold = 1;
+                } else if (threshold > 100) {
+                    threshold = 100;
+                }
 
-                */
+                // Sets the roll threshold text view
+                rollThreshold.setText(Integer.toString(threshold));
+
+
             }
 
             @Override
@@ -391,6 +554,66 @@ public class bsActivity extends AppCompatActivity {
             }
         });
 
+
+        rollButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                // Saves an int to be used later
+                diceRoll = random(0, 100);
+
+                // Disables the button being pressed any more
+                rollButton.setEnabled(false);
+
+                // Sets the text in the Roll outcome card view
+                rollOutcomeVal.setText(Integer.toString(diceRoll));
+
+                // Set text to the degrees of the outcome
+                degreeOutcomeVal.setText(getDegreeRoll(diceRoll, threshold));
+
+                String diceRollString = Integer.toString(diceRoll);
+                String diceRollArray[] = diceRollString.split("");
+
+                String invRollString = diceRollArray[1] + diceRollArray[0];
+
+                int invRollInt = Integer.parseInt(invRollString);
+
+
+
+
+
+            }
+        });
+
+
+        reRollButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                // TODO - add on click behaviour for reRoll button
+
+            }
+        });
+
+
+        fpButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                // TODO - add on click behaviour for the fate point button
+
+            }
+        });
+
+
+        burnButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                // TODO - add on click behaviour for the burn fatepoint button
+
+            }
+        });
 
 
         // TODO - create hit location selector (ie. head, chest, foot, ect)
