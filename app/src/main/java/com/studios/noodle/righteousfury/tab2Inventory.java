@@ -1077,7 +1077,4 @@ public class tab2Inventory extends Fragment {
         // Applies the changes to the shared preferences file
         edit.apply();
     }
-
-
-
 }

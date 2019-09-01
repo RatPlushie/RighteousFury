@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
@@ -174,15 +175,19 @@ public class tab1Character extends Fragment {
             @Override
             public void onClick(View view) {
 
-                // Initialise Intent - Move from this tab1Character fragment to AttributeRollActivity
-                Intent intent = new Intent(getActivity(), wsActivity.class);
+                // Tests to see if there is a value inputted in the WS, if so launches the new activity, if not toasts the user
+                if (!(wsValue.getText().toString().trim().equals(""))){
+                    // Initialise Intent - Move from this tab1Character fragment to AttributeRollActivity
+                    Intent intent = new Intent(getActivity(), wsActivity.class);
 
-                // Starting the activity's intent
-                startActivity(intent);
+                    // Starting the activity's intent
+                    startActivity(intent);
 
-                // Overrides the default animation to slide in on right
-                getActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-
+                    // Overrides the default animation to slide in on right
+                    getActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                } else {
+                    Toast.makeText(getActivity(), "Please enter your weapon skill stat first", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
@@ -191,15 +196,19 @@ public class tab1Character extends Fragment {
             @Override
             public void onClick(View view) {
 
-                // Initialise Intent - Move from this tab1Character fragment to AttributeRollActivity
-                Intent intent = new Intent(getActivity(), bsActivity.class);
+                // Tests to see if there is a value inputted in the BS, if so launches the new activity, if not toasts the user
+                if (!(bsValue.getText().toString().trim().equals(""))){
+                    // Initialise Intent - Move from this tab1Character fragment to AttributeRollActivity
+                    Intent intent = new Intent(getActivity(), bsActivity.class);
 
-                // Starting the activity's intent
-                startActivity(intent);
+                    // Starting the activity's intent
+                    startActivity(intent);
 
-                // Overrides the default animation to slide in on right
-                getActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-
+                    // Overrides the default animation to slide in on right
+                    getActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                } else {
+                    Toast.makeText(getActivity(), "Please enter your ballistic skill stat first", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
@@ -208,28 +217,32 @@ public class tab1Character extends Fragment {
             @Override
             public void onClick(View view) {
 
-                // Initialise Intent - Move from this tab1Character fragment to AttributeRollActivity
-                Intent intent = new Intent(getActivity(), AttributeRollActivity.class);
+                // Tests to see if there is a value inputted in the Str, if so launches the new activity, if not toast the user
+                if (!(strValue.getText().toString().trim().equals(""))){
+                    // Initialise Intent - Move from this tab1Character fragment to AttributeRollActivity
+                    Intent intent = new Intent(getActivity(), AttributeRollActivity.class);
 
-                // Initialise a new bundle
-                Bundle bundle = new Bundle();
+                    // Initialise a new bundle
+                    Bundle bundle = new Bundle();
 
-                // Putting stuff in the bundle
-                // Putting the attribute's name into the bundle
-                bundle.putString("attributeName", getResources().getString(R.string.stat_str));
+                    // Putting stuff in the bundle
+                    // Putting the attribute's name into the bundle
+                    bundle.putString("attributeName", getResources().getString(R.string.stat_str));
 
-                // Putting the attribute's value into the bundle
-                bundle.putString("attributeValue", strValue.getText().toString().trim());
+                    // Putting the attribute's value into the bundle
+                    bundle.putString("attributeValue", strValue.getText().toString().trim());
 
-                // Put that bundle to the intent
-                intent.putExtras(bundle);
+                    // Put that bundle to the intent
+                    intent.putExtras(bundle);
 
-                // Starting the activity's intent
-                startActivity(intent);
+                    // Starting the activity's intent
+                    startActivity(intent);
 
-                // Overrides the default animation to slide in on right
-                getActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-
+                    // Overrides the default animation to slide in on right
+                    getActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                } else {
+                    Toast.makeText(getActivity(), "Please enter your strength stat first", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
@@ -238,28 +251,32 @@ public class tab1Character extends Fragment {
             @Override
             public void onClick(View view) {
 
-                // Initialise Intent - Move from this tab1Character fragment to AttributeRollActivity
-                Intent intent = new Intent(getActivity(), AttributeRollActivity.class);
+                // Tests to see if there is a value inputted in the "t", if so launches the new activity, if not toast the user
+                if (!(tValue.getText().toString().trim().equals(""))){
+                    // Initialise Intent - Move from this tab1Character fragment to AttributeRollActivity
+                    Intent intent = new Intent(getActivity(), AttributeRollActivity.class);
 
-                // Initialise a new bundle
-                Bundle bundle = new Bundle();
+                    // Initialise a new bundle
+                    Bundle bundle = new Bundle();
 
-                // Putting stuff in the bundle
-                // Putting the attribute's name into the bundle
-                bundle.putString("attributeName", getResources().getString(R.string.stat_t));
+                    // Putting stuff in the bundle
+                    // Putting the attribute's name into the bundle
+                    bundle.putString("attributeName", getResources().getString(R.string.stat_t));
 
-                // Putting the attribute's value into the bundle
-                bundle.putString("attributeValue", tValue.getText().toString().trim());
+                    // Putting the attribute's value into the bundle
+                    bundle.putString("attributeValue", tValue.getText().toString().trim());
 
-                // Put that bundle to the intent
-                intent.putExtras(bundle);
+                    // Put that bundle to the intent
+                    intent.putExtras(bundle);
 
-                // Starting the activity's intent
-                startActivity(intent);
+                    // Starting the activity's intent
+                    startActivity(intent);
 
-                // Overrides the default animation to slide in on right
-                getActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-
+                    // Overrides the default animation to slide in on right
+                    getActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                } else {
+                    Toast.makeText(getActivity(), "Please enter your toughness stat first", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
@@ -268,27 +285,32 @@ public class tab1Character extends Fragment {
             @Override
             public void onClick(View view) {
 
-                // Initialise Intent - Move from this tab1Character fragment to AttributeRollActivity
-                Intent intent = new Intent(getActivity(), AttributeRollActivity.class);
+                // Tests to see if there is a value inputted in the Str, if so launches the new activity, if not toast the user
+                if (!(agValue.getText().toString().trim().equals(""))){
+                    // Initialise Intent - Move from this tab1Character fragment to AttributeRollActivity
+                    Intent intent = new Intent(getActivity(), AttributeRollActivity.class);
 
-                // Initialise a new bundle
-                Bundle bundle = new Bundle();
+                    // Initialise a new bundle
+                    Bundle bundle = new Bundle();
 
-                // Putting stuff in the bundle
-                // Putting the attribute's name into the bundle
-                bundle.putString("attributeName", getResources().getString(R.string.stat_ag));
+                    // Putting stuff in the bundle
+                    // Putting the attribute's name into the bundle
+                    bundle.putString("attributeName", getResources().getString(R.string.stat_ag));
 
-                // Putting the attribute's value into the bundle
-                bundle.putString("attributeValue", agValue.getText().toString().trim());
+                    // Putting the attribute's value into the bundle
+                    bundle.putString("attributeValue", agValue.getText().toString().trim());
 
-                // Put that bundle to the intent
-                intent.putExtras(bundle);
+                    // Put that bundle to the intent
+                    intent.putExtras(bundle);
 
-                // Starting the activity's intent
-                startActivity(intent);
+                    // Starting the activity's intent
+                    startActivity(intent);
 
-                // Overrides the default animation to slide in on right
-                getActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                    // Overrides the default animation to slide in on right
+                    getActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                } else {
+                    Toast.makeText(getActivity(), "Please enter your agility stat first", Toast.LENGTH_SHORT).show();
+                }
 
             }
         });
@@ -298,27 +320,32 @@ public class tab1Character extends Fragment {
             @Override
             public void onClick(View view) {
 
-                // Initialise Intent - Move from this tab1Character fragment to AttributeRollActivity
-                Intent intent = new Intent(getActivity(), AttributeRollActivity.class);
+                // Tests to see if there is a value inputted in the Int, if so launches the new activity, if not toast the user
+                if (!(intValue.getText().toString().trim().equals(""))){
+                    // Initialise Intent - Move from this tab1Character fragment to AttributeRollActivity
+                    Intent intent = new Intent(getActivity(), AttributeRollActivity.class);
 
-                // Initialise a new bundle
-                Bundle bundle = new Bundle();
+                    // Initialise a new bundle
+                    Bundle bundle = new Bundle();
 
-                // Putting stuff in the bundle
-                // Putting the attribute's name into the bundle
-                bundle.putString("attributeName", getResources().getString(R.string.stat_int));
+                    // Putting stuff in the bundle
+                    // Putting the attribute's name into the bundle
+                    bundle.putString("attributeName", getResources().getString(R.string.stat_int));
 
-                // Putting the attribute's value into the bundle
-                bundle.putString("attributeValue", intValue.getText().toString().trim());
+                    // Putting the attribute's value into the bundle
+                    bundle.putString("attributeValue", intValue.getText().toString().trim());
 
-                // Put that bundle to the intent
-                intent.putExtras(bundle);
+                    // Put that bundle to the intent
+                    intent.putExtras(bundle);
 
-                // Starting the activity's intent
-                startActivity(intent);
+                    // Starting the activity's intent
+                    startActivity(intent);
 
-                // Overrides the default animation to slide in on right
-                getActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                    // Overrides the default animation to slide in on right
+                    getActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                } else {
+                    Toast.makeText(getActivity(), "Please enter your intelligence stat first", Toast.LENGTH_SHORT).show();
+                }
 
             }
         });
@@ -328,27 +355,32 @@ public class tab1Character extends Fragment {
             @Override
             public void onClick(View view) {
 
-                // Initialise Intent - Move from this tab1Character fragment to AttributeRollActivity
-                Intent intent = new Intent(getActivity(), AttributeRollActivity.class);
+                // Tests to see if there is a value inputted in the Per, if so launches the new activity, if not toast the user
+                if (!(perValue.getText().toString().trim().equals(""))){
+                    // Initialise Intent - Move from this tab1Character fragment to AttributeRollActivity
+                    Intent intent = new Intent(getActivity(), AttributeRollActivity.class);
 
-                // Initialise a new bundle
-                Bundle bundle = new Bundle();
+                    // Initialise a new bundle
+                    Bundle bundle = new Bundle();
 
-                // Putting stuff in the bundle
-                // Putting the attribute's name into the bundle
-                bundle.putString("attributeName", getResources().getString(R.string.stat_per));
+                    // Putting stuff in the bundle
+                    // Putting the attribute's name into the bundle
+                    bundle.putString("attributeName", getResources().getString(R.string.stat_per));
 
-                // Putting the attribute's value into the bundle
-                bundle.putString("attributeValue", perValue.getText().toString().trim());
+                    // Putting the attribute's value into the bundle
+                    bundle.putString("attributeValue", perValue.getText().toString().trim());
 
-                // Put that bundle to the intent
-                intent.putExtras(bundle);
+                    // Put that bundle to the intent
+                    intent.putExtras(bundle);
 
-                // Starting the activity's intent
-                startActivity(intent);
+                    // Starting the activity's intent
+                    startActivity(intent);
 
-                // Overrides the default animation to slide in on right
-                getActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                    // Overrides the default animation to slide in on right
+                    getActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                } else {
+                    Toast.makeText(getActivity(), "Please enter your perception stat first", Toast.LENGTH_SHORT).show();
+                }
 
             }
         });
@@ -358,27 +390,32 @@ public class tab1Character extends Fragment {
             @Override
             public void onClick(View view) {
 
-                // Initialise Intent - Move from this tab1Character fragment to AttributeRollActivity
-                Intent intent = new Intent(getActivity(), AttributeRollActivity.class);
+                // Tests to see if there is a value inputted in the Str, if so launches the new activity, if not toast the user
+                if (!(wpValue.getText().toString().trim().equals(""))){
+                    // Initialise Intent - Move from this tab1Character fragment to AttributeRollActivity
+                    Intent intent = new Intent(getActivity(), AttributeRollActivity.class);
 
-                // Initialise a new bundle
-                Bundle bundle = new Bundle();
+                    // Initialise a new bundle
+                    Bundle bundle = new Bundle();
 
-                // Putting stuff in the bundle
-                // Putting the attribute's name into the bundle
-                bundle.putString("attributeName", getResources().getString(R.string.stat_wp));
+                    // Putting stuff in the bundle
+                    // Putting the attribute's name into the bundle
+                    bundle.putString("attributeName", getResources().getString(R.string.stat_wp));
 
-                // Putting the attribute's value into the bundle
-                bundle.putString("attributeValue", wpValue.getText().toString().trim());
+                    // Putting the attribute's value into the bundle
+                    bundle.putString("attributeValue", wpValue.getText().toString().trim());
 
-                // Put that bundle to the intent
-                intent.putExtras(bundle);
+                    // Put that bundle to the intent
+                    intent.putExtras(bundle);
 
-                // Starting the activity's intent
-                startActivity(intent);
+                    // Starting the activity's intent
+                    startActivity(intent);
 
-                // Overrides the default animation to slide in on right
-                getActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                    // Overrides the default animation to slide in on right
+                    getActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                } else {
+                    Toast.makeText(getActivity(), "Please enter your willpower stat first", Toast.LENGTH_SHORT).show();
+                }
 
             }
         });
@@ -388,27 +425,32 @@ public class tab1Character extends Fragment {
             @Override
             public void onClick(View view) {
 
-                // Initialise Intent - Move from this tab1Character fragment to AttributeRollActivity
-                Intent intent = new Intent(getActivity(), AttributeRollActivity.class);
+                // Tests to see if there is a value inputted in the Fel, if so launches the new activity, if not toast the user
+                if (!(felValue.getText().toString().trim().equals(""))){
+                    // Initialise Intent - Move from this tab1Character fragment to AttributeRollActivity
+                    Intent intent = new Intent(getActivity(), AttributeRollActivity.class);
 
-                // Initialise a new bundle
-                Bundle bundle = new Bundle();
+                    // Initialise a new bundle
+                    Bundle bundle = new Bundle();
 
-                // Putting stuff in the bundle
-                // Putting the attribute's name into the bundle
-                bundle.putString("attributeName", getResources().getString(R.string.stat_fel));
+                    // Putting stuff in the bundle
+                    // Putting the attribute's name into the bundle
+                    bundle.putString("attributeName", getResources().getString(R.string.stat_fel));
 
-                // Putting the attribute's value into the bundle
-                bundle.putString("attributeValue", felValue.getText().toString().trim());
+                    // Putting the attribute's value into the bundle
+                    bundle.putString("attributeValue", felValue.getText().toString().trim());
 
-                // Put that bundle to the intent
-                intent.putExtras(bundle);
+                    // Put that bundle to the intent
+                    intent.putExtras(bundle);
 
-                // Starting the activity's intent
-                startActivity(intent);
+                    // Starting the activity's intent
+                    startActivity(intent);
 
-                // Overrides the default animation to slide in on right
-                getActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                    // Overrides the default animation to slide in on right
+                    getActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                } else {
+                    Toast.makeText(getActivity(), "Please enter your fellowship stat first", Toast.LENGTH_SHORT).show();
+                }
 
             }
         });

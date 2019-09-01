@@ -181,6 +181,13 @@ public class AttributeRollActivity extends AppCompatActivity {
         // Defaults the threshold value to default onCreate;
         threshold = attributeVal;
 
+        // Testing to see if the threshold is outside the possible range of  0 > x >= 100
+        if (threshold < 1){
+            threshold = 1;
+        } else if (threshold > 100) {
+            threshold = 100;
+        }
+
         // Initially setting the roll threshold to the base stat - will be modified on seekbar change afterwards
         rollRequiredVal.setText(bundle.getString("attributeValue"));
 
@@ -194,6 +201,13 @@ public class AttributeRollActivity extends AppCompatActivity {
 
                 // Updates the variable to the new roll threshold amount
                 threshold = attributeVal + (i - 60);
+
+                // Testing to see if the threshold is outside the possible range of  0 > x >= 100
+                if (threshold < 1){
+                    threshold = 1;
+                } else if (threshold > 100) {
+                    threshold = 100;
+                }
 
                 // Sets the roll threshold text view
                 rollRequiredVal.setText(Integer.toString(threshold));
