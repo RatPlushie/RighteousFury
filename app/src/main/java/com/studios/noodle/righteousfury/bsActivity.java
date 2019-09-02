@@ -121,7 +121,6 @@ public class bsActivity extends AppCompatActivity {
 
 
 
-
     public String getWeaponStatString(int weaponSlot){
         // Method wide variables for writing the string
         String weaponClass;
@@ -144,7 +143,9 @@ public class bsActivity extends AppCompatActivity {
                 weaponRoF       = weapon1_RoF;
                 weaponClip      = weapon1_Clip;
                 weaponReload    = weapon1_Reload;
+
                 break;
+
             case 2: // Uses the weapon #2 slot data
                 weaponClass     = weapon2_Class;
                 weaponDamage    = weapon2_Damage;
@@ -154,7 +155,9 @@ public class bsActivity extends AppCompatActivity {
                 weaponRoF       = weapon2_RoF;
                 weaponClip      = weapon2_Clip;
                 weaponReload    = weapon2_Reload;
+
                 break;
+
             case 3: // Uses the weapon #3 slot data
                 weaponClass     = weapon3_Class;
                 weaponDamage    = weapon3_Damage;
@@ -164,7 +167,9 @@ public class bsActivity extends AppCompatActivity {
                 weaponRoF       = weapon3_RoF;
                 weaponClip      = weapon3_Clip;
                 weaponReload    = weapon3_Reload;
+
                 break;
+
             case 4: // Uses the weapon #4 slot data
                 weaponClass     = weapon4_Class;
                 weaponDamage    = weapon4_Damage;
@@ -174,6 +179,7 @@ public class bsActivity extends AppCompatActivity {
                 weaponRoF       = weapon4_RoF;
                 weaponClip      = weapon4_Clip;
                 weaponReload    = weapon4_Reload;
+
                 break;
 
                 default: // Has a default value in case the initial onCreate call comes empty
