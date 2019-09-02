@@ -3,6 +3,7 @@ package com.studios.noodle.righteousfury;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
@@ -67,16 +68,46 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_addplayer) {
-            // Handle the camera action
+
+            // Placeholder WIP
+            Toast.makeText(getApplicationContext(), "Work in progress", Toast.LENGTH_SHORT).show();
+
+            // TODO - Add ability to add another character slot
+
         } else if (id == R.id.nav_char1) {
+
+            // Placeholder WIP
+            Toast.makeText(getApplicationContext(), "Work in progress", Toast.LENGTH_SHORT).show();
+
+            // TODO - Add ability to select a different character
 
         } else if (id == R.id.nav_char2) {
 
+            // Placeholder WIP
+            Toast.makeText(getApplicationContext(), "Work in progress", Toast.LENGTH_SHORT).show();
+
+            // TODO - Add ability to select a different character
+
         } else if (id == R.id.nav_char3) {
+
+            // Placeholder WIP
+            Toast.makeText(getApplicationContext(), "Work in progress", Toast.LENGTH_SHORT).show();
+
+            // TODO - Add ability to select a different character
 
         } else if (id == R.id.nav_import) {
 
+            // Placeholder WIP
+            Toast.makeText(getApplicationContext(), "Work in progress", Toast.LENGTH_SHORT).show();
+
+            // TODO - Add ability to import a character's data
+
         } else if (id == R.id.nav_export) {
+
+            // Placeholder WIP
+            Toast.makeText(getApplicationContext(), "Work in progress", Toast.LENGTH_SHORT).show();
+
+            // TODO - Add ability to export a character's data
 
         }
 

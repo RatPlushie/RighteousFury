@@ -5,6 +5,9 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -18,7 +21,7 @@ import static com.studios.noodle.righteousfury.tab1Character.SHARED_PREFS;
 public class AttributeRollActivity extends AppCompatActivity {
 
     // AttributeRollActivity Variables
-    private TextView activityTile;
+    private TextView activityTitle;
     private TextView activityAttributeVal;
     private TextView modifierValue;
     private TextView currentFatePointValue;
@@ -26,10 +29,15 @@ public class AttributeRollActivity extends AppCompatActivity {
     private TextView rollOutcome;
     private TextView degreeOfOutcome;
 
-    private Button rollButton;
-    private Button reRollButton;
-    private Button fatepointRollButton;
-    private Button burnButton;
+    private Button buttonRoll;
+    private Button buttonReRoll;
+    private Button buttonFP;
+    private Button buttonBurn;
+
+    private ImageButton buttonModPlus;
+    private ImageButton buttonModMinus;
+
+    private CheckBox unskilledCheckBox;
 
     private SeekBar modifierSeekBar;
 
@@ -40,9 +48,10 @@ public class AttributeRollActivity extends AppCompatActivity {
     private int threshold;
     private int degreeResult;
     private int maxFP;
+    private int attributeValue;
 
-    private String degreeString;
-    private String fatePointTotalString;
+    private String attributeName;
+
 
 
     // Random Method
@@ -50,62 +59,235 @@ public class AttributeRollActivity extends AppCompatActivity {
     public static int random(int min, int max){
         return random.nextInt(max) + min;
     }
-    
-    public String getDegreeRoll(int diceRoll, int threshold){
-        if (diceRoll == threshold){
-            // Regular rolled success
 
-            // if true - 0 degrees of success
-            degreeString = getString(R.string.zero_degrees_of_success);
 
-        } else if ( diceRoll > threshold){
-            // Roll failure
 
-            // Equation to find the amount of degrees of failure, printing an int
+    public void updateFPDisplay(int mode){
+        /* Method called when the amount of fatepoints needs to be changed and displayed
+
+           Modes:-
+           0: Initial display
+           1: Spend FP
+           2: Burn FP
+        */
+
+        // Setting up the var to be returned once constructed
+        String FPString;
+
+        // Determining how the display will be updated
+        switch (mode){
+            case 0:
+                if (currentFP == 0){
+                    // User has no fatepoints, shouldnt be able to use button
+                    buttonFP.setEnabled(false);
+
+                    // Building string to display
+                    FPString = currentFP + " / " + maxFP;
+
+                    // Setting the text on the display with the created string
+                    currentFatePointValue.setText(FPString);
+                } else {
+                    // Building the string to display
+                    FPString = currentFP + " / " + maxFP;
+
+                    // Setting the text on the display with the created string
+                    currentFatePointValue.setText(FPString);
+                }
+
+                break;
+
+            case 1:
+                // Spends on FP
+                currentFP --;
+
+                // Have to create string separately for .setText()
+                FPString = currentFP + " / " + maxFP;
+
+                // Displaying the updated fate point fraction
+                currentFatePointValue.setText(FPString);
+
+                break;
+
+            case 2:
+                // Tests to see how best to remove an FP
+                if (currentFP == maxFP){
+                    currentFP--;
+                    maxFP--;
+                } else if (currentFP < maxFP){
+                    maxFP--;
+                }
+
+                // Have to create the string separately for .setText()
+                FPString = currentFP + " / " + maxFP;
+
+                // Displaying the updated fate point fraction
+                currentFatePointValue.setText(FPString);
+
+                break;
+        }
+    }
+
+
+
+    public void diceRoll(int mode, int threshold) {
+        // TODO - dice roll logic
+        /* Method called when a dice roll is required
+           Mode:-
+           0: Standard Roll
+           1: Re-Roll
+           2: Spend Fate Point Roll
+           3: Burn Fate Point Roll
+        */
+
+        // Rolls the d100
+        diceRoll = random(0, 100);
+
+
+        // Determines which, button specific, actions are taken
+        switch (mode){
+            case 0: // Roll
+                // Displays the outcome of the dice roll
+                rollOutcome.setText(Integer.toString(diceRoll));
+
+                // Disables the "roll" button from being pressed any more
+                buttonRoll.setEnabled(false);
+
+                // Breaks from the switch to work out degree(s) of success/failure
+                break;
+
+            case 1: // Re-Roll
+                // Displays the outcome of the dice roll
+                rollOutcome.setText(Integer.toString(diceRoll));
+
+                // Currently doesn't have any behaviours attached to it and is just a reusable roll
+                break;
+
+            case 2: // Spend FP
+                // Displays the outcome of the dice roll
+                rollOutcome.setText(Integer.toString(diceRoll));
+
+                // Subtracts one FP and updates the FP display
+                updateFPDisplay(1);
+
+                // Tests to see if the "Fate Point" button now needs disabled
+                if (currentFP == 0){
+                    // User has now no more fate points, button will be disabled
+                    buttonFP.setEnabled(false);
+                }
+
+                // Spending FP is a re-roll, breaks from the switch to work out degree(s) of success/failure
+                break;
+
+            case 3: // Burn FP
+                updateFPDisplay(2);
+                // Disabling all the buttons, Burning is an auto win state
+                buttonRoll.setEnabled(false);
+                buttonReRoll.setEnabled(false);
+                buttonFP.setEnabled(false);
+                buttonBurn.setEnabled(false);
+
+                // Burning FP is an auto-win, Dice rolls are un-needed
+                rollRequiredVal.setText("-");
+                rollOutcome.setText("-");
+                degreeOfOutcome.setText(getString(R.string.zero_degrees_of_success));
+
+                // Burning FP is an auto success so it doesnt need to determine the degrees of success/failure
+                return;
+        }
+
+
+        // Determining the degrees of success/failure
+        if (diceRoll == threshold) {    // Just barely a success
+
+            // A success with 0 degrees, displays the degree outcome
+            degreeOfOutcome.setText(getString(R.string.zero_degrees_of_success));
+
+        } else if (diceRoll > threshold) {   // A Failed Roll
+
+            // Formula to work out the amount of degree(s) of failure
             degreeResult = ((diceRoll - threshold) / 10);
 
+            // Testing to see how many degrees of failure and which text to construct and display
             if (degreeResult == 0){
-
-                // prints out a regular report of zero degrees of failure
-                degreeString = getString(R.string.zero_degrees_of_failure);
+                // Displays a report of "Zero degrees of failure
+                degreeOfOutcome.setText(getString(R.string.zero_degrees_of_failure));
 
             } else if (degreeResult == 1){
-
-                // prints out a report of one degree of failure
-                degreeString = getString(R.string.one_degree_of_failure);
+                // Displays a report of "One degree of failure
+                degreeOfOutcome.setText(getString(R.string.one_degree_of_failure));
 
             } else if (degreeResult > 1){
+                // Must create the string outside of .setText()
+                String outcomeString = degreeResult + " " + getString(R.string.many_degrees_of_failure);
 
-                // Creates a string to be used in the setText return
-                degreeString = (degreeResult + " " + getString(R.string.many_degrees_of_failure));
-                
+                // Displays a report of "X degrees of failure
+                degreeOfOutcome.setText(outcomeString);
             }
 
-        } else if ( diceRoll < threshold) {
-            // Roll success
+        } else if (diceRoll < threshold){   // A successful roll
 
-            // Equation to find the amount of degrees of success, printing an int
+            // Formula to work out the amount of degree(s) of success
             degreeResult = ((threshold - diceRoll) / 10);
 
+            //Testing to see how many degrees of success and which text to construct and display
             if (degreeResult == 0){
-
-                // Prints out a regular report of zero degrees of success
-                degreeString = getString(R.string.zero_degrees_of_success);
+                // Displays a report of "Zero degrees of success"
+                degreeOfOutcome.setText(getString(R.string.zero_degrees_of_success));
 
             } else if (degreeResult == 1){
-
-                // prints out a report of one degree of success
-                degreeString = getString(R.string.one_degree_of_success);
+                // Display a report of one degree of success
+                degreeOfOutcome.setText(getString(R.string.one_degree_of_success));
 
             } else if (degreeResult > 1){
+                // Must create the string outside of .setText()
+                String outcomeString = (degreeResult + " " + getString(R.string.many_degrees_of_success));
 
-                // Creates a string to be used in the setText method since setText doesn't like it
-                degreeString = (degreeResult + " " + getString(R.string.many_degrees_of_success));
-                
+                // Displays a report of "X degrees of success"
+                degreeOfOutcome.setText(outcomeString);
+
             }
         }
-        return degreeString; 
     }
+
+
+
+    public void updateThreshold(int attVal, int buttonMod){
+        // Retrieves the current modifier value
+        int modVal = Integer.parseInt(modifierValue.getText().toString().trim());
+
+
+        // Tests to see if it first has to half the attribute value because of an unskilled roll
+        if (unskilledCheckBox.isChecked()){
+                // Should the user check the unskilled box the attribute value will be halved and then updated
+
+                // Halves the attribute value
+                attVal /= 2;
+
+                // Adds to the remaining attribute value the modifier
+                attVal += modVal;
+
+                // For when the user presses the +/- buttons for the modifier selection
+                attVal += buttonMod;
+
+                // Displays the new value
+                rollRequiredVal.setText(Integer.toString(attVal));
+
+                // Sets the text to the warning colour
+                rollRequiredVal.setTextColor(getResources().getColor(R.color.warningRed));
+
+        } else if (!unskilledCheckBox.isChecked()){
+                // Should the user uncheck the unskilled box the attribute value will be restored and updated
+
+                attVal += modVal;
+
+                // Displays the new value
+                rollRequiredVal.setText(Integer.toString(attVal));
+
+                // Sets the text to the default colour
+                rollRequiredVal.setTextColor(getResources().getColor(R.color.textPrimary));
+        }
+    }
+
 
 
     @Override
@@ -114,204 +296,223 @@ public class AttributeRollActivity extends AppCompatActivity {
         setContentView(R.layout.activity_attribute_roll);
 
         // Initialisation of the activity's objects
-        activityTile                = findViewById(R.id.AttributeTitleTextView);
+        activityTitle                = findViewById(R.id.AttributeTitleTextView);
         activityAttributeVal        = findViewById(R.id.AttributeValTextView);
+        attributeImageView          = findViewById(R.id.attributeImageView);
         modifierValue               = findViewById(R.id.ModifierValTextView);
         currentFatePointValue       = findViewById(R.id.currentFatePointTotalTextView);
         rollRequiredVal             = findViewById(R.id.rollThresholdValTextView);
         rollOutcome                 = findViewById(R.id.rollOutcomeValTextView);
         degreeOfOutcome             = findViewById(R.id.degreeOutcomeVal);
-        rollButton                  = findViewById(R.id.rollButton);
-        reRollButton                = findViewById(R.id.reRollButton);
-        fatepointRollButton         = findViewById(R.id.fatepointRollButton);
-        burnButton                  = findViewById(R.id.burnFPButton);
+
+        buttonRoll                  = findViewById(R.id.rollButton);
+        buttonReRoll                = findViewById(R.id.reRollButton);
+        buttonFP                    = findViewById(R.id.fatepointRollButton);
+        buttonBurn                  = findViewById(R.id.burnFPButton);
+        buttonModPlus               = findViewById(R.id.attRollModPlusImageButton);
+        buttonModMinus              = findViewById(R.id.attRollModMinusImageButton);
+
         modifierSeekBar             = findViewById(R.id.rollModifierSeekBar);
-        attributeImageView          = findViewById(R.id.attributeImageView);
+
+        unskilledCheckBox           = findViewById(R.id.attUnskilledCheckBox);
 
 
-        // Initialisation of the shared preference object to load character data onResume
+
+        // Initialisation of the shared preference object to load character data
         SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, Context.MODE_PRIVATE);
 
-        // Initialisation of the shared preferences editor
+        // Initialisation of the shared preferences editor (May not be needed)
         SharedPreferences.Editor edit = sharedPreferences.edit();
 
-        // Retrieving the amount of fate points the user has and parsing it into an integer
+
+
+        // Retrieving the amount of Fate Points the user has and parsing it as an int
         currentFP = Integer.parseInt(sharedPreferences.getString("character_current_fp", ""));
 
-        // Retrieving the maximum amount of fate points the user has and parsing it into an integer
-        maxFP = Integer.parseInt(sharedPreferences.getString("character_max_fp", ""));
+        // Retrieving the maximum amount of Fate Points the user has and parsing it as an int
+        maxFP     = Integer.parseInt(sharedPreferences.getString("character_max_fp", ""));
 
-        // Setting the starting amount of fatepoints the user has
-        if (currentFP == 0){
-            fatepointRollButton.setEnabled(false);
-            fatePointTotalString = currentFP + " / " + maxFP;
-            currentFatePointValue.setText(fatePointTotalString);
-        } else {
-            fatePointTotalString = currentFP + " / " + maxFP;
-            currentFatePointValue.setText(fatePointTotalString);
-        }
 
-        // Setting if the burn button is enabled
-        if (maxFP == 0){
-            burnButton.setEnabled(false);
-        }
 
-        // Setting
-
-        // Retrieve the bundle
+        // Retrieving the bundle passed from tab1Character.class
         Bundle bundle = getIntent().getExtras();
 
-        // Extracting the passed data
-        // Extracting the Name of the attribute from the bundle
-        String attributeName = bundle.getString("attributeName");
+        // Extracting the bundled data
+        attributeName  = bundle.getString("attributeName");
+        attributeValue = Integer.parseInt(bundle.getString("attributeValue"));
 
-        // Extracting the value of the attribute as an integer
-        final int attributeVal = Integer.parseInt(bundle.getString("attributeValue"));
+        // Displaying the attribute the user is rolling against
+        activityTitle.setText(attributeName);
 
+        // Displaying the attribute value the user is rolling with
+        activityAttributeVal.setText(Integer.toString(attributeValue));
 
-        // Setting the title of the roll page to the attribute's name
-        activityTile.setText(attributeName);
-
-        // Setting the value of the attribute visually
-        activityAttributeVal.setText(Integer.toString(attributeVal));
-
-        // Setting the default value of the modifier roll
+        // Displaying the default initial value of the roll modifier to 0
         modifierValue.setText(Integer.toString(0));
 
-        // Defaults the threshold value to default onCreate;
-        threshold = attributeVal;
+        // Displaying the default roll threshold (attribute value)
+        updateThreshold(attributeValue, 0);
 
-        // Initially setting the roll threshold to the base stat - will be modified on seekbar change afterwards
-        rollRequiredVal.setText(bundle.getString("attributeValue"));
+        // Displaying the amount of Fate Points the user has in the TextView
+        updateFPDisplay(0);
 
-        // Call for the seekbar's behaviour
+
+
+        // Defaulting the roll threshold value to the attribute value (an unmodified roll)
+        threshold = attributeValue;
+
+        // If threshold is outside the possible range, constrain results to range 0 < x <= 100
+        if (threshold < 1){
+            threshold = 1;
+        } else if (threshold > 100){
+            threshold = 100;
+        }
+
+
+
+        // Disabling the "burn" button onCreate if the user has no FP to spend on this action
+        if (maxFP == 0){
+            buttonBurn.setEnabled(false);
+        }
+
+        // Disabling the "fatepoint" button onCreate if the user has no FP to spend on this action
+        if (currentFP == 0){
+            buttonFP.setEnabled(false);
+        }
+
+
+
+        // OnSeekBarChange behaviour for the modifier seek bar
         modifierSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
-
-                // sets the Modifier value text view above the seekbar
+                // Displaying the modifier textview above the seekbar
                 modifierValue.setText(Integer.toString(i - 60));
 
                 // Updates the variable to the new roll threshold amount
-                threshold = attributeVal + (i - 60);
+                threshold = attributeValue + (i - 60);
 
-                // Sets the roll threshold text view
-                rollRequiredVal.setText(Integer.toString(threshold));
+                // Testing if to see the threshold is outside the possible range of 0 < x > 100
+                if (threshold < 1){
+                    threshold = 1;
+                } else if (threshold > 100){
+                    threshold = 100;
+                }
 
+                // Displaying the updated roll required value
+                updateThreshold(attributeValue, 0);
             }
 
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
-
+                // Don't need
             }
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-
+                // Don't need
             }
         });
 
 
 
-        // Call for the roll button - The user only gets one roll before it is locked off
-        rollButton.setOnClickListener(new View.OnClickListener() {
+        // OnChange behaviour for the unskilled modifier checkbox
+        unskilledCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
-            public void onClick(View view) {
-
-                // Saves an int to be used later
-                diceRoll = random(0, 100);
-
-                // Sets the text in the Roll outcome card view
-                rollOutcome.setText(Integer.toString(diceRoll));
-
-                // Disables the button being pressed any more
-                rollButton.setEnabled(false);
-
-                // Set text to the degrees of the outcome
-                degreeOfOutcome.setText(getDegreeRoll(diceRoll, threshold));
-
-
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                // Calls for the updateThreshold method to update objects as needed
+                updateThreshold(attributeValue, 0);
             }
         });
 
-        // Call for the re-roll button - Placeholder until there is logic to count how many rerolls a player has
-        reRollButton.setOnClickListener(new View.OnClickListener() {
+
+
+        // OnClick behaviour for the modifier +1 button
+        buttonModPlus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                // Finds out what the current value of the modifier is as an integer
+                int modifierInt = Integer.parseInt(modifierValue.getText().toString().trim());
 
-                // Saves an int to be used later
-                diceRoll = random(0, 100);
+                // Adds 1 to the int for the new value
+                modifierInt += 1;
 
-                // Sets the text in the Roll outcome card view
-                rollOutcome.setText(Integer.toString(diceRoll));
+                // Prevents the user from +1 -ing their way to beyond the max +60 mod
+                if (modifierInt <= 60){
+                    // Displays the new value with the +1 added
+                    modifierValue.setText(Integer.toString(modifierInt));
 
-                // Sets text to the degrees of the outcome
-                degreeOfOutcome.setText(getDegreeRoll(diceRoll, threshold));
-
-                // Counts and reacts to how many re-rolls the player has
-            }
-        });
-
-        // Call for the fate point spending button
-        fatepointRollButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                // Saves an int to be used later
-                diceRoll = random(0, 100);
-
-                // Sets the text in the Roll outcome card view
-                rollOutcome.setText(Integer.toString(diceRoll));
-
-                // Subtract one FP
-                currentFP--;
-
-                // Display the remaining amount of fate points
-                fatePointTotalString = currentFP + " / " + maxFP;
-                currentFatePointValue.setText(fatePointTotalString);
-
-                // Checks if the new value of current fp is now 0
-                if (currentFP == 0){
-                    // If true then the button will be disabled
-                    fatepointRollButton.setEnabled(false);
-
+                    // Updates the threshold value with the +1
+                    updateThreshold(attributeValue, 1);
                 }
-
-                // Sets text to the degrees of the outcome
-                degreeOfOutcome.setText(getDegreeRoll(diceRoll, threshold));
             }
         });
 
-        // Call for the fate point burning button
-        burnButton.setOnClickListener(new View.OnClickListener() {
+
+
+        // OnClick behaviour for the modifier -1 button
+        buttonModMinus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                // Finds out what the current value of the modifier is as an integer
+                int modifierInt = Integer.parseInt(modifierValue.getText().toString().trim());
 
-                // Disabling all buttons, after a fate point is burned it is an auto win state. No further button-presses needed
-                burnButton.setEnabled(false);
-                rollButton.setEnabled(false);
-                reRollButton.setEnabled(false);
-                fatepointRollButton.setEnabled(false);
+                // Adds 1 to the int for the new value
+                modifierInt -= 1;
 
-                // Checks to see how to remove a fate point
-                if (currentFP == maxFP){
-                    currentFP--;
-                    maxFP--;
-                } else if (currentFP < maxFP){
-                    maxFP--;
+                // Prevents the user from -1 -ing below -60
+                if (modifierInt > -60){
+                    // Display the new value with the -1
+                    modifierValue.setText(Integer.toString(modifierInt));
+
+                    // Updates the threshold value with the -1
+                    updateThreshold(attributeValue, -1);
                 }
+            }
+        });
 
-                // Burning a fate point immediately calls for a winning state, so dice rolls are irrelevant
-                rollRequiredVal.setText("-");
-                rollOutcome.setText("-");
-                degreeOfOutcome.setText(getString(R.string.zero_degrees_of_success));
 
-                // Updating the value of the current and maxFP counter
-                fatePointTotalString = currentFP + " / " + maxFP;
-                currentFatePointValue.setText(fatePointTotalString);
+
+        // OnClick behaviour for the "roll" button
+        buttonRoll.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                diceRoll(0, threshold);
+            }
+        });
+
+
+
+        // OnClick behaviour for the "reroll" button
+        buttonReRoll.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                diceRoll(1, threshold);
+            }
+        });
+
+
+
+        // OnClick behaviour for the "fatepoint" button
+        buttonFP.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                diceRoll(2, threshold);
+            }
+        });
+
+
+
+        // OnClick behaviour for the "burn" button
+        buttonBurn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                diceRoll(3, threshold);
             }
         });
     }
+
+
 
     @Override
     protected void onPause() {
@@ -332,6 +533,8 @@ public class AttributeRollActivity extends AppCompatActivity {
         // Applies the changes to the shared preferences file
         edit.apply();
     }
+
+
 
     @Override
     public void finish() {

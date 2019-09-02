@@ -21,7 +21,8 @@
             android:id="@+id/MeleeParent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp">
+            android:layout_marginTop="10dp"
+            app:cardBackgroundColor="@color/cardPrimary">
 
             <LinearLayout
                 android:id="@+id/MeleeParentCardMasterLayout"
@@ -32,7 +33,7 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/MeleeParentLayout"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="wrap_content">
 
                     <TextView
                         android:id="@+id/MeleeTitle"
@@ -40,6 +41,7 @@
                         android:layout_height="wrap_content"
                         android:padding="8dp"
                         android:text="@string/melee_weapon_titlecard"
+                        android:textColor="@color/textPrimary"
                         android:textSize="14sp"
                         android:textStyle="bold"
                         app:layout_constraintStart_toStartOf="parent"
@@ -60,7 +62,6 @@
                         android:id="@+id/MeleeChildrenLinearLayout"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="8dp"
                         android:orientation="vertical"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -71,7 +72,7 @@
                             android:id="@+id/Melee1Card"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            app:cardBackgroundColor="#B6B6B6">
+                            app:cardBackgroundColor="@color/cardSecondary">
 
                             <LinearLayout
                                 android:layout_width="match_parent"
@@ -89,6 +90,7 @@
                                         android:layout_height="wrap_content"
                                         android:padding="8dp"
                                         android:text="@string/melee_weapon_one"
+                                        android:textColor="@color/textPrimary"
                                         app:layout_constraintStart_toStartOf="parent"
                                         app:layout_constraintTop_toTopOf="parent" />
 
@@ -109,6 +111,8 @@
                                         android:layout_height="wrap_content"
                                         android:layout_marginStart="8dp"
                                         android:text="@string/melee_weapon_name"
+                                        android:textAllCaps="false"
+                                        android:textColor="@color/textPrimary"
                                         app:layout_constraintStart_toStartOf="parent"
                                         app:layout_constraintTop_toBottomOf="@+id/Melee1TitleTextView" />
 
@@ -120,6 +124,7 @@
                                         android:layout_marginEnd="8dp"
                                         android:inputType="textPersonName"
                                         android:textAlignment="textStart"
+                                        android:textColor="@color/textPrimary"
                                         android:textSize="14sp"
                                         app:layout_constraintBottom_toBottomOf="@+id/meWep1_NameTextView"
                                         app:layout_constraintEnd_toEndOf="parent"
@@ -128,11 +133,11 @@
 
                                     <View
                                         android:id="@+id/meWep1_divider1"
-                                        android:layout_width="match_parent"
+                                        android:layout_width="0dp"
                                         android:layout_height="1dp"
                                         android:layout_marginStart="8dp"
                                         android:layout_marginEnd="8dp"
-                                        android:background="#000000"
+                                        android:background="@color/textPrimary"
                                         app:layout_constraintEnd_toEndOf="parent"
                                         app:layout_constraintStart_toStartOf="parent"
                                         app:layout_constraintTop_toBottomOf="@+id/meWep1_NameEditText" />
@@ -142,6 +147,7 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:text="@string/melee_weapon_class"
+                                        android:textColor="@color/textPrimary"
                                         app:layout_constraintBottom_toTopOf="@+id/meWep1_ClassEditText"
                                         app:layout_constraintEnd_toEndOf="@+id/meWep1_ClassEditText"
                                         app:layout_constraintStart_toStartOf="@+id/meWep1_ClassEditText" />
@@ -153,6 +159,8 @@
                                         android:layout_marginStart="8dp"
                                         android:layout_marginTop="20dp"
                                         android:inputType="textPersonName"
+                                        android:textAlignment="center"
+                                        android:textColor="@color/textPrimary"
                                         android:textSize="14sp"
                                         app:layout_constraintEnd_toStartOf="@+id/meWep1_DamageEditText"
                                         app:layout_constraintStart_toStartOf="parent"
@@ -163,6 +171,7 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:text="@string/damage"
+                                        android:textColor="@color/textPrimary"
                                         app:layout_constraintBottom_toTopOf="@+id/meWep1_DamageEditText"
                                         app:layout_constraintEnd_toEndOf="@+id/meWep1_DamageEditText"
                                         app:layout_constraintStart_toStartOf="@+id/meWep1_DamageEditText" />
@@ -174,6 +183,8 @@
                                         android:layout_marginStart="8dp"
                                         android:layout_marginTop="20dp"
                                         android:inputType="textPersonName"
+                                        android:textAlignment="center"
+                                        android:textColor="@color/textPrimary"
                                         android:textSize="14sp"
                                         app:layout_constraintEnd_toStartOf="@+id/meWep1_TypeEditText"
                                         app:layout_constraintStart_toEndOf="@+id/meWep1_ClassEditText"
@@ -184,6 +195,7 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:text="@string/melee_weapon_type"
+                                        android:textColor="@color/textPrimary"
                                         app:layout_constraintBottom_toTopOf="@+id/meWep1_TypeEditText"
                                         app:layout_constraintEnd_toEndOf="@+id/meWep1_TypeEditText"
                                         app:layout_constraintStart_toStartOf="@+id/meWep1_TypeEditText" />
@@ -195,6 +207,8 @@
                                         android:layout_marginStart="8dp"
                                         android:layout_marginTop="20dp"
                                         android:inputType="textPersonName"
+                                        android:textAlignment="center"
+                                        android:textColor="@color/textPrimary"
                                         android:textSize="14sp"
                                         app:layout_constraintEnd_toStartOf="@+id/meWep1_PenEditText"
                                         app:layout_constraintStart_toEndOf="@+id/meWep1_DamageEditText"
@@ -205,6 +219,7 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:text="@string/melee_weapon_penetration"
+                                        android:textColor="@color/textPrimary"
                                         app:layout_constraintBottom_toTopOf="@+id/meWep1_PenEditText"
                                         app:layout_constraintEnd_toEndOf="@+id/meWep1_PenEditText"
                                         app:layout_constraintStart_toStartOf="@+id/meWep1_PenEditText" />
@@ -217,6 +232,8 @@
                                         android:layout_marginTop="20dp"
                                         android:layout_marginEnd="8dp"
                                         android:inputType="textPersonName"
+                                        android:textAlignment="center"
+                                        android:textColor="@color/textPrimary"
                                         android:textSize="14sp"
                                         app:layout_constraintEnd_toEndOf="parent"
                                         app:layout_constraintStart_toEndOf="@+id/meWep1_TypeEditText"
@@ -224,11 +241,11 @@
 
                                     <View
                                         android:id="@+id/meWep1_divider2"
-                                        android:layout_width="match_parent"
+                                        android:layout_width="0dp"
                                         android:layout_height="1dp"
                                         android:layout_marginStart="8dp"
                                         android:layout_marginEnd="8dp"
-                                        android:background="#000000"
+                                        android:background="@color/textPrimary"
                                         app:layout_constraintEnd_toEndOf="parent"
                                         app:layout_constraintStart_toStartOf="parent"
                                         app:layout_constraintTop_toBottomOf="@+id/meWep1_DamageEditText" />
@@ -239,6 +256,7 @@
                                         android:layout_height="wrap_content"
                                         android:layout_marginStart="8dp"
                                         android:text="@string/melee_weapon_special_rules"
+                                        android:textColor="@color/textPrimary"
                                         app:layout_constraintStart_toStartOf="parent"
                                         app:layout_constraintTop_toBottomOf="@+id/meWep1_divider2" />
 
@@ -250,6 +268,7 @@
                                         android:layout_marginEnd="8dp"
                                         android:inputType="textPersonName"
                                         android:textAlignment="textStart"
+                                        android:textColor="@color/textPrimary"
                                         android:textSize="14sp"
                                         app:layout_constraintEnd_toEndOf="parent"
                                         app:layout_constraintStart_toStartOf="parent"
@@ -265,7 +284,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
-                            app:cardBackgroundColor="#B6B6B6">
+                            app:cardBackgroundColor="@color/cardSecondary">
 
                             <LinearLayout
                                 android:layout_width="match_parent"
@@ -283,6 +302,7 @@
                                         android:layout_height="wrap_content"
                                         android:padding="8dp"
                                         android:text="@string/melee_weapon_two"
+                                        android:textColor="@color/textPrimary"
                                         app:layout_constraintStart_toStartOf="parent"
                                         app:layout_constraintTop_toTopOf="parent" />
 
@@ -303,6 +323,7 @@
                                         android:layout_height="wrap_content"
                                         android:layout_marginStart="8dp"
                                         android:text="@string/melee_weapon_name"
+                                        android:textColor="@color/textPrimary"
                                         app:layout_constraintStart_toStartOf="parent"
                                         app:layout_constraintTop_toBottomOf="@+id/Melee2TitleTextView" />
 
@@ -314,6 +335,7 @@
                                         android:layout_marginEnd="8dp"
                                         android:inputType="textPersonName"
                                         android:textAlignment="textStart"
+                                        android:textColor="@color/textPrimary"
                                         android:textSize="14sp"
                                         app:layout_constraintBottom_toBottomOf="@+id/meWep2_NameTextView"
                                         app:layout_constraintEnd_toEndOf="parent"
@@ -322,11 +344,11 @@
 
                                     <View
                                         android:id="@+id/meWep2_divider1"
-                                        android:layout_width="match_parent"
+                                        android:layout_width="0dp"
                                         android:layout_height="1dp"
                                         android:layout_marginStart="8dp"
                                         android:layout_marginEnd="8dp"
-                                        android:background="#000000"
+                                        android:background="@color/textPrimary"
                                         app:layout_constraintEnd_toEndOf="parent"
                                         app:layout_constraintStart_toStartOf="parent"
                                         app:layout_constraintTop_toBottomOf="@+id/meWep2_NameEditText" />
@@ -336,6 +358,7 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:text="@string/melee_weapon_class"
+                                        android:textColor="@color/textPrimary"
                                         app:layout_constraintBottom_toTopOf="@+id/meWep2_ClassEditText"
                                         app:layout_constraintEnd_toEndOf="@+id/meWep2_ClassEditText"
                                         app:layout_constraintStart_toStartOf="@+id/meWep2_ClassEditText" />
@@ -347,6 +370,8 @@
                                         android:layout_marginStart="8dp"
                                         android:layout_marginTop="20dp"
                                         android:inputType="textPersonName"
+                                        android:textAlignment="center"
+                                        android:textColor="@color/textPrimary"
                                         android:textSize="14sp"
                                         app:layout_constraintEnd_toStartOf="@+id/meWep2_DamageEditText"
                                         app:layout_constraintHorizontal_bias="0.5"
@@ -358,6 +383,7 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:text="@string/damage"
+                                        android:textColor="@color/textPrimary"
                                         app:layout_constraintBottom_toTopOf="@+id/meWep2_DamageEditText"
                                         app:layout_constraintEnd_toEndOf="@+id/meWep2_DamageEditText"
                                         app:layout_constraintStart_toStartOf="@+id/meWep2_DamageEditText" />
@@ -369,6 +395,8 @@
                                         android:layout_marginStart="8dp"
                                         android:layout_marginTop="20dp"
                                         android:inputType="textPersonName"
+                                        android:textAlignment="center"
+                                        android:textColor="@color/textPrimary"
                                         android:textSize="14sp"
                                         app:layout_constraintEnd_toStartOf="@+id/meWep2_TypeEditText"
                                         app:layout_constraintHorizontal_bias="0.5"
@@ -380,6 +408,7 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:text="@string/melee_weapon_type"
+                                        android:textColor="@color/textPrimary"
                                         app:layout_constraintBottom_toTopOf="@+id/meWep2_TypeEditText"
                                         app:layout_constraintEnd_toEndOf="@+id/meWep2_TypeEditText"
                                         app:layout_constraintStart_toStartOf="@+id/meWep2_TypeEditText" />
@@ -391,6 +420,8 @@
                                         android:layout_marginStart="8dp"
                                         android:layout_marginTop="20dp"
                                         android:inputType="textPersonName"
+                                        android:textAlignment="center"
+                                        android:textColor="@color/textPrimary"
                                         android:textSize="14sp"
                                         app:layout_constraintEnd_toStartOf="@+id/meWep2_PenEditText"
                                         app:layout_constraintHorizontal_bias="0.5"
@@ -402,6 +433,7 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:text="@string/melee_weapon_penetration"
+                                        android:textColor="@color/textPrimary"
                                         app:layout_constraintBottom_toTopOf="@+id/meWep2_PenEditText"
                                         app:layout_constraintEnd_toEndOf="@+id/meWep2_PenEditText"
                                         app:layout_constraintStart_toStartOf="@+id/meWep2_PenEditText" />
@@ -414,6 +446,8 @@
                                         android:layout_marginTop="20dp"
                                         android:layout_marginEnd="8dp"
                                         android:inputType="textPersonName"
+                                        android:textAlignment="center"
+                                        android:textColor="@color/textPrimary"
                                         android:textSize="14sp"
                                         app:layout_constraintEnd_toEndOf="parent"
                                         app:layout_constraintHorizontal_bias="0.5"
@@ -422,11 +456,11 @@
 
                                     <View
                                         android:id="@+id/meWep2_divider2"
-                                        android:layout_width="match_parent"
+                                        android:layout_width="0dp"
                                         android:layout_height="1dp"
                                         android:layout_marginStart="8dp"
                                         android:layout_marginEnd="8dp"
-                                        android:background="#000000"
+                                        android:background="@color/textPrimary"
                                         app:layout_constraintEnd_toEndOf="parent"
                                         app:layout_constraintStart_toStartOf="parent"
                                         app:layout_constraintTop_toBottomOf="@+id/meWep2_DamageEditText" />
@@ -437,6 +471,7 @@
                                         android:layout_height="wrap_content"
                                         android:layout_marginStart="8dp"
                                         android:text="@string/melee_weapon_special_rules"
+                                        android:textColor="@color/textPrimary"
                                         app:layout_constraintStart_toStartOf="parent"
                                         app:layout_constraintTop_toBottomOf="@+id/meWep2_divider2" />
 
@@ -448,6 +483,7 @@
                                         android:layout_marginEnd="8dp"
                                         android:inputType="textPersonName"
                                         android:textAlignment="textStart"
+                                        android:textColor="@color/textPrimary"
                                         android:textSize="14sp"
                                         app:layout_constraintEnd_toEndOf="parent"
                                         app:layout_constraintStart_toStartOf="parent"
@@ -463,7 +499,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
-                            app:cardBackgroundColor="#B6B6B6">
+                            app:cardBackgroundColor="@color/cardSecondary">
 
                             <LinearLayout
                                 android:layout_width="match_parent"
@@ -481,6 +517,7 @@
                                         android:layout_height="wrap_content"
                                         android:padding="8dp"
                                         android:text="@string/melee_weapon_three"
+                                        android:textColor="@color/textPrimary"
                                         app:layout_constraintStart_toStartOf="parent"
                                         app:layout_constraintTop_toTopOf="parent" />
 
@@ -501,6 +538,7 @@
                                         android:layout_height="wrap_content"
                                         android:layout_marginStart="8dp"
                                         android:text="@string/melee_weapon_name"
+                                        android:textColor="@color/textPrimary"
                                         app:layout_constraintStart_toStartOf="parent"
                                         app:layout_constraintTop_toBottomOf="@+id/Melee3TitleTextView" />
 
@@ -512,6 +550,7 @@
                                         android:layout_marginEnd="8dp"
                                         android:inputType="textPersonName"
                                         android:textAlignment="textStart"
+                                        android:textColor="@color/textPrimary"
                                         android:textSize="14sp"
                                         app:layout_constraintBottom_toBottomOf="@+id/meWep3_NameTextView"
                                         app:layout_constraintEnd_toEndOf="parent"
@@ -520,11 +559,11 @@
 
                                     <View
                                         android:id="@+id/meWep3_divider1"
-                                        android:layout_width="match_parent"
+                                        android:layout_width="0dp"
                                         android:layout_height="1dp"
                                         android:layout_marginStart="8dp"
                                         android:layout_marginEnd="8dp"
-                                        android:background="#000000"
+                                        android:background="@color/textPrimary"
                                         app:layout_constraintEnd_toEndOf="parent"
                                         app:layout_constraintStart_toStartOf="parent"
                                         app:layout_constraintTop_toBottomOf="@+id/meWep3_NameEditText" />
@@ -534,6 +573,7 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:text="@string/melee_weapon_class"
+                                        android:textColor="@color/textPrimary"
                                         app:layout_constraintBottom_toTopOf="@+id/meWep3_ClassEditText"
                                         app:layout_constraintEnd_toEndOf="@+id/meWep3_ClassEditText"
                                         app:layout_constraintStart_toStartOf="@+id/meWep3_ClassEditText" />
@@ -545,6 +585,8 @@
                                         android:layout_marginStart="8dp"
                                         android:layout_marginTop="20dp"
                                         android:inputType="textPersonName"
+                                        android:textAlignment="center"
+                                        android:textColor="@color/textPrimary"
                                         android:textSize="14sp"
                                         app:layout_constraintEnd_toStartOf="@+id/meWep3_DamageEditText"
                                         app:layout_constraintHorizontal_bias="0.5"
@@ -556,6 +598,7 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:text="@string/damage"
+                                        android:textColor="@color/textPrimary"
                                         app:layout_constraintBottom_toTopOf="@+id/meWep3_DamageEditText"
                                         app:layout_constraintEnd_toEndOf="@+id/meWep3_DamageEditText"
                                         app:layout_constraintStart_toStartOf="@+id/meWep3_DamageEditText" />
@@ -567,6 +610,8 @@
                                         android:layout_marginStart="8dp"
                                         android:layout_marginTop="20dp"
                                         android:inputType="textPersonName"
+                                        android:textAlignment="center"
+                                        android:textColor="@color/textPrimary"
                                         android:textSize="14sp"
                                         app:layout_constraintEnd_toStartOf="@+id/meWep3_TypeEditText"
                                         app:layout_constraintHorizontal_bias="0.5"
@@ -578,6 +623,7 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:text="@string/melee_weapon_type"
+                                        android:textColor="@color/textPrimary"
                                         app:layout_constraintBottom_toTopOf="@+id/meWep3_TypeEditText"
                                         app:layout_constraintEnd_toEndOf="@+id/meWep3_TypeEditText"
                                         app:layout_constraintStart_toStartOf="@+id/meWep3_TypeEditText" />
@@ -589,6 +635,8 @@
                                         android:layout_marginStart="8dp"
                                         android:layout_marginTop="20dp"
                                         android:inputType="textPersonName"
+                                        android:textAlignment="center"
+                                        android:textColor="@color/textPrimary"
                                         android:textSize="14sp"
                                         app:layout_constraintEnd_toStartOf="@+id/meWep3_PenEditText"
                                         app:layout_constraintHorizontal_bias="0.5"
@@ -600,6 +648,7 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:text="@string/melee_weapon_penetration"
+                                        android:textColor="@color/textPrimary"
                                         app:layout_constraintBottom_toTopOf="@+id/meWep3_PenEditText"
                                         app:layout_constraintEnd_toEndOf="@+id/meWep3_PenEditText"
                                         app:layout_constraintStart_toStartOf="@+id/meWep3_PenEditText" />
@@ -612,6 +661,8 @@
                                         android:layout_marginTop="20dp"
                                         android:layout_marginEnd="8dp"
                                         android:inputType="textPersonName"
+                                        android:textAlignment="center"
+                                        android:textColor="@color/textPrimary"
                                         android:textSize="14sp"
                                         app:layout_constraintEnd_toEndOf="parent"
                                         app:layout_constraintHorizontal_bias="0.5"
@@ -620,11 +671,11 @@
 
                                     <View
                                         android:id="@+id/meWep3_divider2"
-                                        android:layout_width="match_parent"
+                                        android:layout_width="0dp"
                                         android:layout_height="1dp"
                                         android:layout_marginStart="8dp"
                                         android:layout_marginEnd="8dp"
-                                        android:background="#000000"
+                                        android:background="@color/textPrimary"
                                         app:layout_constraintEnd_toEndOf="parent"
                                         app:layout_constraintStart_toStartOf="parent"
                                         app:layout_constraintTop_toBottomOf="@+id/meWep3_DamageEditText" />
@@ -635,6 +686,7 @@
                                         android:layout_height="wrap_content"
                                         android:layout_marginStart="8dp"
                                         android:text="@string/melee_weapon_special_rules"
+                                        android:textColor="@color/textPrimary"
                                         app:layout_constraintStart_toStartOf="parent"
                                         app:layout_constraintTop_toBottomOf="@+id/meWep3_divider2" />
 
@@ -646,6 +698,7 @@
                                         android:layout_marginEnd="8dp"
                                         android:inputType="textPersonName"
                                         android:textAlignment="textStart"
+                                        android:textColor="@color/textPrimary"
                                         android:textSize="14sp"
                                         app:layout_constraintEnd_toEndOf="parent"
                                         app:layout_constraintStart_toStartOf="parent"
@@ -661,7 +714,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
-                            app:cardBackgroundColor="#B6B6B6">
+                            app:cardBackgroundColor="@color/cardSecondary">
 
                             <LinearLayout
                                 android:layout_width="match_parent"
@@ -679,6 +732,7 @@
                                         android:layout_height="wrap_content"
                                         android:padding="8dp"
                                         android:text="@string/melee_weapon_four"
+                                        android:textColor="@color/textPrimary"
                                         app:layout_constraintStart_toStartOf="parent"
                                         app:layout_constraintTop_toTopOf="parent" />
 
@@ -699,6 +753,7 @@
                                         android:layout_height="wrap_content"
                                         android:layout_marginStart="8dp"
                                         android:text="@string/melee_weapon_name"
+                                        android:textColor="@color/textPrimary"
                                         app:layout_constraintStart_toStartOf="parent"
                                         app:layout_constraintTop_toBottomOf="@+id/Melee4TitleTextView" />
 
@@ -710,6 +765,7 @@
                                         android:layout_marginEnd="8dp"
                                         android:inputType="textPersonName"
                                         android:textAlignment="textStart"
+                                        android:textColor="@color/textPrimary"
                                         android:textSize="14sp"
                                         app:layout_constraintBottom_toBottomOf="@+id/meWep4_NameTextView"
                                         app:layout_constraintEnd_toEndOf="parent"
@@ -719,10 +775,10 @@
                                     <View
                                         android:id="@+id/meWep4_divider1"
                                         android:layout_width="match_parent"
-                                        android:layout_height="1dp"
+                                        android:layout_height="0dp"
                                         android:layout_marginStart="8dp"
                                         android:layout_marginEnd="8dp"
-                                        android:background="#000000"
+                                        android:background="@color/textPrimary"
                                         app:layout_constraintEnd_toEndOf="parent"
                                         app:layout_constraintStart_toStartOf="parent"
                                         app:layout_constraintTop_toBottomOf="@+id/meWep4_NameEditText" />
@@ -732,6 +788,7 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:text="@string/melee_weapon_class"
+                                        android:textColor="@color/textPrimary"
                                         app:layout_constraintBottom_toTopOf="@+id/meWep4_ClassEditText"
                                         app:layout_constraintEnd_toEndOf="@+id/meWep4_ClassEditText"
                                         app:layout_constraintStart_toStartOf="@+id/meWep4_ClassEditText" />
@@ -743,6 +800,8 @@
                                         android:layout_marginStart="8dp"
                                         android:layout_marginTop="20dp"
                                         android:inputType="textPersonName"
+                                        android:textAlignment="center"
+                                        android:textColor="@color/textPrimary"
                                         android:textSize="14sp"
                                         app:layout_constraintEnd_toStartOf="@+id/meWep4_DamageEditText"
                                         app:layout_constraintHorizontal_bias="0.5"
@@ -754,6 +813,7 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:text="@string/damage"
+                                        android:textColor="@color/textPrimary"
                                         app:layout_constraintBottom_toTopOf="@+id/meWep4_DamageEditText"
                                         app:layout_constraintEnd_toEndOf="@+id/meWep4_DamageEditText"
                                         app:layout_constraintStart_toStartOf="@+id/meWep4_DamageEditText" />
@@ -765,6 +825,8 @@
                                         android:layout_marginStart="8dp"
                                         android:layout_marginTop="20dp"
                                         android:inputType="textPersonName"
+                                        android:textAlignment="center"
+                                        android:textColor="@color/textPrimary"
                                         android:textSize="14sp"
                                         app:layout_constraintEnd_toStartOf="@+id/meWep4_TypeEditText"
                                         app:layout_constraintHorizontal_bias="0.5"
@@ -776,6 +838,7 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:text="@string/melee_weapon_type"
+                                        android:textColor="@color/textPrimary"
                                         app:layout_constraintBottom_toTopOf="@+id/meWep4_TypeEditText"
                                         app:layout_constraintEnd_toEndOf="@+id/meWep4_TypeEditText"
                                         app:layout_constraintStart_toStartOf="@+id/meWep4_TypeEditText" />
@@ -787,6 +850,8 @@
                                         android:layout_marginStart="8dp"
                                         android:layout_marginTop="20dp"
                                         android:inputType="textPersonName"
+                                        android:textAlignment="center"
+                                        android:textColor="@color/textPrimary"
                                         android:textSize="14sp"
                                         app:layout_constraintEnd_toStartOf="@+id/meWep4_PenEditText"
                                         app:layout_constraintHorizontal_bias="0.5"
@@ -798,6 +863,7 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:text="@string/melee_weapon_penetration"
+                                        android:textColor="@color/textPrimary"
                                         app:layout_constraintBottom_toTopOf="@+id/meWep4_PenEditText"
                                         app:layout_constraintEnd_toEndOf="@+id/meWep4_PenEditText"
                                         app:layout_constraintStart_toStartOf="@+id/meWep4_PenEditText" />
@@ -810,6 +876,8 @@
                                         android:layout_marginTop="20dp"
                                         android:layout_marginEnd="8dp"
                                         android:inputType="textPersonName"
+                                        android:textAlignment="center"
+                                        android:textColor="@color/textPrimary"
                                         android:textSize="14sp"
                                         app:layout_constraintEnd_toEndOf="parent"
                                         app:layout_constraintHorizontal_bias="0.5"
@@ -818,11 +886,11 @@
 
                                     <View
                                         android:id="@+id/meWep4_divider2"
-                                        android:layout_width="match_parent"
+                                        android:layout_width="0dp"
                                         android:layout_height="1dp"
                                         android:layout_marginStart="8dp"
                                         android:layout_marginEnd="8dp"
-                                        android:background="#000000"
+                                        android:background="@color/textPrimary"
                                         app:layout_constraintEnd_toEndOf="parent"
                                         app:layout_constraintStart_toStartOf="parent"
                                         app:layout_constraintTop_toBottomOf="@+id/meWep4_DamageEditText" />
@@ -833,6 +901,7 @@
                                         android:layout_height="wrap_content"
                                         android:layout_marginStart="8dp"
                                         android:text="@string/melee_weapon_special_rules"
+                                        android:textColor="@color/textPrimary"
                                         app:layout_constraintStart_toStartOf="parent"
                                         app:layout_constraintTop_toBottomOf="@+id/meWep4_divider2" />
 
@@ -844,6 +913,7 @@
                                         android:layout_marginEnd="8dp"
                                         android:inputType="textPersonName"
                                         android:textAlignment="textStart"
+                                        android:textColor="@color/textPrimary"
                                         android:textSize="14sp"
                                         app:layout_constraintEnd_toEndOf="parent"
                                         app:layout_constraintStart_toStartOf="parent"
@@ -867,7 +937,8 @@
             android:id="@+id/MissileParent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp">
+            android:layout_marginTop="8dp"
+            app:cardBackgroundColor="@color/cardPrimary">
 
             <LinearLayout
                 android:id="@+id/MissileParentCardMasterLayout"
@@ -886,6 +957,7 @@
                         android:layout_height="wrap_content"
                         android:padding="8dp"
                         android:text="@string/missile_weapon_titlecard"
+                        android:textColor="@color/textPrimary"
                         android:textStyle="bold"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -916,7 +988,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_marginBottom="8dp"
-                            app:cardBackgroundColor="#b6b6b6">
+                            app:cardBackgroundColor="@color/cardSecondary">
 
                             <androidx.constraintlayout.widget.ConstraintLayout
                                 android:id="@+id/Missile1Title"
@@ -929,6 +1001,7 @@
                                     android:layout_height="wrap_content"
                                     android:padding="8dp"
                                     android:text="Slot 1"
+                                    android:textColor="@color/textPrimary"
                                     app:layout_constraintStart_toStartOf="parent"
                                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -949,6 +1022,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginStart="8dp"
                                     android:text="@string/missile_weapon_name"
+                                    android:textColor="@color/textPrimary"
                                     app:layout_constraintStart_toStartOf="@+id/Missile1TitleTextView"
                                     app:layout_constraintTop_toBottomOf="@+id/Missile1TitleTextView" />
 
@@ -959,6 +1033,7 @@
                                     android:layout_marginStart="8dp"
                                     android:layout_marginEnd="8dp"
                                     android:inputType="textPersonName"
+                                    android:textColor="@color/textPrimary"
                                     android:textSize="14sp"
                                     app:layout_constraintBottom_toBottomOf="@+id/miWep1_NameTextView"
                                     app:layout_constraintEnd_toEndOf="parent"
@@ -967,9 +1042,11 @@
 
                                 <View
                                     android:id="@+id/miWep1_divider1"
-                                    android:layout_width="match_parent"
+                                    android:layout_width="0dp"
                                     android:layout_height="1dp"
-                                    android:background="#000000"
+                                    android:layout_marginStart="8dp"
+                                    android:layout_marginEnd="8dp"
+                                    android:background="@color/textPrimary"
                                     app:layout_constraintEnd_toEndOf="parent"
                                     app:layout_constraintStart_toStartOf="parent"
                                     app:layout_constraintTop_toBottomOf="@+id/miWep1_NameEditText" />
@@ -979,6 +1056,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="@string/missile_weapon_class"
+                                    android:textColor="@color/textPrimary"
                                     app:layout_constraintBottom_toTopOf="@+id/miWep1_ClassEditText"
                                     app:layout_constraintEnd_toEndOf="@+id/miWep1_ClassEditText"
                                     app:layout_constraintStart_toStartOf="@+id/miWep1_ClassEditText" />
@@ -990,6 +1068,8 @@
                                     android:layout_marginStart="8dp"
                                     android:layout_marginTop="20dp"
                                     android:inputType="textPersonName"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/textPrimary"
                                     android:textSize="14sp"
                                     app:layout_constraintEnd_toStartOf="@+id/miWep1_DamageEditText"
                                     app:layout_constraintStart_toStartOf="parent"
@@ -1000,6 +1080,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="@string/missile_weapon_damage"
+                                    android:textColor="@color/textPrimary"
                                     app:layout_constraintBottom_toTopOf="@+id/miWep1_DamageEditText"
                                     app:layout_constraintEnd_toEndOf="@+id/miWep1_DamageEditText"
                                     app:layout_constraintStart_toStartOf="@+id/miWep1_DamageEditText" />
@@ -1011,6 +1092,8 @@
                                     android:layout_marginStart="8dp"
                                     android:layout_marginTop="20dp"
                                     android:inputType="textPersonName"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/textPrimary"
                                     android:textSize="14sp"
                                     app:layout_constraintEnd_toStartOf="@+id/miWep1_TypeEditText"
                                     app:layout_constraintStart_toEndOf="@+id/miWep1_ClassEditText"
@@ -1021,6 +1104,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="@string/missile_weapon_type"
+                                    android:textColor="@color/textPrimary"
                                     app:layout_constraintBottom_toTopOf="@+id/miWep1_TypeEditText"
                                     app:layout_constraintEnd_toEndOf="@+id/miWep1_TypeEditText"
                                     app:layout_constraintStart_toStartOf="@+id/miWep1_TypeEditText" />
@@ -1032,6 +1116,8 @@
                                     android:layout_marginStart="8dp"
                                     android:layout_marginTop="20dp"
                                     android:inputType="textPersonName"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/textPrimary"
                                     android:textSize="14sp"
                                     app:layout_constraintEnd_toStartOf="@+id/miWep1_PenEditText"
                                     app:layout_constraintStart_toEndOf="@+id/miWep1_DamageEditText"
@@ -1042,6 +1128,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="@string/missile_weapon_penetration"
+                                    android:textColor="@color/textPrimary"
                                     app:layout_constraintBottom_toTopOf="@+id/miWep1_PenEditText"
                                     app:layout_constraintEnd_toEndOf="@+id/miWep1_PenEditText"
                                     app:layout_constraintStart_toStartOf="@+id/miWep1_PenEditText" />
@@ -1054,6 +1141,8 @@
                                     android:layout_marginTop="20dp"
                                     android:layout_marginEnd="8dp"
                                     android:inputType="textPersonName"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/textPrimary"
                                     android:textSize="14sp"
                                     app:layout_constraintEnd_toEndOf="parent"
                                     app:layout_constraintStart_toEndOf="@+id/miWep1_TypeEditText"
@@ -1061,9 +1150,11 @@
 
                                 <View
                                     android:id="@+id/miWep1_divider2"
-                                    android:layout_width="match_parent"
+                                    android:layout_width="0dp"
                                     android:layout_height="1dp"
-                                    android:background="#000000"
+                                    android:layout_marginStart="8dp"
+                                    android:layout_marginEnd="8dp"
+                                    android:background="@color/textPrimary"
                                     app:layout_constraintEnd_toEndOf="parent"
                                     app:layout_constraintStart_toStartOf="parent"
                                     app:layout_constraintTop_toBottomOf="@+id/miWep1_DamageEditText" />
@@ -1073,6 +1164,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="@string/missile_weapon_Range"
+                                    android:textColor="@color/textPrimary"
                                     app:layout_constraintBottom_toTopOf="@+id/miWep1_RangeEditText"
                                     app:layout_constraintEnd_toEndOf="@+id/miWep1_RangeEditText"
                                     app:layout_constraintStart_toStartOf="@+id/miWep1_RangeEditText" />
@@ -1084,6 +1176,8 @@
                                     android:layout_marginStart="8dp"
                                     android:layout_marginTop="20dp"
                                     android:inputType="textPersonName"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/textPrimary"
                                     android:textSize="14sp"
                                     app:layout_constraintEnd_toStartOf="@+id/miWep1_RoFEditText"
                                     app:layout_constraintStart_toStartOf="parent"
@@ -1094,6 +1188,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="@string/missile_weapon_rof"
+                                    android:textColor="@color/textPrimary"
                                     app:layout_constraintBottom_toTopOf="@+id/miWep1_RoFEditText"
                                     app:layout_constraintEnd_toEndOf="@+id/miWep1_RoFEditText"
                                     app:layout_constraintStart_toStartOf="@+id/miWep1_RoFEditText" />
@@ -1106,6 +1201,8 @@
                                     android:layout_marginTop="20dp"
                                     android:layout_marginEnd="8dp"
                                     android:inputType="textPersonName"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/textPrimary"
                                     android:textSize="14sp"
                                     app:layout_constraintEnd_toStartOf="@+id/miWep1_ClipEditText"
                                     app:layout_constraintStart_toEndOf="@+id/miWep1_RangeEditText"
@@ -1116,6 +1213,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="@string/missile_weapon_clip"
+                                    android:textColor="@color/textPrimary"
                                     app:layout_constraintBottom_toTopOf="@+id/miWep1_ClipEditText"
                                     app:layout_constraintEnd_toEndOf="@+id/miWep1_ClipEditText"
                                     app:layout_constraintStart_toStartOf="@+id/miWep1_ClipEditText" />
@@ -1127,6 +1225,8 @@
                                     android:layout_marginTop="20dp"
                                     android:layout_marginEnd="8dp"
                                     android:inputType="textPersonName"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/textPrimary"
                                     android:textSize="14sp"
                                     app:layout_constraintEnd_toStartOf="@+id/miWep1_RLDEditText"
                                     app:layout_constraintStart_toEndOf="@+id/miWep1_RoFEditText"
@@ -1137,6 +1237,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="@string/missile_weapon_rld"
+                                    android:textColor="@color/textPrimary"
                                     app:layout_constraintBottom_toTopOf="@+id/miWep1_RLDEditText"
                                     app:layout_constraintEnd_toEndOf="@+id/miWep1_RLDEditText"
                                     app:layout_constraintStart_toStartOf="@+id/miWep1_RLDEditText" />
@@ -1148,6 +1249,8 @@
                                     android:layout_marginTop="20dp"
                                     android:layout_marginEnd="8dp"
                                     android:inputType="textPersonName"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/textPrimary"
                                     android:textSize="14sp"
                                     app:layout_constraintEnd_toEndOf="parent"
                                     app:layout_constraintStart_toEndOf="@+id/miWep1_ClipEditText"
@@ -1155,9 +1258,11 @@
 
                                 <View
                                     android:id="@+id/miWep1_divider3"
-                                    android:layout_width="match_parent"
+                                    android:layout_width="0dp"
                                     android:layout_height="1dp"
-                                    android:background="#000000"
+                                    android:layout_marginStart="8dp"
+                                    android:layout_marginEnd="8dp"
+                                    android:background="@color/textPrimary"
                                     app:layout_constraintEnd_toEndOf="parent"
                                     app:layout_constraintStart_toStartOf="parent"
                                     app:layout_constraintTop_toBottomOf="@+id/miWep1_RoFEditText" />
@@ -1168,6 +1273,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginStart="8dp"
                                     android:text="@string/missile_weapon_special_rules"
+                                    android:textColor="@color/textPrimary"
                                     app:layout_constraintStart_toStartOf="parent"
                                     app:layout_constraintTop_toBottomOf="@+id/miWep1_divider3" />
 
@@ -1176,6 +1282,7 @@
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:inputType="textPersonName"
+                                    android:textColor="@color/textPrimary"
                                     android:textSize="14sp"
                                     app:layout_constraintEnd_toEndOf="parent"
                                     app:layout_constraintStart_toStartOf="@+id/miWep1_SpecialRulesTextView"
@@ -1189,7 +1296,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_marginBottom="8dp"
-                            app:cardBackgroundColor="#b6b6b6">
+                            app:cardBackgroundColor="@color/cardSecondary">
 
                             <androidx.constraintlayout.widget.ConstraintLayout
                                 android:id="@+id/Missile2Title"
@@ -1202,6 +1309,7 @@
                                     android:layout_height="wrap_content"
                                     android:padding="8dp"
                                     android:text="Slot 2"
+                                    android:textColor="@color/textPrimary"
                                     app:layout_constraintStart_toStartOf="parent"
                                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -1222,6 +1330,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginStart="8dp"
                                     android:text="@string/missile_weapon_name"
+                                    android:textColor="@color/textPrimary"
                                     app:layout_constraintStart_toStartOf="@+id/Missile2TitleTextView"
                                     app:layout_constraintTop_toBottomOf="@+id/Missile2TitleTextView" />
 
@@ -1232,6 +1341,7 @@
                                     android:layout_marginStart="8dp"
                                     android:layout_marginEnd="8dp"
                                     android:inputType="textPersonName"
+                                    android:textColor="@color/textPrimary"
                                     android:textSize="14sp"
                                     app:layout_constraintBottom_toBottomOf="@+id/miWep2_NameTextView"
                                     app:layout_constraintEnd_toEndOf="parent"
@@ -1240,9 +1350,11 @@
 
                                 <View
                                     android:id="@+id/miWep2_divider1"
-                                    android:layout_width="match_parent"
+                                    android:layout_width="0dp"
                                     android:layout_height="1dp"
-                                    android:background="#000000"
+                                    android:layout_marginStart="8dp"
+                                    android:layout_marginEnd="8dp"
+                                    android:background="@color/textPrimary"
                                     app:layout_constraintEnd_toEndOf="parent"
                                     app:layout_constraintStart_toStartOf="parent"
                                     app:layout_constraintTop_toBottomOf="@+id/miWep2_NameEditText" />
@@ -1252,6 +1364,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="@string/missile_weapon_class"
+                                    android:textColor="@color/textPrimary"
                                     app:layout_constraintBottom_toTopOf="@+id/miWep2_ClassEditText"
                                     app:layout_constraintEnd_toEndOf="@+id/miWep2_ClassEditText"
                                     app:layout_constraintStart_toStartOf="@+id/miWep2_ClassEditText" />
@@ -1263,6 +1376,8 @@
                                     android:layout_marginStart="8dp"
                                     android:layout_marginTop="20dp"
                                     android:inputType="textPersonName"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/textPrimary"
                                     android:textSize="14sp"
                                     app:layout_constraintEnd_toStartOf="@+id/miWep2_DamageEditText"
                                     app:layout_constraintStart_toStartOf="parent"
@@ -1273,6 +1388,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="@string/missile_weapon_damage"
+                                    android:textColor="@color/textPrimary"
                                     app:layout_constraintBottom_toTopOf="@+id/miWep2_DamageEditText"
                                     app:layout_constraintEnd_toEndOf="@+id/miWep2_DamageEditText"
                                     app:layout_constraintStart_toStartOf="@+id/miWep2_DamageEditText" />
@@ -1284,6 +1400,8 @@
                                     android:layout_marginStart="8dp"
                                     android:layout_marginTop="20dp"
                                     android:inputType="textPersonName"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/textPrimary"
                                     android:textSize="14sp"
                                     app:layout_constraintEnd_toStartOf="@+id/miWep2_TypeEditText"
                                     app:layout_constraintStart_toEndOf="@+id/miWep2_ClassEditText"
@@ -1294,6 +1412,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="@string/missile_weapon_type"
+                                    android:textColor="@color/textPrimary"
                                     app:layout_constraintBottom_toTopOf="@+id/miWep2_TypeEditText"
                                     app:layout_constraintEnd_toEndOf="@+id/miWep2_TypeEditText"
                                     app:layout_constraintStart_toStartOf="@+id/miWep2_TypeEditText" />
@@ -1305,6 +1424,8 @@
                                     android:layout_marginStart="8dp"
                                     android:layout_marginTop="20dp"
                                     android:inputType="textPersonName"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/textPrimary"
                                     android:textSize="14sp"
                                     app:layout_constraintEnd_toStartOf="@+id/miWep2_PenEditText"
                                     app:layout_constraintStart_toEndOf="@+id/miWep2_DamageEditText"
@@ -1315,6 +1436,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="@string/missile_weapon_penetration"
+                                    android:textColor="@color/textPrimary"
                                     app:layout_constraintBottom_toTopOf="@+id/miWep2_PenEditText"
                                     app:layout_constraintEnd_toEndOf="@+id/miWep2_PenEditText"
                                     app:layout_constraintStart_toStartOf="@+id/miWep2_PenEditText" />
@@ -1327,6 +1449,8 @@
                                     android:layout_marginTop="20dp"
                                     android:layout_marginEnd="8dp"
                                     android:inputType="textPersonName"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/textPrimary"
                                     android:textSize="14sp"
                                     app:layout_constraintEnd_toEndOf="parent"
                                     app:layout_constraintStart_toEndOf="@+id/miWep2_TypeEditText"
@@ -1334,9 +1458,11 @@
 
                                 <View
                                     android:id="@+id/miWep2_divider2"
-                                    android:layout_width="match_parent"
+                                    android:layout_width="0dp"
                                     android:layout_height="1dp"
-                                    android:background="#000000"
+                                    android:layout_marginStart="8dp"
+                                    android:layout_marginEnd="8dp"
+                                    android:background="@color/textPrimary"
                                     app:layout_constraintEnd_toEndOf="parent"
                                     app:layout_constraintStart_toStartOf="parent"
                                     app:layout_constraintTop_toBottomOf="@+id/miWep2_DamageEditText" />
@@ -1346,6 +1472,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="@string/missile_weapon_Range"
+                                    android:textColor="@color/textPrimary"
                                     app:layout_constraintBottom_toTopOf="@+id/miWep2_RangeEditText"
                                     app:layout_constraintEnd_toEndOf="@+id/miWep2_RangeEditText"
                                     app:layout_constraintStart_toStartOf="@+id/miWep2_RangeEditText" />
@@ -1357,6 +1484,8 @@
                                     android:layout_marginStart="8dp"
                                     android:layout_marginTop="20dp"
                                     android:inputType="textPersonName"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/textPrimary"
                                     android:textSize="14sp"
                                     app:layout_constraintEnd_toStartOf="@+id/miWep2_RoFEditText"
                                     app:layout_constraintStart_toStartOf="parent"
@@ -1367,6 +1496,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="@string/missile_weapon_rof"
+                                    android:textColor="@color/textPrimary"
                                     app:layout_constraintBottom_toTopOf="@+id/miWep2_RoFEditText"
                                     app:layout_constraintEnd_toEndOf="@+id/miWep2_RoFEditText"
                                     app:layout_constraintStart_toStartOf="@+id/miWep2_RoFEditText" />
@@ -1379,6 +1509,8 @@
                                     android:layout_marginTop="20dp"
                                     android:layout_marginEnd="8dp"
                                     android:inputType="textPersonName"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/textPrimary"
                                     android:textSize="14sp"
                                     app:layout_constraintEnd_toStartOf="@+id/miWep2_ClipEditText"
                                     app:layout_constraintStart_toEndOf="@+id/miWep2_RangeEditText"
@@ -1389,6 +1521,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="@string/missile_weapon_clip"
+                                    android:textColor="@color/textPrimary"
                                     app:layout_constraintBottom_toTopOf="@+id/miWep2_ClipEditText"
                                     app:layout_constraintEnd_toEndOf="@+id/miWep2_ClipEditText"
                                     app:layout_constraintStart_toStartOf="@+id/miWep2_ClipEditText" />
@@ -1400,6 +1533,8 @@
                                     android:layout_marginTop="20dp"
                                     android:layout_marginEnd="8dp"
                                     android:inputType="textPersonName"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/textPrimary"
                                     android:textSize="14sp"
                                     app:layout_constraintEnd_toStartOf="@+id/miWep2_RLDEditText"
                                     app:layout_constraintStart_toEndOf="@+id/miWep2_RoFEditText"
@@ -1410,6 +1545,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="@string/missile_weapon_rld"
+                                    android:textColor="@color/textPrimary"
                                     app:layout_constraintBottom_toTopOf="@+id/miWep2_RLDEditText"
                                     app:layout_constraintEnd_toEndOf="@+id/miWep2_RLDEditText"
                                     app:layout_constraintStart_toStartOf="@+id/miWep2_RLDEditText" />
@@ -1421,6 +1557,8 @@
                                     android:layout_marginTop="20dp"
                                     android:layout_marginEnd="8dp"
                                     android:inputType="textPersonName"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/textPrimary"
                                     android:textSize="14sp"
                                     app:layout_constraintEnd_toEndOf="parent"
                                     app:layout_constraintStart_toEndOf="@+id/miWep2_ClipEditText"
@@ -1428,9 +1566,11 @@
 
                                 <View
                                     android:id="@+id/miWep2_divider3"
-                                    android:layout_width="match_parent"
+                                    android:layout_width="0dp"
                                     android:layout_height="1dp"
-                                    android:background="#000000"
+                                    android:layout_marginStart="8dp"
+                                    android:layout_marginEnd="8dp"
+                                    android:background="@color/textPrimary"
                                     app:layout_constraintEnd_toEndOf="parent"
                                     app:layout_constraintStart_toStartOf="parent"
                                     app:layout_constraintTop_toBottomOf="@+id/miWep2_RoFEditText" />
@@ -1441,6 +1581,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginStart="8dp"
                                     android:text="@string/missile_weapon_special_rules"
+                                    android:textColor="@color/textPrimary"
                                     app:layout_constraintStart_toStartOf="parent"
                                     app:layout_constraintTop_toBottomOf="@+id/miWep2_divider3" />
 
@@ -1449,6 +1590,7 @@
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:inputType="textPersonName"
+                                    android:textColor="@color/textPrimary"
                                     android:textSize="14sp"
                                     app:layout_constraintEnd_toEndOf="parent"
                                     app:layout_constraintStart_toStartOf="@+id/miWep2_SpecialRulesTextView"
@@ -1462,7 +1604,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_marginBottom="8dp"
-                            app:cardBackgroundColor="#b6b6b6">
+                            app:cardBackgroundColor="@color/cardSecondary">
 
                             <androidx.constraintlayout.widget.ConstraintLayout
                                 android:id="@+id/Missile3Title"
@@ -1475,6 +1617,7 @@
                                     android:layout_height="wrap_content"
                                     android:padding="8dp"
                                     android:text="Slot 3"
+                                    android:textColor="@color/textPrimary"
                                     app:layout_constraintStart_toStartOf="parent"
                                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -1495,6 +1638,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginStart="8dp"
                                     android:text="@string/missile_weapon_name"
+                                    android:textColor="@color/textPrimary"
                                     app:layout_constraintStart_toStartOf="@+id/Missile3TitleTextView"
                                     app:layout_constraintTop_toBottomOf="@+id/Missile3TitleTextView" />
 
@@ -1505,6 +1649,7 @@
                                     android:layout_marginStart="8dp"
                                     android:layout_marginEnd="8dp"
                                     android:inputType="textPersonName"
+                                    android:textColor="@color/textPrimary"
                                     android:textSize="14sp"
                                     app:layout_constraintBottom_toBottomOf="@+id/miWep3_NameTextView"
                                     app:layout_constraintEnd_toEndOf="parent"
@@ -1513,9 +1658,11 @@
 
                                 <View
                                     android:id="@+id/miWep3_divider1"
-                                    android:layout_width="match_parent"
+                                    android:layout_width="0dp"
                                     android:layout_height="1dp"
-                                    android:background="#000000"
+                                    android:layout_marginStart="8dp"
+                                    android:layout_marginEnd="8dp"
+                                    android:background="@color/textPrimary"
                                     app:layout_constraintEnd_toEndOf="parent"
                                     app:layout_constraintStart_toStartOf="parent"
                                     app:layout_constraintTop_toBottomOf="@+id/miWep3_NameEditText" />
@@ -1525,6 +1672,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="@string/missile_weapon_class"
+                                    android:textColor="@color/textPrimary"
                                     app:layout_constraintBottom_toTopOf="@+id/miWep3_ClassEditText"
                                     app:layout_constraintEnd_toEndOf="@+id/miWep3_ClassEditText"
                                     app:layout_constraintStart_toStartOf="@+id/miWep3_ClassEditText" />
@@ -1536,6 +1684,8 @@
                                     android:layout_marginStart="8dp"
                                     android:layout_marginTop="20dp"
                                     android:inputType="textPersonName"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/textPrimary"
                                     android:textSize="14sp"
                                     app:layout_constraintEnd_toStartOf="@+id/miWep3_DamageEditText"
                                     app:layout_constraintStart_toStartOf="parent"
@@ -1546,6 +1696,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="@string/missile_weapon_damage"
+                                    android:textColor="@color/textPrimary"
                                     app:layout_constraintBottom_toTopOf="@+id/miWep3_DamageEditText"
                                     app:layout_constraintEnd_toEndOf="@+id/miWep3_DamageEditText"
                                     app:layout_constraintStart_toStartOf="@+id/miWep3_DamageEditText" />
@@ -1557,6 +1708,8 @@
                                     android:layout_marginStart="8dp"
                                     android:layout_marginTop="20dp"
                                     android:inputType="textPersonName"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/textPrimary"
                                     android:textSize="14sp"
                                     app:layout_constraintEnd_toStartOf="@+id/miWep3_TypeEditText"
                                     app:layout_constraintStart_toEndOf="@+id/miWep3_ClassEditText"
@@ -1567,6 +1720,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="@string/missile_weapon_type"
+                                    android:textColor="@color/textPrimary"
                                     app:layout_constraintBottom_toTopOf="@+id/miWep3_TypeEditText"
                                     app:layout_constraintEnd_toEndOf="@+id/miWep3_TypeEditText"
                                     app:layout_constraintStart_toStartOf="@+id/miWep3_TypeEditText" />
@@ -1578,6 +1732,8 @@
                                     android:layout_marginStart="8dp"
                                     android:layout_marginTop="20dp"
                                     android:inputType="textPersonName"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/textPrimary"
                                     android:textSize="14sp"
                                     app:layout_constraintEnd_toStartOf="@+id/miWep3_PenEditText"
                                     app:layout_constraintStart_toEndOf="@+id/miWep3_DamageEditText"
@@ -1588,6 +1744,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="@string/missile_weapon_penetration"
+                                    android:textColor="@color/textPrimary"
                                     app:layout_constraintBottom_toTopOf="@+id/miWep3_PenEditText"
                                     app:layout_constraintEnd_toEndOf="@+id/miWep3_PenEditText"
                                     app:layout_constraintStart_toStartOf="@+id/miWep3_PenEditText" />
@@ -1600,6 +1757,8 @@
                                     android:layout_marginTop="20dp"
                                     android:layout_marginEnd="8dp"
                                     android:inputType="textPersonName"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/textPrimary"
                                     android:textSize="14sp"
                                     app:layout_constraintEnd_toEndOf="parent"
                                     app:layout_constraintStart_toEndOf="@+id/miWep3_TypeEditText"
@@ -1607,9 +1766,11 @@
 
                                 <View
                                     android:id="@+id/miWep3_divider2"
-                                    android:layout_width="match_parent"
+                                    android:layout_width="0dp"
                                     android:layout_height="1dp"
-                                    android:background="#000000"
+                                    android:layout_marginStart="8dp"
+                                    android:layout_marginEnd="8dp"
+                                    android:background="@color/textPrimary"
                                     app:layout_constraintEnd_toEndOf="parent"
                                     app:layout_constraintStart_toStartOf="parent"
                                     app:layout_constraintTop_toBottomOf="@+id/miWep3_DamageEditText" />
@@ -1619,6 +1780,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="@string/missile_weapon_Range"
+                                    android:textColor="@color/textPrimary"
                                     app:layout_constraintBottom_toTopOf="@+id/miWep3_RangeEditText"
                                     app:layout_constraintEnd_toEndOf="@+id/miWep3_RangeEditText"
                                     app:layout_constraintStart_toStartOf="@+id/miWep3_RangeEditText" />
@@ -1630,6 +1792,8 @@
                                     android:layout_marginStart="8dp"
                                     android:layout_marginTop="20dp"
                                     android:inputType="textPersonName"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/textPrimary"
                                     android:textSize="14sp"
                                     app:layout_constraintEnd_toStartOf="@+id/miWep3_RoFEditText"
                                     app:layout_constraintStart_toStartOf="parent"
@@ -1640,6 +1804,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="@string/missile_weapon_rof"
+                                    android:textColor="@color/textPrimary"
                                     app:layout_constraintBottom_toTopOf="@+id/miWep3_RoFEditText"
                                     app:layout_constraintEnd_toEndOf="@+id/miWep3_RoFEditText"
                                     app:layout_constraintStart_toStartOf="@+id/miWep3_RoFEditText" />
@@ -1652,6 +1817,8 @@
                                     android:layout_marginTop="20dp"
                                     android:layout_marginEnd="8dp"
                                     android:inputType="textPersonName"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/textPrimary"
                                     android:textSize="14sp"
                                     app:layout_constraintEnd_toStartOf="@+id/miWep3_ClipEditText"
                                     app:layout_constraintStart_toEndOf="@+id/miWep3_RangeEditText"
@@ -1662,6 +1829,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="@string/missile_weapon_clip"
+                                    android:textColor="@color/textPrimary"
                                     app:layout_constraintBottom_toTopOf="@+id/miWep3_ClipEditText"
                                     app:layout_constraintEnd_toEndOf="@+id/miWep3_ClipEditText"
                                     app:layout_constraintStart_toStartOf="@+id/miWep3_ClipEditText" />
@@ -1673,6 +1841,8 @@
                                     android:layout_marginTop="20dp"
                                     android:layout_marginEnd="8dp"
                                     android:inputType="textPersonName"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/textPrimary"
                                     android:textSize="14sp"
                                     app:layout_constraintEnd_toStartOf="@+id/miWep3_RLDEditText"
                                     app:layout_constraintStart_toEndOf="@+id/miWep3_RoFEditText"
@@ -1683,6 +1853,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="@string/missile_weapon_rld"
+                                    android:textColor="@color/textPrimary"
                                     app:layout_constraintBottom_toTopOf="@+id/miWep3_RLDEditText"
                                     app:layout_constraintEnd_toEndOf="@+id/miWep3_RLDEditText"
                                     app:layout_constraintStart_toStartOf="@+id/miWep3_RLDEditText" />
@@ -1694,6 +1865,8 @@
                                     android:layout_marginTop="20dp"
                                     android:layout_marginEnd="8dp"
                                     android:inputType="textPersonName"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/textPrimary"
                                     android:textSize="14sp"
                                     app:layout_constraintEnd_toEndOf="parent"
                                     app:layout_constraintStart_toEndOf="@+id/miWep3_ClipEditText"
@@ -1701,9 +1874,11 @@
 
                                 <View
                                     android:id="@+id/miWep3_divider3"
-                                    android:layout_width="match_parent"
+                                    android:layout_width="0dp"
                                     android:layout_height="1dp"
-                                    android:background="#000000"
+                                    android:layout_marginStart="8dp"
+                                    android:layout_marginEnd="8dp"
+                                    android:background="@color/textPrimary"
                                     app:layout_constraintEnd_toEndOf="parent"
                                     app:layout_constraintStart_toStartOf="parent"
                                     app:layout_constraintTop_toBottomOf="@+id/miWep3_RoFEditText" />
@@ -1714,6 +1889,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginStart="8dp"
                                     android:text="@string/missile_weapon_special_rules"
+                                    android:textColor="@color/textPrimary"
                                     app:layout_constraintStart_toStartOf="parent"
                                     app:layout_constraintTop_toBottomOf="@+id/miWep3_divider3" />
 
@@ -1722,6 +1898,7 @@
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:inputType="textPersonName"
+                                    android:textColor="@color/textPrimary"
                                     android:textSize="14sp"
                                     app:layout_constraintEnd_toEndOf="parent"
                                     app:layout_constraintStart_toStartOf="@+id/miWep3_SpecialRulesTextView"
@@ -1735,7 +1912,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_marginBottom="8dp"
-                            app:cardBackgroundColor="#b6b6b6">
+                            app:cardBackgroundColor="@color/cardSecondary">
 
                             <androidx.constraintlayout.widget.ConstraintLayout
                                 android:id="@+id/Missile4Title"
@@ -1748,6 +1925,7 @@
                                     android:layout_height="wrap_content"
                                     android:padding="8dp"
                                     android:text="Slot 4"
+                                    android:textColor="@color/textPrimary"
                                     app:layout_constraintStart_toStartOf="parent"
                                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -1768,6 +1946,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginStart="8dp"
                                     android:text="@string/missile_weapon_name"
+                                    android:textColor="@color/textPrimary"
                                     app:layout_constraintStart_toStartOf="@+id/Missile4TitleTextView"
                                     app:layout_constraintTop_toBottomOf="@+id/Missile4TitleTextView" />
 
@@ -1778,6 +1957,7 @@
                                     android:layout_marginStart="8dp"
                                     android:layout_marginEnd="8dp"
                                     android:inputType="textPersonName"
+                                    android:textColor="@color/textPrimary"
                                     android:textSize="14sp"
                                     app:layout_constraintBottom_toBottomOf="@+id/miWep4_NameTextView"
                                     app:layout_constraintEnd_toEndOf="parent"
@@ -1786,9 +1966,11 @@
 
                                 <View
                                     android:id="@+id/miWep4_divider1"
-                                    android:layout_width="match_parent"
+                                    android:layout_width="0dp"
                                     android:layout_height="1dp"
-                                    android:background="#000000"
+                                    android:layout_marginStart="8dp"
+                                    android:layout_marginEnd="8dp"
+                                    android:background="@color/textPrimary"
                                     app:layout_constraintEnd_toEndOf="parent"
                                     app:layout_constraintStart_toStartOf="parent"
                                     app:layout_constraintTop_toBottomOf="@+id/miWep4_NameEditText" />
@@ -1798,6 +1980,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="@string/missile_weapon_class"
+                                    android:textColor="@color/textPrimary"
                                     app:layout_constraintBottom_toTopOf="@+id/miWep4_ClassEditText"
                                     app:layout_constraintEnd_toEndOf="@+id/miWep4_ClassEditText"
                                     app:layout_constraintStart_toStartOf="@+id/miWep4_ClassEditText" />
@@ -1809,6 +1992,8 @@
                                     android:layout_marginStart="8dp"
                                     android:layout_marginTop="20dp"
                                     android:inputType="textPersonName"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/textPrimary"
                                     android:textSize="14sp"
                                     app:layout_constraintEnd_toStartOf="@+id/miWep4_DamageEditText"
                                     app:layout_constraintStart_toStartOf="parent"
@@ -1819,6 +2004,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="@string/missile_weapon_damage"
+                                    android:textColor="@color/textPrimary"
                                     app:layout_constraintBottom_toTopOf="@+id/miWep4_DamageEditText"
                                     app:layout_constraintEnd_toEndOf="@+id/miWep4_DamageEditText"
                                     app:layout_constraintStart_toStartOf="@+id/miWep4_DamageEditText" />
@@ -1830,6 +2016,8 @@
                                     android:layout_marginStart="8dp"
                                     android:layout_marginTop="20dp"
                                     android:inputType="textPersonName"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/textPrimary"
                                     android:textSize="14sp"
                                     app:layout_constraintEnd_toStartOf="@+id/miWep4_TypeEditText"
                                     app:layout_constraintStart_toEndOf="@+id/miWep4_ClassEditText"
@@ -1840,6 +2028,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="@string/missile_weapon_type"
+                                    android:textColor="@color/textPrimary"
                                     app:layout_constraintBottom_toTopOf="@+id/miWep4_TypeEditText"
                                     app:layout_constraintEnd_toEndOf="@+id/miWep4_TypeEditText"
                                     app:layout_constraintStart_toStartOf="@+id/miWep4_TypeEditText" />
@@ -1851,6 +2040,8 @@
                                     android:layout_marginStart="8dp"
                                     android:layout_marginTop="20dp"
                                     android:inputType="textPersonName"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/textPrimary"
                                     android:textSize="14sp"
                                     app:layout_constraintEnd_toStartOf="@+id/miWep4_PenEditText"
                                     app:layout_constraintStart_toEndOf="@+id/miWep4_DamageEditText"
@@ -1861,6 +2052,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="@string/missile_weapon_penetration"
+                                    android:textColor="@color/textPrimary"
                                     app:layout_constraintBottom_toTopOf="@+id/miWep4_PenEditText"
                                     app:layout_constraintEnd_toEndOf="@+id/miWep4_PenEditText"
                                     app:layout_constraintStart_toStartOf="@+id/miWep4_PenEditText" />
@@ -1873,6 +2065,8 @@
                                     android:layout_marginTop="20dp"
                                     android:layout_marginEnd="8dp"
                                     android:inputType="textPersonName"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/textPrimary"
                                     android:textSize="14sp"
                                     app:layout_constraintEnd_toEndOf="parent"
                                     app:layout_constraintStart_toEndOf="@+id/miWep4_TypeEditText"
@@ -1880,9 +2074,11 @@
 
                                 <View
                                     android:id="@+id/miWep4_divider2"
-                                    android:layout_width="match_parent"
+                                    android:layout_width="0dp"
                                     android:layout_height="1dp"
-                                    android:background="#000000"
+                                    android:layout_marginStart="8dp"
+                                    android:layout_marginEnd="8dp"
+                                    android:background="@color/textPrimary"
                                     app:layout_constraintEnd_toEndOf="parent"
                                     app:layout_constraintStart_toStartOf="parent"
                                     app:layout_constraintTop_toBottomOf="@+id/miWep4_DamageEditText" />
@@ -1892,6 +2088,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="@string/missile_weapon_Range"
+                                    android:textColor="@color/textPrimary"
                                     app:layout_constraintBottom_toTopOf="@+id/miWep4_RangeEditText"
                                     app:layout_constraintEnd_toEndOf="@+id/miWep4_RangeEditText"
                                     app:layout_constraintStart_toStartOf="@+id/miWep4_RangeEditText" />
@@ -1903,6 +2100,8 @@
                                     android:layout_marginStart="8dp"
                                     android:layout_marginTop="20dp"
                                     android:inputType="textPersonName"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/textPrimary"
                                     android:textSize="14sp"
                                     app:layout_constraintEnd_toStartOf="@+id/miWep4_RoFEditText"
                                     app:layout_constraintStart_toStartOf="parent"
@@ -1913,6 +2112,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="@string/missile_weapon_rof"
+                                    android:textColor="@color/textPrimary"
                                     app:layout_constraintBottom_toTopOf="@+id/miWep4_RoFEditText"
                                     app:layout_constraintEnd_toEndOf="@+id/miWep4_RoFEditText"
                                     app:layout_constraintStart_toStartOf="@+id/miWep4_RoFEditText" />
@@ -1925,6 +2125,8 @@
                                     android:layout_marginTop="20dp"
                                     android:layout_marginEnd="8dp"
                                     android:inputType="textPersonName"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/textPrimary"
                                     android:textSize="14sp"
                                     app:layout_constraintEnd_toStartOf="@+id/miWep4_ClipEditText"
                                     app:layout_constraintStart_toEndOf="@+id/miWep4_RangeEditText"
@@ -1935,6 +2137,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="@string/missile_weapon_clip"
+                                    android:textColor="@color/textPrimary"
                                     app:layout_constraintBottom_toTopOf="@+id/miWep4_ClipEditText"
                                     app:layout_constraintEnd_toEndOf="@+id/miWep4_ClipEditText"
                                     app:layout_constraintStart_toStartOf="@+id/miWep4_ClipEditText" />
@@ -1946,6 +2149,8 @@
                                     android:layout_marginTop="20dp"
                                     android:layout_marginEnd="8dp"
                                     android:inputType="textPersonName"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/textPrimary"
                                     android:textSize="14sp"
                                     app:layout_constraintEnd_toStartOf="@+id/miWep4_RLDEditText"
                                     app:layout_constraintStart_toEndOf="@+id/miWep4_RoFEditText"
@@ -1956,6 +2161,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="@string/missile_weapon_rld"
+                                    android:textColor="@color/textPrimary"
                                     app:layout_constraintBottom_toTopOf="@+id/miWep4_RLDEditText"
                                     app:layout_constraintEnd_toEndOf="@+id/miWep4_RLDEditText"
                                     app:layout_constraintStart_toStartOf="@+id/miWep4_RLDEditText" />
@@ -1967,6 +2173,8 @@
                                     android:layout_marginTop="20dp"
                                     android:layout_marginEnd="8dp"
                                     android:inputType="textPersonName"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/textPrimary"
                                     android:textSize="14sp"
                                     app:layout_constraintEnd_toEndOf="parent"
                                     app:layout_constraintStart_toEndOf="@+id/miWep4_ClipEditText"
@@ -1974,9 +2182,11 @@
 
                                 <View
                                     android:id="@+id/miWep4_divider3"
-                                    android:layout_width="match_parent"
+                                    android:layout_width="0dp"
                                     android:layout_height="1dp"
-                                    android:background="#000000"
+                                    android:layout_marginStart="8dp"
+                                    android:layout_marginEnd="8dp"
+                                    android:background="@color/textPrimary"
                                     app:layout_constraintEnd_toEndOf="parent"
                                     app:layout_constraintStart_toStartOf="parent"
                                     app:layout_constraintTop_toBottomOf="@+id/miWep4_RoFEditText" />
@@ -1987,6 +2197,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginStart="8dp"
                                     android:text="@string/missile_weapon_special_rules"
+                                    android:textColor="@color/textPrimary"
                                     app:layout_constraintStart_toStartOf="parent"
                                     app:layout_constraintTop_toBottomOf="@+id/miWep4_divider3" />
 
@@ -1995,6 +2206,7 @@
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:inputType="textPersonName"
+                                    android:textColor="@color/textPrimary"
                                     android:textSize="14sp"
                                     app:layout_constraintEnd_toEndOf="parent"
                                     app:layout_constraintStart_toStartOf="@+id/miWep4_SpecialRulesTextView"
@@ -2020,6 +2232,96 @@
                 ]]>
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/AmmoListCard"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="8dp"
+            app:cardBackgroundColor="@color/cardPrimary">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/AmmoTitleView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:text="@string/ammo_title"
+                    android:textColor="@color/textPrimary"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageButton
+                    android:id="@+id/AmmoMasterAddImageButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:padding="8dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/AmmoTitleView"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/AmmoTitleView"
+                    app:srcCompat="@drawable/ic_add_circle" />
+
+                <LinearLayout
+                    android:id="@+id/AmmoInventoryLinearLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/AmmoTitleView">
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/Ammo1CardView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        app:cardBackgroundColor="@color/cardSecondary">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <EditText
+                                android:id="@+id/Ammo1_NameEditText"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="8dp"
+                                android:layout_marginTop="8dp"
+                                android:layout_marginEnd="8dp"
+                                android:hint="@string/ammo_name_hint"
+                                android:inputType="textPersonName"
+                                android:textAlignment="textStart"
+                                android:textColor="@color/textPrimary"
+                                android:textSize="14sp"
+                                app:layout_constraintEnd_toStartOf="@+id/Ammo1_ValEditText"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <EditText
+                                android:id="@+id/Ammo1_ValEditText"
+                                android:layout_width="50dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="8dp"
+                                android:hint="@string/ammo_val_hint"
+                                android:inputType="number"
+                                android:textAlignment="center"
+                                android:textColor="@color/textPrimary"
+                                android:textSize="14sp"
+                                app:layout_constraintBottom_toBottomOf="@+id/Ammo1_NameEditText"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="@+id/Ammo1_NameEditText" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    </androidx.cardview.widget.CardView>
+                </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
 
 

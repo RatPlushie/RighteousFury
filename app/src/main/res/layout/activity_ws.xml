@@ -12,6 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="18dp"
+        app:cardBackgroundColor="@color/cardPrimary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -38,7 +39,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:text="@string/stat_ws"
-                android:textColor="#000000"
+                android:textColor="@color/textPrimary"
                 app:layout_constraintBottom_toBottomOf="@+id/attributeImageView"
                 app:layout_constraintStart_toEndOf="@+id/attributeImageView"
                 app:layout_constraintTop_toTopOf="@+id/attributeImageView" />
@@ -48,7 +49,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:textColor="#000000"
+                android:textColor="@color/textPrimary"
                 android:textSize="14sp"
                 app:layout_constraintBottom_toBottomOf="@+id/wsTitleTextView"
                 app:layout_constraintStart_toEndOf="@+id/wsTitleTextView"

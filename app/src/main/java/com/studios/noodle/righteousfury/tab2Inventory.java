@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
@@ -191,6 +192,10 @@ public class tab2Inventory extends Fragment {
     private EditText    misWep4_RLDEditText;
     private EditText    misWep4_SpecialRulesEditText;
 
+    // Ammo Edit Texts
+    private EditText    ammo1_NameEditText;
+    private EditText    ammo1_ValEditText;
+
     // Dividers for the 4 melee weapon children
     private View        melWep1_Divider1;
     private View        melWep1_Divider2;
@@ -234,6 +239,9 @@ public class tab2Inventory extends Fragment {
     private ImageButton misWep2ExpandButton;
     private ImageButton misWep3ExpandButton;
     private ImageButton misWep4ExpandButton;
+
+    // Image buttons for the ammo;
+    private ImageButton ammoMasterAddItemButton;
 
 
     // Variables for the shared preferences
@@ -499,6 +507,9 @@ public class tab2Inventory extends Fragment {
         misWep3ExpandButton             = view.findViewById(R.id.miWep3_ExpandImageButton);
         misWep4ExpandButton             = view.findViewById(R.id.miWep4_ExpandImageButton);
 
+        // Image buttons for the ammo list
+        ammoMasterAddItemButton         = view.findViewById(R.id.AmmoMasterAddImageButton);
+
         // Text Views for the melee weapon children
         melWep1_NameTextView            = view.findViewById(R.id.meWep1_NameTextView);
         melWep1_ClassTextView           = view.findViewById(R.id.meWep1_ClassTextView);
@@ -646,6 +657,10 @@ public class tab2Inventory extends Fragment {
         misWep4_ClipEditText            = view.findViewById(R.id.miWep4_ClipEditText);
         misWep4_RLDEditText             = view.findViewById(R.id.miWep4_RLDEditText);
         misWep4_SpecialRulesEditText    = view.findViewById(R.id.miWep4_SpecialRulesEditText);
+
+        // Text views for the ammo list
+        ammo1_NameEditText              = view.findViewById(R.id.Ammo1_NameEditText);
+        ammo1_ValEditText               = view.findViewById(R.id.Ammo1_ValEditText);
 
         // Dividers for the four melee weapons children
         melWep1_Divider1                = view.findViewById(R.id.meWep1_divider1);
@@ -850,6 +865,17 @@ public class tab2Inventory extends Fragment {
             }
         });
 
+        ammoMasterAddItemButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                // TODO - add logic here for the button press of "add ammo item"
+                // Placeholder WIP
+                Toast.makeText(getActivity(), "Work in progress", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
 
         // TODO - addTextChangeListener to set the names of the weapon slots to the names of the slotted weapons ie. "Slot 1: The finger blaster"
 
@@ -946,6 +972,10 @@ public class tab2Inventory extends Fragment {
         misWep4_RLDEditText.setText(sharedPreferences.getString("missileWeapon4_RLD", ""));
         misWep4_SpecialRulesEditText.setText(sharedPreferences.getString("missileWeapon4_SpecialRules", ""));
 
+        // Loading ammo list
+        ammo1_NameEditText.setText(sharedPreferences.getString("ammo1_Name", ""));
+        ammo1_ValEditText.setText(sharedPreferences.getString("ammo1_Val", ""));
+
     }
 
 
@@ -1040,10 +1070,11 @@ public class tab2Inventory extends Fragment {
         edit.putString("missileWeapon4_RLD", misWep4_RLDEditText.getText().toString().trim());
         edit.putString("missileWeapon4_SpecialRules", misWep4_SpecialRulesEditText.getText().toString().trim());
 
+        // Ammo
+        edit.putString("ammo1_Name", ammo1_NameEditText.getText().toString().trim());
+        edit.putString("ammo1_Val", ammo1_ValEditText.getText().toString().trim());
+
         // Applies the changes to the shared preferences file
         edit.apply();
     }
-
-
-
 }

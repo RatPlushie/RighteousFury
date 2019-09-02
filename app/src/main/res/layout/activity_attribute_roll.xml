@@ -12,6 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="18dp"
+        app:cardBackgroundColor="@color/cardPrimary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -38,7 +39,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:gravity="center|start"
-                android:textColor="#000000"
+                android:textColor="@color/textPrimary"
                 android:textSize="14sp"
                 app:layout_constraintBottom_toBottomOf="@+id/attributeImageView"
                 app:layout_constraintStart_toEndOf="@+id/attributeImageView"
@@ -50,7 +51,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:gravity="center|start"
-                android:textColor="#000000"
+                android:textColor="@color/textPrimary"
                 android:textSize="14sp"
                 app:layout_constraintBottom_toBottomOf="@+id/AttributeTitleTextView"
                 app:layout_constraintStart_toEndOf="@+id/AttributeTitleTextView"
@@ -65,6 +66,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
+        app:cardBackgroundColor="@color/cardPrimary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titleCardView">
@@ -78,10 +80,34 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:textColor="#000000"
+                android:textColor="@color/textPrimary"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageButton
+                android:id="@+id/attRollModPlusImageButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:background="@android:color/transparent"
+                android:tint="@color/textPrimary"
+                app:layout_constraintBottom_toBottomOf="@+id/ModifierValTextView"
+                app:layout_constraintStart_toEndOf="@+id/ModifierValTextView"
+                app:layout_constraintTop_toTopOf="@+id/ModifierValTextView"
+                app:srcCompat="@drawable/ic_add_black_24dp" />
+
+            <ImageButton
+                android:id="@+id/attRollModMinusImageButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:background="@android:color/transparent"
+                android:tint="@color/textPrimary"
+                app:layout_constraintBottom_toBottomOf="@+id/ModifierValTextView"
+                app:layout_constraintEnd_toStartOf="@+id/ModifierValTextView"
+                app:layout_constraintTop_toTopOf="@+id/ModifierValTextView"
+                app:srcCompat="@drawable/ic_remove_black_24dp" />
 
             <TextView
                 android:id="@+id/ModifierTitleTextVIew"
@@ -90,7 +116,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:text="@string/modifier"
-                android:textColor="#000000"
+                android:textColor="@color/textPrimary"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -110,6 +136,32 @@
                 app:layout_constraintTop_toBottomOf="@+id/ModifierValTextView" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/UnskilledCardView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/modifierCardView">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <CheckBox
+                android:id="@+id/attUnskilledCheckBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:text="@string/unskilled"
+                android:textColor="@color/textPrimary"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -158,7 +210,8 @@
                 android:id="@+id/burnFPButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/burn_fp_button" />
+                android:text="@string/burn_fp_button"
+                android:textColor="@color/warningRed" />
 
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -168,6 +221,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
+        app:cardBackgroundColor="@color/cardPrimary"
         app:layout_constraintBottom_toTopOf="@+id/RollThresholdCardView"
         app:layout_constraintEnd_toEndOf="parent">
 
@@ -181,7 +235,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:text="@string/fp_remaining"
-                android:textColor="#000000"
+                android:textColor="@color/textPrimary"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -192,7 +246,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
-                android:textColor="#000000"
+                android:textColor="@color/textPrimary"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/FatePointTextView"
@@ -206,6 +260,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
+        app:cardBackgroundColor="@color/cardPrimary"
         app:layout_constraintBottom_toTopOf="@+id/RollOutcomeCardView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -222,7 +277,7 @@
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="15dp"
                 android:text="@string/roll_threshold"
-                android:textColor="#000000"
+                android:textColor="@color/textPrimary"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -232,7 +287,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:textColor="#000000"
+                android:textColor="@color/textPrimary"
                 app:layout_constraintBottom_toBottomOf="@+id/rollThresholdTextView"
                 app:layout_constraintStart_toEndOf="@+id/rollThresholdTextView"
                 app:layout_constraintTop_toTopOf="@+id/rollThresholdTextView" />
@@ -245,6 +300,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
+        app:cardBackgroundColor="@color/cardPrimary"
         app:layout_constraintBottom_toTopOf="@+id/OutcomeCardView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -261,7 +317,7 @@
                 android:layout_marginTop="15dp"
                 android:layout_marginBottom="16dp"
                 android:text="@string/roll_outcome"
-                android:textColor="#000000"
+                android:textColor="@color/textPrimary"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -271,7 +327,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:textColor="#000000"
+                android:textColor="@color/textPrimary"
                 app:layout_constraintBottom_toBottomOf="@+id/rollOutcomeTextView"
                 app:layout_constraintStart_toEndOf="@+id/rollOutcomeTextView"
                 app:layout_constraintTop_toTopOf="@+id/rollOutcomeTextView" />
@@ -284,6 +340,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
+        app:cardBackgroundColor="@color/cardPrimary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -300,7 +357,7 @@
                 android:layout_marginTop="14dp"
                 android:layout_marginBottom="17dp"
                 android:text="@string/roll_degree_of_success"
-                android:textColor="#000000"
+                android:textColor="@color/textPrimary"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -310,7 +367,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:textColor="#000000"
+                android:textColor="@color/textPrimary"
                 app:layout_constraintBottom_toBottomOf="@+id/degreeOutcomeTextView"
                 app:layout_constraintStart_toEndOf="@+id/degreeOutcomeTextView"
                 app:layout_constraintTop_toTopOf="@+id/degreeOutcomeTextView" />
