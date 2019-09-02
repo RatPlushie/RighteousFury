@@ -258,33 +258,40 @@ public class AttributeRollActivity extends AppCompatActivity {
 
         // Tests to see if it first has to half the attribute value because of an unskilled roll
         if (unskilledCheckBox.isChecked()){
-                // Should the user check the unskilled box the attribute value will be halved and then updated
+            // Should the user check the unskilled box the attribute value will be halved and then updated
 
-                // Halves the attribute value
-                attVal /= 2;
+            // Halves the attribute value
+            attVal /= 2;
 
-                // Adds to the remaining attribute value the modifier
-                attVal += modVal;
+            // Adds to the remaining attribute value the modifier
+            attVal += modVal;
 
-                // For when the user presses the +/- buttons for the modifier selection
-                attVal += buttonMod;
+            // For when the user presses the +/- buttons for the modifier selection
+            attVal += buttonMod;
 
-                // Displays the new value
-                rollRequiredVal.setText(Integer.toString(attVal));
+            // Sets the new value of the threshold
+            threshold = attVal;
 
-                // Sets the text to the warning colour
-                rollRequiredVal.setTextColor(getResources().getColor(R.color.warningRed));
+            // Displays the new value
+            rollRequiredVal.setText(Integer.toString(attVal));
+
+            // Sets the text to the warning colour
+            rollRequiredVal.setTextColor(getResources().getColor(R.color.warningRed));
 
         } else if (!unskilledCheckBox.isChecked()){
-                // Should the user uncheck the unskilled box the attribute value will be restored and updated
+            // Should the user uncheck the unskilled box the attribute value will be restored and updated
 
-                attVal += modVal;
+            // Adds the modifier seekbar's value to the attribute value
+            attVal += modVal;
 
-                // Displays the new value
-                rollRequiredVal.setText(Integer.toString(attVal));
+            // Sets the new value of the threshold
+            threshold = attVal;
 
-                // Sets the text to the default colour
-                rollRequiredVal.setTextColor(getResources().getColor(R.color.textPrimary));
+            // Displays the new value
+            rollRequiredVal.setText(Integer.toString(attVal));
+
+            // Sets the text to the default colour
+            rollRequiredVal.setTextColor(getResources().getColor(R.color.textPrimary));
         }
     }
 
