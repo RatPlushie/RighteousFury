@@ -20,7 +20,6 @@ import static com.studios.noodle.righteousfury.tab1Character.SHARED_PREFS;
 
 public class AttributeRollActivity extends AppCompatActivity {
 
-    // AttributeRollActivity Variables
     private TextView activityTitle;
     private TextView activityAttributeVal;
     private TextView modifierValue;
@@ -43,14 +42,14 @@ public class AttributeRollActivity extends AppCompatActivity {
 
     private ImageView attributeImageView;
 
+    private String attributeName;
+
     private int currentFP;
     private int diceRoll;
     private int threshold;
     private int degreeResult;
     private int maxFP;
     private int attributeValue;
-
-    private String attributeName;
 
 
 
