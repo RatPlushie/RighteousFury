@@ -121,12 +121,57 @@
     <!-- Ammo Strings -->
     <string name="ammo_title">Ammo</string>
     <string name="ammo_val_hint">No. </string>
-    <string name="ammo_name_hint">Ammo Name</string>
+    <string name="ammo_name">Name</string>
+    <string name="ammo_Type">Type</string>
     <string name="ammo_list">Ammo:</string>
 
     <!-- BS Strings -->
     <string name="bs_weapon_selector_title">Weapon:</string>
     <string name="bs_ammo_selector_title">Ammo:</string>
     <string name="bs_hit_location">Hit Location:</string>
+
+    <!-- Slot Strings -->
+    <string name="slot1">Slot 1</string>
+    <string name="slot2">Slot 2</string>
+    <string name="slot3">Slot 3</string>
+    <string name="slot4">Slot 4</string>
+
+    <!-- xdy + z Strings -->
+    <string name="dice_x">x</string>
+    <string name="dice_d">d</string>
+    <string name="dice_y">y</string>
+    <string name="dice_plus">+</string>
+    <string name="dice_z">z</string>
+
+    <!-- RoF x/y/z Strings -->
+    <string name="rof_x">x</string>
+    <string name="rof_y">y</string>
+    <string name="rof_z">z</string>
+    <string name="rof_dash">/</string>
+
+    <!-- Class String Array -->
+    <string-array name="class_array">
+        <item>Melee</item>
+        <item>Thrown</item>
+        <item>Pistol</item>
+        <item>Basic</item>
+        <item>Heavy</item>
+    </string-array>
+
+    <!-- Type String Array -->
+    <string-array name="type_array">
+        <item>1hand</item>
+        <item>2hand</item>
+
+    </string-array>
+
+    <!-- Ammo type Array -->
+    <string-array name="ammo_type_array">
+        <item>SP</item>
+        <item>Las</item>
+        <item>Bolt</item>
+        <item>Launcher</item>
+        <item>Plasma</item>
+    </string-array>
     
 </resources>
