@@ -160,9 +160,8 @@
 
     <!-- Type String Array -->
     <string-array name="type_array">
-        <item>1hand</item>
-        <item>2hand</item>
-
+        <item>1 hand</item>
+        <item>2 hand</item>
     </string-array>
 
     <!-- Ammo type Array -->
@@ -172,6 +171,20 @@
         <item>Bolt</item>
         <item>Launcher</item>
         <item>Plasma</item>
+    </string-array>
+
+    <!-- Reload speeds array -->
+    <string-array name="reload_array">
+        <item>0.5</item>
+        <item>1.0</item>
+        <item>1.5</item>
+        <item>2.0</item>
+        <item>2.5</item>
+        <item>3.0</item>
+        <item>3.5</item>
+        <item>4.0</item>
+        <item>4.5</item>
+        <item>5.0</item>
     </string-array>
     
 </resources>

@@ -55,6 +55,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
+                    android:visibility="gone"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -95,7 +96,7 @@
                                 app:srcCompat="@drawable/ic_arrow_down" />
 
                             <LinearLayout
-                                android:id="@+id/melWep1Slot1MasterLayout"
+                                android:id="@+id/melWep1Layout"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:orientation="vertical"
@@ -416,7 +417,7 @@
                                 app:srcCompat="@drawable/ic_arrow_down" />
 
                             <LinearLayout
-                                android:id="@+id/melWep2Slot1MasterLayout"
+                                android:id="@+id/melWep2Layout"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:orientation="vertical"
@@ -735,7 +736,7 @@
                                 app:srcCompat="@drawable/ic_arrow_down" />
 
                             <LinearLayout
-                                android:id="@+id/melWep3Slot1MasterLayout"
+                                android:id="@+id/melWep3Layout"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:orientation="vertical"
@@ -1054,7 +1055,7 @@
                                 app:srcCompat="@drawable/ic_arrow_down" />
 
                             <LinearLayout
-                                android:id="@+id/melWep4Slot1MasterLayout"
+                                android:id="@+id/melWep4Layout"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:orientation="vertical"
@@ -1377,10 +1378,11 @@
                     app:srcCompat="@drawable/ic_arrow_down" />
 
                 <LinearLayout
-                    android:id="@+id/misWepSlotsLayout"
+                    android:id="@+id/misWepSlotLayout"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
+                    android:visibility="gone"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -1421,7 +1423,7 @@
                                 app:srcCompat="@drawable/ic_arrow_down" />
 
                             <LinearLayout
-                                android:id="@+id/misWep1Slot1MasterLayout"
+                                android:id="@+id/misWep1Layout"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:orientation="vertical"
@@ -1945,7 +1947,7 @@
                                 app:srcCompat="@drawable/ic_arrow_down" />
 
                             <LinearLayout
-                                android:id="@+id/misWep2Slot1MasterLayout"
+                                android:id="@+id/misWep2Layout"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:orientation="vertical"
@@ -2469,7 +2471,7 @@
                                 app:srcCompat="@drawable/ic_arrow_down" />
 
                             <LinearLayout
-                                android:id="@+id/misWep3Slot1MasterLayout"
+                                android:id="@+id/misWep3Layout"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:orientation="vertical"
@@ -2993,7 +2995,7 @@
                                 app:srcCompat="@drawable/ic_arrow_down" />
 
                             <LinearLayout
-                                android:id="@+id/misWep4Slot1MasterLayout"
+                                android:id="@+id/misWep4Layout"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:orientation="vertical"
@@ -3525,6 +3527,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
+                    android:visibility="gone"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
