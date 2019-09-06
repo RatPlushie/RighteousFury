@@ -1,12 +1,15 @@
 package com.studios.noodle.righteousfury;
 
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
@@ -23,6 +26,92 @@ public class tab2Inventory extends Fragment {
         // Required empty public constructor
     }
 
+
+
+    private EditText mel1Name;
+    private EditText mel2Name;
+    private EditText mel3Name;
+    private EditText mel4Name;
+    private EditText mis1Name;
+    private EditText mis2Name;
+    private EditText mis3Name;
+    private EditText mis4Name;
+
+    private EditText mel1Damage_x;
+    private EditText mel1Damage_y;
+    private EditText mel1Damage_z;
+    private EditText mel2Damage_x;
+    private EditText mel2Damage_y;
+    private EditText mel2Damage_z;
+    private EditText mel3Damage_x;
+    private EditText mel3Damage_y;
+    private EditText mel3Damage_z;
+    private EditText mel4Damage_x;
+    private EditText mel4Damage_y;
+    private EditText mel4Damage_z;
+    private EditText mis1Damage_x;
+    private EditText mis1Damage_y;
+    private EditText mis1Damage_z;
+    private EditText mis2Damage_x;
+    private EditText mis2Damage_y;
+    private EditText mis2Damage_z;
+    private EditText mis3Damage_x;
+    private EditText mis3Damage_y;
+    private EditText mis3Damage_z;
+    private EditText mis4Damage_x;
+    private EditText mis4Damage_y;
+    private EditText mis4Damage_z;
+
+    private EditText mis1Range;
+    private EditText mis2Range;
+    private EditText mis3Range;
+    private EditText mis4Range;
+
+    private EditText mis1ROF_x;
+    private EditText mis1ROF_y;
+    private EditText mis1ROF_z;
+    private EditText mis2ROF_x;
+    private EditText mis2ROF_y;
+    private EditText mis2ROF_z;
+    private EditText mis3ROF_x;
+    private EditText mis3ROF_y;
+    private EditText mis3ROF_z;
+    private EditText mis4ROF_x;
+    private EditText mis4ROF_y;
+    private EditText mis4ROF_z;
+
+    private EditText mis1Clip;
+    private EditText mis2Clip;
+    private EditText mis3Clip;
+    private EditText mis4Clip;
+
+    private EditText mel1Pen;
+    private EditText mel2Pen;
+    private EditText mel3Pen;
+    private EditText mel4Pen;
+    private EditText mis1Pen;
+    private EditText mis2Pen;
+    private EditText mis3Pen;
+    private EditText mis4Pen;
+
+    private EditText mel1SpecialRules;
+    private EditText mel2SpecialRules;
+    private EditText mel3SpecialRules;
+    private EditText mel4SpecialRules;
+    private EditText mis1SpecialRules;
+    private EditText mis2SpecialRules;
+    private EditText mis3SpecialRules;
+    private EditText mis4SpecialRules;
+
+    private EditText ammo1Name;
+    private EditText ammo2Name;
+    private EditText ammo3Name;
+    private EditText ammo4Name;
+
+    private EditText ammo1No;
+    private EditText ammo2No;
+    private EditText ammo3No;
+    private EditText ammo4No;
 
     private ImageButton melWepMasterHideButton;
     private ImageButton misWepMasterHideButton;
@@ -90,7 +179,10 @@ public class tab2Inventory extends Fragment {
     private LinearLayout ammo3Layout;
     private LinearLayout ammo4Layout;
 
-    // TODO - add all views for the other fields
+
+
+    // Variables for the shared preferences
+    public static final String SHARED_PREFS = "sharedPrefs";
 
 
 
@@ -211,6 +303,8 @@ public class tab2Inventory extends Fragment {
         }
     }
 
+
+
     // Constructor method for creating each collapse/expand button
     public void dropdownToggleConstructor(final ImageButton button, final LinearLayout slotLayout){
         button.setOnClickListener(new View.OnClickListener() {
@@ -236,6 +330,24 @@ public class tab2Inventory extends Fragment {
 
 
 
+    // Method for saving and loading spinner object's state
+    public void loadSpinnerState(Spinner spinner, String sharedPrefsTag){
+
+        // Initialisation of the shared preferences object
+        SharedPreferences sharedPreferences = getContext().getSharedPreferences(SHARED_PREFS, Context.MODE_PRIVATE);
+
+        // Test to see if the shared prefs have stored a value or null. Loading the correct state
+        if (!(sharedPreferences.getString(sharedPrefsTag, "").equals(""))){
+            // If not null, fill with the previously saved state
+            spinner.setSelection(Integer.parseInt(sharedPreferences.getString(sharedPrefsTag, "")));
+        } else {
+            // If null, load the first list item
+            spinner.setSelection(0);
+        }
+    }
+
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -246,74 +358,156 @@ public class tab2Inventory extends Fragment {
 
 
         // Creating objects for each element on screen needed
-        melWepMasterHideButton = view.findViewById(R.id.melWepMasterHideImageButton);
-        misWepMasterHideButton = view.findViewById(R.id.misWepMaterHideImageButton);
-        ammoMasterHideButton   = view.findViewById(R.id.ammoMainHideImageButton);
+        melWepMasterHideButton  = view.findViewById(R.id.melWepMasterHideImageButton);
+        misWepMasterHideButton  = view.findViewById(R.id.misWepMaterHideImageButton);
+        ammoMasterHideButton    = view.findViewById(R.id.ammoMainHideImageButton);
 
-        mel1HideButton         = view.findViewById(R.id.melWep1HideImageButton);
-        mel2HideButton         = view.findViewById(R.id.melWep2HideImageButton);
-        mel3HideButton         = view.findViewById(R.id.melWep3HideImageButton);
-        mel4HideButton         = view.findViewById(R.id.melWep4HideImageButton);
+        mel1HideButton          = view.findViewById(R.id.melWep1HideImageButton);
+        mel2HideButton          = view.findViewById(R.id.melWep2HideImageButton);
+        mel3HideButton          = view.findViewById(R.id.melWep3HideImageButton);
+        mel4HideButton          = view.findViewById(R.id.melWep4HideImageButton);
 
-        mis1HideButton         = view.findViewById(R.id.misWep1HideImageButton);
-        mis2HideButton         = view.findViewById(R.id.misWep2HideImageButton);
-        mis3HideButton         = view.findViewById(R.id.misWep3HideImageButton);
-        mis4HideButton         = view.findViewById(R.id.misWep4HideImageButton);
+        mis1HideButton          = view.findViewById(R.id.misWep1HideImageButton);
+        mis2HideButton          = view.findViewById(R.id.misWep2HideImageButton);
+        mis3HideButton          = view.findViewById(R.id.misWep3HideImageButton);
+        mis4HideButton          = view.findViewById(R.id.misWep4HideImageButton);
 
-        ammo1HideButton        = view.findViewById(R.id.ammoCard1HideImageButton);
-        ammo2HideButton        = view.findViewById(R.id.ammoCard2HideImageButton);
-        ammo3HideButton        = view.findViewById(R.id.ammoCard3HideImageButton);
-        ammo4HideButton        = view.findViewById(R.id.ammoCard4HideImageButton);
+        ammo1HideButton         = view.findViewById(R.id.ammoCard1HideImageButton);
+        ammo2HideButton         = view.findViewById(R.id.ammoCard2HideImageButton);
+        ammo3HideButton         = view.findViewById(R.id.ammoCard3HideImageButton);
+        ammo4HideButton         = view.findViewById(R.id.ammoCard4HideImageButton);
 
-        mel1ClassSpinner       = view.findViewById(R.id.melWep1ClassSpinner);
-        mel2ClassSpinner       = view.findViewById(R.id.melWep2ClassSpinner);
-        mel3ClassSpinner       = view.findViewById(R.id.melWep3ClassSpinner);
-        mel4ClassSpinner       = view.findViewById(R.id.melWep4ClassSpinner);
+        mel1ClassSpinner        = view.findViewById(R.id.melWep1ClassSpinner);
+        mel2ClassSpinner        = view.findViewById(R.id.melWep2ClassSpinner);
+        mel3ClassSpinner        = view.findViewById(R.id.melWep3ClassSpinner);
+        mel4ClassSpinner        = view.findViewById(R.id.melWep4ClassSpinner);
 
-        mis1ClassSpinner       = view.findViewById(R.id.misWep1ClassSpinner);
-        mis2ClassSpinner       = view.findViewById(R.id.misWep2ClassSpinner);
-        mis3ClassSpinner       = view.findViewById(R.id.misWep3ClassSpinner);
-        mis4ClassSpinner       = view.findViewById(R.id.misWep4ClassSpinner);
+        mis1ClassSpinner        = view.findViewById(R.id.misWep1ClassSpinner);
+        mis2ClassSpinner        = view.findViewById(R.id.misWep2ClassSpinner);
+        mis3ClassSpinner        = view.findViewById(R.id.misWep3ClassSpinner);
+        mis4ClassSpinner        = view.findViewById(R.id.misWep4ClassSpinner);
 
-        mel1TypeSpinner        = view.findViewById(R.id.melWep1TypeSpinner);
-        mel2TypeSpinner        = view.findViewById(R.id.melWep2TypeSpinner);
-        mel3TypeSpinner        = view.findViewById(R.id.melWep3TypeSpinner);
-        mel4TypeSpinner        = view.findViewById(R.id.melWep4TypeSpinner);
+        mel1TypeSpinner         = view.findViewById(R.id.melWep1TypeSpinner);
+        mel2TypeSpinner         = view.findViewById(R.id.melWep2TypeSpinner);
+        mel3TypeSpinner         = view.findViewById(R.id.melWep3TypeSpinner);
+        mel4TypeSpinner         = view.findViewById(R.id.melWep4TypeSpinner);
 
-        mis1TypeSpinner        = view.findViewById(R.id.misWep1TypeSpinner);
-        mis2TypeSpinner        = view.findViewById(R.id.misWep2TypeSpinner);
-        mis3TypeSpinner        = view.findViewById(R.id.misWep3TypeSpinner);
-        mis4TypeSpinner        = view.findViewById(R.id.misWep4TypeSpinner);
+        mis1TypeSpinner         = view.findViewById(R.id.misWep1TypeSpinner);
+        mis2TypeSpinner         = view.findViewById(R.id.misWep2TypeSpinner);
+        mis3TypeSpinner         = view.findViewById(R.id.misWep3TypeSpinner);
+        mis4TypeSpinner         = view.findViewById(R.id.misWep4TypeSpinner);
 
-        mis1RLDSpinner         = view.findViewById(R.id.misWep1RLDSpinner);
-        mis2RLDSpinner         = view.findViewById(R.id.misWep2RLDSpinner);
-        mis3RLDSpinner         = view.findViewById(R.id.misWep3RLDSpinner);
-        mis4RLDSpinner         = view.findViewById(R.id.misWep4RLDSpinner);
+        mis1RLDSpinner          = view.findViewById(R.id.misWep1RLDSpinner);
+        mis2RLDSpinner          = view.findViewById(R.id.misWep2RLDSpinner);
+        mis3RLDSpinner          = view.findViewById(R.id.misWep3RLDSpinner);
+        mis4RLDSpinner          = view.findViewById(R.id.misWep4RLDSpinner);
 
-        ammo1Spinner           = view.findViewById(R.id.ammoCard1TypeSpinner);
-        ammo2Spinner           = view.findViewById(R.id.ammoCard2TypeSpinner);
-        ammo3Spinner           = view.findViewById(R.id.ammoCard3TypeSpinner);
-        ammo4Spinner           = view.findViewById(R.id.ammoCard4TypeSpinner);
+        ammo1Spinner            = view.findViewById(R.id.ammoCard1TypeSpinner);
+        ammo2Spinner            = view.findViewById(R.id.ammoCard2TypeSpinner);
+        ammo3Spinner            = view.findViewById(R.id.ammoCard3TypeSpinner);
+        ammo4Spinner            = view.findViewById(R.id.ammoCard4TypeSpinner);
 
-        melMasterLayout        = view.findViewById(R.id.melWepSlotLayouts);
-        mel1Layout             = view.findViewById(R.id.melWep1Layout);
-        mel2Layout             = view.findViewById(R.id.melWep2Layout);
-        mel3Layout             = view.findViewById(R.id.melWep3Layout);
-        mel4Layout             = view.findViewById(R.id.melWep4Layout);
+        melMasterLayout         = view.findViewById(R.id.melWepSlotLayouts);
+        mel1Layout              = view.findViewById(R.id.melWep1Layout);
+        mel2Layout              = view.findViewById(R.id.melWep2Layout);
+        mel3Layout              = view.findViewById(R.id.melWep3Layout);
+        mel4Layout              = view.findViewById(R.id.melWep4Layout);
 
-        misMasterLayout        = view.findViewById(R.id.misWepSlotLayout);
-        mis1Layout             = view.findViewById(R.id.misWep1Layout);
-        mis2Layout             = view.findViewById(R.id.misWep2Layout);
-        mis3Layout             = view.findViewById(R.id.misWep3Layout);
-        mis4Layout             = view.findViewById(R.id.misWep4Layout);
+        misMasterLayout         = view.findViewById(R.id.misWepSlotLayout);
+        mis1Layout              = view.findViewById(R.id.misWep1Layout);
+        mis2Layout              = view.findViewById(R.id.misWep2Layout);
+        mis3Layout              = view.findViewById(R.id.misWep3Layout);
+        mis4Layout              = view.findViewById(R.id.misWep4Layout);
 
-        ammoMasterLayout       = view.findViewById(R.id.ammoCardLayout);
-        ammo1Layout            = view.findViewById(R.id.ammoCard1Line1Layout);
-        ammo2Layout            = view.findViewById(R.id.ammoCard2Line1Layout);
-        ammo3Layout            = view.findViewById(R.id.ammoCard3Line1Layout);
-        ammo4Layout            = view.findViewById(R.id.ammoCard4Line1Layout);
+        ammoMasterLayout        = view.findViewById(R.id.ammoCardLayout);
+        ammo1Layout             = view.findViewById(R.id.ammoCard1Line1Layout);
+        ammo2Layout             = view.findViewById(R.id.ammoCard2Line1Layout);
+        ammo3Layout             = view.findViewById(R.id.ammoCard3Line1Layout);
+        ammo4Layout             = view.findViewById(R.id.ammoCard4Line1Layout);
 
-        // TODO - add variables to each view
+        mel1Name                = view.findViewById(R.id.melWep1NameEditText);
+        mel2Name                = view.findViewById(R.id.melWep2NameEditText);
+        mel3Name                = view.findViewById(R.id.melWep3NameEditText);
+        mel4Name                = view.findViewById(R.id.melWep4NameEditText);
+        mis1Name                = view.findViewById(R.id.misWep1NameEditText);
+        mis2Name                = view.findViewById(R.id.misWep2NameEditText);
+        mis3Name                = view.findViewById(R.id.misWep3NameEditText);
+        mis4Name                = view.findViewById(R.id.misWep4NameEditText);
+
+        mel1Damage_x            = view.findViewById(R.id.melWep1Damage_x_editText);
+        mel1Damage_y            = view.findViewById(R.id.melWep1Damage_y_editText);
+        mel1Damage_z            = view.findViewById(R.id.melWep1Damage_z_editText);
+        mel2Damage_x            = view.findViewById(R.id.melWep2Damage_x_editText);
+        mel2Damage_y            = view.findViewById(R.id.melWep2Damage_y_editText);
+        mel2Damage_z            = view.findViewById(R.id.melWep2Damage_z_editText);
+        mel3Damage_x            = view.findViewById(R.id.melWep3Damage_x_editText);
+        mel3Damage_y            = view.findViewById(R.id.melWep3Damage_y_editText);
+        mel3Damage_z            = view.findViewById(R.id.melWep3Damage_z_editText);
+        mel4Damage_x            = view.findViewById(R.id.melWep4Damage_x_editText);
+        mel4Damage_y            = view.findViewById(R.id.melWep4Damage_y_editText);
+        mel4Damage_z            = view.findViewById(R.id.melWep4Damage_z_editText);
+        mis1Damage_x            = view.findViewById(R.id.misWep1Damage_x_editText);
+        mis1Damage_y            = view.findViewById(R.id.misWep1Damage_y_editText);
+        mis1Damage_z            = view.findViewById(R.id.misWep1Damage_z_editText);
+        mis2Damage_x            = view.findViewById(R.id.misWep2Damage_x_editText);
+        mis2Damage_y            = view.findViewById(R.id.misWep2Damage_y_editText);
+        mis2Damage_z            = view.findViewById(R.id.misWep2Damage_z_editText);
+        mis3Damage_x            = view.findViewById(R.id.misWep3Damage_x_editText);
+        mis3Damage_y            = view.findViewById(R.id.misWep3Damage_y_editText);
+        mis3Damage_z            = view.findViewById(R.id.misWep3Damage_z_editText);
+        mis4Damage_x            = view.findViewById(R.id.misWep4Damage_x_editText);
+        mis4Damage_y            = view.findViewById(R.id.misWep4Damage_y_editText);
+        mis4Damage_z            = view.findViewById(R.id.misWep4Damage_z_editText);
+
+        mis1Range               = view.findViewById(R.id.misWep1RangeEditText);
+        mis2Range               = view.findViewById(R.id.misWep2RangeEditText);
+        mis3Range               = view.findViewById(R.id.misWep3RangeEditText);
+        mis4Range               = view.findViewById(R.id.misWep4RangeEditText);
+        mis1ROF_x               = view.findViewById(R.id.misWep1RoF_x_editText);
+        mis1ROF_y               = view.findViewById(R.id.misWep1RoF_y_editText);
+        mis1ROF_z               = view.findViewById(R.id.misWep1RoF_z_editText);
+        mis2ROF_x               = view.findViewById(R.id.misWep2RoF_x_editText);
+        mis2ROF_y               = view.findViewById(R.id.misWep2RoF_y_editText);
+        mis2ROF_z               = view.findViewById(R.id.misWep2RoF_z_editText);
+        mis3ROF_x               = view.findViewById(R.id.misWep3RoF_x_editText);
+        mis3ROF_y               = view.findViewById(R.id.misWep3RoF_y_editText);
+        mis3ROF_z               = view.findViewById(R.id.misWep3RoF_z_editText);
+        mis4ROF_x               = view.findViewById(R.id.misWep4RoF_x_editText);
+        mis4ROF_y               = view.findViewById(R.id.misWep4RoF_y_editText);
+        mis4ROF_z               = view.findViewById(R.id.misWep4RoF_z_editText);
+
+        mis1Clip                = view.findViewById(R.id.misWep1ClipEditText);
+        mis2Clip                = view.findViewById(R.id.misWep2ClipEditText);
+        mis3Clip                = view.findViewById(R.id.misWep3ClipEditText);
+        mis4Clip                = view.findViewById(R.id.misWep4ClipEditText);
+
+        mel1Pen                 = view.findViewById(R.id.melWep1PenEditText);
+        mel2Pen                 = view.findViewById(R.id.melWep2PenEditText);
+        mel3Pen                 = view.findViewById(R.id.melWep3PenEditText);
+        mel4Pen                 = view.findViewById(R.id.melWep4PenEditText);
+        mis1Pen                 = view.findViewById(R.id.misWep1PenEditText);
+        mis2Pen                 = view.findViewById(R.id.misWep2PenEditText);
+        mis3Pen                 = view.findViewById(R.id.misWep3PenEditText);
+        mis4Pen                 = view.findViewById(R.id.misWep4PenEditText);
+
+        mel1SpecialRules        = view.findViewById(R.id.melWep1SpecialRulesEditText);
+        mel2SpecialRules        = view.findViewById(R.id.melWep2SpecialRulesEditText);
+        mel3SpecialRules        = view.findViewById(R.id.melWep3SpecialRulesEditText);
+        mel4SpecialRules        = view.findViewById(R.id.melWep4SpecialRulesEditText);
+        mis1SpecialRules        = view.findViewById(R.id.misWep1SpecialRulesEditText);
+        mis2SpecialRules        = view.findViewById(R.id.misWep2SpecialRulesEditText);
+        mis3SpecialRules        = view.findViewById(R.id.misWep3SpecialRulesEditText);
+        mis4SpecialRules        = view.findViewById(R.id.misWep4SpecialRulesEditText);
+
+        ammo1Name               = view.findViewById(R.id.ammoCard1NameEditText);
+        ammo2Name               = view.findViewById(R.id.ammoCard2NameEditText);
+        ammo3Name               = view.findViewById(R.id.ammoCard3NameEditText);
+        ammo4Name               = view.findViewById(R.id.ammoCard4NameEditText);
+
+        ammo1No                 = view.findViewById(R.id.ammoCard1NoEditText);
+        ammo2No                 = view.findViewById(R.id.ammoCard2NoEditText);
+        ammo3No                 = view.findViewById(R.id.ammoCard3NoEditText);
+        ammo4No                 = view.findViewById(R.id.ammoCard4NoEditText);
 
 
 
@@ -381,8 +575,124 @@ public class tab2Inventory extends Fragment {
     public void onResume() {
         super.onResume();
 
-        // TODO - implement load method
-    }
+        // Initialisation of the shared preference object to load character data onResume
+        SharedPreferences sharedPreferences = getContext().getSharedPreferences(SHARED_PREFS, Context.MODE_PRIVATE);
+
+        // Saving the values stored in the fields to shared preferences
+        mel1Name.setText(sharedPreferences.getString("mel1WepName", ""));
+        mel2Name.setText(sharedPreferences.getString("mel2WepName", ""));
+        mel3Name.setText(sharedPreferences.getString("mel3WepName", ""));
+        mel4Name.setText(sharedPreferences.getString("mel4WepName", ""));
+        mis1Name.setText(sharedPreferences.getString("mis1WepName", ""));
+        mis2Name.setText(sharedPreferences.getString("mis2WepName", ""));
+        mis3Name.setText(sharedPreferences.getString("mis3WepName", ""));
+        mis4Name.setText(sharedPreferences.getString("mis4WepName", ""));
+
+        loadSpinnerState(mel1ClassSpinner, "mel1Class");
+        loadSpinnerState(mel2ClassSpinner, "mel2Class");
+        loadSpinnerState(mel3ClassSpinner, "mel3Class");
+        loadSpinnerState(mel4ClassSpinner, "mel4Class");
+        loadSpinnerState(mis1ClassSpinner, "mis1Class");
+        loadSpinnerState(mis2ClassSpinner, "mis2Class");
+        loadSpinnerState(mis3ClassSpinner, "mis3Class");
+        loadSpinnerState(mis4ClassSpinner, "mis4Class");
+
+        mel1Damage_x.setText(sharedPreferences.getString("mel1Damage_x",""));
+        mel1Damage_y.setText(sharedPreferences.getString("mel1Damage_y",""));
+        mel1Damage_z.setText(sharedPreferences.getString("mel1Damage_z",""));
+        mel2Damage_x.setText(sharedPreferences.getString("mel2Damage_x",""));
+        mel2Damage_y.setText(sharedPreferences.getString("mel2Damage_y",""));
+        mel2Damage_z.setText(sharedPreferences.getString("mel2Damage_z",""));
+        mel3Damage_x.setText(sharedPreferences.getString("mel3Damage_x",""));
+        mel3Damage_y.setText(sharedPreferences.getString("mel3Damage_y",""));
+        mel3Damage_z.setText(sharedPreferences.getString("mel3Damage_z",""));
+        mel4Damage_x.setText(sharedPreferences.getString("mel4Damage_x",""));
+        mel4Damage_y.setText(sharedPreferences.getString("mel4Damage_y",""));
+        mel4Damage_z.setText(sharedPreferences.getString("mel4Damage_z",""));
+        mis1Damage_x.setText(sharedPreferences.getString("mis1Damage_x",""));
+        mis1Damage_y.setText(sharedPreferences.getString("mis1Damage_y",""));
+        mis1Damage_z.setText(sharedPreferences.getString("mis1Damage_z",""));
+        mis2Damage_x.setText(sharedPreferences.getString("mis2Damage_x",""));
+        mis2Damage_y.setText(sharedPreferences.getString("mis2Damage_y",""));
+        mis2Damage_z.setText(sharedPreferences.getString("mis2Damage_z",""));
+        mis3Damage_x.setText(sharedPreferences.getString("mis3Damage_x",""));
+        mis3Damage_y.setText(sharedPreferences.getString("mis3Damage_y",""));
+        mis3Damage_z.setText(sharedPreferences.getString("mis3Damage_z",""));
+        mis4Damage_x.setText(sharedPreferences.getString("mis4Damage_x",""));
+        mis4Damage_y.setText(sharedPreferences.getString("mis4Damage_y",""));
+        mis4Damage_z.setText(sharedPreferences.getString("mis4Damage_z",""));
+
+        loadSpinnerState(mel1TypeSpinner, "mel1Type");
+        loadSpinnerState(mel2TypeSpinner, "mel2Type");
+        loadSpinnerState(mel3TypeSpinner, "mel3Type");
+        loadSpinnerState(mel4TypeSpinner, "mel4Type");
+        loadSpinnerState(mis1TypeSpinner, "mis1Type");
+        loadSpinnerState(mis2TypeSpinner, "mis2Type");
+        loadSpinnerState(mis3TypeSpinner, "mis3Type");
+        loadSpinnerState(mis4TypeSpinner, "mis4Type");
+
+        mis1Range.setText(sharedPreferences.getString("mis1Range", ""));
+        mis2Range.setText(sharedPreferences.getString("mis2Range", ""));
+        mis3Range.setText(sharedPreferences.getString("mis3Range", ""));
+        mis4Range.setText(sharedPreferences.getString("mis4Range", ""));
+
+        mis1ROF_x.setText(sharedPreferences.getString("mis1ROF_x", ""));
+        mis1ROF_y.setText(sharedPreferences.getString("mis1ROF_y", ""));
+        mis1ROF_z.setText(sharedPreferences.getString("mis1ROF_z", ""));
+        mis2ROF_x.setText(sharedPreferences.getString("mis2ROF_x", ""));
+        mis2ROF_y.setText(sharedPreferences.getString("mis2ROF_y", ""));
+        mis2ROF_z.setText(sharedPreferences.getString("mis2ROF_z", ""));
+        mis3ROF_x.setText(sharedPreferences.getString("mis3ROF_x", ""));
+        mis3ROF_y.setText(sharedPreferences.getString("mis3ROF_y", ""));
+        mis3ROF_z.setText(sharedPreferences.getString("mis3ROF_z", ""));
+        mis4ROF_x.setText(sharedPreferences.getString("mis4ROF_x", ""));
+        mis4ROF_y.setText(sharedPreferences.getString("mis4ROF_y", ""));
+        mis4ROF_z.setText(sharedPreferences.getString("mis4ROF_z", ""));
+
+        mis1Clip.setText(sharedPreferences.getString("mis1Clip", ""));
+        mis2Clip.setText(sharedPreferences.getString("mis2Clip", ""));
+        mis3Clip.setText(sharedPreferences.getString("mis3Clip", ""));
+        mis4Clip.setText(sharedPreferences.getString("mis4Clip", ""));
+
+        loadSpinnerState(mis1RLDSpinner, "mis1RLD");
+        loadSpinnerState(mis2RLDSpinner, "mis2RLD");
+        loadSpinnerState(mis3RLDSpinner, "mis3RLD");
+        loadSpinnerState(mis4RLDSpinner, "mis4RLD");
+
+        mel1Pen.setText(sharedPreferences.getString("mel1Pen", ""));
+        mel2Pen.setText(sharedPreferences.getString("mel2Pen", ""));
+        mel3Pen.setText(sharedPreferences.getString("mel3Pen", ""));
+        mel4Pen.setText(sharedPreferences.getString("mel4Pen", ""));
+        mis1Pen.setText(sharedPreferences.getString("mis1Pen", ""));
+        mis2Pen.setText(sharedPreferences.getString("mis2Pen", ""));
+        mis3Pen.setText(sharedPreferences.getString("mis3Pen", ""));
+        mis4Pen.setText(sharedPreferences.getString("mis4Pen", ""));
+
+        mel1SpecialRules.setText(sharedPreferences.getString("mel1SpecialRules" , ""));
+        mel2SpecialRules.setText(sharedPreferences.getString("mel2SpecialRules" , ""));
+        mel3SpecialRules.setText(sharedPreferences.getString("mel3SpecialRules" , ""));
+        mel4SpecialRules.setText(sharedPreferences.getString("mel4SpecialRules" , ""));
+
+        mis1SpecialRules.setText(sharedPreferences.getString("mis1SpecialRules" , ""));
+        mis2SpecialRules.setText(sharedPreferences.getString("mis2SpecialRules" , ""));
+        mis3SpecialRules.setText(sharedPreferences.getString("mis3SpecialRules" , ""));
+        mis4SpecialRules.setText(sharedPreferences.getString("mis4SpecialRules" , ""));
+
+        ammo1Name.setText(sharedPreferences.getString("ammo1Name", ""));
+        ammo2Name.setText(sharedPreferences.getString("ammo2Name", ""));
+        ammo3Name.setText(sharedPreferences.getString("ammo3Name", ""));
+        ammo4Name.setText(sharedPreferences.getString("ammo4Name", ""));
+
+        loadSpinnerState(ammo1Spinner, "ammo1Type");
+        loadSpinnerState(ammo2Spinner, "ammo2Type");
+        loadSpinnerState(ammo3Spinner, "ammo3Type");
+        loadSpinnerState(ammo4Spinner, "ammo4Type");
+
+        ammo1No.setText(sharedPreferences.getString("ammo1No", ""));
+        ammo2No.setText(sharedPreferences.getString("ammo2No", ""));
+        ammo3No.setText(sharedPreferences.getString("ammo3No", ""));
+        ammo4No.setText(sharedPreferences.getString("ammo4No", ""));
+   }
 
 
 
