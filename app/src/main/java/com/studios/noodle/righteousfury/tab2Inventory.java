@@ -672,7 +672,6 @@ public class tab2Inventory extends Fragment {
         mel2SpecialRules.setText(sharedPreferences.getString("mel2SpecialRules" , ""));
         mel3SpecialRules.setText(sharedPreferences.getString("mel3SpecialRules" , ""));
         mel4SpecialRules.setText(sharedPreferences.getString("mel4SpecialRules" , ""));
-
         mis1SpecialRules.setText(sharedPreferences.getString("mis1SpecialRules" , ""));
         mis2SpecialRules.setText(sharedPreferences.getString("mis2SpecialRules" , ""));
         mis3SpecialRules.setText(sharedPreferences.getString("mis3SpecialRules" , ""));
@@ -701,5 +700,129 @@ public class tab2Inventory extends Fragment {
         super.onPause();
 
         // TODO - implement save method
+
+
+        // Initialisation of the shared preferences object
+        SharedPreferences sharedPreferences = getContext().getSharedPreferences(SHARED_PREFS, Context.MODE_PRIVATE);
+
+        // Initialisation of the shared preferences editor
+        SharedPreferences.Editor edit = sharedPreferences.edit();
+
+        // Saves to the shared prefs the inventory information onPause
+        edit.putString("mel1WepName", mel1Name.getText().toString().trim());
+        edit.putString("mel2WepName", mel2Name.getText().toString().trim());
+        edit.putString("mel3WepName", mel3Name.getText().toString().trim());
+        edit.putString("mel4WepName", mel4Name.getText().toString().trim());
+        edit.putString("mis1WepName", mis1Name.getText().toString().trim());
+        edit.putString("mis2WepName", mis2Name.getText().toString().trim());
+        edit.putString("mis3WepName", mis3Name.getText().toString().trim());
+        edit.putString("mis4WepName", mis4Name.getText().toString().trim());
+
+        edit.putString("mel1Class", Integer.toString(mel1ClassSpinner.getSelectedItemPosition()));
+        edit.putString("mel2Class", Integer.toString(mel2ClassSpinner.getSelectedItemPosition()));
+        edit.putString("mel3Class", Integer.toString(mel3ClassSpinner.getSelectedItemPosition()));
+        edit.putString("mel4Class", Integer.toString(mel4ClassSpinner.getSelectedItemPosition()));
+        edit.putString("mis1Class", Integer.toString(mis1ClassSpinner.getSelectedItemPosition()));
+        edit.putString("mis2Class", Integer.toString(mis2ClassSpinner.getSelectedItemPosition()));
+        edit.putString("mis3Class", Integer.toString(mis3ClassSpinner.getSelectedItemPosition()));
+        edit.putString("mis4Class", Integer.toString(mis4ClassSpinner.getSelectedItemPosition()));
+
+        edit.putString("mel1Damage_x", mel1Damage_x.getText().toString().trim());
+        edit.putString("mel1Damage_y", mel1Damage_y.getText().toString().trim());
+        edit.putString("mel1Damage_z", mel1Damage_z.getText().toString().trim());
+        edit.putString("mel2Damage_x", mel2Damage_x.getText().toString().trim());
+        edit.putString("mel2Damage_y", mel2Damage_y.getText().toString().trim());
+        edit.putString("mel2Damage_z", mel2Damage_z.getText().toString().trim());
+        edit.putString("mel3Damage_x", mel3Damage_x.getText().toString().trim());
+        edit.putString("mel3Damage_y", mel3Damage_y.getText().toString().trim());
+        edit.putString("mel3Damage_z", mel3Damage_z.getText().toString().trim());
+        edit.putString("mel4Damage_x", mel4Damage_x.getText().toString().trim());
+        edit.putString("mel4Damage_y", mel4Damage_y.getText().toString().trim());
+        edit.putString("mel4Damage_z", mel4Damage_z.getText().toString().trim());
+        edit.putString("mis1Damage_x", mis1Damage_x.getText().toString().trim());
+        edit.putString("mis1Damage_y", mis1Damage_y.getText().toString().trim());
+        edit.putString("mis1Damage_z", mis1Damage_z.getText().toString().trim());
+        edit.putString("mis2Damage_x", mis2Damage_x.getText().toString().trim());
+        edit.putString("mis2Damage_y", mis2Damage_y.getText().toString().trim());
+        edit.putString("mis2Damage_z", mis2Damage_z.getText().toString().trim());
+        edit.putString("mis3Damage_x", mis3Damage_x.getText().toString().trim());
+        edit.putString("mis3Damage_y", mis3Damage_y.getText().toString().trim());
+        edit.putString("mis3Damage_z", mis3Damage_z.getText().toString().trim());
+        edit.putString("mis4Damage_x", mis4Damage_x.getText().toString().trim());
+        edit.putString("mis4Damage_y", mis4Damage_y.getText().toString().trim());
+        edit.putString("mis4Damage_z", mis4Damage_z.getText().toString().trim());
+
+        edit.putString("mel1Type", Integer.toString(mel1TypeSpinner.getSelectedItemPosition()));
+        edit.putString("mel2Type", Integer.toString(mel2TypeSpinner.getSelectedItemPosition()));
+        edit.putString("mel3Type", Integer.toString(mel3TypeSpinner.getSelectedItemPosition()));
+        edit.putString("mel4Type", Integer.toString(mel4TypeSpinner.getSelectedItemPosition()));
+        edit.putString("mis1Type", Integer.toString(mis1TypeSpinner.getSelectedItemPosition()));
+        edit.putString("mis2Type", Integer.toString(mis2TypeSpinner.getSelectedItemPosition()));
+        edit.putString("mis3Type", Integer.toString(mis3TypeSpinner.getSelectedItemPosition()));
+        edit.putString("mis4Type", Integer.toString(mis4TypeSpinner.getSelectedItemPosition()));
+
+        edit.putString("mis1Range", mis1Range.getText().toString().trim());
+        edit.putString("mis2Range", mis2Range.getText().toString().trim());
+        edit.putString("mis3Range", mis3Range.getText().toString().trim());
+        edit.putString("mis4Range", mis4Range.getText().toString().trim());
+
+        edit.putString("mis1ROF_x", mis1ROF_x.getText().toString().trim());
+        edit.putString("mis1ROF_y", mis1ROF_y.getText().toString().trim());
+        edit.putString("mis1ROF_z", mis1ROF_z.getText().toString().trim());
+        edit.putString("mis2ROF_x", mis2ROF_x.getText().toString().trim());
+        edit.putString("mis2ROF_y", mis2ROF_y.getText().toString().trim());
+        edit.putString("mis2ROF_z", mis2ROF_z.getText().toString().trim());
+        edit.putString("mis3ROF_x", mis3ROF_x.getText().toString().trim());
+        edit.putString("mis3ROF_y", mis3ROF_y.getText().toString().trim());
+        edit.putString("mis3ROF_z", mis3ROF_z.getText().toString().trim());
+        edit.putString("mis4ROF_x", mis4ROF_x.getText().toString().trim());
+        edit.putString("mis4ROF_y", mis4ROF_y.getText().toString().trim());
+        edit.putString("mis4ROF_z", mis4ROF_z.getText().toString().trim());
+
+        edit.putString("mis1Clip", mis1Clip.getText().toString().trim());
+        edit.putString("mis2Clip", mis2Clip.getText().toString().trim());
+        edit.putString("mis3Clip", mis3Clip.getText().toString().trim());
+        edit.putString("mis4Clip", mis4Clip.getText().toString().trim());
+
+        edit.putString("mis1RLD", Integer.toString(mis1RLDSpinner.getSelectedItemPosition()));
+        edit.putString("mis2RLD", Integer.toString(mis2RLDSpinner.getSelectedItemPosition()));
+        edit.putString("mis3RLD", Integer.toString(mis3RLDSpinner.getSelectedItemPosition()));
+        edit.putString("mis4RLD", Integer.toString(mis4RLDSpinner.getSelectedItemPosition()));
+
+        edit.putString("mel1Pen", mel1Pen.getText().toString().trim());
+        edit.putString("mel2Pen", mel2Pen.getText().toString().trim());
+        edit.putString("mel3Pen", mel3Pen.getText().toString().trim());
+        edit.putString("mel4Pen", mel4Pen.getText().toString().trim());
+        edit.putString("mis1Pen", mis1Pen.getText().toString().trim());
+        edit.putString("mis2Pen", mis2Pen.getText().toString().trim());
+        edit.putString("mis3Pen", mis3Pen.getText().toString().trim());
+        edit.putString("mis4Pen", mis4Pen.getText().toString().trim());
+
+        edit.putString("mel1SpecialRules", mel1SpecialRules.getText().toString().trim());
+        edit.putString("mel2SpecialRules", mel2SpecialRules.getText().toString().trim());
+        edit.putString("mel3SpecialRules", mel3SpecialRules.getText().toString().trim());
+        edit.putString("mel4SpecialRules", mel4SpecialRules.getText().toString().trim());
+        edit.putString("mis1SpecialRules", mis1SpecialRules.getText().toString().trim());
+        edit.putString("mis2SpecialRules", mis2SpecialRules.getText().toString().trim());
+        edit.putString("mis3SpecialRules", mis3SpecialRules.getText().toString().trim());
+        edit.putString("mis4SpecialRules", mis4SpecialRules.getText().toString().trim());
+
+        edit.putString("ammo1Name", ammo1Name.getText().toString().trim());
+        edit.putString("ammo2Name", ammo2Name.getText().toString().trim());
+        edit.putString("ammo3Name", ammo3Name.getText().toString().trim());
+        edit.putString("ammo4Name", ammo4Name.getText().toString().trim());
+
+        edit.putString("ammo1Type", Integer.toString(ammo1Spinner.getSelectedItemPosition()));
+        edit.putString("ammo2Type", Integer.toString(ammo2Spinner.getSelectedItemPosition()));
+        edit.putString("ammo3Type", Integer.toString(ammo3Spinner.getSelectedItemPosition()));
+        edit.putString("ammo4Type", Integer.toString(ammo4Spinner.getSelectedItemPosition()));
+
+        edit.putString("ammo1No", ammo1No.getText().toString().trim());
+        edit.putString("ammo2No", ammo2No.getText().toString().trim());
+        edit.putString("ammo3No", ammo3No.getText().toString().trim());
+        edit.putString("ammo4No", ammo4No.getText().toString().trim());
+
+        // Applies the changes to the shared preferences file
+        edit.apply();
     }
 }
