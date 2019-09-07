@@ -7,12 +7,13 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.widget.LinearLayout;
+import android.widget.Spinner;
 
-import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
 /**
@@ -21,443 +22,330 @@ import androidx.fragment.app.Fragment;
 
 public class tab2Inventory extends Fragment {
 
-    // Scope-wide Variables
-    // Card Views
-    private CardView    meleeCard1;
-    private CardView    meleeCard2;
-    private CardView    meleeCard3;
-    private CardView    meleeCard4;
+    public tab2Inventory() {
+        // Required empty public constructor
+    }
 
-    private CardView    missileCard1;
-    private CardView    missileCard2;
-    private CardView    missileCard3;
-    private CardView    missileCard4;
 
-    // Text Views for the child card names
-    private TextView    meleeWeapon1Slot;
-    private TextView    meleeWeapon2Slot;
-    private TextView    meleeWeapon3Slot;
-    private TextView    meleeWeapon4Slot;
 
-    private TextView    missileWeapon1Slot;
-    private TextView    missileWeapon2Slot;
-    private TextView    missileWeapon3Slot;
-    private TextView    missileWeapon4Slot;
+    private EditText mel1Name;
+    private EditText mel2Name;
+    private EditText mel3Name;
+    private EditText mel4Name;
+    private EditText mis1Name;
+    private EditText mis2Name;
+    private EditText mis3Name;
+    private EditText mis4Name;
 
-    // Text Views for the 4 melee weapon children
-    private TextView    melWep1_NameTextView;
-    private TextView    melWep1_ClassTextView;
-    private TextView    melWep1_DamageTextView;
-    private TextView    melWep1_TypeTextView;
-    private TextView    melWep1_PenetrationTextView;
-    private TextView    melWep1_SpecialRulesTextView;
+    private EditText mel1Damage_x;
+    private EditText mel1Damage_y;
+    private EditText mel1Damage_z;
+    private EditText mel2Damage_x;
+    private EditText mel2Damage_y;
+    private EditText mel2Damage_z;
+    private EditText mel3Damage_x;
+    private EditText mel3Damage_y;
+    private EditText mel3Damage_z;
+    private EditText mel4Damage_x;
+    private EditText mel4Damage_y;
+    private EditText mel4Damage_z;
+    private EditText mis1Damage_x;
+    private EditText mis1Damage_y;
+    private EditText mis1Damage_z;
+    private EditText mis2Damage_x;
+    private EditText mis2Damage_y;
+    private EditText mis2Damage_z;
+    private EditText mis3Damage_x;
+    private EditText mis3Damage_y;
+    private EditText mis3Damage_z;
+    private EditText mis4Damage_x;
+    private EditText mis4Damage_y;
+    private EditText mis4Damage_z;
 
-    private TextView    melWep2_NameTextView;
-    private TextView    melWep2_ClassTextView;
-    private TextView    melWep2_DamageTextView;
-    private TextView    melWep2_TypeTextView;
-    private TextView    melWep2_PenetrationTextView;
-    private TextView    melWep2_SpecialRulesTextView;
+    private EditText mis1Range;
+    private EditText mis2Range;
+    private EditText mis3Range;
+    private EditText mis4Range;
 
-    private TextView    melWep3_NameTextView;
-    private TextView    melWep3_ClassTextView;
-    private TextView    melWep3_DamageTextView;
-    private TextView    melWep3_TypeTextView;
-    private TextView    melWep3_PenetrationTextView;
-    private TextView    melWep3_SpecialRulesTextView;
+    private EditText mis1ROF_x;
+    private EditText mis1ROF_y;
+    private EditText mis1ROF_z;
+    private EditText mis2ROF_x;
+    private EditText mis2ROF_y;
+    private EditText mis2ROF_z;
+    private EditText mis3ROF_x;
+    private EditText mis3ROF_y;
+    private EditText mis3ROF_z;
+    private EditText mis4ROF_x;
+    private EditText mis4ROF_y;
+    private EditText mis4ROF_z;
 
-    private TextView    melWep4_NameTextView;
-    private TextView    melWep4_ClassTextView;
-    private TextView    melWep4_DamageTextView;
-    private TextView    melWep4_TypeTextView;
-    private TextView    melWep4_PenetrationTextView;
-    private TextView    melWep4_SpecialRulesTextView;
+    private EditText mis1Clip;
+    private EditText mis2Clip;
+    private EditText mis3Clip;
+    private EditText mis4Clip;
 
-    // Text Views for the 4 missile weapon children
-    private TextView    misWep1_NameTextView;
-    private TextView    misWep1_ClassTextView;
-    private TextView    misWep1_DamageTextView;
-    private TextView    misWep1_TypeTextView;
-    private TextView    misWep1_PenetrationTextView;
-    private TextView    misWep1_RangeTextView;
-    private TextView    misWep1_RoFTextView;
-    private TextView    misWep1_ClipTextView;
-    private TextView    misWep1_RLDTextView;
-    private TextView    misWep1_SpecialRulesTextView;
+    private EditText mel1Pen;
+    private EditText mel2Pen;
+    private EditText mel3Pen;
+    private EditText mel4Pen;
+    private EditText mis1Pen;
+    private EditText mis2Pen;
+    private EditText mis3Pen;
+    private EditText mis4Pen;
 
-    private TextView    misWep2_NameTextView;
-    private TextView    misWep2_ClassTextView;
-    private TextView    misWep2_DamageTextView;
-    private TextView    misWep2_TypeTextView;
-    private TextView    misWep2_PenetrationTextView;
-    private TextView    misWep2_RangeTextView;
-    private TextView    misWep2_RoFTextView;
-    private TextView    misWep2_ClipTextView;
-    private TextView    misWep2_RLDTextView;
-    private TextView    misWep2_SpecialRulesTextView;
+    private EditText mel1SpecialRules;
+    private EditText mel2SpecialRules;
+    private EditText mel3SpecialRules;
+    private EditText mel4SpecialRules;
+    private EditText mis1SpecialRules;
+    private EditText mis2SpecialRules;
+    private EditText mis3SpecialRules;
+    private EditText mis4SpecialRules;
 
-    private TextView    misWep3_NameTextView;
-    private TextView    misWep3_ClassTextView;
-    private TextView    misWep3_DamageTextView;
-    private TextView    misWep3_TypeTextView;
-    private TextView    misWep3_PenetrationTextView;
-    private TextView    misWep3_RangeTextView;
-    private TextView    misWep3_RoFTextView;
-    private TextView    misWep3_ClipTextView;
-    private TextView    misWep3_RLDTextView;
-    private TextView    misWep3_SpecialRulesTextView;
+    private EditText ammo1Name;
+    private EditText ammo2Name;
+    private EditText ammo3Name;
+    private EditText ammo4Name;
 
-    private TextView    misWep4_NameTextView;
-    private TextView    misWep4_ClassTextView;
-    private TextView    misWep4_DamageTextView;
-    private TextView    misWep4_TypeTextView;
-    private TextView    misWep4_PenetrationTextView;
-    private TextView    misWep4_RangeTextView;
-    private TextView    misWep4_RoFTextView;
-    private TextView    misWep4_ClipTextView;
-    private TextView    misWep4_RLDTextView;
-    private TextView    misWep4_SpecialRulesTextView;
+    private EditText ammo1No;
+    private EditText ammo2No;
+    private EditText ammo3No;
+    private EditText ammo4No;
 
-    // Edit Texts for the 4 melee weapon children
-    private EditText    melWep1_NameEditText;
-    private EditText    melWep1_ClassEditText;
-    private EditText    melWep1_DamageEditText;
-    private EditText    melWep1_TypeEditText;
-    private EditText    melWep1_PenetrationEditText;
-    private EditText    melWep1_SpecialRulesEditText;
+    private ImageButton melWepMasterHideButton;
+    private ImageButton misWepMasterHideButton;
+    private ImageButton ammoMasterHideButton;
 
-    private EditText    melWep2_NameEditText;
-    private EditText    melWep2_ClassEditText;
-    private EditText    melWep2_DamageEditText;
-    private EditText    melWep2_TypeEditText;
-    private EditText    melWep2_PenetrationEditText;
-    private EditText    melWep2_SpecialRulesEditText;
+    private ImageButton mel1HideButton;
+    private ImageButton mel2HideButton;
+    private ImageButton mel3HideButton;
+    private ImageButton mel4HideButton;
 
-    private EditText    melWep3_NameEditText;
-    private EditText    melWep3_ClassEditText;
-    private EditText    melWep3_DamageEditText;
-    private EditText    melWep3_TypeEditText;
-    private EditText    melWep3_PenetrationEditText;
-    private EditText    melWep3_SpecialRulesEditText;
+    private ImageButton mis1HideButton;
+    private ImageButton mis2HideButton;
+    private ImageButton mis3HideButton;
+    private ImageButton mis4HideButton;
 
-    private EditText    melWep4_NameEditText;
-    private EditText    melWep4_ClassEditText;
-    private EditText    melWep4_DamageEditText;
-    private EditText    melWep4_TypeEditText;
-    private EditText    melWep4_PenetrationEditText;
-    private EditText    melWep4_SpecialRulesEditText;
+    private ImageButton ammo1HideButton;
+    private ImageButton ammo2HideButton;
+    private ImageButton ammo3HideButton;
+    private ImageButton ammo4HideButton;
 
-    // Edit Texts for the 4 missile weapon children
-    private EditText    misWep1_NameEditText;
-    private EditText    misWep1_ClassEditText;
-    private EditText    misWep1_DamageEditText;
-    private EditText    misWep1_TypeEditText;
-    private EditText    misWep1_PenetrationEditText;
-    private EditText    misWep1_RangeEditText;
-    private EditText    misWep1_RoFEditText;
-    private EditText    misWep1_ClipEditText;
-    private EditText    misWep1_RLDEditText;
-    private EditText    misWep1_SpecialRulesEditText;
+    private Spinner mel1ClassSpinner;
+    private Spinner mel2ClassSpinner;
+    private Spinner mel3ClassSpinner;
+    private Spinner mel4ClassSpinner;
+    private Spinner mis1ClassSpinner;
+    private Spinner mis2ClassSpinner;
+    private Spinner mis3ClassSpinner;
+    private Spinner mis4ClassSpinner;
 
-    private EditText    misWep2_NameEditText;
-    private EditText    misWep2_ClassEditText;
-    private EditText    misWep2_DamageEditText;
-    private EditText    misWep2_TypeEditText;
-    private EditText    misWep2_PenetrationEditText;
-    private EditText    misWep2_RangeEditText;
-    private EditText    misWep2_RoFEditText;
-    private EditText    misWep2_ClipEditText;
-    private EditText    misWep2_RLDEditText;
-    private EditText    misWep2_SpecialRulesEditText;
+    private Spinner mel1TypeSpinner;
+    private Spinner mel2TypeSpinner;
+    private Spinner mel3TypeSpinner;
+    private Spinner mel4TypeSpinner;
+    private Spinner mis1TypeSpinner;
+    private Spinner mis2TypeSpinner;
+    private Spinner mis3TypeSpinner;
+    private Spinner mis4TypeSpinner;
 
-    private EditText    misWep3_NameEditText;
-    private EditText    misWep3_ClassEditText;
-    private EditText    misWep3_DamageEditText;
-    private EditText    misWep3_TypeEditText;
-    private EditText    misWep3_PenetrationEditText;
-    private EditText    misWep3_RangeEditText;
-    private EditText    misWep3_RoFEditText;
-    private EditText    misWep3_ClipEditText;
-    private EditText    misWep3_RLDEditText;
-    private EditText    misWep3_SpecialRulesEditText;
+    private Spinner mis1RLDSpinner;
+    private Spinner mis2RLDSpinner;
+    private Spinner mis3RLDSpinner;
+    private Spinner mis4RLDSpinner;
 
-    private EditText    misWep4_NameEditText;
-    private EditText    misWep4_ClassEditText;
-    private EditText    misWep4_DamageEditText;
-    private EditText    misWep4_TypeEditText;
-    private EditText    misWep4_PenetrationEditText;
-    private EditText    misWep4_RangeEditText;
-    private EditText    misWep4_RoFEditText;
-    private EditText    misWep4_ClipEditText;
-    private EditText    misWep4_RLDEditText;
-    private EditText    misWep4_SpecialRulesEditText;
+    private Spinner ammo1Spinner;
+    private Spinner ammo2Spinner;
+    private Spinner ammo3Spinner;
+    private Spinner ammo4Spinner;
 
-    // Ammo Edit Texts
-    private EditText    ammo1_NameEditText;
-    private EditText    ammo1_ValEditText;
+    private LinearLayout melMasterLayout;
+    private LinearLayout misMasterLayout;
+    private LinearLayout ammoMasterLayout;
 
-    // Dividers for the 4 melee weapon children
-    private View        melWep1_Divider1;
-    private View        melWep1_Divider2;
+    private LinearLayout mel1Layout;
+    private LinearLayout mel2Layout;
+    private LinearLayout mel3Layout;
+    private LinearLayout mel4Layout;
 
-    private View        melWep2_Divider1;
-    private View        melWep2_Divider2;
+    private LinearLayout mis1Layout;
+    private LinearLayout mis2Layout;
+    private LinearLayout mis3Layout;
+    private LinearLayout mis4Layout;
 
-    private View        melWep3_Divider1;
-    private View        melWep3_Divider2;
+    private LinearLayout ammo1Layout;
+    private LinearLayout ammo2Layout;
+    private LinearLayout ammo3Layout;
+    private LinearLayout ammo4Layout;
 
-    private View        melWep4_Divider1;
-    private View        melWep4_Divider2;
-
-    // Dividers for the 4 missile weapon children
-    private View        misWep1_Divider1;
-    private View        misWep1_Divider2;
-    private View        misWep1_Divider3;
-
-    private View        misWep2_Divider1;
-    private View        misWep2_Divider2;
-    private View        misWep2_Divider3;
-
-    private View        misWep3_Divider1;
-    private View        misWep3_Divider2;
-    private View        misWep3_Divider3;
-
-    private View        misWep4_Divider1;
-    private View        misWep4_Divider2;
-    private View        misWep4_Divider3;
-
-    // Image buttons for the melee weapons
-    private ImageButton melParentButton;
-    private ImageButton melWep1ExpandButton;
-    private ImageButton melWep2ExpandButton;
-    private ImageButton melWep3ExpandButton;
-    private ImageButton melWep4ExpandButton;
-
-    // Image buttons for the missile weapons
-    private ImageButton misParentButton;
-    private ImageButton misWep1ExpandButton;
-    private ImageButton misWep2ExpandButton;
-    private ImageButton misWep3ExpandButton;
-    private ImageButton misWep4ExpandButton;
-
-    // Image buttons for the ammo;
-    private ImageButton ammoMasterAddItemButton;
 
 
     // Variables for the shared preferences
     public static final String SHARED_PREFS = "sharedPrefs";
 
 
-    private void setMeleeVisibility(int weaponSlot, int visibilityMode){
 
-            // visibilityMode = 0 -> VISIBLE
-            // visibilityMode = 4 -> INVISIBLE
-            // visibilityMode = 8 -> GONE
+    // Constructor method for creating and initialising each spinner required on this page
+    public void adapterConstructor(int mode, Spinner spinner){
+        /* Mode:
+            0: Class
+            1: Type
+            2: Reload
+            3: Ammo
+        */
 
-            switch (weaponSlot){
-                case 1: // Setting melee Weapon slot 1 to required visibility
+        switch (mode){
+            case 0: // Class
+                // Creating the array adapter for the weapon classes to convert the string array into a usable form
+                ArrayAdapter<CharSequence> classAdapter = ArrayAdapter.createFromResource(getContext(), R.array.class_array, android.R.layout.simple_spinner_item);
 
-                    melWep1_NameTextView.setVisibility(visibilityMode);
-                    melWep1_NameEditText.setVisibility(visibilityMode);
-                    melWep1_Divider1.setVisibility(visibilityMode);
-                    melWep1_ClassTextView.setVisibility(visibilityMode);
-                    melWep1_ClassEditText.setVisibility(visibilityMode);
-                    melWep1_DamageTextView.setVisibility(visibilityMode);
-                    melWep1_DamageEditText.setVisibility(visibilityMode);
-                    melWep1_TypeTextView.setVisibility(visibilityMode);
-                    melWep1_TypeEditText.setVisibility(visibilityMode);
-                    melWep1_PenetrationTextView.setVisibility(visibilityMode);
-                    melWep1_PenetrationEditText.setVisibility(visibilityMode);
-                    melWep1_Divider2.setVisibility(visibilityMode);
-                    melWep1_SpecialRulesTextView.setVisibility(visibilityMode);
-                    melWep1_SpecialRulesEditText.setVisibility(visibilityMode);
+                // Setting the type of drop down menu (Currently from the android layout libraries)
+                classAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
-                    break;
+                // Attaching the array adapter to the spinner
+                spinner.setAdapter(classAdapter);
 
-                case 2: // Setting melee Weapon slot 2 to required visibility
+                // OnSelected listener for Class spinner
+                spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                    @Override
+                    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
 
-                    melWep2_NameTextView.setVisibility(visibilityMode);
-                    melWep2_NameEditText.setVisibility(visibilityMode);
-                    melWep2_Divider1.setVisibility(visibilityMode);
-                    melWep2_ClassTextView.setVisibility(visibilityMode);
-                    melWep2_ClassEditText.setVisibility(visibilityMode);
-                    melWep2_DamageTextView.setVisibility(visibilityMode);
-                    melWep2_DamageEditText.setVisibility(visibilityMode);
-                    melWep2_TypeTextView.setVisibility(visibilityMode);
-                    melWep2_TypeEditText.setVisibility(visibilityMode);
-                    melWep2_PenetrationTextView.setVisibility(visibilityMode);
-                    melWep2_PenetrationEditText.setVisibility(visibilityMode);
-                    melWep2_Divider2.setVisibility(visibilityMode);
-                    melWep2_SpecialRulesTextView.setVisibility(visibilityMode);
-                    melWep2_SpecialRulesEditText.setVisibility(visibilityMode);
+                    }
 
-                    break;
+                    @Override
+                    public void onNothingSelected(AdapterView<?> adapterView) {
 
-                case 3: // Setting melee Weapon slot 3 to required visibility
-
-                    melWep3_NameTextView.setVisibility(visibilityMode);
-                    melWep3_NameEditText.setVisibility(visibilityMode);
-                    melWep3_Divider1.setVisibility(visibilityMode);
-                    melWep3_ClassTextView.setVisibility(visibilityMode);
-                    melWep3_ClassEditText.setVisibility(visibilityMode);
-                    melWep3_DamageTextView.setVisibility(visibilityMode);
-                    melWep3_DamageEditText.setVisibility(visibilityMode);
-                    melWep3_TypeTextView.setVisibility(visibilityMode);
-                    melWep3_TypeEditText.setVisibility(visibilityMode);
-                    melWep3_PenetrationTextView.setVisibility(visibilityMode);
-                    melWep3_PenetrationEditText.setVisibility(visibilityMode);
-                    melWep3_Divider2.setVisibility(visibilityMode);
-                    melWep3_SpecialRulesTextView.setVisibility(visibilityMode);
-                    melWep3_SpecialRulesEditText.setVisibility(visibilityMode);
-
-                    break;
-
-                case 4: // Setting melee Weapon slot 4 to required visibility
-
-                    melWep4_NameTextView.setVisibility(visibilityMode);
-                    melWep4_NameEditText.setVisibility(visibilityMode);
-                    melWep4_Divider1.setVisibility(visibilityMode);
-                    melWep4_ClassTextView.setVisibility(visibilityMode);
-                    melWep4_ClassEditText.setVisibility(visibilityMode);
-                    melWep4_DamageTextView.setVisibility(visibilityMode);
-                    melWep4_DamageEditText.setVisibility(visibilityMode);
-                    melWep4_TypeTextView.setVisibility(visibilityMode);
-                    melWep4_TypeEditText.setVisibility(visibilityMode);
-                    melWep4_PenetrationTextView.setVisibility(visibilityMode);
-                    melWep4_PenetrationEditText.setVisibility(visibilityMode);
-                    melWep4_Divider2.setVisibility(visibilityMode);
-                    melWep4_SpecialRulesTextView.setVisibility(visibilityMode);
-                    melWep4_SpecialRulesEditText.setVisibility(visibilityMode);
-
-                    break;
-            }
-    }
-
-    private void setMissileVisibility(int weaponSlot, int visibilityMode){
-
-        // visibilityMode = 0 -> VISIBLE
-        // visibilityMode = 4 -> INVISIBLE
-        // visibilityMode = 8 -> GONE
-
-        switch (weaponSlot){
-            case 1: // Setting missile weapon slot 1 to required visibility
-
-                misWep1_NameTextView.setVisibility(visibilityMode);
-                misWep1_NameEditText.setVisibility(visibilityMode);
-                misWep1_Divider1.setVisibility(visibilityMode);
-                misWep1_ClassTextView.setVisibility(visibilityMode);
-                misWep1_ClassEditText.setVisibility(visibilityMode);
-                misWep1_DamageTextView.setVisibility(visibilityMode);
-                misWep1_DamageEditText.setVisibility(visibilityMode);
-                misWep1_TypeTextView.setVisibility(visibilityMode);
-                misWep1_TypeEditText.setVisibility(visibilityMode);
-                misWep1_PenetrationTextView.setVisibility(visibilityMode);
-                misWep1_PenetrationEditText.setVisibility(visibilityMode);
-                misWep1_Divider2.setVisibility(visibilityMode);
-                misWep1_RangeTextView.setVisibility(visibilityMode);
-                misWep1_RangeEditText.setVisibility(visibilityMode);
-                misWep1_RoFTextView.setVisibility(visibilityMode);
-                misWep1_RoFEditText.setVisibility(visibilityMode);
-                misWep1_ClipTextView.setVisibility(visibilityMode);
-                misWep1_ClipEditText.setVisibility(visibilityMode);
-                misWep1_RLDTextView.setVisibility(visibilityMode);
-                misWep1_RLDEditText.setVisibility(visibilityMode);
-                misWep1_Divider3.setVisibility(visibilityMode);
-                misWep1_SpecialRulesTextView.setVisibility(visibilityMode);
-                misWep1_SpecialRulesEditText.setVisibility(visibilityMode);
+                    }
+                });
 
                 break;
 
-            case 2:
 
-                misWep2_NameTextView.setVisibility(visibilityMode);
-                misWep2_NameEditText.setVisibility(visibilityMode);
-                misWep2_Divider1.setVisibility(visibilityMode);
-                misWep2_ClassTextView.setVisibility(visibilityMode);
-                misWep2_ClassEditText.setVisibility(visibilityMode);
-                misWep2_DamageTextView.setVisibility(visibilityMode);
-                misWep2_DamageEditText.setVisibility(visibilityMode);
-                misWep2_TypeTextView.setVisibility(visibilityMode);
-                misWep2_TypeEditText.setVisibility(visibilityMode);
-                misWep2_PenetrationTextView.setVisibility(visibilityMode);
-                misWep2_PenetrationEditText.setVisibility(visibilityMode);
-                misWep2_Divider2.setVisibility(visibilityMode);
-                misWep2_RangeTextView.setVisibility(visibilityMode);
-                misWep2_RangeEditText.setVisibility(visibilityMode);
-                misWep2_RoFTextView.setVisibility(visibilityMode);
-                misWep2_RoFEditText.setVisibility(visibilityMode);
-                misWep2_ClipTextView.setVisibility(visibilityMode);
-                misWep2_ClipEditText.setVisibility(visibilityMode);
-                misWep2_RLDTextView.setVisibility(visibilityMode);
-                misWep2_RLDEditText.setVisibility(visibilityMode);
-                misWep2_Divider3.setVisibility(visibilityMode);
-                misWep2_SpecialRulesTextView.setVisibility(visibilityMode);
-                misWep2_SpecialRulesEditText.setVisibility(visibilityMode);
 
-                break;
+            case 1: // Type
+                // Creating the array adapter for the weapon classes to convert the string array into a usable form
+                ArrayAdapter<CharSequence> typeAdapter = ArrayAdapter.createFromResource(getContext(), R.array.type_array, android.R.layout.simple_spinner_item);
 
-            case 3:
+                // Setting the type of drop down menu (Currently from the android layout libraries)
+                typeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
-                misWep3_NameTextView.setVisibility(visibilityMode);
-                misWep3_NameEditText.setVisibility(visibilityMode);
-                misWep3_Divider1.setVisibility(visibilityMode);
-                misWep3_ClassTextView.setVisibility(visibilityMode);
-                misWep3_ClassEditText.setVisibility(visibilityMode);
-                misWep3_DamageTextView.setVisibility(visibilityMode);
-                misWep3_DamageEditText.setVisibility(visibilityMode);
-                misWep3_TypeTextView.setVisibility(visibilityMode);
-                misWep3_TypeEditText.setVisibility(visibilityMode);
-                misWep3_PenetrationTextView.setVisibility(visibilityMode);
-                misWep3_PenetrationEditText.setVisibility(visibilityMode);
-                misWep3_Divider2.setVisibility(visibilityMode);
-                misWep3_RangeTextView.setVisibility(visibilityMode);
-                misWep3_RangeEditText.setVisibility(visibilityMode);
-                misWep3_RoFTextView.setVisibility(visibilityMode);
-                misWep3_RoFEditText.setVisibility(visibilityMode);
-                misWep3_ClipTextView.setVisibility(visibilityMode);
-                misWep3_ClipEditText.setVisibility(visibilityMode);
-                misWep3_RLDTextView.setVisibility(visibilityMode);
-                misWep3_RLDEditText.setVisibility(visibilityMode);
-                misWep3_Divider3.setVisibility(visibilityMode);
-                misWep3_SpecialRulesTextView.setVisibility(visibilityMode);
-                misWep3_SpecialRulesEditText.setVisibility(visibilityMode);
+                // Attaching the array adapter to the spinner
+                spinner.setAdapter(typeAdapter);
+
+                // OnSelected listener for Class spinner -- MAY NOT ACTUALLY NEED THIS
+                spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                    @Override
+                    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+
+                    }
+
+                    @Override
+                    public void onNothingSelected(AdapterView<?> adapterView) {
+
+                    }
+                });
 
                 break;
 
-            case 4:
+            case 2: // Reload
+                // Creating the array adapter for the weapon classes to convert the string array into a usable form
+                ArrayAdapter<CharSequence> rldAdapter = ArrayAdapter.createFromResource(getContext(), R.array.reload_array, android.R.layout.simple_spinner_item);
 
-                misWep4_NameTextView.setVisibility(visibilityMode);
-                misWep4_NameEditText.setVisibility(visibilityMode);
-                misWep4_Divider1.setVisibility(visibilityMode);
-                misWep4_ClassTextView.setVisibility(visibilityMode);
-                misWep4_ClassEditText.setVisibility(visibilityMode);
-                misWep4_DamageTextView.setVisibility(visibilityMode);
-                misWep4_DamageEditText.setVisibility(visibilityMode);
-                misWep4_TypeTextView.setVisibility(visibilityMode);
-                misWep4_TypeEditText.setVisibility(visibilityMode);
-                misWep4_PenetrationTextView.setVisibility(visibilityMode);
-                misWep4_PenetrationEditText.setVisibility(visibilityMode);
-                misWep4_Divider2.setVisibility(visibilityMode);
-                misWep4_RangeTextView.setVisibility(visibilityMode);
-                misWep4_RangeEditText.setVisibility(visibilityMode);
-                misWep4_RoFTextView.setVisibility(visibilityMode);
-                misWep4_RoFEditText.setVisibility(visibilityMode);
-                misWep4_ClipTextView.setVisibility(visibilityMode);
-                misWep4_ClipEditText.setVisibility(visibilityMode);
-                misWep4_RLDTextView.setVisibility(visibilityMode);
-                misWep4_RLDEditText.setVisibility(visibilityMode);
-                misWep4_Divider3.setVisibility(visibilityMode);
-                misWep4_SpecialRulesTextView.setVisibility(visibilityMode);
-                misWep4_SpecialRulesEditText.setVisibility(visibilityMode);
+                // Setting the type of drop down menu (Currently from the android layout libraries)
+                rldAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+                // Attaching the array adapter to the spinner
+                spinner.setAdapter(rldAdapter);
+
+                // OnSelected listener for Class spinner -- MAY NOT ACTUALLY NEED THIS
+                spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                    @Override
+                    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+
+                    }
+
+                    @Override
+                    public void onNothingSelected(AdapterView<?> adapterView) {
+
+                    }
+                });
 
                 break;
+
+            case 3: // Type
+                // Creating the array adapter for the weapon classes to convert the string array into a usable form
+                ArrayAdapter<CharSequence> ammoAdapter = ArrayAdapter.createFromResource(getContext(), R.array.ammo_type_array, android.R.layout.simple_spinner_item);
+
+                // Setting the type of drop down menu (Currently from the android layout libraries)
+                ammoAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+                // Attaching the array adapter to the spinner
+                spinner.setAdapter(ammoAdapter);
+
+                // OnSelected listener for Class spinner -- MAY NOT ACTUALLY NEED THIS
+                spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                    @Override
+                    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+
+                    }
+
+                    @Override
+                    public void onNothingSelected(AdapterView<?> adapterView) {
+
+                    }
+                });
+
+                break;
+
+
+
         }
     }
 
 
-    public tab2Inventory() {
-        // Required empty public constructor
+
+    // Constructor method for creating each collapse/expand button
+    public void dropdownToggleConstructor(final ImageButton button, final LinearLayout slotLayout){
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (slotLayout.getVisibility() == View.VISIBLE){ // Collapse
+                    // Changes the button so the orientation is downwards, denoting the ability to expand the view at a later time
+                    button.setImageResource(R.drawable.ic_arrow_down);
+
+                    // Changes the visibility of the slot from visible to gone
+                    slotLayout.setVisibility(View.GONE);
+
+                } else if (slotLayout.getVisibility() == View.GONE){  //Expand
+                    // Changes the button so the orientation is upwards, denoting the ability to collapse the view at a later time
+                    button.setImageResource(R.drawable.ic_arrow_up_black_);
+
+                    // Changes the visibility of the slot from gone to visible
+                    slotLayout.setVisibility(View.VISIBLE);
+                }
+            }
+        });
     }
+
+
+
+    // Method for saving and loading spinner object's state
+    public void loadSpinnerState(Spinner spinner, String sharedPrefsTag){
+
+        // Initialisation of the shared preferences object
+        SharedPreferences sharedPreferences = getContext().getSharedPreferences(SHARED_PREFS, Context.MODE_PRIVATE);
+
+        // Test to see if the shared prefs have stored a value or null. Loading the correct state
+        if (!(sharedPreferences.getString(sharedPrefsTag, "").equals(""))){
+            // If not null, fill with the previously saved state
+            spinner.setSelection(Integer.parseInt(sharedPreferences.getString(sharedPrefsTag, "")));
+        } else {
+            // If null, load the first list item
+            spinner.setSelection(0);
+        }
+    }
+
 
 
     @Override
@@ -468,421 +356,219 @@ public class tab2Inventory extends Fragment {
         View view = inflater.inflate(R.layout.fragment_tab2inventory, container, false);
 
 
-        // Attaching variables to view
-        // Melee children cards
-        meleeCard1                      = view.findViewById(R.id.Melee1Card);
-        meleeCard2                      = view.findViewById(R.id.Melee2Card);
-        meleeCard3                      = view.findViewById(R.id.Melee3Card);
-        meleeCard4                      = view.findViewById(R.id.Melee4Card);
 
-        // Missile children cards
-        missileCard1                    = view.findViewById(R.id.Missile1Card);
-        missileCard2                    = view.findViewById(R.id.Missile2Card);
-        missileCard3                    = view.findViewById(R.id.Missile3Card);
-        missileCard4                    = view.findViewById(R.id.Missile4Card);
+        // Creating objects for each element on screen needed
+        melWepMasterHideButton  = view.findViewById(R.id.melWepMasterHideImageButton);
+        misWepMasterHideButton  = view.findViewById(R.id.misWepMaterHideImageButton);
+        ammoMasterHideButton    = view.findViewById(R.id.ammoMainHideImageButton);
 
-        // Text Views for the melee slot titles
-        meleeWeapon1Slot                = view.findViewById(R.id.Melee1TitleTextView);
-        meleeWeapon2Slot                = view.findViewById(R.id.Melee1TitleTextView);
-        meleeWeapon3Slot                = view.findViewById(R.id.Melee1TitleTextView);
-        meleeWeapon4Slot                = view.findViewById(R.id.Melee1TitleTextView);
+        mel1HideButton          = view.findViewById(R.id.melWep1HideImageButton);
+        mel2HideButton          = view.findViewById(R.id.melWep2HideImageButton);
+        mel3HideButton          = view.findViewById(R.id.melWep3HideImageButton);
+        mel4HideButton          = view.findViewById(R.id.melWep4HideImageButton);
 
-        // Text Views for the missile slot titles
-        missileWeapon1Slot              = view.findViewById(R.id.Missile1TitleTextView);
-        missileWeapon2Slot              = view.findViewById(R.id.Missile2TitleTextView);
-        missileWeapon3Slot              = view.findViewById(R.id.Missile3TitleTextView);
-        missileWeapon4Slot              = view.findViewById(R.id.Missile4TitleTextView);
+        mis1HideButton          = view.findViewById(R.id.misWep1HideImageButton);
+        mis2HideButton          = view.findViewById(R.id.misWep2HideImageButton);
+        mis3HideButton          = view.findViewById(R.id.misWep3HideImageButton);
+        mis4HideButton          = view.findViewById(R.id.misWep4HideImageButton);
 
-        // Image buttons for the melee weapons
-        melParentButton                 = view.findViewById(R.id.MeleeParentExpandImageButton);
-        melWep1ExpandButton             = view.findViewById(R.id.meWep1_ExpandImageButton);
-        melWep2ExpandButton             = view.findViewById(R.id.meWep2_ExpandImageButton);
-        melWep3ExpandButton             = view.findViewById(R.id.meWep3_ExpandImageButton);
-        melWep4ExpandButton             = view.findViewById(R.id.meWep4_ExpandImageButton);
+        ammo1HideButton         = view.findViewById(R.id.ammoCard1HideImageButton);
+        ammo2HideButton         = view.findViewById(R.id.ammoCard2HideImageButton);
+        ammo3HideButton         = view.findViewById(R.id.ammoCard3HideImageButton);
+        ammo4HideButton         = view.findViewById(R.id.ammoCard4HideImageButton);
 
-        // Image buttons for the missile weapons
-        misParentButton                 = view.findViewById(R.id.MissileParentExandImageButton);
-        misWep1ExpandButton             = view.findViewById(R.id.miWep1_ExpandImageButton);
-        misWep2ExpandButton             = view.findViewById(R.id.miWep2_ExpandImageButton);
-        misWep3ExpandButton             = view.findViewById(R.id.miWep3_ExpandImageButton);
-        misWep4ExpandButton             = view.findViewById(R.id.miWep4_ExpandImageButton);
+        mel1ClassSpinner        = view.findViewById(R.id.melWep1ClassSpinner);
+        mel2ClassSpinner        = view.findViewById(R.id.melWep2ClassSpinner);
+        mel3ClassSpinner        = view.findViewById(R.id.melWep3ClassSpinner);
+        mel4ClassSpinner        = view.findViewById(R.id.melWep4ClassSpinner);
 
-        // Image buttons for the ammo list
-        ammoMasterAddItemButton         = view.findViewById(R.id.AmmoMasterAddImageButton);
+        mis1ClassSpinner        = view.findViewById(R.id.misWep1ClassSpinner);
+        mis2ClassSpinner        = view.findViewById(R.id.misWep2ClassSpinner);
+        mis3ClassSpinner        = view.findViewById(R.id.misWep3ClassSpinner);
+        mis4ClassSpinner        = view.findViewById(R.id.misWep4ClassSpinner);
 
-        // Text Views for the melee weapon children
-        melWep1_NameTextView            = view.findViewById(R.id.meWep1_NameTextView);
-        melWep1_ClassTextView           = view.findViewById(R.id.meWep1_ClassTextView);
-        melWep1_DamageTextView          = view.findViewById(R.id.meWep1_DamageTextView);
-        melWep1_TypeTextView            = view.findViewById(R.id.meWep1_TypeTextView);
-        melWep1_PenetrationTextView     = view.findViewById(R.id.meWep1_PenTextView);
-        melWep1_SpecialRulesTextView    = view.findViewById(R.id.meWep1_SpecicalRulesTextView);
+        mel1TypeSpinner         = view.findViewById(R.id.melWep1TypeSpinner);
+        mel2TypeSpinner         = view.findViewById(R.id.melWep2TypeSpinner);
+        mel3TypeSpinner         = view.findViewById(R.id.melWep3TypeSpinner);
+        mel4TypeSpinner         = view.findViewById(R.id.melWep4TypeSpinner);
 
-        melWep2_NameTextView            = view.findViewById(R.id.meWep2_NameTextView);
-        melWep2_ClassTextView           = view.findViewById(R.id.meWep2_ClassTextView);
-        melWep2_DamageTextView          = view.findViewById(R.id.meWep2_DamageTextView);
-        melWep2_TypeTextView            = view.findViewById(R.id.meWep2_TypeTextView);
-        melWep2_PenetrationTextView     = view.findViewById(R.id.meWep2_PenTextView);
-        melWep2_SpecialRulesTextView    = view.findViewById(R.id.meWep2_SpecicalRulesTextView);
+        mis1TypeSpinner         = view.findViewById(R.id.misWep1TypeSpinner);
+        mis2TypeSpinner         = view.findViewById(R.id.misWep2TypeSpinner);
+        mis3TypeSpinner         = view.findViewById(R.id.misWep3TypeSpinner);
+        mis4TypeSpinner         = view.findViewById(R.id.misWep4TypeSpinner);
 
-        melWep3_NameTextView            = view.findViewById(R.id.meWep3_NameTextView);
-        melWep3_ClassTextView           = view.findViewById(R.id.meWep3_ClassTextView);
-        melWep3_DamageTextView          = view.findViewById(R.id.meWep3_DamageTextView);
-        melWep3_TypeTextView            = view.findViewById(R.id.meWep3_TypeTextView);
-        melWep3_PenetrationTextView     = view.findViewById(R.id.meWep3_PenTextView);
-        melWep3_SpecialRulesTextView    = view.findViewById(R.id.meWep3_SpecicalRulesTextView);
+        mis1RLDSpinner          = view.findViewById(R.id.misWep1RLDSpinner);
+        mis2RLDSpinner          = view.findViewById(R.id.misWep2RLDSpinner);
+        mis3RLDSpinner          = view.findViewById(R.id.misWep3RLDSpinner);
+        mis4RLDSpinner          = view.findViewById(R.id.misWep4RLDSpinner);
 
-        melWep4_NameTextView            = view.findViewById(R.id.meWep4_NameTextView);
-        melWep4_ClassTextView           = view.findViewById(R.id.meWep4_ClassTextView);
-        melWep4_DamageTextView          = view.findViewById(R.id.meWep4_DamageTextView);
-        melWep4_TypeTextView            = view.findViewById(R.id.meWep4_TypeTextView);
-        melWep4_PenetrationTextView     = view.findViewById(R.id.meWep4_PenTextView);
-        melWep4_SpecialRulesTextView    = view.findViewById(R.id.meWep4_SpecicalRulesTextView);
+        ammo1Spinner            = view.findViewById(R.id.ammoCard1TypeSpinner);
+        ammo2Spinner            = view.findViewById(R.id.ammoCard2TypeSpinner);
+        ammo3Spinner            = view.findViewById(R.id.ammoCard3TypeSpinner);
+        ammo4Spinner            = view.findViewById(R.id.ammoCard4TypeSpinner);
 
-        // Text Views for the missile weapon children
-        misWep1_NameTextView            = view.findViewById(R.id.miWep1_NameTextView);
-        misWep1_ClassTextView           = view.findViewById(R.id.miWep1_ClassTextView);
-        misWep1_DamageTextView          = view.findViewById(R.id.miWep1_DamageTextView);
-        misWep1_TypeTextView            = view.findViewById(R.id.miWep1_TypeTextView);
-        misWep1_PenetrationTextView     = view.findViewById(R.id.miWep1_PenTextView);
-        misWep1_RangeTextView           = view.findViewById(R.id.miWep1_RangeTextView);
-        misWep1_RoFTextView             = view.findViewById(R.id.miWep1_RoFTextView);
-        misWep1_ClipTextView            = view.findViewById(R.id.miWep1_ClipTextView);
-        misWep1_RLDTextView             = view.findViewById(R.id.miWep1_RLDTextView);
-        misWep1_SpecialRulesTextView    = view.findViewById(R.id.miWep1_SpecialRulesTextView);
+        melMasterLayout         = view.findViewById(R.id.melWepSlotLayouts);
+        mel1Layout              = view.findViewById(R.id.melWep1Layout);
+        mel2Layout              = view.findViewById(R.id.melWep2Layout);
+        mel3Layout              = view.findViewById(R.id.melWep3Layout);
+        mel4Layout              = view.findViewById(R.id.melWep4Layout);
 
-        misWep2_NameTextView            = view.findViewById(R.id.miWep2_NameTextView);
-        misWep2_ClassTextView           = view.findViewById(R.id.miWep2_ClassTextView);
-        misWep2_DamageTextView          = view.findViewById(R.id.miWep2_DamageTextView);
-        misWep2_TypeTextView            = view.findViewById(R.id.miWep2_TypeTextView);
-        misWep2_PenetrationTextView     = view.findViewById(R.id.miWep2_PenTextView);
-        misWep2_RangeTextView           = view.findViewById(R.id.miWep2_RangeTextView);
-        misWep2_RoFTextView             = view.findViewById(R.id.miWep2_RoFTextView);
-        misWep2_ClipTextView            = view.findViewById(R.id.miWep2_ClipTextView);
-        misWep2_RLDTextView             = view.findViewById(R.id.miWep2_RLDTextView);
-        misWep2_SpecialRulesTextView    = view.findViewById(R.id.miWep2_SpecialRulesTextView);
+        misMasterLayout         = view.findViewById(R.id.misWepSlotLayout);
+        mis1Layout              = view.findViewById(R.id.misWep1Layout);
+        mis2Layout              = view.findViewById(R.id.misWep2Layout);
+        mis3Layout              = view.findViewById(R.id.misWep3Layout);
+        mis4Layout              = view.findViewById(R.id.misWep4Layout);
 
-        misWep3_NameTextView            = view.findViewById(R.id.miWep3_NameTextView);
-        misWep3_ClassTextView           = view.findViewById(R.id.miWep3_ClassTextView);
-        misWep3_DamageTextView          = view.findViewById(R.id.miWep3_DamageTextView);
-        misWep3_TypeTextView            = view.findViewById(R.id.miWep3_TypeTextView);
-        misWep3_PenetrationTextView     = view.findViewById(R.id.miWep3_PenTextView);
-        misWep3_RangeTextView           = view.findViewById(R.id.miWep3_RangeTextView);
-        misWep3_RoFTextView             = view.findViewById(R.id.miWep3_RoFTextView);
-        misWep3_ClipTextView            = view.findViewById(R.id.miWep3_ClipTextView);
-        misWep3_RLDTextView             = view.findViewById(R.id.miWep3_RLDTextView);
-        misWep3_SpecialRulesTextView    = view.findViewById(R.id.miWep3_SpecialRulesTextView);
+        ammoMasterLayout        = view.findViewById(R.id.ammoCardLayout);
+        ammo1Layout             = view.findViewById(R.id.ammoCard1Line1Layout);
+        ammo2Layout             = view.findViewById(R.id.ammoCard2Line1Layout);
+        ammo3Layout             = view.findViewById(R.id.ammoCard3Line1Layout);
+        ammo4Layout             = view.findViewById(R.id.ammoCard4Line1Layout);
 
-        misWep4_NameTextView            = view.findViewById(R.id.miWep4_NameTextView);
-        misWep4_ClassTextView           = view.findViewById(R.id.miWep4_ClassTextView);
-        misWep4_DamageTextView          = view.findViewById(R.id.miWep4_DamageTextView);
-        misWep4_TypeTextView            = view.findViewById(R.id.miWep4_TypeTextView);
-        misWep4_PenetrationTextView     = view.findViewById(R.id.miWep4_PenTextView);
-        misWep4_RangeTextView           = view.findViewById(R.id.miWep4_RangeTextView);
-        misWep4_RoFTextView             = view.findViewById(R.id.miWep4_RoFTextView);
-        misWep4_ClipTextView            = view.findViewById(R.id.miWep4_ClipTextView);
-        misWep4_RLDTextView             = view.findViewById(R.id.miWep4_RLDTextView);
-        misWep4_SpecialRulesTextView    = view.findViewById(R.id.miWep4_SpecialRulesTextView);
+        mel1Name                = view.findViewById(R.id.melWep1NameEditText);
+        mel2Name                = view.findViewById(R.id.melWep2NameEditText);
+        mel3Name                = view.findViewById(R.id.melWep3NameEditText);
+        mel4Name                = view.findViewById(R.id.melWep4NameEditText);
+        mis1Name                = view.findViewById(R.id.misWep1NameEditText);
+        mis2Name                = view.findViewById(R.id.misWep2NameEditText);
+        mis3Name                = view.findViewById(R.id.misWep3NameEditText);
+        mis4Name                = view.findViewById(R.id.misWep4NameEditText);
 
-        // Edit Texts for the 4 melee weapon children
-        melWep1_NameEditText            = view.findViewById(R.id.meWep1_NameEditText);
-        melWep1_ClassEditText           = view.findViewById(R.id.meWep1_ClassEditText);
-        melWep1_DamageEditText          = view.findViewById(R.id.meWep1_DamageEditText);
-        melWep1_TypeEditText            = view.findViewById(R.id.meWep1_TypeEditText);
-        melWep1_PenetrationEditText     = view.findViewById(R.id.meWep1_PenEditText);
-        melWep1_SpecialRulesEditText    = view.findViewById(R.id.meWep1_SpecialRulesEditText);
+        mel1Damage_x            = view.findViewById(R.id.melWep1Damage_x_editText);
+        mel1Damage_y            = view.findViewById(R.id.melWep1Damage_y_editText);
+        mel1Damage_z            = view.findViewById(R.id.melWep1Damage_z_editText);
+        mel2Damage_x            = view.findViewById(R.id.melWep2Damage_x_editText);
+        mel2Damage_y            = view.findViewById(R.id.melWep2Damage_y_editText);
+        mel2Damage_z            = view.findViewById(R.id.melWep2Damage_z_editText);
+        mel3Damage_x            = view.findViewById(R.id.melWep3Damage_x_editText);
+        mel3Damage_y            = view.findViewById(R.id.melWep3Damage_y_editText);
+        mel3Damage_z            = view.findViewById(R.id.melWep3Damage_z_editText);
+        mel4Damage_x            = view.findViewById(R.id.melWep4Damage_x_editText);
+        mel4Damage_y            = view.findViewById(R.id.melWep4Damage_y_editText);
+        mel4Damage_z            = view.findViewById(R.id.melWep4Damage_z_editText);
+        mis1Damage_x            = view.findViewById(R.id.misWep1Damage_x_editText);
+        mis1Damage_y            = view.findViewById(R.id.misWep1Damage_y_editText);
+        mis1Damage_z            = view.findViewById(R.id.misWep1Damage_z_editText);
+        mis2Damage_x            = view.findViewById(R.id.misWep2Damage_x_editText);
+        mis2Damage_y            = view.findViewById(R.id.misWep2Damage_y_editText);
+        mis2Damage_z            = view.findViewById(R.id.misWep2Damage_z_editText);
+        mis3Damage_x            = view.findViewById(R.id.misWep3Damage_x_editText);
+        mis3Damage_y            = view.findViewById(R.id.misWep3Damage_y_editText);
+        mis3Damage_z            = view.findViewById(R.id.misWep3Damage_z_editText);
+        mis4Damage_x            = view.findViewById(R.id.misWep4Damage_x_editText);
+        mis4Damage_y            = view.findViewById(R.id.misWep4Damage_y_editText);
+        mis4Damage_z            = view.findViewById(R.id.misWep4Damage_z_editText);
 
-        melWep2_NameEditText            = view.findViewById(R.id.meWep2_NameEditText);
-        melWep2_ClassEditText           = view.findViewById(R.id.meWep2_ClassEditText);
-        melWep2_DamageEditText          = view.findViewById(R.id.meWep2_DamageEditText);
-        melWep2_TypeEditText            = view.findViewById(R.id.meWep2_TypeEditText);
-        melWep2_PenetrationEditText     = view.findViewById(R.id.meWep2_PenEditText);
-        melWep2_SpecialRulesEditText    = view.findViewById(R.id.meWep2_SpecialRulesEditText);
+        mis1Range               = view.findViewById(R.id.misWep1RangeEditText);
+        mis2Range               = view.findViewById(R.id.misWep2RangeEditText);
+        mis3Range               = view.findViewById(R.id.misWep3RangeEditText);
+        mis4Range               = view.findViewById(R.id.misWep4RangeEditText);
+        mis1ROF_x               = view.findViewById(R.id.misWep1RoF_x_editText);
+        mis1ROF_y               = view.findViewById(R.id.misWep1RoF_y_editText);
+        mis1ROF_z               = view.findViewById(R.id.misWep1RoF_z_editText);
+        mis2ROF_x               = view.findViewById(R.id.misWep2RoF_x_editText);
+        mis2ROF_y               = view.findViewById(R.id.misWep2RoF_y_editText);
+        mis2ROF_z               = view.findViewById(R.id.misWep2RoF_z_editText);
+        mis3ROF_x               = view.findViewById(R.id.misWep3RoF_x_editText);
+        mis3ROF_y               = view.findViewById(R.id.misWep3RoF_y_editText);
+        mis3ROF_z               = view.findViewById(R.id.misWep3RoF_z_editText);
+        mis4ROF_x               = view.findViewById(R.id.misWep4RoF_x_editText);
+        mis4ROF_y               = view.findViewById(R.id.misWep4RoF_y_editText);
+        mis4ROF_z               = view.findViewById(R.id.misWep4RoF_z_editText);
 
-        melWep3_NameEditText            = view.findViewById(R.id.meWep3_NameEditText);
-        melWep3_ClassEditText           = view.findViewById(R.id.meWep3_ClassEditText);
-        melWep3_DamageEditText          = view.findViewById(R.id.meWep3_DamageEditText);
-        melWep3_TypeEditText            = view.findViewById(R.id.meWep3_TypeEditText);
-        melWep3_PenetrationEditText     = view.findViewById(R.id.meWep3_PenEditText);
-        melWep3_SpecialRulesEditText    = view.findViewById(R.id.meWep3_SpecialRulesEditText);
+        mis1Clip                = view.findViewById(R.id.misWep1ClipEditText);
+        mis2Clip                = view.findViewById(R.id.misWep2ClipEditText);
+        mis3Clip                = view.findViewById(R.id.misWep3ClipEditText);
+        mis4Clip                = view.findViewById(R.id.misWep4ClipEditText);
 
-        melWep4_NameEditText            = view.findViewById(R.id.meWep4_NameEditText);
-        melWep4_ClassEditText           = view.findViewById(R.id.meWep4_ClassEditText);
-        melWep4_DamageEditText          = view.findViewById(R.id.meWep4_DamageEditText);
-        melWep4_TypeEditText            = view.findViewById(R.id.meWep4_TypeEditText);
-        melWep4_PenetrationEditText     = view.findViewById(R.id.meWep4_PenEditText);
-        melWep4_SpecialRulesEditText    = view.findViewById(R.id.meWep4_SpecialRulesEditText);
+        mel1Pen                 = view.findViewById(R.id.melWep1PenEditText);
+        mel2Pen                 = view.findViewById(R.id.melWep2PenEditText);
+        mel3Pen                 = view.findViewById(R.id.melWep3PenEditText);
+        mel4Pen                 = view.findViewById(R.id.melWep4PenEditText);
+        mis1Pen                 = view.findViewById(R.id.misWep1PenEditText);
+        mis2Pen                 = view.findViewById(R.id.misWep2PenEditText);
+        mis3Pen                 = view.findViewById(R.id.misWep3PenEditText);
+        mis4Pen                 = view.findViewById(R.id.misWep4PenEditText);
 
-        // Edit Texts for the 4 missile weapon children
-        misWep1_NameEditText            = view.findViewById(R.id.miWep1_NameEditText);
-        misWep1_ClassEditText           = view.findViewById(R.id.miWep1_ClassEditText);
-        misWep1_DamageEditText          = view.findViewById(R.id.miWep1_DamageEditText);
-        misWep1_TypeEditText            = view.findViewById(R.id.miWep1_TypeEditText);
-        misWep1_PenetrationEditText     = view.findViewById(R.id.miWep1_PenEditText);
-        misWep1_RangeEditText           = view.findViewById(R.id.miWep1_RangeEditText);
-        misWep1_RoFEditText             = view.findViewById(R.id.miWep1_RoFEditText);
-        misWep1_ClipEditText            = view.findViewById(R.id.miWep1_ClipEditText);
-        misWep1_RLDEditText             = view.findViewById(R.id.miWep1_RLDEditText);
-        misWep1_SpecialRulesEditText    = view.findViewById(R.id.miWep1_SpecialRulesEditText);
+        mel1SpecialRules        = view.findViewById(R.id.melWep1SpecialRulesEditText);
+        mel2SpecialRules        = view.findViewById(R.id.melWep2SpecialRulesEditText);
+        mel3SpecialRules        = view.findViewById(R.id.melWep3SpecialRulesEditText);
+        mel4SpecialRules        = view.findViewById(R.id.melWep4SpecialRulesEditText);
+        mis1SpecialRules        = view.findViewById(R.id.misWep1SpecialRulesEditText);
+        mis2SpecialRules        = view.findViewById(R.id.misWep2SpecialRulesEditText);
+        mis3SpecialRules        = view.findViewById(R.id.misWep3SpecialRulesEditText);
+        mis4SpecialRules        = view.findViewById(R.id.misWep4SpecialRulesEditText);
 
-        misWep2_NameEditText            = view.findViewById(R.id.miWep2_NameEditText);
-        misWep2_ClassEditText           = view.findViewById(R.id.miWep2_ClassEditText);
-        misWep2_DamageEditText          = view.findViewById(R.id.miWep2_DamageEditText);
-        misWep2_TypeEditText            = view.findViewById(R.id.miWep2_TypeEditText);
-        misWep2_PenetrationEditText     = view.findViewById(R.id.miWep2_PenEditText);
-        misWep2_RangeEditText           = view.findViewById(R.id.miWep2_RangeEditText);
-        misWep2_RoFEditText             = view.findViewById(R.id.miWep2_RoFEditText);
-        misWep2_ClipEditText            = view.findViewById(R.id.miWep2_ClipEditText);
-        misWep2_RLDEditText             = view.findViewById(R.id.miWep2_RLDEditText);
-        misWep2_SpecialRulesEditText    = view.findViewById(R.id.miWep2_SpecialRulesEditText);
+        ammo1Name               = view.findViewById(R.id.ammoCard1NameEditText);
+        ammo2Name               = view.findViewById(R.id.ammoCard2NameEditText);
+        ammo3Name               = view.findViewById(R.id.ammoCard3NameEditText);
+        ammo4Name               = view.findViewById(R.id.ammoCard4NameEditText);
 
-        misWep3_NameEditText            = view.findViewById(R.id.miWep3_NameEditText);
-        misWep3_ClassEditText           = view.findViewById(R.id.miWep3_ClassEditText);
-        misWep3_DamageEditText          = view.findViewById(R.id.miWep3_DamageEditText);
-        misWep3_TypeEditText            = view.findViewById(R.id.miWep3_TypeEditText);
-        misWep3_PenetrationEditText     = view.findViewById(R.id.miWep3_PenEditText);
-        misWep3_RangeEditText           = view.findViewById(R.id.miWep3_RangeEditText);
-        misWep3_RoFEditText             = view.findViewById(R.id.miWep3_RoFEditText);
-        misWep3_ClipEditText            = view.findViewById(R.id.miWep3_ClipEditText);
-        misWep3_RLDEditText             = view.findViewById(R.id.miWep3_RLDEditText);
-        misWep3_SpecialRulesEditText    = view.findViewById(R.id.miWep3_SpecialRulesEditText);
-
-        misWep4_NameEditText            = view.findViewById(R.id.miWep4_NameEditText);
-        misWep4_ClassEditText           = view.findViewById(R.id.miWep4_ClassEditText);
-        misWep4_DamageEditText          = view.findViewById(R.id.miWep4_DamageEditText);
-        misWep4_TypeEditText            = view.findViewById(R.id.miWep4_TypeEditText);
-        misWep4_PenetrationEditText     = view.findViewById(R.id.miWep4_PenEditText);
-        misWep4_RangeEditText           = view.findViewById(R.id.miWep4_RangeEditText);
-        misWep4_RoFEditText             = view.findViewById(R.id.miWep4_RoFEditText);
-        misWep4_ClipEditText            = view.findViewById(R.id.miWep4_ClipEditText);
-        misWep4_RLDEditText             = view.findViewById(R.id.miWep4_RLDEditText);
-        misWep4_SpecialRulesEditText    = view.findViewById(R.id.miWep4_SpecialRulesEditText);
-
-        // Text views for the ammo list
-        ammo1_NameEditText              = view.findViewById(R.id.Ammo1_NameEditText);
-        ammo1_ValEditText               = view.findViewById(R.id.Ammo1_ValEditText);
-
-        // Dividers for the four melee weapons children
-        melWep1_Divider1                = view.findViewById(R.id.meWep1_divider1);
-        melWep1_Divider2                = view.findViewById(R.id.meWep1_divider2);
-
-        melWep2_Divider1                = view.findViewById(R.id.meWep2_divider1);
-        melWep2_Divider2                = view.findViewById(R.id.meWep2_divider2);
-
-        melWep3_Divider1                = view.findViewById(R.id.meWep3_divider1);
-        melWep3_Divider2                = view.findViewById(R.id.meWep3_divider2);
-
-        melWep4_Divider1                = view.findViewById(R.id.meWep4_divider1);
-        melWep4_Divider2                = view.findViewById(R.id.meWep4_divider2);
-
-        // Dividers for the four missile weapons children
-        misWep1_Divider1                = view.findViewById(R.id.miWep1_divider1);
-        misWep1_Divider2                = view.findViewById(R.id.miWep1_divider2);
-        misWep1_Divider3                = view.findViewById(R.id.miWep1_divider3);
-
-        misWep2_Divider1                = view.findViewById(R.id.miWep2_divider1);
-        misWep2_Divider2                = view.findViewById(R.id.miWep2_divider2);
-        misWep2_Divider3                = view.findViewById(R.id.miWep2_divider3);
-
-        misWep3_Divider1                = view.findViewById(R.id.miWep3_divider1);
-        misWep3_Divider2                = view.findViewById(R.id.miWep3_divider2);
-        misWep3_Divider3                = view.findViewById(R.id.miWep3_divider3);
-
-        misWep4_Divider1                = view.findViewById(R.id.miWep4_divider1);
-        misWep4_Divider2                = view.findViewById(R.id.miWep4_divider2);
-        misWep4_Divider3                = view.findViewById(R.id.miWep4_divider3);
+        ammo1No                 = view.findViewById(R.id.ammoCard1NoEditText);
+        ammo2No                 = view.findViewById(R.id.ammoCard2NoEditText);
+        ammo3No                 = view.findViewById(R.id.ammoCard3NoEditText);
+        ammo4No                 = view.findViewById(R.id.ammoCard4NoEditText);
 
 
-        // Setting all required views to GONE at onCreate
-        // Melee parent cards
-        meleeCard1.setVisibility(View.GONE);
-        meleeCard2.setVisibility(View.GONE);
-        meleeCard3.setVisibility(View.GONE);
-        meleeCard4.setVisibility(View.GONE);
 
-        // Missile parent cards
-        missileCard1.setVisibility(View.GONE);
-        missileCard2.setVisibility(View.GONE);
-        missileCard3.setVisibility(View.GONE);
-        missileCard4.setVisibility(View.GONE);
+        // Setting the collapse/expand functionality to each button
+        dropdownToggleConstructor(melWepMasterHideButton, melMasterLayout);
+        dropdownToggleConstructor(mel1HideButton, mel1Layout);
+        dropdownToggleConstructor(mel2HideButton, mel2Layout);
+        dropdownToggleConstructor(mel3HideButton, mel3Layout);
+        dropdownToggleConstructor(mel4HideButton, mel4Layout);
 
-        // Melee Weapon slot cards
-        setMeleeVisibility(1, 8);
-        setMeleeVisibility(2, 8);
-        setMeleeVisibility(3, 8);
-        setMeleeVisibility(4, 8);
+        dropdownToggleConstructor(misWepMasterHideButton, misMasterLayout);
+        dropdownToggleConstructor(mis1HideButton, mis1Layout);
+        dropdownToggleConstructor(mis2HideButton, mis2Layout);
+        dropdownToggleConstructor(mis3HideButton, mis3Layout);
+        dropdownToggleConstructor(mis4HideButton, mis4Layout);
 
-        // Missile weapon slot cards
-        setMissileVisibility(1, 8);
-        setMissileVisibility(2, 8);
-        setMissileVisibility(3, 8);
-        setMissileVisibility(4, 8);
+        dropdownToggleConstructor(ammoMasterHideButton, ammoMasterLayout);
+        dropdownToggleConstructor(ammo1HideButton, ammo1Layout);
+        dropdownToggleConstructor(ammo2HideButton, ammo2Layout);
+        dropdownToggleConstructor(ammo3HideButton, ammo3Layout);
+        dropdownToggleConstructor(ammo4HideButton, ammo4Layout);
 
 
-        // Creating onClick listener to the expand parent melee weapon card
-        melParentButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // Checks its visibility and then reverses it VISIBLE <-> GONE
-                if (meleeCard1.getVisibility() == View.VISIBLE){
-                    meleeCard1.setVisibility(View.GONE);
-                    meleeCard2.setVisibility(View.GONE);
-                    meleeCard3.setVisibility(View.GONE);
-                    meleeCard4.setVisibility(View.GONE);
-                } else {
-                    meleeCard1.setVisibility(View.VISIBLE);
-                    meleeCard2.setVisibility(View.VISIBLE);
-                    meleeCard3.setVisibility(View.VISIBLE);
-                    meleeCard4.setVisibility(View.VISIBLE);
 
-                    // Ensures that after parent has been closed, the children default to closed
-                    setMeleeVisibility(1, 8);
-                    setMeleeVisibility(2, 8);
-                    setMeleeVisibility(3, 8);
-                    setMeleeVisibility(4, 8);
-                }
-            }
-        });
+        // Initialising and attaching the string-arrays to the spinners
+        adapterConstructor(0, mel1ClassSpinner);
+        adapterConstructor(0, mel2ClassSpinner);
+        adapterConstructor(0, mel3ClassSpinner);
+        adapterConstructor(0, mel4ClassSpinner);
 
+        adapterConstructor(0, mis1ClassSpinner);
+        adapterConstructor(0, mis2ClassSpinner);
+        adapterConstructor(0, mis3ClassSpinner);
+        adapterConstructor(0, mis4ClassSpinner);
 
-        // Creating onClick listener to expand the melee slot #1 card
-        melWep1ExpandButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (melWep1_NameTextView.getVisibility() == View.VISIBLE ){
-                    setMeleeVisibility(1, 8);
-                } else {
-                    setMeleeVisibility(1,0);
-                }
-            }
-        });
+        adapterConstructor(1, mel1TypeSpinner);
+        adapterConstructor(1, mel2TypeSpinner);
+        adapterConstructor(1, mel3TypeSpinner);
+        adapterConstructor(1, mel4TypeSpinner);
 
+        adapterConstructor(1, mis1TypeSpinner);
+        adapterConstructor(1, mis2TypeSpinner);
+        adapterConstructor(1, mis3TypeSpinner);
+        adapterConstructor(1, mis4TypeSpinner);
 
-        // Creating onClick listener to expand the melee slot #2 card
-        melWep2ExpandButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (melWep2_NameTextView.getVisibility() == View.VISIBLE){
-                    setMeleeVisibility(2, 8);
-                } else {
-                    setMeleeVisibility(2, 0);
-                }
-            }
-        });
+        adapterConstructor(2, mis1RLDSpinner);
+        adapterConstructor(2, mis2RLDSpinner);
+        adapterConstructor(2, mis3RLDSpinner);
+        adapterConstructor(2, mis4RLDSpinner);
 
+        adapterConstructor(3, ammo1Spinner);
+        adapterConstructor(3, ammo2Spinner);
+        adapterConstructor(3, ammo3Spinner);
+        adapterConstructor(3, ammo4Spinner);
 
-        // Creating onClickListener to expand the melee slot #3 card
-        melWep3ExpandButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (melWep3_NameTextView.getVisibility() == View.VISIBLE){
-                    setMeleeVisibility(3, 8);
-                } else {
-                    setMeleeVisibility(3, 0);
-                }
-            }
-        });
-
-
-        // Creating onClickListener to expand the melee slot #4 card
-        melWep4ExpandButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (melWep4_NameTextView.getVisibility() == View.VISIBLE){
-                    setMeleeVisibility(4, 8);
-                } else {
-                    setMeleeVisibility(4, 0);
-                }
-            }
-        });
-
-        // Creating onClick listener to expand the parent missile weapon card
-        misParentButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if ( missileCard1.getVisibility() == View.VISIBLE){
-                    // Checks its visibility and then reverses it VISIBLE <-> GONE
-                    missileCard1.setVisibility(View.GONE);
-                    missileCard2.setVisibility(View.GONE);
-                    missileCard3.setVisibility(View.GONE);
-                    missileCard4.setVisibility(View.GONE);
-                } else {
-                    missileCard1.setVisibility(View.VISIBLE);
-                    missileCard2.setVisibility(View.VISIBLE);
-                    missileCard3.setVisibility(View.VISIBLE);
-                    missileCard4.setVisibility(View.VISIBLE);
-
-                    // Ensures that after the parent has been closed, the children all default to closed too
-                    setMissileVisibility(1, 8);
-                    setMissileVisibility(2, 8);
-                    setMissileVisibility(3, 8);
-                    setMissileVisibility(4, 8);
-                }
-            }
-        });
-
-        misWep1ExpandButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (misWep1_NameTextView.getVisibility() == View.VISIBLE){
-                    setMissileVisibility(1, 8);
-                } else {
-                    setMissileVisibility(1, 0);
-                }
-            }
-        });
-
-        misWep2ExpandButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (misWep2_NameTextView.getVisibility() == View.VISIBLE){
-                    setMissileVisibility(2, 8);
-                } else {
-                    setMissileVisibility(2, 0);
-                }
-            }
-        });
-
-        misWep3ExpandButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (misWep3_NameTextView.getVisibility() == View.VISIBLE){
-                    setMissileVisibility(3, 8);
-                } else {
-                    setMissileVisibility(3, 0);
-                }
-            }
-        });
-
-        misWep4ExpandButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if ( misWep4_NameTextView.getVisibility() == View.VISIBLE){
-                    setMissileVisibility(4, 8);
-                } else {
-                    setMissileVisibility(4, 0);
-                }
-            }
-        });
-
-        ammoMasterAddItemButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                // TODO - add logic here for the button press of "add ammo item"
-                // Placeholder WIP
-                Toast.makeText(getActivity(), "Work in progress", Toast.LENGTH_SHORT).show();
-
-            }
-        });
-
-
-        // TODO - addTextChangeListener to set the names of the weapon slots to the names of the slotted weapons ie. "Slot 1: The finger blaster"
 
 
         //Returns the view inflater
         return view;
     }
+
 
 
     @Override
@@ -892,96 +578,129 @@ public class tab2Inventory extends Fragment {
         // Initialisation of the shared preference object to load character data onResume
         SharedPreferences sharedPreferences = getContext().getSharedPreferences(SHARED_PREFS, Context.MODE_PRIVATE);
 
-        // Loading melee weapon 1 slot
-        melWep1_NameEditText.setText(sharedPreferences.getString("meleeWeapon1_Name", ""));
-        melWep1_ClassEditText.setText(sharedPreferences.getString("meleeWeapon1_Class", ""));
-        melWep1_DamageEditText.setText(sharedPreferences.getString("meleeWeapon1_Damage", ""));
-        melWep1_TypeEditText.setText(sharedPreferences.getString("meleeWeapon1_Type", ""));
-        melWep1_PenetrationEditText.setText(sharedPreferences.getString("meleeWeapon1_Penetration", ""));
-        melWep1_SpecialRulesEditText.setText(sharedPreferences.getString("meleeWeapon1_SpecialRules", ""));
+        // Saving the values stored in the fields to shared preferences
+        mel1Name.setText(sharedPreferences.getString("mel1WepName", ""));
+        mel2Name.setText(sharedPreferences.getString("mel2WepName", ""));
+        mel3Name.setText(sharedPreferences.getString("mel3WepName", ""));
+        mel4Name.setText(sharedPreferences.getString("mel4WepName", ""));
+        mis1Name.setText(sharedPreferences.getString("mis1WepName", ""));
+        mis2Name.setText(sharedPreferences.getString("mis2WepName", ""));
+        mis3Name.setText(sharedPreferences.getString("mis3WepName", ""));
+        mis4Name.setText(sharedPreferences.getString("mis4WepName", ""));
 
-        // Loading melee weapon 2 slot
-        melWep2_NameEditText.setText(sharedPreferences.getString("meleeWeapon2_Name", ""));
-        melWep2_ClassEditText.setText(sharedPreferences.getString("meleeWeapon2_Class", ""));
-        melWep2_DamageEditText.setText(sharedPreferences.getString("meleeWeapon2_Damage", ""));
-        melWep2_TypeEditText.setText(sharedPreferences.getString("meleeWeapon2_Type", ""));
-        melWep2_PenetrationEditText.setText(sharedPreferences.getString("meleeWeapon2_Penetration", ""));
-        melWep2_SpecialRulesEditText.setText(sharedPreferences.getString("meleeWeapon2_SpecialRules", ""));
+        loadSpinnerState(mel1ClassSpinner, "mel1Class");
+        loadSpinnerState(mel2ClassSpinner, "mel2Class");
+        loadSpinnerState(mel3ClassSpinner, "mel3Class");
+        loadSpinnerState(mel4ClassSpinner, "mel4Class");
+        loadSpinnerState(mis1ClassSpinner, "mis1Class");
+        loadSpinnerState(mis2ClassSpinner, "mis2Class");
+        loadSpinnerState(mis3ClassSpinner, "mis3Class");
+        loadSpinnerState(mis4ClassSpinner, "mis4Class");
 
-        // Loading melee weapon 3 slot
-        melWep3_NameEditText.setText(sharedPreferences.getString("meleeWeapon3_Name", ""));
-        melWep3_ClassEditText.setText(sharedPreferences.getString("meleeWeapon3_Class", ""));
-        melWep3_DamageEditText.setText(sharedPreferences.getString("meleeWeapon3_Damage", ""));
-        melWep3_TypeEditText.setText(sharedPreferences.getString("meleeWeapon3_Type", ""));
-        melWep3_PenetrationEditText.setText(sharedPreferences.getString("meleeWeapon3_Penetration", ""));
-        melWep3_SpecialRulesEditText.setText(sharedPreferences.getString("meleeWeapon3_SpecialRules", ""));
+        mel1Damage_x.setText(sharedPreferences.getString("mel1Damage_x",""));
+        mel1Damage_y.setText(sharedPreferences.getString("mel1Damage_y",""));
+        mel1Damage_z.setText(sharedPreferences.getString("mel1Damage_z",""));
+        mel2Damage_x.setText(sharedPreferences.getString("mel2Damage_x",""));
+        mel2Damage_y.setText(sharedPreferences.getString("mel2Damage_y",""));
+        mel2Damage_z.setText(sharedPreferences.getString("mel2Damage_z",""));
+        mel3Damage_x.setText(sharedPreferences.getString("mel3Damage_x",""));
+        mel3Damage_y.setText(sharedPreferences.getString("mel3Damage_y",""));
+        mel3Damage_z.setText(sharedPreferences.getString("mel3Damage_z",""));
+        mel4Damage_x.setText(sharedPreferences.getString("mel4Damage_x",""));
+        mel4Damage_y.setText(sharedPreferences.getString("mel4Damage_y",""));
+        mel4Damage_z.setText(sharedPreferences.getString("mel4Damage_z",""));
+        mis1Damage_x.setText(sharedPreferences.getString("mis1Damage_x",""));
+        mis1Damage_y.setText(sharedPreferences.getString("mis1Damage_y",""));
+        mis1Damage_z.setText(sharedPreferences.getString("mis1Damage_z",""));
+        mis2Damage_x.setText(sharedPreferences.getString("mis2Damage_x",""));
+        mis2Damage_y.setText(sharedPreferences.getString("mis2Damage_y",""));
+        mis2Damage_z.setText(sharedPreferences.getString("mis2Damage_z",""));
+        mis3Damage_x.setText(sharedPreferences.getString("mis3Damage_x",""));
+        mis3Damage_y.setText(sharedPreferences.getString("mis3Damage_y",""));
+        mis3Damage_z.setText(sharedPreferences.getString("mis3Damage_z",""));
+        mis4Damage_x.setText(sharedPreferences.getString("mis4Damage_x",""));
+        mis4Damage_y.setText(sharedPreferences.getString("mis4Damage_y",""));
+        mis4Damage_z.setText(sharedPreferences.getString("mis4Damage_z",""));
 
-        // Loading melee weapon 4 slot
-        melWep4_NameEditText.setText(sharedPreferences.getString("meleeWeapon4_Name", ""));
-        melWep4_ClassEditText.setText(sharedPreferences.getString("meleeWeapon4_Class", ""));
-        melWep4_DamageEditText.setText(sharedPreferences.getString("meleeWeapon4_Damage", ""));
-        melWep4_TypeEditText.setText(sharedPreferences.getString("meleeWeapon4_Type", ""));
-        melWep4_PenetrationEditText.setText(sharedPreferences.getString("meleeWeapon4_Penetration", ""));
-        melWep4_SpecialRulesEditText.setText(sharedPreferences.getString("meleeWeapon4_SpecialRules", ""));
+        loadSpinnerState(mel1TypeSpinner, "mel1Type");
+        loadSpinnerState(mel2TypeSpinner, "mel2Type");
+        loadSpinnerState(mel3TypeSpinner, "mel3Type");
+        loadSpinnerState(mel4TypeSpinner, "mel4Type");
+        loadSpinnerState(mis1TypeSpinner, "mis1Type");
+        loadSpinnerState(mis2TypeSpinner, "mis2Type");
+        loadSpinnerState(mis3TypeSpinner, "mis3Type");
+        loadSpinnerState(mis4TypeSpinner, "mis4Type");
 
-        // Loading missile weapon 1 slot
-        misWep1_NameEditText.setText(sharedPreferences.getString("missileWeapon1_Name", ""));
-        misWep1_ClassEditText.setText(sharedPreferences.getString("missileWeapon1_Class", ""));
-        misWep1_DamageEditText.setText(sharedPreferences.getString("missileWeapon1_Damage", ""));
-        misWep1_TypeEditText.setText(sharedPreferences.getString("missileWeapon1_Type", ""));
-        misWep1_PenetrationEditText.setText(sharedPreferences.getString("missileWeapon1_Penetration", ""));
-        misWep1_RangeEditText.setText(sharedPreferences.getString("missileWeapon1_Range", ""));
-        misWep1_RoFEditText.setText(sharedPreferences.getString("missileWeapon1_RoF", ""));
-        misWep1_ClipEditText.setText(sharedPreferences.getString("missileWeapon1_Clip", ""));
-        misWep1_RLDEditText.setText(sharedPreferences.getString("missileWeapon1_RLD", ""));
-        misWep1_SpecialRulesEditText.setText(sharedPreferences.getString("missileWeapon1_SpecialRules", ""));
+        mis1Range.setText(sharedPreferences.getString("mis1Range", ""));
+        mis2Range.setText(sharedPreferences.getString("mis2Range", ""));
+        mis3Range.setText(sharedPreferences.getString("mis3Range", ""));
+        mis4Range.setText(sharedPreferences.getString("mis4Range", ""));
 
-        // Loading missile weapon 2 slot
-        misWep2_NameEditText.setText(sharedPreferences.getString("missileWeapon2_Name", ""));
-        misWep2_ClassEditText.setText(sharedPreferences.getString("missileWeapon2_Class", ""));
-        misWep2_DamageEditText.setText(sharedPreferences.getString("missileWeapon2_Damage", ""));
-        misWep2_TypeEditText.setText(sharedPreferences.getString("missileWeapon2_Type", ""));
-        misWep2_PenetrationEditText.setText(sharedPreferences.getString("missileWeapon2_Penetration", ""));
-        misWep2_RangeEditText.setText(sharedPreferences.getString("missileWeapon2_Range", ""));
-        misWep2_RoFEditText.setText(sharedPreferences.getString("missileWeapon2_RoF", ""));
-        misWep2_ClipEditText.setText(sharedPreferences.getString("missileWeapon2_Clip", ""));
-        misWep2_RLDEditText.setText(sharedPreferences.getString("missileWeapon2_RLD", ""));
-        misWep2_SpecialRulesEditText.setText(sharedPreferences.getString("missileWeapon2_SpecialRules", ""));
+        mis1ROF_x.setText(sharedPreferences.getString("mis1ROF_x", ""));
+        mis1ROF_y.setText(sharedPreferences.getString("mis1ROF_y", ""));
+        mis1ROF_z.setText(sharedPreferences.getString("mis1ROF_z", ""));
+        mis2ROF_x.setText(sharedPreferences.getString("mis2ROF_x", ""));
+        mis2ROF_y.setText(sharedPreferences.getString("mis2ROF_y", ""));
+        mis2ROF_z.setText(sharedPreferences.getString("mis2ROF_z", ""));
+        mis3ROF_x.setText(sharedPreferences.getString("mis3ROF_x", ""));
+        mis3ROF_y.setText(sharedPreferences.getString("mis3ROF_y", ""));
+        mis3ROF_z.setText(sharedPreferences.getString("mis3ROF_z", ""));
+        mis4ROF_x.setText(sharedPreferences.getString("mis4ROF_x", ""));
+        mis4ROF_y.setText(sharedPreferences.getString("mis4ROF_y", ""));
+        mis4ROF_z.setText(sharedPreferences.getString("mis4ROF_z", ""));
 
-        // Loading missile weapon 3 slot
-        misWep3_NameEditText.setText(sharedPreferences.getString("missileWeapon3_Name", ""));
-        misWep3_ClassEditText.setText(sharedPreferences.getString("missileWeapon3_Class", ""));
-        misWep3_DamageEditText.setText(sharedPreferences.getString("missileWeapon3_Damage", ""));
-        misWep3_TypeEditText.setText(sharedPreferences.getString("missileWeapon3_Type", ""));
-        misWep3_PenetrationEditText.setText(sharedPreferences.getString("missileWeapon3_Penetration", ""));
-        misWep3_RangeEditText.setText(sharedPreferences.getString("missileWeapon3_Range", ""));
-        misWep3_RoFEditText.setText(sharedPreferences.getString("missileWeapon3_RoF", ""));
-        misWep3_ClipEditText.setText(sharedPreferences.getString("missileWeapon3_Clip", ""));
-        misWep3_RLDEditText.setText(sharedPreferences.getString("missileWeapon3_RLD", ""));
-        misWep3_SpecialRulesEditText.setText(sharedPreferences.getString("missileWeapon3_SpecialRules", ""));
+        mis1Clip.setText(sharedPreferences.getString("mis1Clip", ""));
+        mis2Clip.setText(sharedPreferences.getString("mis2Clip", ""));
+        mis3Clip.setText(sharedPreferences.getString("mis3Clip", ""));
+        mis4Clip.setText(sharedPreferences.getString("mis4Clip", ""));
 
-        // Loading missile weapon 4 slot
-        misWep4_NameEditText.setText(sharedPreferences.getString("missileWeapon4_Name", ""));
-        misWep4_ClassEditText.setText(sharedPreferences.getString("missileWeapon4_Class", ""));
-        misWep4_DamageEditText.setText(sharedPreferences.getString("missileWeapon4_Damage", ""));
-        misWep4_TypeEditText.setText(sharedPreferences.getString("missileWeapon4_Type", ""));
-        misWep4_PenetrationEditText.setText(sharedPreferences.getString("missileWeapon4_Penetration", ""));
-        misWep4_RangeEditText.setText(sharedPreferences.getString("missileWeapon4_Range", ""));
-        misWep4_RoFEditText.setText(sharedPreferences.getString("missileWeapon4_RoF", ""));
-        misWep4_ClipEditText.setText(sharedPreferences.getString("missileWeapon4_Clip", ""));
-        misWep4_RLDEditText.setText(sharedPreferences.getString("missileWeapon4_RLD", ""));
-        misWep4_SpecialRulesEditText.setText(sharedPreferences.getString("missileWeapon4_SpecialRules", ""));
+        loadSpinnerState(mis1RLDSpinner, "mis1RLD");
+        loadSpinnerState(mis2RLDSpinner, "mis2RLD");
+        loadSpinnerState(mis3RLDSpinner, "mis3RLD");
+        loadSpinnerState(mis4RLDSpinner, "mis4RLD");
 
-        // Loading ammo list
-        ammo1_NameEditText.setText(sharedPreferences.getString("ammo1_Name", ""));
-        ammo1_ValEditText.setText(sharedPreferences.getString("ammo1_Val", ""));
+        mel1Pen.setText(sharedPreferences.getString("mel1Pen", ""));
+        mel2Pen.setText(sharedPreferences.getString("mel2Pen", ""));
+        mel3Pen.setText(sharedPreferences.getString("mel3Pen", ""));
+        mel4Pen.setText(sharedPreferences.getString("mel4Pen", ""));
+        mis1Pen.setText(sharedPreferences.getString("mis1Pen", ""));
+        mis2Pen.setText(sharedPreferences.getString("mis2Pen", ""));
+        mis3Pen.setText(sharedPreferences.getString("mis3Pen", ""));
+        mis4Pen.setText(sharedPreferences.getString("mis4Pen", ""));
 
-    }
+        mel1SpecialRules.setText(sharedPreferences.getString("mel1SpecialRules" , ""));
+        mel2SpecialRules.setText(sharedPreferences.getString("mel2SpecialRules" , ""));
+        mel3SpecialRules.setText(sharedPreferences.getString("mel3SpecialRules" , ""));
+        mel4SpecialRules.setText(sharedPreferences.getString("mel4SpecialRules" , ""));
+        mis1SpecialRules.setText(sharedPreferences.getString("mis1SpecialRules" , ""));
+        mis2SpecialRules.setText(sharedPreferences.getString("mis2SpecialRules" , ""));
+        mis3SpecialRules.setText(sharedPreferences.getString("mis3SpecialRules" , ""));
+        mis4SpecialRules.setText(sharedPreferences.getString("mis4SpecialRules" , ""));
+
+        ammo1Name.setText(sharedPreferences.getString("ammo1Name", ""));
+        ammo2Name.setText(sharedPreferences.getString("ammo2Name", ""));
+        ammo3Name.setText(sharedPreferences.getString("ammo3Name", ""));
+        ammo4Name.setText(sharedPreferences.getString("ammo4Name", ""));
+
+        loadSpinnerState(ammo1Spinner, "ammo1Type");
+        loadSpinnerState(ammo2Spinner, "ammo2Type");
+        loadSpinnerState(ammo3Spinner, "ammo3Type");
+        loadSpinnerState(ammo4Spinner, "ammo4Type");
+
+        ammo1No.setText(sharedPreferences.getString("ammo1No", ""));
+        ammo2No.setText(sharedPreferences.getString("ammo2No", ""));
+        ammo3No.setText(sharedPreferences.getString("ammo3No", ""));
+        ammo4No.setText(sharedPreferences.getString("ammo4No", ""));
+   }
+
 
 
     @Override
     public void onPause() {
         super.onPause();
+
+        // TODO - implement save method
+
 
         // Initialisation of the shared preferences object
         SharedPreferences sharedPreferences = getContext().getSharedPreferences(SHARED_PREFS, Context.MODE_PRIVATE);
@@ -989,90 +708,119 @@ public class tab2Inventory extends Fragment {
         // Initialisation of the shared preferences editor
         SharedPreferences.Editor edit = sharedPreferences.edit();
 
-        // Updates the shared preferences with all the character data
-        // Melee Weapon - Slot 1
-        edit.putString("meleeWeapon1_Name", melWep1_NameEditText.getText().toString().trim());
-        edit.putString("meleeWeapon1_Class", melWep1_ClassEditText.getText().toString().trim());
-        edit.putString("meleeWeapon1_Damage", melWep1_DamageEditText.getText().toString().trim());
-        edit.putString("meleeWeapon1_Type", melWep1_TypeEditText.getText().toString().trim());
-        edit.putString("meleeWeapon1_Penetration", melWep1_PenetrationEditText.getText().toString().trim());
-        edit.putString("meleeWeapon1_SpecialRules", melWep1_SpecialRulesEditText.getText().toString().trim());
+        // Saves to the shared prefs the inventory information onPause
+        edit.putString("mel1WepName", mel1Name.getText().toString().trim());
+        edit.putString("mel2WepName", mel2Name.getText().toString().trim());
+        edit.putString("mel3WepName", mel3Name.getText().toString().trim());
+        edit.putString("mel4WepName", mel4Name.getText().toString().trim());
+        edit.putString("mis1WepName", mis1Name.getText().toString().trim());
+        edit.putString("mis2WepName", mis2Name.getText().toString().trim());
+        edit.putString("mis3WepName", mis3Name.getText().toString().trim());
+        edit.putString("mis4WepName", mis4Name.getText().toString().trim());
 
-        // Melee Weapon - Slot 2
-        edit.putString("meleeWeapon2_Name", melWep2_NameEditText.getText().toString().trim());
-        edit.putString("meleeWeapon2_Class", melWep2_ClassEditText.getText().toString().trim());
-        edit.putString("meleeWeapon2_Damage", melWep2_DamageEditText.getText().toString().trim());
-        edit.putString("meleeWeapon2_Type", melWep2_TypeEditText.getText().toString().trim());
-        edit.putString("meleeWeapon2_Penetration", melWep2_PenetrationEditText.getText().toString().trim());
-        edit.putString("meleeWeapon2_SpecialRules", melWep2_SpecialRulesEditText.getText().toString().trim());
+        edit.putString("mel1Class", Integer.toString(mel1ClassSpinner.getSelectedItemPosition()));
+        edit.putString("mel2Class", Integer.toString(mel2ClassSpinner.getSelectedItemPosition()));
+        edit.putString("mel3Class", Integer.toString(mel3ClassSpinner.getSelectedItemPosition()));
+        edit.putString("mel4Class", Integer.toString(mel4ClassSpinner.getSelectedItemPosition()));
+        edit.putString("mis1Class", Integer.toString(mis1ClassSpinner.getSelectedItemPosition()));
+        edit.putString("mis2Class", Integer.toString(mis2ClassSpinner.getSelectedItemPosition()));
+        edit.putString("mis3Class", Integer.toString(mis3ClassSpinner.getSelectedItemPosition()));
+        edit.putString("mis4Class", Integer.toString(mis4ClassSpinner.getSelectedItemPosition()));
 
-        // Melee Weapon - Slot 3
-        edit.putString("meleeWeapon3_Name", melWep3_NameEditText.getText().toString().trim());
-        edit.putString("meleeWeapon3_Class", melWep3_ClassEditText.getText().toString().trim());
-        edit.putString("meleeWeapon3_Damage", melWep3_DamageEditText.getText().toString().trim());
-        edit.putString("meleeWeapon3_Type", melWep3_TypeEditText.getText().toString().trim());
-        edit.putString("meleeWeapon3_Penetration", melWep3_PenetrationEditText.getText().toString().trim());
-        edit.putString("meleeWeapon3_SpecialRules", melWep3_SpecialRulesEditText.getText().toString().trim());
+        edit.putString("mel1Damage_x", mel1Damage_x.getText().toString().trim());
+        edit.putString("mel1Damage_y", mel1Damage_y.getText().toString().trim());
+        edit.putString("mel1Damage_z", mel1Damage_z.getText().toString().trim());
+        edit.putString("mel2Damage_x", mel2Damage_x.getText().toString().trim());
+        edit.putString("mel2Damage_y", mel2Damage_y.getText().toString().trim());
+        edit.putString("mel2Damage_z", mel2Damage_z.getText().toString().trim());
+        edit.putString("mel3Damage_x", mel3Damage_x.getText().toString().trim());
+        edit.putString("mel3Damage_y", mel3Damage_y.getText().toString().trim());
+        edit.putString("mel3Damage_z", mel3Damage_z.getText().toString().trim());
+        edit.putString("mel4Damage_x", mel4Damage_x.getText().toString().trim());
+        edit.putString("mel4Damage_y", mel4Damage_y.getText().toString().trim());
+        edit.putString("mel4Damage_z", mel4Damage_z.getText().toString().trim());
+        edit.putString("mis1Damage_x", mis1Damage_x.getText().toString().trim());
+        edit.putString("mis1Damage_y", mis1Damage_y.getText().toString().trim());
+        edit.putString("mis1Damage_z", mis1Damage_z.getText().toString().trim());
+        edit.putString("mis2Damage_x", mis2Damage_x.getText().toString().trim());
+        edit.putString("mis2Damage_y", mis2Damage_y.getText().toString().trim());
+        edit.putString("mis2Damage_z", mis2Damage_z.getText().toString().trim());
+        edit.putString("mis3Damage_x", mis3Damage_x.getText().toString().trim());
+        edit.putString("mis3Damage_y", mis3Damage_y.getText().toString().trim());
+        edit.putString("mis3Damage_z", mis3Damage_z.getText().toString().trim());
+        edit.putString("mis4Damage_x", mis4Damage_x.getText().toString().trim());
+        edit.putString("mis4Damage_y", mis4Damage_y.getText().toString().trim());
+        edit.putString("mis4Damage_z", mis4Damage_z.getText().toString().trim());
 
-        // Melee Weapon - Slot 4
-        edit.putString("meleeWeapon4_Name", melWep4_NameEditText.getText().toString().trim());
-        edit.putString("meleeWeapon4_Class", melWep4_ClassEditText.getText().toString().trim());
-        edit.putString("meleeWeapon4_Damage", melWep4_DamageEditText.getText().toString().trim());
-        edit.putString("meleeWeapon4_Type", melWep4_TypeEditText.getText().toString().trim());
-        edit.putString("meleeWeapon4_Penetration", melWep4_PenetrationEditText.getText().toString().trim());
-        edit.putString("meleeWeapon4_SpecialRules", melWep4_SpecialRulesEditText.getText().toString().trim());
+        edit.putString("mel1Type", Integer.toString(mel1TypeSpinner.getSelectedItemPosition()));
+        edit.putString("mel2Type", Integer.toString(mel2TypeSpinner.getSelectedItemPosition()));
+        edit.putString("mel3Type", Integer.toString(mel3TypeSpinner.getSelectedItemPosition()));
+        edit.putString("mel4Type", Integer.toString(mel4TypeSpinner.getSelectedItemPosition()));
+        edit.putString("mis1Type", Integer.toString(mis1TypeSpinner.getSelectedItemPosition()));
+        edit.putString("mis2Type", Integer.toString(mis2TypeSpinner.getSelectedItemPosition()));
+        edit.putString("mis3Type", Integer.toString(mis3TypeSpinner.getSelectedItemPosition()));
+        edit.putString("mis4Type", Integer.toString(mis4TypeSpinner.getSelectedItemPosition()));
 
-        // Missile Weapon - Slot 1
-        edit.putString("missileWeapon1_Name", misWep1_NameEditText.getText().toString().trim());
-        edit.putString("missileWeapon1_Class", misWep1_ClassEditText.getText().toString().trim());
-        edit.putString("missileWeapon1_Damage", misWep1_DamageEditText.getText().toString().trim());
-        edit.putString("missileWeapon1_Type", misWep1_TypeEditText.getText().toString().trim());
-        edit.putString("missileWeapon1_Penetration", misWep1_PenetrationEditText.getText().toString().trim());
-        edit.putString("missileWeapon1_Range", misWep1_RangeEditText.getText().toString().trim());
-        edit.putString("missileWeapon1_RoF", misWep1_RoFEditText.getText().toString().trim());
-        edit.putString("missileWeapon1_Clip", misWep1_ClipEditText.getText().toString().trim());
-        edit.putString("missileWeapon1_RLD", misWep1_RLDEditText.getText().toString().trim());
-        edit.putString("missileWeapon1_SpecialRules", misWep1_SpecialRulesEditText.getText().toString().trim());
+        edit.putString("mis1Range", mis1Range.getText().toString().trim());
+        edit.putString("mis2Range", mis2Range.getText().toString().trim());
+        edit.putString("mis3Range", mis3Range.getText().toString().trim());
+        edit.putString("mis4Range", mis4Range.getText().toString().trim());
 
-        // Missile Weapon - Slot 2
-        edit.putString("missileWeapon2_Name", misWep2_NameEditText.getText().toString().trim());
-        edit.putString("missileWeapon2_Class", misWep2_ClassEditText.getText().toString().trim());
-        edit.putString("missileWeapon2_Damage", misWep2_DamageEditText.getText().toString().trim());
-        edit.putString("missileWeapon2_Type", misWep2_TypeEditText.getText().toString().trim());
-        edit.putString("missileWeapon2_Penetration", misWep2_PenetrationEditText.getText().toString().trim());
-        edit.putString("missileWeapon2_Range", misWep2_RangeEditText.getText().toString().trim());
-        edit.putString("missileWeapon2_RoF", misWep2_RoFEditText.getText().toString().trim());
-        edit.putString("missileWeapon2_Clip", misWep2_ClipEditText.getText().toString().trim());
-        edit.putString("missileWeapon2_RLD", misWep2_RLDEditText.getText().toString().trim());
-        edit.putString("missileWeapon2_SpecialRules", misWep2_SpecialRulesEditText.getText().toString().trim());
+        edit.putString("mis1ROF_x", mis1ROF_x.getText().toString().trim());
+        edit.putString("mis1ROF_y", mis1ROF_y.getText().toString().trim());
+        edit.putString("mis1ROF_z", mis1ROF_z.getText().toString().trim());
+        edit.putString("mis2ROF_x", mis2ROF_x.getText().toString().trim());
+        edit.putString("mis2ROF_y", mis2ROF_y.getText().toString().trim());
+        edit.putString("mis2ROF_z", mis2ROF_z.getText().toString().trim());
+        edit.putString("mis3ROF_x", mis3ROF_x.getText().toString().trim());
+        edit.putString("mis3ROF_y", mis3ROF_y.getText().toString().trim());
+        edit.putString("mis3ROF_z", mis3ROF_z.getText().toString().trim());
+        edit.putString("mis4ROF_x", mis4ROF_x.getText().toString().trim());
+        edit.putString("mis4ROF_y", mis4ROF_y.getText().toString().trim());
+        edit.putString("mis4ROF_z", mis4ROF_z.getText().toString().trim());
 
-        // Missile Weapon - Slot 3
-        edit.putString("missileWeapon3_Name", misWep3_NameEditText.getText().toString().trim());
-        edit.putString("missileWeapon3_Class", misWep3_ClassEditText.getText().toString().trim());
-        edit.putString("missileWeapon3_Damage", misWep3_DamageEditText.getText().toString().trim());
-        edit.putString("missileWeapon3_Type", misWep3_TypeEditText.getText().toString().trim());
-        edit.putString("missileWeapon3_Penetration", misWep3_PenetrationEditText.getText().toString().trim());
-        edit.putString("missileWeapon3_Range", misWep3_RangeEditText.getText().toString().trim());
-        edit.putString("missileWeapon3_RoF", misWep3_RoFEditText.getText().toString().trim());
-        edit.putString("missileWeapon3_Clip", misWep3_ClipEditText.getText().toString().trim());
-        edit.putString("missileWeapon3_RLD", misWep3_RLDEditText.getText().toString().trim());
-        edit.putString("missileWeapon3_SpecialRules", misWep3_SpecialRulesEditText.getText().toString().trim());
+        edit.putString("mis1Clip", mis1Clip.getText().toString().trim());
+        edit.putString("mis2Clip", mis2Clip.getText().toString().trim());
+        edit.putString("mis3Clip", mis3Clip.getText().toString().trim());
+        edit.putString("mis4Clip", mis4Clip.getText().toString().trim());
 
-        // Missile Weapon - Slot 4
-        edit.putString("missileWeapon4_Name", misWep4_NameEditText.getText().toString().trim());
-        edit.putString("missileWeapon4_Class", misWep4_ClassEditText.getText().toString().trim());
-        edit.putString("missileWeapon4_Damage", misWep4_DamageEditText.getText().toString().trim());
-        edit.putString("missileWeapon4_Type", misWep4_TypeEditText.getText().toString().trim());
-        edit.putString("missileWeapon4_Penetration", misWep4_PenetrationEditText.getText().toString().trim());
-        edit.putString("missileWeapon4_Range", misWep4_RangeEditText.getText().toString().trim());
-        edit.putString("missileWeapon4_RoF", misWep4_RoFEditText.getText().toString().trim());
-        edit.putString("missileWeapon4_Clip", misWep4_ClipEditText.getText().toString().trim());
-        edit.putString("missileWeapon4_RLD", misWep4_RLDEditText.getText().toString().trim());
-        edit.putString("missileWeapon4_SpecialRules", misWep4_SpecialRulesEditText.getText().toString().trim());
+        edit.putString("mis1RLD", Integer.toString(mis1RLDSpinner.getSelectedItemPosition()));
+        edit.putString("mis2RLD", Integer.toString(mis2RLDSpinner.getSelectedItemPosition()));
+        edit.putString("mis3RLD", Integer.toString(mis3RLDSpinner.getSelectedItemPosition()));
+        edit.putString("mis4RLD", Integer.toString(mis4RLDSpinner.getSelectedItemPosition()));
 
-        // Ammo
-        edit.putString("ammo1_Name", ammo1_NameEditText.getText().toString().trim());
-        edit.putString("ammo1_Val", ammo1_ValEditText.getText().toString().trim());
+        edit.putString("mel1Pen", mel1Pen.getText().toString().trim());
+        edit.putString("mel2Pen", mel2Pen.getText().toString().trim());
+        edit.putString("mel3Pen", mel3Pen.getText().toString().trim());
+        edit.putString("mel4Pen", mel4Pen.getText().toString().trim());
+        edit.putString("mis1Pen", mis1Pen.getText().toString().trim());
+        edit.putString("mis2Pen", mis2Pen.getText().toString().trim());
+        edit.putString("mis3Pen", mis3Pen.getText().toString().trim());
+        edit.putString("mis4Pen", mis4Pen.getText().toString().trim());
+
+        edit.putString("mel1SpecialRules", mel1SpecialRules.getText().toString().trim());
+        edit.putString("mel2SpecialRules", mel2SpecialRules.getText().toString().trim());
+        edit.putString("mel3SpecialRules", mel3SpecialRules.getText().toString().trim());
+        edit.putString("mel4SpecialRules", mel4SpecialRules.getText().toString().trim());
+        edit.putString("mis1SpecialRules", mis1SpecialRules.getText().toString().trim());
+        edit.putString("mis2SpecialRules", mis2SpecialRules.getText().toString().trim());
+        edit.putString("mis3SpecialRules", mis3SpecialRules.getText().toString().trim());
+        edit.putString("mis4SpecialRules", mis4SpecialRules.getText().toString().trim());
+
+        edit.putString("ammo1Name", ammo1Name.getText().toString().trim());
+        edit.putString("ammo2Name", ammo2Name.getText().toString().trim());
+        edit.putString("ammo3Name", ammo3Name.getText().toString().trim());
+        edit.putString("ammo4Name", ammo4Name.getText().toString().trim());
+
+        edit.putString("ammo1Type", Integer.toString(ammo1Spinner.getSelectedItemPosition()));
+        edit.putString("ammo2Type", Integer.toString(ammo2Spinner.getSelectedItemPosition()));
+        edit.putString("ammo3Type", Integer.toString(ammo3Spinner.getSelectedItemPosition()));
+        edit.putString("ammo4Type", Integer.toString(ammo4Spinner.getSelectedItemPosition()));
+
+        edit.putString("ammo1No", ammo1No.getText().toString().trim());
+        edit.putString("ammo2No", ammo2No.getText().toString().trim());
+        edit.putString("ammo3No", ammo3No.getText().toString().trim());
+        edit.putString("ammo4No", ammo4No.getText().toString().trim());
 
         // Applies the changes to the shared preferences file
         edit.apply();

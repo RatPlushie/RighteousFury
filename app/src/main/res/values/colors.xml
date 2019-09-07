@@ -12,6 +12,7 @@
     <!-- Application card colours -->
     <color name="cardPrimary">#FFFFFF</color>
     <color name="cardSecondary">#E6E6E6</color>
+    <color name="cardDivider">#000000</color>
 
     <!-- Application warning colours -->
     <color name="warningRed">#B00020</color>
