@@ -129,14 +129,13 @@ public class AttributeRollActivity extends AppCompatActivity {
 
 
     public void diceRoll(int mode, int threshold) {
-        // TODO - dice roll logic
-        /* Method called when a dice roll is required
+           /* Method called when a dice roll is required
            Mode:-
            0: Standard Roll
            1: Re-Roll
            2: Spend Fate Point Roll
            3: Burn Fate Point Roll
-        */
+           */
 
         // Rolls the d100
         diceRoll = random(0, 100);
@@ -250,7 +249,7 @@ public class AttributeRollActivity extends AppCompatActivity {
 
 
 
-    public void updateThreshold(int attVal, int buttonMod){
+    public void updateThreshold(int attVal){
         // Retrieves the current modifier value
         int modVal = Integer.parseInt(modifierValue.getText().toString().trim());
 
@@ -264,9 +263,6 @@ public class AttributeRollActivity extends AppCompatActivity {
 
             // Adds to the remaining attribute value the modifier
             attVal += modVal;
-
-            // For when the user presses the +/- buttons for the modifier selection
-            attVal += buttonMod;
 
             // Sets the new value of the threshold
             threshold = attVal;
@@ -357,7 +353,7 @@ public class AttributeRollActivity extends AppCompatActivity {
         modifierValue.setText(Integer.toString(0));
 
         // Displaying the default roll threshold (attribute value)
-        updateThreshold(attributeValue, 0);
+        updateThreshold(attributeValue);
 
         // Displaying the amount of Fate Points the user has in the TextView
         updateFPDisplay(0);
@@ -406,7 +402,7 @@ public class AttributeRollActivity extends AppCompatActivity {
                 }
 
                 // Displaying the updated roll required value
-                updateThreshold(attributeValue, 0);
+                updateThreshold(attributeValue);
             }
 
             @Override
@@ -427,7 +423,7 @@ public class AttributeRollActivity extends AppCompatActivity {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 // Calls for the updateThreshold method to update objects as needed
-                updateThreshold(attributeValue, 0);
+                updateThreshold(attributeValue);
             }
         });
 
@@ -441,7 +437,7 @@ public class AttributeRollActivity extends AppCompatActivity {
                 int modifierInt = Integer.parseInt(modifierValue.getText().toString().trim());
 
                 // Adds 1 to the int for the new value
-                modifierInt += 1;
+                modifierInt++;
 
                 // Prevents the user from +1 -ing their way to beyond the max +60 mod
                 if (modifierInt <= 60){
@@ -449,7 +445,7 @@ public class AttributeRollActivity extends AppCompatActivity {
                     modifierValue.setText(Integer.toString(modifierInt));
 
                     // Updates the threshold value with the +1
-                    updateThreshold(attributeValue, 1);
+                    updateThreshold(attributeValue);
                 }
             }
         });
@@ -463,8 +459,8 @@ public class AttributeRollActivity extends AppCompatActivity {
                 // Finds out what the current value of the modifier is as an integer
                 int modifierInt = Integer.parseInt(modifierValue.getText().toString().trim());
 
-                // Adds 1 to the int for the new value
-                modifierInt -= 1;
+                // Subtracts 1 to the int for the new value
+                modifierInt--;
 
                 // Prevents the user from -1 -ing below -60
                 if (modifierInt > -60){
@@ -472,7 +468,7 @@ public class AttributeRollActivity extends AppCompatActivity {
                     modifierValue.setText(Integer.toString(modifierInt));
 
                     // Updates the threshold value with the -1
-                    updateThreshold(attributeValue, -1);
+                    updateThreshold(attributeValue);
                 }
             }
         });

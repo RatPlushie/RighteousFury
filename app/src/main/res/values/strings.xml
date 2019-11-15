@@ -75,6 +75,7 @@
     <string name="roll_button_desc">Pressing this will launch the dice rolling page</string>
     <string name="roll_threshold">Roll Threshold: </string>
     <string name="roll_outcome">Roll Outcome: </string>
+    <string name="roll_hit_location">Hit Location: </string>
     <string name="roll_degree_of_success">Degree: </string>
     <string name="zero_degrees_of_success">success</string>
     <string name="one_degree_of_success">1 degree of success</string>
@@ -88,6 +89,7 @@
     <string name="reroll_button">Re-Roll</string>
     <string name="fatepoint_button">Fate Point</string>
     <string name="burn_fp_button">BURN</string>
+    <string name="jamButton">Un-Jam Weapon</string>
 
     <!-- Save Strings -->
     <string name="save_character">Pressing this will save the current character</string>
@@ -148,6 +150,9 @@
     <string name="rof_y">y</string>
     <string name="rof_z">z</string>
     <string name="rof_dash">/</string>
+
+    <!-- Hit log Strings -->
+    <string name="hit">Hit: </string>
 
     <!-- Class String Array -->
     <string-array name="class_array">

@@ -5,6 +5,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -71,7 +73,7 @@ public class tab1Character extends Fragment {
         */
 
         // Test to see if the user has filled in the required information for the character attributes
-        if (!(attVal.getText().toString().trim().equals(""))){
+        if (!(attVal.getText().toString().trim().isEmpty()) && !(maxFPValue.getText().toString().trim().isEmpty())){
 
             // Deciding what information needs passed through
             switch (mode){
@@ -126,8 +128,14 @@ public class tab1Character extends Fragment {
             }
 
         } else {
-            // Toasts to user if they have not filled in the EditText yet
-            Toast.makeText(getActivity(), "Please enter your " + attName + " stat first", Toast.LENGTH_SHORT).show();
+            if (attVal.getText().toString().trim().isEmpty()) {
+                // Toasts to user if they have not filled in attribute EditText yet
+                Toast.makeText(getActivity(), "Please enter your " + attName + " stat first", Toast.LENGTH_SHORT).show();
+            }
+            if (maxFPValue.getText().toString().trim().isEmpty()){
+                // Toasts to user if they have not filled in FP EditText yet
+                Toast.makeText(getActivity(), "Please enter your FP first", Toast.LENGTH_SHORT).show();
+            }
         }
     }
 
@@ -179,17 +187,23 @@ public class tab1Character extends Fragment {
         healButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Parses the textview into a string, then into an integer
-                String string_currentHPValue = currentHPValue.getText().toString();
-                int HP = Integer.parseInt(string_currentHPValue);
+                // Checks to see if the MaxHP field is empty, if so - to ignore further functionality
+                if (!(maxHPValue.getText().toString().isEmpty())){
+                    // Parses the text view into a string, then into an integer
+                    String string_currentHPValue = currentHPValue.getText().toString();
+                    int HP = Integer.parseInt(string_currentHPValue);
 
-                String string_maxHPValue = maxHPValue.getText().toString();
-                int maxHP = Integer.parseInt(string_maxHPValue);
+                    String string_maxHPValue = maxHPValue.getText().toString();
+                    int maxHP = Integer.parseInt(string_maxHPValue);
 
-                // if hp is less than max, heal 1 HP. if not, ignore
-                if (HP + 1 <= maxHP){
-                    HP++;
-                    currentHPValue.setText(Integer.toString(HP));
+                    // if hp is less than max, heal 1 HP. if not, ignore
+                    if (HP + 1 <= maxHP){
+                        HP++;
+                        currentHPValue.setText(Integer.toString(HP));
+                    }
+                } else {
+                    // Toasts to user if they have not filled in the EditText yet
+                    Toast.makeText(getActivity(), "Please enter your HP first", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -200,16 +214,21 @@ public class tab1Character extends Fragment {
         damageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Parses the textview into a string, then into an integer
-                String string_currentHPValue = currentHPValue.getText().toString();
-                int HP = Integer.parseInt(string_currentHPValue);
+                // Checks to see if the MaxHP field is empty, if so - to ignore further functionality
+                if (!(maxHPValue.getText().toString().isEmpty())){
+                    // Parses the textview into a string, then into an integer
+                    String string_currentHPValue = currentHPValue.getText().toString();
+                    int HP = Integer.parseInt(string_currentHPValue);
 
-                // if hp is not 0, damage by 1HP. if >0 - ignore
-                if (HP - 1 >= 0){
-                    HP--;
-                    currentHPValue.setText(Integer.toString(HP));
+                    // if hp is not 0, damage by 1HP. if >0 - ignore
+                    if (HP - 1 >= 0){
+                        HP--;
+                        currentHPValue.setText(Integer.toString(HP));
+                    }
+                } else {
+                    // Toasts to user if they have not filled in the EditText yet
+                    Toast.makeText(getActivity(), "Please enter your HP first", Toast.LENGTH_SHORT).show();
                 }
-
             }
         });
 
@@ -219,16 +238,21 @@ public class tab1Character extends Fragment {
         fpUpButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Parses the textview into a string, then into an integer
-                String string_currentFPValue = currentFPValue.getText().toString();
-                int FP = Integer.parseInt(string_currentFPValue);
+                if (!maxFPValue.getText().toString().isEmpty()){
+                    // Parses the textview into a string, then into an integer
+                    String string_currentFPValue = currentFPValue.getText().toString();
+                    int FP = Integer.parseInt(string_currentFPValue);
 
-                String string_maxFPValue = maxFPValue.getText().toString();
-                int maxFP = Integer.parseInt(string_maxFPValue);
+                    String string_maxFPValue = maxFPValue.getText().toString();
+                    int maxFP = Integer.parseInt(string_maxFPValue);
 
-                if (FP + 1 <= maxFP){
-                    FP++;
-                    currentFPValue.setText(Integer.toString(FP));
+                    if (FP + 1 <= maxFP){
+                        FP++;
+                        currentFPValue.setText(Integer.toString(FP));
+                    }
+                } else {
+                    // Toasts to user if they have not filled in the EditText yet
+                    Toast.makeText(getActivity(), "Please enter your FP first", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -239,13 +263,18 @@ public class tab1Character extends Fragment {
         fpDownButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Parses the textview into a string, then into an integer
-                String string_currentFPValue = currentFPValue.getText().toString();
-                int FP = Integer.parseInt(string_currentFPValue);
+                if (!maxFPValue.getText().toString().isEmpty()){
+                    // Parses the textview into a string, then into an integer
+                    String string_currentFPValue = currentFPValue.getText().toString();
+                    int FP = Integer.parseInt(string_currentFPValue);
 
-                if (FP -1 >= 0){
-                    FP--;
-                    currentFPValue.setText(Integer.toString(FP));
+                    if (FP -1 >= 0){
+                        FP--;
+                        currentFPValue.setText(Integer.toString(FP));
+                    }
+                } else {
+                    // Toasts to user if they have not filled in the EditText yet
+                    Toast.makeText(getActivity(), "Please enter your FP first", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -346,6 +375,42 @@ public class tab1Character extends Fragment {
             public void onClick(View view) {
                 // Navigates to the fellowship roll page
                 navRollActivity(2, getString(R.string.stat_fel), felValue);
+            }
+        });
+
+        // On MaxHP change listener
+        maxHPValue.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                currentHPValue.setText(maxHPValue.getText());
+            }
+        });
+
+        // On MaxFP change listener
+        maxFPValue.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                currentFPValue.setText(maxFPValue.getText());
             }
         });
 

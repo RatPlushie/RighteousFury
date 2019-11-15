@@ -337,7 +337,7 @@ public class tab2Inventory extends Fragment {
         SharedPreferences sharedPreferences = getContext().getSharedPreferences(SHARED_PREFS, Context.MODE_PRIVATE);
 
         // Test to see if the shared prefs have stored a value or null. Loading the correct state
-        if (!(sharedPreferences.getString(sharedPrefsTag, "").equals(""))){
+        if (!(sharedPreferences.getString(sharedPrefsTag, "").isEmpty())){
             // If not null, fill with the previously saved state
             spinner.setSelection(Integer.parseInt(sharedPreferences.getString(sharedPrefsTag, "")));
         } else {
@@ -727,6 +727,15 @@ public class tab2Inventory extends Fragment {
         edit.putString("mis3Class", Integer.toString(mis3ClassSpinner.getSelectedItemPosition()));
         edit.putString("mis4Class", Integer.toString(mis4ClassSpinner.getSelectedItemPosition()));
 
+        edit.putString("mel1ClassString", mel1ClassSpinner.getSelectedItem().toString());
+        edit.putString("mel2ClassString", mel2ClassSpinner.getSelectedItem().toString());
+        edit.putString("mel3ClassString", mel3ClassSpinner.getSelectedItem().toString());
+        edit.putString("mel4ClassString", mel4ClassSpinner.getSelectedItem().toString());
+        edit.putString("mis1ClassString", mis1ClassSpinner.getSelectedItem().toString());
+        edit.putString("mis2ClassString", mis2ClassSpinner.getSelectedItem().toString());
+        edit.putString("mis3ClassString", mis3ClassSpinner.getSelectedItem().toString());
+        edit.putString("mis4ClassString", mis4ClassSpinner.getSelectedItem().toString());
+
         edit.putString("mel1Damage_x", mel1Damage_x.getText().toString().trim());
         edit.putString("mel1Damage_y", mel1Damage_y.getText().toString().trim());
         edit.putString("mel1Damage_z", mel1Damage_z.getText().toString().trim());
@@ -761,6 +770,15 @@ public class tab2Inventory extends Fragment {
         edit.putString("mis3Type", Integer.toString(mis3TypeSpinner.getSelectedItemPosition()));
         edit.putString("mis4Type", Integer.toString(mis4TypeSpinner.getSelectedItemPosition()));
 
+        edit.putString("mel1TypeString", mel1TypeSpinner.getSelectedItem().toString());
+        edit.putString("mel2TypeString", mel2TypeSpinner.getSelectedItem().toString());
+        edit.putString("mel3TypeString", mel3TypeSpinner.getSelectedItem().toString());
+        edit.putString("mel4TypeString", mel4TypeSpinner.getSelectedItem().toString());
+        edit.putString("mis1TypeString", mis1TypeSpinner.getSelectedItem().toString());
+        edit.putString("mis2TypeString", mis2TypeSpinner.getSelectedItem().toString());
+        edit.putString("mis3TypeString", mis3TypeSpinner.getSelectedItem().toString());
+        edit.putString("mis4TypeString", mis4TypeSpinner.getSelectedItem().toString());
+
         edit.putString("mis1Range", mis1Range.getText().toString().trim());
         edit.putString("mis2Range", mis2Range.getText().toString().trim());
         edit.putString("mis3Range", mis3Range.getText().toString().trim());
@@ -789,6 +807,11 @@ public class tab2Inventory extends Fragment {
         edit.putString("mis3RLD", Integer.toString(mis3RLDSpinner.getSelectedItemPosition()));
         edit.putString("mis4RLD", Integer.toString(mis4RLDSpinner.getSelectedItemPosition()));
 
+        edit.putString("mis1RLDString", mis1RLDSpinner.getSelectedItem().toString());
+        edit.putString("mis2RLDString", mis2RLDSpinner.getSelectedItem().toString());
+        edit.putString("mis3RLDString", mis3RLDSpinner.getSelectedItem().toString());
+        edit.putString("mis4RLDString", mis4RLDSpinner.getSelectedItem().toString());
+
         edit.putString("mel1Pen", mel1Pen.getText().toString().trim());
         edit.putString("mel2Pen", mel2Pen.getText().toString().trim());
         edit.putString("mel3Pen", mel3Pen.getText().toString().trim());
@@ -816,6 +839,11 @@ public class tab2Inventory extends Fragment {
         edit.putString("ammo2Type", Integer.toString(ammo2Spinner.getSelectedItemPosition()));
         edit.putString("ammo3Type", Integer.toString(ammo3Spinner.getSelectedItemPosition()));
         edit.putString("ammo4Type", Integer.toString(ammo4Spinner.getSelectedItemPosition()));
+
+        edit.putString("ammo1TypeString", ammo1Spinner.getSelectedItem().toString());
+        edit.putString("ammo2TypeString", ammo2Spinner.getSelectedItem().toString());
+        edit.putString("ammo3TypeString", ammo3Spinner.getSelectedItem().toString());
+        edit.putString("ammo4TypeString", ammo4Spinner.getSelectedItem().toString());
 
         edit.putString("ammo1No", ammo1No.getText().toString().trim());
         edit.putString("ammo2No", ammo2No.getText().toString().trim());
