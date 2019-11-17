@@ -90,6 +90,7 @@
     <string name="fatepoint_button">Fate Point</string>
     <string name="burn_fp_button">BURN</string>
     <string name="jamButton">Un-Jam Weapon</string>
+    <string name="reload_button">Reload</string>
 
     <!-- Save Strings -->
     <string name="save_character">Pressing this will save the current character</string>
@@ -191,5 +192,13 @@
         <item>4.5</item>
         <item>5.0</item>
     </string-array>
+
+    <!-- Rate of Fire Strings -->
+    <string name="rof_manual">Manual</string>
+    <string name="rof_semiauto">Semi</string>
+    <string name="rof_full">Full</string>
+
+    <!-- Empty display -->
+    <string name="empty_string">-</string>
     
 </resources>

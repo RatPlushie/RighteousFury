@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.ImageButton;
+import android.widget.RadioButton;
 import android.widget.SeekBar;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -142,9 +143,14 @@ Wep Modes:- (Can only fire as many bullets as indicated, never more)
     private int currentFP;
     private int maxFP;
 
+    private int maxAmmo;
+    private int clipAmmo;
+
     private TextView bsTitleVal;
     private TextView wepStatString;
-    private TextView ammoNoDisplay;
+    private TextView ammoMaxDisplay;
+    private TextView ammoClipDisplay;
+    private TextView ammoDashDisplay;
     private TextView modifierDisplay;
     private TextView rollThresholdDisplay;
     private TextView rollOutcomeDisplay;
@@ -157,12 +163,19 @@ Wep Modes:- (Can only fire as many bullets as indicated, never more)
     private Button buttonFPRoll;
     private Button buttonBurnRoll;
     private Button buttonUnjam;
+    private Button buttonReload;
+
+    private RadioButton radioManual;
+    private RadioButton radioSemi;
+    private RadioButton radioFull;
 
     private Spinner wepSpinner;
     private Spinner ammoSpinner;
 
     private ImageButton buttonModPlus;
     private ImageButton buttonModMinus;
+    private ImageButton buttonHitCounterUp;
+    private ImageButton buttonHitCounterDown;
 
     private CheckBox unskilledCheckBox;
 
@@ -630,19 +643,19 @@ Wep Modes:- (Can only fire as many bullets as indicated, never more)
         // Determines which ammo has been selected
         if (ammoSpinner.getSelectedItem().toString().equals(ammo1Name)){
             // Setting the display of the amount of ammo remaining for ammo1
-            ammoNoDisplay.setText(Integer.toString(ammo1No));
+            ammoMaxDisplay.setText(Integer.toString(ammo1No));
 
         } else if (ammoSpinner.getSelectedItem().toString().equals(ammo2Name)){
             // Setting the display of the amount of ammo remaining for ammo2
-            ammoNoDisplay.setText(Integer.toString(ammo2No));
+            ammoMaxDisplay.setText(Integer.toString(ammo2No));
 
         } else if (ammoSpinner.getSelectedItem().toString().equals(ammo3Name)){
             // Setting the display of the amount of ammo remaining for ammo3
-            ammoNoDisplay.setText(Integer.toString(ammo3No));
+            ammoMaxDisplay.setText(Integer.toString(ammo3No));
 
         } else if (ammoSpinner.getSelectedItem().toString().equals(ammo4Name)){
             // Setting the display of the amount of ammo remaining for ammo4
-            ammoNoDisplay.setText(Integer.toString(ammo4No));
+            ammoMaxDisplay.setText(Integer.toString(ammo4No));
         }
 
     }
@@ -1406,6 +1419,29 @@ Wep Modes:- (Can only fire as many bullets as indicated, never more)
     }
 
 
+    // Method for spending ammo
+    public void updateAmmo(int rate){
+
+        ammoMaxDisplay.setText(Integer.parseInt(ammoMaxDisplay.getText().toString().trim()) - rate);
+    }
+
+
+    // Method for updating the ammo counter, and causing a reload
+    public void getAmmoDisplay(int clip, int max){
+
+        if (clip == 0 && max != 0){ // Clip needs reloading
+            buttonReload.setVisibility(View.VISIBLE);
+
+            buttonRoll.setVisibility(View.GONE);
+            buttonReRoll.setVisibility(View.GONE);
+            buttonFPRoll.setVisibility(View.GONE);
+            buttonBurnRoll.setVisibility(View.GONE);
+        } else if ()
+
+            // TODO - write ammo display logic
+    }
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -1420,7 +1456,10 @@ Wep Modes:- (Can only fire as many bullets as indicated, never more)
         // Attaching the view ID's
         bsTitleVal              = findViewById(R.id.bsValTextView);
         wepStatString           = findViewById(R.id.bs_WeaponStatsTextView);
-        ammoNoDisplay           = findViewById(R.id.ammoQuantityTextView);
+
+        ammoMaxDisplay          = findViewById(R.id.ammoMaxValTextView);
+        ammoClipDisplay         = findViewById(R.id.ammoCurrentClipTextView);
+        ammoDashDisplay         = findViewById(R.id.ammoCounterDash);
         modifierDisplay         = findViewById(R.id.bsRollModifierValTextView);
         rollThresholdDisplay    = findViewById(R.id.rollThresholdTextView);
         rollOutcomeDisplay      = findViewById(R.id.rollOutcomeTextView);
@@ -1439,6 +1478,13 @@ Wep Modes:- (Can only fire as many bullets as indicated, never more)
         buttonFPRoll            = findViewById(R.id.bsFatePointButton);
         buttonBurnRoll          = findViewById(R.id.bsBurnButton);
         buttonUnjam             = findViewById(R.id.bsJamButton);
+        buttonHitCounterUp      = findViewById(R.id.damageRollUpImageButton);
+        buttonHitCounterDown    = findViewById(R.id.damageRollDownImageButton);
+        buttonReload            = findViewById(R.id.bsReloadButton);
+
+        radioManual             = findViewById(R.id.bsRoFManualRadioButton);
+        radioSemi               = findViewById(R.id.bsRoFSemiRadioButton);
+        radioFull               = findViewById(R.id.bsRoFFullRadioButton);
 
         modifierSeekBar         = findViewById(R.id.bsRollModifierSeekBar);
 
@@ -1517,8 +1563,6 @@ Wep Modes:- (Can only fire as many bullets as indicated, never more)
         ammo2Name               = sharedPreferences.getString("ammo2Name", "");
         ammo3Name               = sharedPreferences.getString("ammo3Name", "");
         ammo4Name               = sharedPreferences.getString("ammo4Name", "");
-
-
 
 
 
@@ -1735,19 +1779,54 @@ Wep Modes:- (Can only fire as many bullets as indicated, never more)
             }
         });
 
+
+
         // Creating onClickListener for the unJam button
         buttonUnjam.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                // Simple button acknowlegement so user knows to unjam
+                // Simple button acknowledgement so user knows to unjam
                 buttonRoll.setVisibility(View.VISIBLE);
                 buttonReRoll.setVisibility(View.VISIBLE);
                 buttonFPRoll.setVisibility(View.VISIBLE);
                 buttonBurnRoll.setVisibility(View.VISIBLE);
                 buttonUnjam.setVisibility(View.GONE);
 
-                // TODO - remove one round of ammo
+                // Removes one spent ammo
+                updateAmmo(1);
+
+            }
+        });
+
+
+
+        buttonHitCounterUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                // TODO - write hit counter up logic
+            }
+        });
+
+
+
+        buttonHitCounterDown.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                // TODO - write hit counter down logic
+            }
+        });
+
+
+        buttonReload.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                // TODO - write reload logic
+
             }
         });
 
@@ -1774,7 +1853,7 @@ Wep Modes:- (Can only fire as many bullets as indicated, never more)
         if (ammoSpinner.isEnabled()){
             setAmmoDisplay();
         } else {
-            ammoNoDisplay.setText("-");
+            ammoMaxDisplay.setText("-");
         }
 
         // Setting the initial display for the FP
@@ -1794,6 +1873,63 @@ Wep Modes:- (Can only fire as many bullets as indicated, never more)
             buttonFPRoll.setEnabled(false);
             buttonBurnRoll.setEnabled(false);
         }
+
+        // TODO - write ammo count logic
+        // Setting the ammo max and clip values, then displaying them
+        if (sharedPreferences.getString("ammoMax", "").isEmpty()){
+            maxAmmo = 0;
+        } else {
+            maxAmmo = Integer.parseInt(sharedPreferences.getString("ammoMax", ""));
+        }
+
+        if (sharedPreferences.getString("ammoClip", "").isEmpty()){
+            clipAmmo = 0;
+        } else {
+            clipAmmo = Integer.parseInt(sharedPreferences.getString("ammoClip", ""));
+        }
+
+        getAmmoDisplay(clipAmmo, maxAmmo);
+
+
+        /*
+        // Writing the initial display of the ammo counter
+        if (sharedPreferences.getString("ammoMax", "").isEmpty() ){
+            buttonRoll.setEnabled(false);
+            buttonReRoll.setEnabled(false);
+            buttonFPRoll.setEnabled(false);
+            buttonBurnRoll.setEnabled(false);
+
+            ammoClipDisplay.setText(Integer.toString(0));
+            ammoMaxDisplay.setText(Integer.toString(0));
+
+            ammoClipDisplay.setTextColor(getResources().getColor(R.color.warningRed));
+            ammoDashDisplay.setTextColor(getResources().getColor(R.color.warningRed));
+            ammoMaxDisplay.setTextColor(getResources().getColor(R.color.warningRed));
+
+        } else {
+            maxAmmo = Integer.parseInt(sharedPreferences.getString("ammoMax", ""));
+            ammoMaxDisplay.setText(Integer.toString(maxAmmo));
+        }
+
+        if (sharedPreferences.getString("ammoClip", "").isEmpty()){
+
+            // TODO - put reload behaviour method here
+
+
+
+        } else {
+            clipAmmo = Integer.parseInt(sharedPreferences.getString("ammoClip", ""));
+            ammoClipDisplay.setText(Integer.toString(clipAmmo));
+        }
+
+
+        ammoClipDisplay.setText(Integer.toString(clipAmmo));
+        ammoMaxDisplay.setText(Integer.toString(maxAmmo));
+
+        ammoClipDisplay.setTextColor(getResources().getColor(R.color.textPrimary));
+        ammoDashDisplay.setTextColor(getResources().getColor(R.color.textPrimary));
+        ammoMaxDisplay.setTextColor(getResources().getColor(R.color.textPrimary));
+        */
 
         // Ensuring wep jam button is disabled onCreate
         buttonUnjam.setVisibility(View.GONE);
